@@ -840,7 +840,6 @@
 		ED70178711BE9FCC0004F7FF /* 2-tutorial-04.bim in Resources */ = {isa = PBXBuildFile; fileRef = ED70177811BE9FCC0004F7FF /* 2-tutorial-04.bim */; };
 		ED70178811BE9FCC0004F7FF /* 2-tutorial-05.bim in Resources */ = {isa = PBXBuildFile; fileRef = ED70177911BE9FCC0004F7FF /* 2-tutorial-05.bim */; };
 		ED70178911BE9FCC0004F7FF /* 2-tutorial-06.bim in Resources */ = {isa = PBXBuildFile; fileRef = ED70177A11BE9FCC0004F7FF /* 2-tutorial-06.bim */; };
-		ED715E2012002C7500B67BC9 /* MyUIViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = ED715E1F12002C7500B67BC9 /* MyUIViewController.mm */; };
 		ED715F5B12002EC200B67BC9 /* CDataScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = ED715F2D12002EC200B67BC9 /* CDataScanner.m */; };
 		ED715F5C12002EC200B67BC9 /* CDataScanner_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = ED715F3012002EC200B67BC9 /* CDataScanner_Extensions.m */; };
 		ED715F5D12002EC200B67BC9 /* NSCharacterSet_Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = ED715F3212002EC200B67BC9 /* NSCharacterSet_Extensions.m */; };
@@ -1525,8 +1524,6 @@
 		ED70177811BE9FCC0004F7FF /* 2-tutorial-04.bim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2-tutorial-04.bim"; sourceTree = "<group>"; };
 		ED70177911BE9FCC0004F7FF /* 2-tutorial-05.bim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2-tutorial-05.bim"; sourceTree = "<group>"; };
 		ED70177A11BE9FCC0004F7FF /* 2-tutorial-06.bim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "2-tutorial-06.bim"; sourceTree = "<group>"; };
-		ED715E1E12002C7500B67BC9 /* MyUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyUIViewController.h; path = classes/MyUIViewController.h; sourceTree = SOURCE_ROOT; };
-		ED715E1F12002C7500B67BC9 /* MyUIViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MyUIViewController.mm; path = classes/MyUIViewController.mm; sourceTree = SOURCE_ROOT; };
 		ED715F2C12002EC200B67BC9 /* CDataScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner.h; sourceTree = "<group>"; };
 		ED715F2D12002EC200B67BC9 /* CDataScanner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDataScanner.m; sourceTree = "<group>"; };
 		ED715F2F12002EC200B67BC9 /* CDataScanner_Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDataScanner_Extensions.h; sourceTree = "<group>"; };
@@ -1959,8 +1956,6 @@
 			isa = PBXGroup;
 			children = (
 				ED23C5D6121A916F000ABE35 /* GLCanvas.m */,
-				ED715E1E12002C7500B67BC9 /* MyUIViewController.h */,
-				ED715E1F12002C7500B67BC9 /* MyUIViewController.mm */,
 				EDDCC1F011DA626A00CE7D99 /* ReviewRequest.h */,
 				EDDCC1F111DA626A00CE7D99 /* ReviewRequest.mm */,
 				04D532B111D0F3C300123AB3 /* Baloon.h */,
@@ -3581,7 +3576,6 @@
 				04B33EE511E32ECC00C0B074 /* NewsParser.m in Sources */,
 				04B33EE611E32ECC00C0B074 /* FPBanner.m in Sources */,
 				04B33EE711E32ECC00C0B074 /* BannerParser.m in Sources */,
-				ED715E2012002C7500B67BC9 /* MyUIViewController.mm in Sources */,
 				ED715F5B12002EC200B67BC9 /* CDataScanner.m in Sources */,
 				ED715F5C12002EC200B67BC9 /* CDataScanner_Extensions.m in Sources */,
 				ED715F5D12002EC200B67BC9 /* NSCharacterSet_Extensions.m in Sources */,

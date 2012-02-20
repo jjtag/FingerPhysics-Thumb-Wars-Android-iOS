@@ -35,13 +35,6 @@
 		self.bannerDate = [NSDate date];		
 		NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 		
 #ifdef FREE
-		GSAdSlotDescription * slot1 = [GSAdSlotDescription descriptionWithSize:kGSAdSizeIPhoneFullScreen name:@"fullscreenSlot"];
-		NSString *applicationID = @"5655e996-acc5-4dab-b86e-78289cf1393e";
-		[GSAdEngine startupWithAppID:applicationID adSlotDescriptions:[NSArray arrayWithObjects:slot1, nil]];
-		[GSAdEngine setFullScreenDelegate:self forSlotNamed:@"fullscreenSlot"];
-		
-		bannerShowAttempts = 0;
-		viewController = [[MyUIViewController alloc] init];
 		NSString* path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"settings_free.blob"];
 #else
 		NSString* path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"settings.blob"];
@@ -94,9 +87,6 @@
 
 -(void)dealloc
 {
-#ifdef FREE
-	[viewController release];
-#endif
 	[mapsList release];
 	[user release];
 	[super dealloc];
@@ -931,46 +921,23 @@
 
 -(BOOL)shouldShowBanner
 {
-#ifdef FREE
-	bannerShowAttempts++;
-	if(bannerShowAttempts > 2)
-	{
-		bannerShowAttempts = 0;
-		return TRUE;
-	}
-#endif
 	return FALSE;
 }
 
 -(void)showGSBanner
 {
-#ifdef FREE
-	if([GSAdEngine displayFullScreenAdForSlotNamed:@"fullscreenSlot"])
-	{
-		[self saveBannerDate];
-	}
-#endif
 }
 
 -(void)setAdWhirlBanner
 {
-#ifdef FREE
-	[viewController setBanner];
-#endif
 }
 
 -(void)showAdWhirlBanner
 {
-#ifdef FREE
-	[viewController showBanner];
-#endif
 }
 
 -(void)hideAdWhirlBanner
 {
-#ifdef FREE
-	[viewController hideBanner];
-#endif
 }
 
 @end

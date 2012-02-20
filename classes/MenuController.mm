@@ -3274,7 +3274,6 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	{
 		case BUTTON_BUYFULL:
 		{
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:FPC_FULL_LINK]];
 			break;
 		}
 		case BUTTON_MODE1_POSITION:

@@ -12,17 +12,6 @@
 #import "FPUser.h"
 #import <MessageUI/MessageUI.h>
 
-#define FPC_FULL_LINK @"http://itunes.apple.com/us/app/finger-physics-thumb-wars/id380480463?mt=8"
-
-#ifdef FREE
-#import "MyUIViewController.h"
-
-#import "GreystripeDelegate.h"
-#import "GSAdView.h"
-#import "GSAdEngine.h"
-
-#endif
-
 // controller childs list
 enum 
 {
@@ -48,7 +37,6 @@ enum
 	
 #ifdef FREE
 	UIView* banner;
-	MyUIViewController* viewController;
 	int bannerShowAttempts;
 #endif
 	NSDate* bannerDate;
@@ -58,7 +46,6 @@ enum
 +(void)loadBanners;
 -(void)loadBannersInBackground;
 -(void)saveGameProgress;
--(void)downloadUserPicture;
 
 #pragma mark Email code
 +(MFMailComposeViewController*)mailWithSubject:(NSString*)subject body:(NSString*)emailBody to:(NSString*)to isHTML:(BOOL)isHtml delegate:(id)delegate;

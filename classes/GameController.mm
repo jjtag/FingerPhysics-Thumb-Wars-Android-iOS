@@ -869,11 +869,6 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	[ChampionsSoundMgr playSound:SND_TAP];	
 	switch (n)
 	{
-		case BUTTON_SPLASH_BUY:
-		{
-			[[UIApplication sharedApplication] openURL:[NSURL URLWithString:FPC_FULL_LINK]];
-			break;
-		}
 		case BUTTON_SPLASH_CANCEL:
 		{
 			[self showView:VIEW_GAME];
