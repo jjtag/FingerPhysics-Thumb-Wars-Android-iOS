@@ -105,7 +105,6 @@
 -(void)activate
 {
 	[super activate];
-	[self initializeOpenfeint];
 	[self activateChild:CHILD_START];
 	
 //	[self performSelectorInBackground:@selector(loadNewsInBackground) withObject:nil];
@@ -318,8 +317,7 @@
 				case CHILD_GAME:
 				{
 //					[ChampionsSoundMgr playMusic:SND_INGAME_THEME1];
-					[self saveGameProgress];
-					[self uploadGameProgress];
+					[self saveGameProgress];					
 					GameController* gameController = [[GameController allocAndAutorelease] initWithParent:self];
 					gameController.selectedMap = selectedMap;
 					user.lastPlayedMap = selectedMap;
@@ -331,7 +329,6 @@
 				case CHILD_MENU:
 				{
 					[self saveGameProgress];
-					[self uploadGameProgress];
 					MenuController* menuController = [[MenuController allocAndAutorelease] initWithParent:self];
 					[self addChild:menuController withID:CHILD_MENU];			
 
@@ -524,25 +521,6 @@
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	[ChampionsRootController loadBanners];
 	[pool release];
-}
-
--(void)initializeOpenfeint
-{
-#ifdef OPENFEINT
-	NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys:
-							  [NSNumber numberWithBool:YES], OpenFeintSettingDisableUserGeneratedContent, 
-							  @"Champions", OpenFeintSettingShortDisplayName,
-							  [NSNumber numberWithBool:YES], OpenFeintSettingPromptToPostAchievementUnlock,
-							  nil];
-	
-	OFDelegatesContainer* delegate = [OFDelegatesContainer containerWithOpenFeintDelegate:(self)];
-	
-	[OpenFeint initializeWithProductKey:@"azE5taolnNEEPLEYZxoGtg"
-                              andSecret:@"GzhYtgocUTFc2oSL3cfuBntiz09FQhDU18Ox1XCP4"
-                         andDisplayName:@"Champions"
-                            andSettings:settings    // see OpenFeintSettings.h
-                           andDelegates:delegate];              // see OFDelegatesContainer.h
-#endif
 }
 
 #ifdef OPENFEINT
@@ -880,8 +858,7 @@
 		[user updateUserRegistration:TRUE];
 		user.clearBlob = TRUE;
 		[user saveGameProgress];
-		user.online = TRUE;
-		[self uploadGameProgress];
+		user.online = TRUE;		
 	}
 	MenuController* mc = (MenuController*)[self getChild:CHILD_MENU];
 	if(mc)

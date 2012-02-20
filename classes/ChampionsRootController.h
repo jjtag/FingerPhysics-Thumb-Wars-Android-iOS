@@ -12,14 +12,6 @@
 #import "FPUser.h"
 #import <MessageUI/MessageUI.h>
 
-#ifdef OPENFEINT
-	#import "OpenFeint.h"
-	#import "OFCloudStorageService.h" 
-	#import "OFUser.h"
-	#import "OFUserService.h"
-	#import "OpenFeint+UserOptions.h"
-#endif
-
 #define FPC_FULL_LINK @"http://itunes.apple.com/us/app/finger-physics-thumb-wars/id380480463?mt=8"
 
 #ifdef FREE
@@ -42,16 +34,7 @@ enum
 };
 
 // the highest level controller, which doesn't display anything
-@interface ChampionsRootController : RootController
-< MFMailComposeViewControllerDelegate
-#ifdef FREE
-	, GreystripeDelegate
-#endif
-#ifdef OPENFEINT
-	, OpenFeintDelegate
-#endif
->
-
+@interface ChampionsRootController : RootController < MFMailComposeViewControllerDelegate>
 {
 	NSString* selectedMap;
 	FPUser* user;
@@ -74,14 +57,8 @@ enum
 -(void)loadNewsInBackground;
 +(void)loadBanners;
 -(void)loadBannersInBackground;
--(void)initializeOpenfeint;
 -(void)saveGameProgress;
 -(void)downloadUserPicture;
-
-#ifdef OPENFEINT
--(void)uploadGameProgress;
--(void)downloadGameProgress;
-#endif
 
 #pragma mark Email code
 +(MFMailComposeViewController*)mailWithSubject:(NSString*)subject body:(NSString*)emailBody to:(NSString*)to isHTML:(BOOL)isHtml delegate:(id)delegate;

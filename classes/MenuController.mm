@@ -3444,8 +3444,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 					[user countries:self];
 					user.registered = TRUE;
 					[user updateUserRegistration:FALSE];
-					[rc saveGameProgress];
-					[rc uploadGameProgress];
+					[rc saveGameProgress];					
 				}
 			}
 			[self showView:VIEW_MAIN_MENU];
