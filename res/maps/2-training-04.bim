@@ -1,0 +1,39 @@
+<level name="2-training-04" >
+<settings mode="2" gravity="0 -100" descr=" Balance Tutorial 6 - Multiple 3" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="diamond" pos="32 305" uniqId="" queue="1" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="35 430" uniqId="" queue="2" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="110 425" uniqId="" queue="3" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="109 551" uniqId="" queue="4" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="35 548" uniqId="" queue="5" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="bonus_star" pos="60 105" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="260 105" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="140 201" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle friction="0.8"  radius="20" offset="-20 -30"/></body>
+<body name="circle" pos="300 102" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle friction="0.8"  radius="20" offset="-20 -30"/></body>
+<body name="circle" pos="60 310" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle friction="0.8"  radius="20" offset="-20 -30"/></body>
+<body name="circle" pos="60 100" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle friction="0.8"  radius="20" offset="-20 -30"/></body>
+<body name="circle" pos="300 310" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle friction="0.8"  radius="20" offset="-20 -30"/></body>
+<body name="bonus_star" pos="265 313" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="55 313" isStatic="TRUE" isTouchable="FALSE" uniqId="1" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="220 201" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle friction="0.8"  radius="20" offset="-20 -30"/></body>
+<body name="bonus_star" pos="160 163" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

@@ -1,0 +1,24 @@
+<level name="2-training-01" >
+<settings mode="2" gravity="0 -100" descr=" Balance Tutorial 2" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="236 241" isStatic="TRUE" isTouchable="FALSE" uniqId="1" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="120 69" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="rectangle" pos="96 207" uniqId="" queue="1" ><poly >
+<vert xy="0 -10" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="90 80" v="3" />
+<vert xy="90 -10" v="4" /></poly></body>
+<body name="rectangle" pos="161 287" uniqId="" queue="2" ><poly >
+<vert xy="0 10" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="70 80" v="3" />
+<vert xy="70 10" v="4" /></poly></body>
+<body name="triangle_equil" pos="161 405" uniqId="" queue="3" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="bonus_star" pos="77 294" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

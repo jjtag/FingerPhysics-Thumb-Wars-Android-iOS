@@ -1,0 +1,30 @@
+<level name="1-training-04" >
+<settings mode="1" gravity="0 -100" descr=" Egg Tutorial 7 - Free Way 1" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="108 357" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bumper" pos="-280 410" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="30" offset="0 0"/></body>
+<body name="bonus_star" pos="108 247" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="egg" pos="107 415" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="circle" pos="204 274" isBreakable="TRUE" uniqId="" queue="0" ><circle  radius="25" offset="-15 -25"/></body>
+<body name="triangle_rect" pos="105 36" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="40 40.00000000000001" v="1" />
+<vert xy="3.552713678800501e-15 39.99999999999999" v="2" />
+<vert xy="40 80" v="3" /></poly></body>
+<body name="triangle_rect" pos="65 36" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 40" v="3" /></poly></body>
+<body name="bumper" pos="214 66" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="circle" pos="254 274" isBreakable="TRUE" uniqId="" queue="0" ><circle  radius="25" offset="-15 -25"/></body>
+<body name="rectangle" pos="180 144" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="70 80" v="3" />
+<vert xy="70 40" v="4" /></poly></body>
+<body name="circle" pos="229 317" isBreakable="TRUE" uniqId="" queue="0" ><circle  radius="25" offset="-15 -25"/></body>
+<body name="rectangle" pos="78 310" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="bonus_star" pos="164 177" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

@@ -1,0 +1,54 @@
+<level name="1-tutorial-06-gear" >
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="21 213" isStatic="TRUE" isTouchable="FALSE" uniqId="10" queue="0" ><poly >
+<vert xy="0 10" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 10" v="4" /></poly></body>
+<body name="bumper" pos="287 180" isStatic="TRUE" isTouchable="FALSE" uniqId="19" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="bonus_star" pos="206 332" isStatic="TRUE" isTouchable="FALSE" uniqId="30" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="star2" pos="0 338" isStatic="TRUE" isTouchable="FALSE" uniqId="28" queue="0" ><poly >
+<vert xy="26 54" v="1" />
+<vert xy="54 54" v="3" />
+<vert xy="54 26" v="5" />
+<vert xy="26 26" v="7" /></poly><poly >
+<vert xy="0 40" v="8" />
+<vert xy="26 54" />
+<vert xy="26 26" /></poly><poly >
+<vert xy="26 54" />
+<vert xy="40 80" v="2" />
+<vert xy="54 54" /></poly><poly >
+<vert xy="54 54" />
+<vert xy="80 40" v="4" />
+<vert xy="54 26" /></poly><poly >
+<vert xy="54 26" />
+<vert xy="40 0" v="6" />
+<vert xy="26 26" /></poly></body>
+<body name="circle" pos="81 253" isTouchable="FALSE" uniqId="14" queue="0" ><circle density="2"  radius="25" offset="-15 -5"/></body>
+<body name="rectangle" pos="94 213" isStatic="TRUE" isTouchable="FALSE" uniqId="12" queue="0" ><poly >
+<vert xy="0 10" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 10" v="4" /></poly></body>
+<body name="rectangle" pos="69 143" isStatic="TRUE" isBreakable="TRUE" uniqId="31" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 0" v="4" /></poly></body>
+<body name="egg" pos="66 298" isTouchable="FALSE" uniqId="29" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="rectangle" pos="29 143" isStatic="TRUE" isBreakable="TRUE" uniqId="18" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 0" v="4" /></poly></body>
+<body name="tetris_l" pos="66 83" isTouchable="FALSE" uniqId="27" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="100 20.000000000000018" v="1" />
+<vert xy="-19.999999999999993 19.999999999999982" v="2" />
+<vert xy="-20 59.999999999999986" v="3" />
+<vert xy="100 60.000000000000014" /></poly><poly >
+<vert xy="100 60.000000000000014" />
+<vert xy="60 60.00000000000001" v="4" />
+<vert xy="59.99999999999999 100" v="5" />
+<vert xy="100 100" v="6" /></poly></body>
+<joint type="2" body1Id="27" body2Id="0" rotationOffset="80 80" maxMotorTorque="80000" rotationSpeed="-800" />
+</level>

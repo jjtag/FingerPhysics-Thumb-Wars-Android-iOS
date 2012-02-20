@@ -1,0 +1,21 @@
+<level name="2-tutorial-06" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="81 89" uniqId="57" queue="1" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="rectangle" pos="50 38" isStatic="TRUE" isTouchable="FALSE" uniqId="56" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="160 80" v="3" />
+<vert xy="160 40" v="4" /></poly></body>
+<body name="bonus_star" pos="66 141" isStatic="TRUE" isTouchable="FALSE" uniqId="59" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="220 224" isStatic="TRUE" isTouchable="FALSE" uniqId="58" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="110 130" isTouchable="FALSE" uniqId="55" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="160 80" v="3" />
+<vert xy="160 40" v="4" /></poly></body>
+<joint type="1" body1Id="55" body2Id="0" rotationOffset="80 60" />
+</level>

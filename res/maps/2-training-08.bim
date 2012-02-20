@@ -1,0 +1,43 @@
+<level name="2-tutorial-11" >
+<settings mode="2" gravity="0 -100" descr="Balance tutorial 11 - B1" width="320" height="480" />
+<body name="bonus_star" pos="244 209" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="159 350" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="140 110" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="bonus_star" pos="255 307" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="103 210" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="tetris_g" pos="3 357" queue="1" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 120" v="2" />
+<vert xy="40 120" />
+<vert xy="40 0" v="6" /></poly><poly >
+<vert xy="40 80" v="5" />
+<vert xy="40 120" />
+<vert xy="80 120" v="3" />
+<vert xy="80 80" v="4" /></poly></body>
+<body name="tetris_t" pos="86 397" queue="2" ><poly >
+<vert xy="120 80.00000000000001" v="1" />
+<vert xy="120 40.00000000000001" v="2" />
+<vert xy="0 39.99999999999999" v="7" />
+<vert xy="-4.898425415289509e-15 79.99999999999999" v="8" /></poly><poly >
+<vert xy="80 40" v="3" />
+<vert xy="80 2.4492127076447545e-15" v="4" />
+<vert xy="40.00000000000001 -2.4492127076447545e-15" v="5" />
+<vert xy="40 40" v="6" /></poly></body>
+<body name="cross_small" pos="202 399" queue="3" ><poly >
+<vert xy="0 0" v="3" />
+<vert xy="0 40" v="4" />
+<vert xy="120 40" v="9" />
+<vert xy="120 0" v="10" /></poly><poly >
+<vert xy="40 40" v="5" />
+<vert xy="40 80" v="6" />
+<vert xy="80 80" v="7" />
+<vert xy="80 40" v="8" /></poly><poly >
+<vert xy="40 -40" v="1" />
+<vert xy="40 0" v="2" />
+<vert xy="80 0" v="11" />
+<vert xy="80 -40" v="12" /></poly></body>
+</level>

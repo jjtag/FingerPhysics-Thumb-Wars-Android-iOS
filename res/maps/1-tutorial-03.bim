@@ -1,0 +1,55 @@
+<level name="1-tutorial-03" >
+<settings mode="1" gravity="0 -100" descr="Egg Tutorial 4 - Multiple 1" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="153 159" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="154 254" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bumper" pos="120 51" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="circle" pos="90 217" isStatic="TRUE" uniqId="" queue="0" ><circle  radius="40" offset="0 0"/></body>
+<body name="egg" pos="196 424" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="circle" pos="219 307" isStatic="TRUE" uniqId="" queue="0" ><circle  radius="40" offset="0 0"/></body>
+<body name="circle" pos="220 127" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="40" offset="0 0"/></body>
+<body name="pepyaka" pos="143 375" isStatic="TRUE" isBreakable="TRUE" uniqId="1" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="26.504854368932037 60" v="1" />
+<vert xy="26.504854368932037 47.599999999999994" />
+<vert xy="0 42.43333333333333" />
+<vert xy="0 60" v="24" /></poly><poly >
+<vert xy="26.504854368932037 47.599999999999994" v="2" />
+<vert xy="28.54368932038835 39.33333333333333" />
+<vert xy="5.097087378640777 26.93333333333333" />
+<vert xy="0 42.43333333333333" v="23" /></poly><poly >
+<vert xy="28.54368932038835 39.33333333333333" v="3" />
+<vert xy="33.640776699029125 32.099999999999994" />
+<vert xy="15.29126213592233 13.499999999999993" />
+<vert xy="5.097087378640777 26.93333333333333" v="22" /></poly><poly >
+<vert xy="33.640776699029125 32.099999999999994" v="4" />
+<vert xy="40.77669902912621 26.93333333333333" />
+<vert xy="28.54368932038835 3.1666666666666643" />
+<vert xy="15.29126213592233 13.499999999999993" v="21" /></poly><poly >
+<vert xy="40.77669902912621 26.93333333333333" v="5" />
+<vert xy="48.932038834951456 24.86666666666666" />
+<vert xy="44.85436893203884 -2.000000000000007" />
+<vert xy="28.54368932038835 3.1666666666666643" v="20" /></poly><poly >
+<vert xy="48.932038834951456 24.86666666666666" v="6" />
+<vert xy="57.0873786407767 24.86666666666666" />
+<vert xy="61.16504854368932 -2.000000000000007" />
+<vert xy="44.85436893203884 -2.000000000000007" v="19" /></poly><poly >
+<vert xy="57.0873786407767 24.86666666666666" v="7" />
+<vert xy="64.22330097087378 26.93333333333333" />
+<vert xy="76.45631067961165 3.1666666666666643" />
+<vert xy="61.16504854368932 -2.000000000000007" v="18" /></poly><poly >
+<vert xy="64.22330097087378 26.93333333333333" v="8" />
+<vert xy="71.35922330097087 32.099999999999994" />
+<vert xy="90.72815533980582 13.499999999999993" />
+<vert xy="76.45631067961165 3.1666666666666643" v="17" /></poly><poly >
+<vert xy="71.35922330097087 32.099999999999994" v="9" />
+<vert xy="76.45631067961165 39.33333333333333" />
+<vert xy="99.90291262135922 26.93333333333333" />
+<vert xy="90.72815533980582 13.499999999999993" v="16" /></poly><poly >
+<vert xy="76.45631067961165 39.33333333333333" v="10" />
+<vert xy="78.49514563106796 47.599999999999994" />
+<vert xy="105 42.43333333333333" />
+<vert xy="99.90291262135922 26.93333333333333" v="15" /></poly><poly >
+<vert xy="78.49514563106796 47.599999999999994" v="11" />
+<vert xy="78.49514563106796 60" v="12" />
+<vert xy="105 60" v="13" />
+<vert xy="105 42.43333333333333" v="14" /></poly></body>
+</level>

@@ -1,0 +1,46 @@
+<level name="1-tutorial-04" >
+<settings mode="1" gravity="0 -100" descr=" Egg Tutorial - A3" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="300 174" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 60" v="4" /></poly></body>
+<body name="rectangle" pos="270 224" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 60" v="4" /></poly></body>
+<body name="rectangle" pos="241 204" uniqId="" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="rectangle" pos="233 143" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 60" v="4" /></poly></body>
+<body name="rectangle" pos="233 224" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 60" v="4" /></poly></body>
+<body name="rectangle" pos="166 344" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="bonus_star" pos="203 295" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="168 194" isStatic="TRUE" isTouchable="FALSE" uniqId="" isExplodable="FALSE" queue="0" ><poly friction="0.99" >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 60" v="4" /></poly></body>
+<body name="egg" pos="195 449" isTouchable="FALSE" uniqId="" isExplodable="FALSE" queue="0" ><circle friction="0.99" density="6"  radius="25" offset="0 0"/></body>
+<body name="bumper" pos="35 40" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="rectangle" pos="270 143" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 60" v="4" /></poly></body>
+</level>

@@ -1,0 +1,25 @@
+<level name="1-tutorial-08-gravity" >
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="250 50" isStatic="TRUE" isBreakable="TRUE" uniqId="2" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="rectangle" pos="250 230" isTouchable="FALSE" uniqId="4" isExplodable="FALSE" force="-100 100" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="rectangle" pos="250 -10" isTouchable="FALSE" uniqId="1" isExplodable="FALSE" force="0 200" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="rectangle" pos="190 230" isStatic="TRUE" isTouchable="FALSE" uniqId="3" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="circle" pos="127 42" uniqId="8" isExplodable="FALSE" force="0 300" queue="0" ><circle  radius="40" offset="0 0"/></body>
+<body name="circle" pos="42 440" uniqId="7" queue="0" ><circle  radius="40" offset="0 0"/></body>
+</level>

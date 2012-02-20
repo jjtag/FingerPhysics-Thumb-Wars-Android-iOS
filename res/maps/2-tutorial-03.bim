@@ -1,0 +1,26 @@
+<level name="2-tutorial-03" >
+<settings mode="2" gravity="0 -100" descr=" Balance tutorial 4 - Camera" width="320" height="860" />
+<body name="triangle_equil" pos="84 401" queue="1" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="triangle_rect" pos="121 16" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="40.000000000000014 -16.568542494923804" v="1" />
+<vert xy="-16.568542494923804 39.99999999999999" v="2" />
+<vert xy="96.5685424949238 40.000000000000014" v="3" /></poly></body>
+<body name="triangle_rect" pos="121 470" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="40.000000000000014 -16.568542494923804" v="1" />
+<vert xy="-16.568542494923804 39.99999999999999" v="2" />
+<vert xy="96.5685424949238 40.000000000000014" v="3" /></poly></body>
+<body name="rectangle" pos="162 56" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="rectangle" pos="82 56" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="bonus_star" pos="160 730" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

@@ -1,0 +1,73 @@
+<level name="n1-20">
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000"/>
+<body name="triangle_rect" pos="237 52" isStatic="TRUE" isBreakable="TRUE" uniqId="20" isExplodable="FALSE" queue="0"><poly>
+<vert xy="80 7.105427357601002e-15" v="1"/>
+<vert xy="7.105427357601002e-15 -7.105427357601002e-15" v="2"/>
+<vert xy="80 80" v="3"/></poly></body>
+<body name="bonus_star" pos="127 231" isStatic="TRUE" isTouchable="FALSE" uniqId="31" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="circle" pos="46 394" isTouchable="FALSE" uniqId="13" isExplodable="TRUE" queue="0"><circle radius="18" offset="-22 -18.634146341463413"/></body>
+<body name="bonus_star" pos="89 193" isStatic="TRUE" isTouchable="FALSE" uniqId="33" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="251 386" isStatic="TRUE" isTouchable="FALSE" uniqId="30" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="150 154" isStatic="TRUE" uniqId="5" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 67" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="169 80" v="3"/>
+<vert xy="169 67" v="4"/></poly></body>
+<body name="bonus_star" pos="217 386" isStatic="TRUE" isTouchable="FALSE" uniqId="29" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="0 364" isStatic="TRUE" isBreakable="TRUE" uniqId="8" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 30" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="50 80" v="3"/>
+<vert xy="50 30" v="4"/></poly></body>
+<body name="rectangle" pos="0 277" isStatic="TRUE" uniqId="3" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 63" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="176 80" v="3"/>
+<vert xy="176 63" v="4"/></poly></body>
+<body name="egg" pos="88 382" isTouchable="FALSE" uniqId="1" queue="0"><circle radius="25" offset="0 0"/></body>
+<body name="rectangle" pos="213 -52" isStatic="TRUE" uniqId="26" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 55" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="105 80" v="3"/>
+<vert xy="105 55" v="4"/></poly></body>
+<body name="triangle_rect" pos="237 52" isStatic="TRUE" isBreakable="TRUE" uniqId="25" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 80" v="1"/>
+<vert xy="80 80" v="2"/>
+<vert xy="0 0" v="3"/></poly></body>
+<body name="rectangle" pos="1 260" isStatic="TRUE" isTouchable="FALSE" uniqId="27" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 -124.00000000000003" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="22 80" v="3"/>
+<vert xy="22 -124.00000000000003" v="4"/></poly></body>
+<body name="rectangle" pos="212 306" uniqId="15" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 -41.000000000000014" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="52 80" v="3"/>
+<vert xy="52 -41.000000000000014" v="4"/></poly></body>
+<body name="bonus_star" pos="86 233" isStatic="TRUE" isTouchable="FALSE" uniqId="32" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="301 154" isStatic="TRUE" isTouchable="FALSE" uniqId="24" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="264 154" isStatic="TRUE" isTouchable="FALSE" uniqId="23" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="255 229" uniqId="7" queue="0"><poly>
+<vert xy="61.5 5.500000000000014" v="1"/>
+<vert xy="-43.5 5.499999999999993" v="2"/>
+<vert xy="-43.5 36.499999999999986" v="3"/>
+<vert xy="61.5 36.500000000000014" v="4"/></poly></body>
+<body name="rectangle" pos="24 106" isStatic="TRUE" isBreakable="TRUE" uniqId="16" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 30" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="50 80" v="3"/>
+<vert xy="50 30" v="4"/></poly></body>
+<body name="rectangle" pos="264 306" isStatic="TRUE" isBreakable="TRUE" uniqId="11" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 30" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="50 80" v="3"/>
+<vert xy="50 30" v="4"/></poly></body>
+<body name="circle" pos="47 481" isTouchable="FALSE" uniqId="10" isExplodable="TRUE" queue="0"><circle radius="18" offset="-22 -18.634146341463413"/></body>
+<body name="rectangle" pos="0 56" isStatic="TRUE" uniqId="14" isExplodable="FALSE" queue="0"><poly>
+<vert xy="0 66" v="1"/>
+<vert xy="0 80" v="2"/>
+<vert xy="178 80" v="3"/>
+<vert xy="178 66" v="4"/></poly></body>
+<body name="bonus_star" pos="227 154" isStatic="TRUE" isTouchable="FALSE" uniqId="22" queue="0"><circle isSensor="TRUE" radius="12" offset="0 0"/></body>
+<body name="bumper" pos="118 33" isStatic="TRUE" isTouchable="FALSE" uniqId="4" queue="0"><circle radius="30" offset="0 0"/></body>
+</level>

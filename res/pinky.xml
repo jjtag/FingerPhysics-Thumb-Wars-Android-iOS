@@ -1,0 +1,5 @@
+<Image rotation="-15" src="8" quadToDraw="0">
+ <Timeline loop="0" maxKeyFrames="3" ID="0">
+  <Pos>365,220@0+277,180@1.2</Pos>
+ </Timeline>
+</Image>

@@ -1,0 +1,53 @@
+<level name="n2-01" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="66 321" isStatic="TRUE" isTouchable="FALSE" uniqId="34" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="149 386" isStatic="TRUE" isTouchable="FALSE" uniqId="33" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="54 165" isStatic="TRUE" isTouchable="FALSE" uniqId="6" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="112 321" isStatic="TRUE" isTouchable="FALSE" uniqId="8" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="111 23" isStatic="TRUE" isTouchable="FALSE" uniqId="1" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="bonus_star" pos="245 167" isStatic="TRUE" isTouchable="FALSE" uniqId="5" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="150 427" isStatic="TRUE" isTouchable="FALSE" uniqId="36" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="tetris_t" pos="48 384" uniqId="3" queue="1" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 40" v="2" />
+<vert xy="120 40" v="7" />
+<vert xy="120 0" v="8" /></poly><poly >
+<vert xy="40 40" v="3" />
+<vert xy="40 80" v="4" />
+<vert xy="80 80" v="5" />
+<vert xy="80 40" v="6" /></poly></body>
+<body name="bonus_star" pos="184 322" isStatic="TRUE" isTouchable="FALSE" uniqId="7" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="tetris_t" pos="113 135" uniqId="4" queue="2" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 40" v="2" />
+<vert xy="120 40" v="7" />
+<vert xy="120 0" v="8" /></poly><poly >
+<vert xy="40 40" v="3" />
+<vert xy="40 80" v="4" />
+<vert xy="80 80" v="5" />
+<vert xy="80 40" v="6" /></poly></body>
+<body name="bonus_star" pos="232 321" isStatic="TRUE" isTouchable="FALSE" uniqId="35" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="tetris_g" pos="71 232" uniqId="2" queue="3" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 120" v="2" />
+<vert xy="40 120" />
+<vert xy="40 0" v="6" /></poly><poly >
+<vert xy="40 80" v="5" />
+<vert xy="40 120" />
+<vert xy="80 120" v="3" />
+<vert xy="80 80" v="4" /></poly></body>
+<body name="circle" pos="143 408" uniqId="32" queue="4" ><circle  radius="40" offset="0 0"/></body>
+<body name="tetris_l" pos="94 176" uniqId="37" queue="5" ><poly >
+<vert xy="79.99999999999999 120" v="1" />
+<vert xy="80.00000000000001 4.898587196589413e-15" v="2" />
+<vert xy="40.00000000000001 0" v="3" />
+<vert xy="39.99999999999999 120" /></poly><poly >
+<vert xy="39.99999999999999 120" />
+<vert xy="40 80" v="4" />
+<vert xy="-2.4492935982947065e-15 80" v="5" />
+<vert xy="-7.34788079488412e-15 120" v="6" /></poly></body>
+</level>

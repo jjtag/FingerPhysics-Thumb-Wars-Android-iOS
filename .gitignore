@@ -1,0 +1,5 @@
+/libs/*
+.DS_Store
+/build
+champions.xcodeproj/project.xcworkspace
+champions.xcodeproj/xcuserdata

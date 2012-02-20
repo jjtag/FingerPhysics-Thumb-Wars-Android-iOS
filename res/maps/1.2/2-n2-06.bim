@@ -1,0 +1,57 @@
+<level name="n2-06" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="130 85" isStatic="TRUE" isTouchable="FALSE" uniqId="15" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="104 57" isStatic="TRUE" isTouchable="FALSE" uniqId="16" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="pentagon" pos="129 286" uniqId="12" queue="1" ><poly >
+<vert xy="0 39" v="1" />
+<vert xy="33 63" v="2" />
+<vert xy="67 39" v="3" />
+<vert xy="54 0" v="4" />
+<vert xy="13 0" v="5" /></poly></body>
+<body name="n_medium" pos="76 437" uniqId="11" queue="2" ><poly >
+<vert xy="0 0" />
+<vert xy="0 40" v="2" />
+<vert xy="160 40" v="3" />
+<vert xy="160 0" /></poly><poly >
+<vert xy="0 -40" v="1" />
+<vert xy="0 0" />
+<vert xy="40 0" v="7" />
+<vert xy="40 -40" v="8" /></poly><poly >
+<vert xy="120 -40" v="5" />
+<vert xy="120 0" v="6" />
+<vert xy="160 0" />
+<vert xy="160 -40" v="4" /></poly></body>
+<body name="tetris_g" pos="211 280" uniqId="9" queue="3" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 120" v="2" />
+<vert xy="40 120" />
+<vert xy="40 0" v="6" /></poly><poly >
+<vert xy="40 80" v="5" />
+<vert xy="40 120" />
+<vert xy="80 120" v="3" />
+<vert xy="80 80" v="4" /></poly></body>
+<body name="tetris_l" pos="37 297" uniqId="10" queue="4" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 120" v="2" />
+<vert xy="40 120" v="3" />
+<vert xy="40 0" /></poly><poly >
+<vert xy="40 0" />
+<vert xy="40 40" v="4" />
+<vert xy="80 40" v="5" />
+<vert xy="80 0" v="6" /></poly></body>
+<body name="circle" pos="122 415" uniqId="28" queue="5" ><circle  radius="40" offset="0 0"/></body>
+<body name="bonus_star" pos="197 84" isStatic="TRUE" isTouchable="FALSE" uniqId="17" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="322 156" isStatic="TRUE" uniqId="4" isExplodable="FALSE" queue="0" ><circle  radius="15.5" offset="-24.5 24.5"/></body>
+<body name="bonus_star" pos="145 338" isStatic="TRUE" isTouchable="FALSE" uniqId="24" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="166 358" isStatic="TRUE" isTouchable="FALSE" uniqId="25" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="210 26" isStatic="TRUE" uniqId="6" isExplodable="FALSE" queue="0" ><circle  radius="15.5" offset="-24.5 24.5"/></body>
+<body name="bonus_star" pos="187 337" isStatic="TRUE" isTouchable="FALSE" uniqId="26" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="296 258" isStatic="TRUE" isTouchable="FALSE" uniqId="22" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="226 57" isStatic="TRUE" isTouchable="FALSE" uniqId="27" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="172 156" isStatic="TRUE" uniqId="2" isExplodable="FALSE" queue="0" ><circle  radius="15.5" offset="-24.5 24.5"/></body>
+<body name="bonus_star" pos="163 236" isStatic="TRUE" isTouchable="FALSE" uniqId="13" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="202 156" isStatic="TRUE" uniqId="3" isExplodable="FALSE" queue="0" ><circle  radius="15.5" offset="-24.5 24.5"/></body>
+<body name="bonus_star" pos="27 259" isStatic="TRUE" isTouchable="FALSE" uniqId="19" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="52 156" isStatic="TRUE" uniqId="1" isExplodable="FALSE" queue="0" ><circle  radius="15.5" offset="-24.5 24.5"/></body>
+<body name="circle" pos="164 26" isStatic="TRUE" uniqId="5" isExplodable="FALSE" queue="0" ><circle  radius="15.5" offset="-24.5 24.5"/></body>
+</level>

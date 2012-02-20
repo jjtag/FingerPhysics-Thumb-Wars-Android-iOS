@@ -1,0 +1,87 @@
+<level name="1-tutorial-09" >
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="100" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="264 34" isStatic="TRUE" isBreakable="TRUE" uniqId="21" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="pentagon" pos="255 0" isStatic="TRUE" isTouchable="FALSE" uniqId="15" isExplodable="TRUE" queue="0" ><poly density="2" >
+<vert xy="-7.105427357601002e-15 38.99999999999999" v="1" />
+<vert xy="33 63" v="2" />
+<vert xy="67 39" v="3" />
+<vert xy="54 -3.552713678800501e-15" v="4" />
+<vert xy="12.999999999999998 -7.105427357601002e-15" v="5" /></poly></body>
+<body name="circle" pos="234 60" isTouchable="FALSE" uniqId="24" isExplodable="TRUE" queue="0" ><circle  radius="20" offset="-20 0"/></body>
+<body name="rectangle" pos="110 -40" isStatic="TRUE" isTouchable="FALSE" isBreakable="TRUE" uniqId="25" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="140 80" v="3" />
+<vert xy="140 40" v="4" /></poly></body>
+<body name="cross_small" pos="-286 133" uniqId="28" queue="0" ><poly >
+<vert xy="0 0" v="3" />
+<vert xy="0 40" v="4" />
+<vert xy="120 40" v="9" />
+<vert xy="120 0" v="10" /></poly><poly >
+<vert xy="40 40" v="5" />
+<vert xy="40 80" v="6" />
+<vert xy="80 80" v="7" />
+<vert xy="80 40" v="8" /></poly><poly >
+<vert xy="40 -40" v="1" />
+<vert xy="40 0" v="2" />
+<vert xy="80 0" v="11" />
+<vert xy="80 -40" v="12" /></poly></body>
+<body name="rectangle" pos="122 205" isStatic="TRUE" isTouchable="FALSE" isBreakable="TRUE" uniqId="10" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="pepyaka" pos="27 36" isStatic="TRUE" isTouchable="FALSE" uniqId="27" isExplodable="TRUE" queue="0" ><poly >
+<vert xy="81.5 55.5" v="1" />
+<vert xy="69.5 55.5" />
+<vert xy="64.5 81.5" />
+<vert xy="81.5 81.5" v="24" /></poly><poly >
+<vert xy="69.5 55.5" v="2" />
+<vert xy="61.5 53.5" />
+<vert xy="49.5 76.5" />
+<vert xy="64.5 81.5" v="23" /></poly><poly >
+<vert xy="61.5 53.5" v="3" />
+<vert xy="54.5 48.5" />
+<vert xy="36.5 66.5" />
+<vert xy="49.5 76.5" v="22" /></poly><poly >
+<vert xy="54.5 48.5" v="4" />
+<vert xy="49.5 41.5" />
+<vert xy="26.5 53.5" />
+<vert xy="36.5 66.5" v="21" /></poly><poly >
+<vert xy="49.5 41.5" v="5" />
+<vert xy="47.5 33.5" />
+<vert xy="21.5 37.5" />
+<vert xy="26.5 53.5" v="20" /></poly><poly >
+<vert xy="47.5 33.5" v="6" />
+<vert xy="47.5 25.5" />
+<vert xy="21.5 21.499999999999996" />
+<vert xy="21.5 37.5" v="19" /></poly><poly >
+<vert xy="47.5 25.5" v="7" />
+<vert xy="49.5 18.5" />
+<vert xy="26.5 6.5" />
+<vert xy="21.5 21.499999999999996" v="18" /></poly><poly >
+<vert xy="49.5 18.5" v="8" />
+<vert xy="54.5 11.5" />
+<vert xy="36.5 -7.5" />
+<vert xy="26.5 6.5" v="17" /></poly><poly >
+<vert xy="54.5 11.5" v="9" />
+<vert xy="61.5 6.5" />
+<vert xy="49.5 -16.5" />
+<vert xy="36.5 -7.5" v="16" /></poly><poly >
+<vert xy="61.5 6.5" v="10" />
+<vert xy="69.5 4.5" />
+<vert xy="64.5 -21.5" />
+<vert xy="49.5 -16.5" v="15" /></poly><poly >
+<vert xy="69.5 4.5" v="11" />
+<vert xy="81.5 4.5000000000000036" v="12" />
+<vert xy="81.5 -21.499999999999996" v="13" />
+<vert xy="64.5 -21.5" v="14" /></poly></body>
+<body name="circle" pos="298 134" isTouchable="FALSE" uniqId="23" isExplodable="TRUE" queue="0" ><circle  radius="30" offset="-10 10"/></body>
+<body name="egg" pos="152 310" isTouchable="FALSE" uniqId="12" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="bonus_star" pos="115 358" isStatic="TRUE" isTouchable="FALSE" uniqId="22" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bumper" pos="73 410" isStatic="TRUE" isTouchable="FALSE" uniqId="19" queue="0" ><circle  radius="30" offset="0 0"/></body>
+</level>

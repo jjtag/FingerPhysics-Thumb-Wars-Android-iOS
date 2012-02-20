@@ -1,0 +1,44 @@
+<level name="1-tutorial-01" >
+<settings mode="1" gravity="0 -100" descr=" Egg Tutorial 2 - Mechanics" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="-267 245" uniqId="" queue="0" ><poly >
+<vert xy="0 0" />
+<vert xy="0 80" />
+<vert xy="80 80" />
+<vert xy="80 0" /></poly></body>
+<body name="rectangle" pos="169 389" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="tetris_g" pos="108 229" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 120" v="2" />
+<vert xy="40 120" />
+<vert xy="40 0" v="6" /></poly><poly >
+<vert xy="40 80" v="5" />
+<vert xy="40 120" />
+<vert xy="80 120" v="3" />
+<vert xy="80 80" v="4" /></poly></body>
+<body name="bumper" pos="35 36" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="rectangle" pos="142 -5" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="108 149" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="triangle_rect" pos="102 -5" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="40.00000000000001 40" v="1" />
+<vert xy="7.105427357601002e-15 40" v="2" />
+<vert xy="40.00000000000001 80" v="3" /></poly></body>
+<body name="bonus_star" pos="122 100" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="169 349" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="egg" pos="163 100" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="25" offset="0 0"/></body>
+</level>

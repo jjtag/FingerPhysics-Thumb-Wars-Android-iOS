@@ -1,0 +1,31 @@
+<level name="1-tutorial-08" >
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="94 221" isStatic="TRUE" isTouchable="FALSE" uniqId="45" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="20 80" v="3" />
+<vert xy="20 60" v="4" /></poly></body>
+<body name="egg" pos="104 326" isTouchable="FALSE" uniqId="41" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="bonus_star" pos="196 197" isStatic="TRUE" isTouchable="FALSE" uniqId="50" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="122 142" isTouchable="FALSE" uniqId="35" isExplodable="FALSE" force="0 300" queue="0" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="rectangle" pos="122 181" isStatic="TRUE" isTouchable="FALSE" uniqId="36" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 40" v="4" /></poly></body>
+<body name="bumper" pos="261 48" isStatic="TRUE" isTouchable="FALSE" uniqId="40" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="rectangle" pos="259 142" isTouchable="FALSE" uniqId="38" isExplodable="FALSE" force="-200 100" queue="0" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="rectangle" pos="179 157" isStatic="TRUE" isBreakable="TRUE" uniqId="37" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+</level>

@@ -1,0 +1,45 @@
+<level name="2-training-02" >
+<settings mode="2" gravity="0 -100" descr=" Balance tutorial 4 - Multiple 1" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="2000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="s_medium" pos="151 368" uniqId="" queue="1" ><poly >
+<vert xy="0 0" />
+<vert xy="0 120" v="4" />
+<vert xy="40 120" />
+<vert xy="40 0" v="8" /></poly><poly >
+<vert xy="40 80" v="7" />
+<vert xy="40 120" />
+<vert xy="80 120" v="5" />
+<vert xy="80 80" v="6" /></poly><poly >
+<vert xy="-40 0" v="1" />
+<vert xy="-40 40" v="2" />
+<vert xy="0 40" v="3" />
+<vert xy="0 0" /></poly></body>
+<body name="n_short" pos="36 401" uniqId="" queue="2" ><poly >
+<vert xy="60.000000000000014 -60" />
+<vert xy="20.000000000000018 -60.00000000000001" v="2" />
+<vert xy="19.999999999999982 59.99999999999999" v="3" />
+<vert xy="59.999999999999986 60" /></poly><poly >
+<vert xy="100 -59.99999999999999" v="1" />
+<vert xy="60.000000000000014 -60" />
+<vert xy="60.00000000000001 -20" v="7" />
+<vert xy="100 -19.999999999999993" v="8" /></poly><poly >
+<vert xy="100 20.000000000000007" v="5" />
+<vert xy="59.99999999999999 20" v="6" />
+<vert xy="59.999999999999986 60" />
+<vert xy="100 60.00000000000001" v="4" /></poly></body>
+<body name="bonus_star" pos="140 190" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="140 230" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="n_short" pos="180 270" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="59.99999999999999 60" />
+<vert xy="100 60" v="2" />
+<vert xy="100 -60" v="3" />
+<vert xy="60.00000000000001 -60" /></poly><poly >
+<vert xy="19.999999999999993 60" v="1" />
+<vert xy="59.99999999999999 60" />
+<vert xy="60 20" v="7" />
+<vert xy="20 20" v="8" /></poly><poly >
+<vert xy="20 -20" v="5" />
+<vert xy="60 -20" v="6" />
+<vert xy="60.00000000000001 -60" />
+<vert xy="20.000000000000007 -60" v="4" /></poly></body>
+<body name="bonus_star" pos="60 343" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

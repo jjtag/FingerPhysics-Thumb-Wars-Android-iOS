@@ -1,0 +1,127 @@
+<level name="m1-cannon03" >
+<settings mode="1" gravity="0 -100" descr=" Real Gameplay " width="320" height="960" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="-229 251" uniqId="" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="rectangle" pos="80 748" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="bumper" pos="160 30" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="bonus_star" pos="166 773" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="160 98" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="166 748" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="126 678" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="126 748" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="egg" pos="166 853" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="bonus_star" pos="255 606" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="243 486" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="diamond" pos="282 330" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="15 120" v="1" />
+<vert xy="30 80" v="2" />
+<vert xy="15 40" v="3" />
+<vert xy="0 80" v="4" /></poly></body>
+<body name="rectangle" pos="166 678" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="bonus_star" pos="256 836" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="diamond" pos="292 600" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="15 120" v="1" />
+<vert xy="30 80" v="2" />
+<vert xy="15 40" v="3" />
+<vert xy="0 80" v="4" /></poly></body>
+<body name="bonus_star" pos="160 154" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="0 678" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="0 748" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="80 678" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="circle" pos="36 654" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="15" offset="-25 -35"/></body>
+<body name="rectangle" pos="40 748" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="40 678" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="circle" pos="106 192" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="15" offset="-25 -15"/></body>
+<body name="circle" pos="264 192" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="15" offset="-25 -15"/></body>
+<body name="rectangle" pos="32 142" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 50" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="130.00000000000006 80" v="3" />
+<vert xy="130.00000000000006 50" v="4" /></poly></body>
+<body name="rectangle" pos="162 142" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 50" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="130.00000000000006 80" v="3" />
+<vert xy="130.00000000000006 50" v="4" /></poly></body>
+<body name="circle" pos="70 848" isTouchable="FALSE" uniqId="" isExplodable="FALSE" queue="0" ><circle  radius="30" offset="-10 10"/></body>
+<body name="circle" pos="121 654" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="15" offset="-25 -35"/></body>
+<body name="rectangle" pos="73 506" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="36.73888310531602 -4.620546383929774" v="1" />
+<vert xy="16.751066564934096 -5.318536317979794" v="2" />
+<vert xy="13.261116894683976 94.62054638392978" v="3" />
+<vert xy="33.24893343506591 95.31853631797979" v="4" /></poly></body>
+<body name="rectangle" pos="-15 506" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="33.24893343506591 -5.318536317979794" v="1" />
+<vert xy="13.261116894683983 -4.620546383929775" v="2" />
+<vert xy="16.75106656493409 95.31853631797979" v="3" />
+<vert xy="36.73888310531599 94.62054638392978" v="4" /></poly></body>
+<body name="rectangle" pos="43 416" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="40 40.00000000000001" v="1" />
+<vert xy="-20 39.99999999999999" v="2" />
+<vert xy="-20 59.99999999999999" v="3" />
+<vert xy="40 60.00000000000001" v="4" /></poly></body>
+<body name="circle" pos="64 496" uniqId="" isExplodable="FALSE" force="0 5000" queue="0" ><circle density="3"  radius="30" offset="-10 10"/></body>
+<body name="rectangle" pos="36 496" isStatic="TRUE" isBreakable="TRUE" uniqId="1" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="circle" pos="63 627" isBreakable="TRUE" uniqId="" isExplodable="FALSE" queue="0" ><circle  radius="30" offset="-10 10"/></body>
+<body name="bonus_star" pos="265 746" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="249 546" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="292 546" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="35.000000000000014 -85" v="1" />
+<vert xy="15.000000000000004 -85" v="2" />
+<vert xy="14.999999999999982 95" v="3" />
+<vert xy="35 95" v="4" /></poly></body>
+<body name="rectangle" pos="292 866" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="35.000000000000014 -145" v="1" />
+<vert xy="15.000000000000004 -145" v="2" />
+<vert xy="14.999999999999982 95" v="3" />
+<vert xy="35 95" v="4" /></poly></body>
+<body name="bonus_star" pos="277 836" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="266 850" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

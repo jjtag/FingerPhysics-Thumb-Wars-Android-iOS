@@ -1,0 +1,45 @@
+<level name="2-training-n2-27" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="181 77" uniqId="655" queue="1" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="rectangle" pos="181 167" uniqId="657" queue="2" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="rectangle" pos="81 167" uniqId="656" queue="3" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="circle" pos="156 277" uniqId="659" queue="4" ><circle  radius="40" offset="0 0"/></body>
+<body name="chevron" pos="67 388" uniqId="675" queue="5" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="80 80" v="2" />
+<vert xy="80 40" /></poly><poly >
+<vert xy="80 80" />
+<vert xy="160 0" v="3" />
+<vert xy="80 40" v="4" /></poly></body>
+<body name="bonus_star" pos="160 135" isStatic="TRUE" isTouchable="FALSE" uniqId="671" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="140 343" isStatic="TRUE" isTouchable="FALSE" uniqId="668" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="210 229" isStatic="TRUE" isTouchable="FALSE" uniqId="665" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="85 117" uniqId="651" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="150 80" v="3" />
+<vert xy="150 40" v="4" /></poly></body>
+<body name="rectangle" pos="85 27" isStatic="TRUE" uniqId="652" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="150 80" v="3" />
+<vert xy="150 40" v="4" /></poly></body>
+<body name="bonus_star" pos="110 229" isStatic="TRUE" isTouchable="FALSE" uniqId="660" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="160 377" isStatic="TRUE" isTouchable="FALSE" uniqId="674" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="180 343" isStatic="TRUE" isTouchable="FALSE" uniqId="669" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="160 395" isStatic="TRUE" isTouchable="FALSE" uniqId="676" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="160 415" isStatic="TRUE" isTouchable="FALSE" uniqId="677" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<joint type="1" body1Id="651" body2Id="0" rotationOffset="75 60" />
+</level>

@@ -1,0 +1,47 @@
+<level name="1-tutorial-05-!pin!" >
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="720" />
+<body name="rectangle" pos="168 546" isStatic="TRUE" isBreakable="TRUE" uniqId="37" explodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="bumper" pos="30 30" isStatic="TRUE" isTouchable="FALSE" uniqId="45" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="egg" pos="124 102" isTouchable="FALSE" uniqId="46" explodable="FALSE" queue="0" ><circle friction="0.8"  radius="25" offset="0 0"/></body>
+<body name="pentagon_reversed" pos="91 14" isStatic="TRUE" isTouchable="FALSE" uniqId="47" explodable="FALSE" queue="0" ><poly >
+<vert xy="0 24" v="1" />
+<vert xy="13 63" v="2" />
+<vert xy="53 63" v="3" />
+<vert xy="66 24" v="4" />
+<vert xy="33 0" v="5" /></poly></body>
+<body name="bonus_star" pos="66 83" isStatic="TRUE" isTouchable="FALSE" uniqId="48" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="118 506" isTouchable="FALSE" uniqId="33" explodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 0" v="4" /></poly></body>
+<body name="rectangle" pos="148 586" isTouchable="FALSE" uniqId="36" explodable="FALSE" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 40" v="4" /></poly></body>
+<body name="rectangle" pos="118 266" isTouchable="FALSE" uniqId="39" explodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 0" v="4" /></poly></body>
+<body name="rectangle" pos="138 146" isTouchable="FALSE" uniqId="41" explodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 0" v="4" /></poly></body>
+<body name="rectangle" pos="138 386" isTouchable="FALSE" uniqId="38" explodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 0" v="4" /></poly></body>
+<joint type="1" body1Id="33" body2Id="0" rotationOffset="20 20" />
+<joint type="1" body1Id="36" body2Id="0" rotationOffset="20 60" />
+<joint type="1" body1Id="38" body2Id="0" rotationOffset="20 20" />
+<joint type="1" body1Id="39" body2Id="0" rotationOffset="20 20" />
+<joint type="1" body1Id="41" body2Id="0" rotationOffset="20 20" />
+</level>

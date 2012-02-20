@@ -1,0 +1,33 @@
+<level name="1-training-12-pin" >
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="185 257" isStatic="TRUE" isBreakable="TRUE" uniqId="7" queue="0" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="bonus_star" pos="157 111" isStatic="TRUE" isTouchable="FALSE" uniqId="11" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="80 257" isStatic="TRUE" isBreakable="TRUE" uniqId="4" queue="0" ><poly >
+<vert xy="0 30" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="50 80" v="3" />
+<vert xy="50 30" v="4" /></poly></body>
+<body name="n_medium" pos="80 170" isTouchable="FALSE" uniqId="2" isExplodable="FALSE" queue="0" ><poly density="0.8" >
+<vert xy="0 0" />
+<vert xy="0 40" v="2" />
+<vert xy="160 40" v="3" />
+<vert xy="160 0" /></poly><poly density="0.8" >
+<vert xy="0 -40" v="1" />
+<vert xy="0 0" />
+<vert xy="40 0" v="7" />
+<vert xy="40 -40" v="8" /></poly><poly density="0.8" >
+<vert xy="120 -40" v="5" />
+<vert xy="120 0" v="6" />
+<vert xy="160 0" />
+<vert xy="160 -40" v="4" /></poly></body>
+<body name="bumper" pos="160 33" isStatic="TRUE" isTouchable="FALSE" uniqId="3" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="egg" pos="210 362" isTouchable="FALSE" uniqId="6" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="circle" pos="119 347" isTouchable="FALSE" uniqId="5" queue="0" ><circle density="1.5"  radius="25" offset="-15 15"/></body>
+<body name="bonus_star" pos="182 80" isStatic="TRUE" isTouchable="FALSE" uniqId="9" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="155 85" isStatic="TRUE" isTouchable="FALSE" uniqId="10" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<joint type="1" body1Id="2" body2Id="0" rotationOffset="80 18" />
+</level>

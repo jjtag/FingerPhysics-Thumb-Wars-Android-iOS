@@ -1,0 +1,59 @@
+<level name="2-training-03" >
+<settings mode="2" gravity="0 -100" descr=" Balance Tutorial 5 - Multiple 2" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="240 217" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="200 280" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="80 217" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="hexagon" pos="297 386" uniqId="" queue="1" ><poly >
+<vert xy="0 52" v="1" />
+<vert xy="30 69" v="2" />
+<vert xy="60 52" v="3" />
+<vert xy="60 17" v="4" />
+<vert xy="30 0" v="5" />
+<vert xy="0 17" v="6" /></poly></body>
+<body name="hexagon" pos="102 332" uniqId="" queue="2" ><poly >
+<vert xy="0 52" v="1" />
+<vert xy="30 69" v="2" />
+<vert xy="60 52" v="3" />
+<vert xy="60 17" v="4" />
+<vert xy="30 0" v="5" />
+<vert xy="0 17" v="6" /></poly></body>
+<body name="hexagon" pos="98 316" uniqId="" queue="3" ><poly >
+<vert xy="0 52" v="1" />
+<vert xy="30 69" v="2" />
+<vert xy="60 52" v="3" />
+<vert xy="60 17" v="4" />
+<vert xy="30 0" v="5" />
+<vert xy="0 17" v="6" /></poly></body>
+<body name="hexagon" pos="132 253" uniqId="" queue="4" ><poly >
+<vert xy="0 52" v="1" />
+<vert xy="30 69" v="2" />
+<vert xy="60 52" v="3" />
+<vert xy="60 17" v="4" />
+<vert xy="30 0" v="5" />
+<vert xy="0 17" v="6" /></poly></body>
+<body name="bonus_star" pos="120 280" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="hexagon" pos="114 350" uniqId="" queue="5" ><poly >
+<vert xy="0 52" v="1" />
+<vert xy="30 69" v="2" />
+<vert xy="60 52" v="3" />
+<vert xy="60 17" v="4" />
+<vert xy="30 0" v="5" />
+<vert xy="0 17" v="6" /></poly></body>
+<body name="hexagon" pos="49 336" uniqId="" queue="6" ><poly >
+<vert xy="0 52" v="1" />
+<vert xy="30 69" v="2" />
+<vert xy="60 52" v="3" />
+<vert xy="60 17" v="4" />
+<vert xy="30 0" v="5" />
+<vert xy="0 17" v="6" /></poly></body>
+<body name="triangle_equil" pos="70 90" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="6 82" v="1" />
+<vert xy="62 49.5" v="2" />
+<vert xy="6 17" v="3" /></poly></body>
+<body name="triangle_equil" pos="180 90" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="62.00000000000001 17.000000000000004" v="1" />
+<vert xy="6 49.5" v="2" />
+<vert xy="61.99999999999999 82" v="3" /></poly></body>
+<body name="bonus_star" pos="160 125" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="160 373" isStatic="TRUE" isTouchable="FALSE" uniqId="1" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

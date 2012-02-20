@@ -1,0 +1,42 @@
+<level name="2-training-09" >
+<settings mode="2" gravity="0 -100" descr="Balance Tutorial - B2" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="297 166" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="119 267" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="199 267" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="120 60" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="medved" pos="149 181" uniqId="" queue="1" ><poly >
+<vert xy="0 0" v="19" />
+<vert xy="0 80" v="8" />
+<vert xy="20 80" v="9" />
+<vert xy="20 0" v="18" /></poly><poly >
+<vert xy="-20 -40" v="1" />
+<vert xy="-20 60" v="6" />
+<vert xy="0 60" v="7" />
+<vert xy="0 -40" v="20" /></poly><poly >
+<vert xy="20 -40" v="17" />
+<vert xy="20 60" v="10" />
+<vert xy="40 60" v="11" />
+<vert xy="40 -40" v="16" /></poly><poly >
+<vert xy="-40 40" v="3" />
+<vert xy="-40 100" v="4" />
+<vert xy="-20 100" v="5" />
+<vert xy="-20 40" v="2" /></poly><poly >
+<vert xy="40 40" v="15" />
+<vert xy="40 100" v="12" />
+<vert xy="60 100" v="13" />
+<vert xy="60 40" v="14" /></poly></body>
+<body name="rectangle" pos="118 290" uniqId="" queue="2" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="rectangle" pos="121 391" uniqId="" queue="3" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+</level>

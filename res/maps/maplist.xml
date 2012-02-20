@@ -1,0 +1,120 @@
+<maplist>
+
+<levelset name="tutorial" type="0" queue="0">
+<map name="1-tutorial-01.bim"/>
+<map name="1-tutorial-02.bim"/>
+<map name="1-tutorial-03.bim"/>
+<map name="1-tutorial-04.bim"/>
+<map name="1-tutorial-05-!pin!.bim"/>
+<map name="1-tutorial-06-gear.bim"/>
+<map name="1-tutorial-07-magnets.bim"/>
+<map name="1-tutorial-08.bim"/>
+<map name="1-tutorial-09.bim"/>
+<map name="2-tutorial-01.bim"/>
+<map name="2-tutorial-02.bim"/>
+<map name="2-tutorial-03.bim"/>
+<map name="2-tutorial-04.bim"/>
+<map name="2-tutorial-05.bim"/>
+<map name="2-tutorial-06.bim"/>
+</levelset>
+
+<levelset name="base" type="0" queue="1">
+<map name="1-training-01.bim"/>
+<map name="1-training-magnetseasy.bim"/>
+<map name="1-training-n1-02.bim"/>
+<map name="1-training-n1-23.bim"/>
+<map name="1-training-n1-48.bim"/>
+
+<map name="2-training-01.bim"/>
+<map name="2-training-10.bim"/>
+<map name="2-training-n2-20.bim"/> 
+<map name="2-training-n2-13.bim"/>
+<map name="2-training-n2-16.bim"/>
+
+<map name="1-training-04.bim"/>
+<map name="1-training-A1-barrier.bim"/>
+<map name="1-training-A2-builder.bim"/>
+<map name="1-training-A7-vtramp.bim"/>
+<map name="1-training-03.bim"/>
+
+<map name="2-training-09.bim"/>
+<map name="2-training-12.bim"/>
+<map name="2-training-n2-21.bim"/>
+<map name="2-training-n2-18.bim"/>
+<map name="2-training-n2-24.bim"/>
+
+<map name="1-training-09.bim"/>
+<map name="1-training-12-pin.bim"/>
+<map name="1-training-n1-47.bim"/>
+<map name="1-training-n1-50.bim"/>
+<map name="1-training-n1-45.bim"/>
+
+<map name="2-training-02.bim"/>
+<map name="2-training-08.bim"/>
+<map name="2-training-n2-15.bim"/>
+<map name="2-training-n2-17.bim"/>
+<map name="2-training-n2-03.bim"/>
+
+<map name="1-training-08.bim"/>
+<map name="1-training-geareasy.bim"/>
+<map name="1-training-pinball1.bim"/>
+<map name="1-training-n1-34.bim"/>
+<map name="1-training-gearmed.bim"/>
+
+<map name="2-training-n2-23.bim"/>
+<map name="2-training-05.bim"/>
+<map name="2-training-07.bim"/>
+<map name="2-training-n2-30.bim"/>
+<map name="2-training-06.bim"/>
+
+<map name="1-training-11.bim"/>
+<map name="1-training-n1-21.bim"/>
+<map name="1-training-A3-cannon.bim"/>
+<map name="1-training-n1-29.bim"/>
+<map name="1-training-m1-cannon02.bim"/>
+
+<map name="2-training-03.bim"/>
+<map name="2-training-04.bim"/>
+<map name="2-training-n2-19.bim"/>
+<map name="2-training-n2-26.bim"/> 
+<map name="2-training-n2-27.bim"/> 
+
+<map name="1-training-10.bim"/>
+<map name="1-training-n1-42.bim"/>
+<map name="1-training-n1-44.bim"/>
+<map name="1-training-n1-43.bim"/>
+<map name="1-training-n1-22.bim"/>
+
+<map name="2-training-13.bim"/>
+<map name="2-training-11.bim"/>
+<map name="2-training-n2-31.bim"/>
+<map name="2-training-n2-25.bim"/>
+<map name="2-training-n2-14.bim"/>
+
+<map name="1-training-05.bim"/>
+<map name="1-training-A4-fifteens.bim"/>
+<map name="1-training-n1-07.bim"/>
+
+<map name="2-training-n2-22.bim"/>
+<map name="2-training-n2-29.bim"/>
+
+<map name="1-n1-01.bim"/>
+<map name="1-n1-05.bim"/>
+<map name="1-n1-11.bim"/>
+<map name="1-m1-cannon-03.bim"/>
+<map name="2-n2-01.bim"/>
+<map name="2-n2-02.bim"/>
+
+<!-- Update 1.2 -->
+<map name="1-n1-08.bim"/>
+<map name="1-n1-09.bim"/>
+<map name="1-n1-10.bim"/>
+<map name="1-n1-12.bim"/>
+<map name="1-n1-20.bim"/>
+<map name="2-n2-04.bim"/>
+<map name="2-n2-05.bim"/>
+<map name="2-n2-06.bim"/>
+<map name="2-n2-07.bim"/>
+<map name="2-n2-08.bim"/>
+</levelset>
+</maplist>

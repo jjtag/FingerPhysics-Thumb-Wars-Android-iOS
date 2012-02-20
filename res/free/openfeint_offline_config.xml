@@ -1,0 +1,19 @@
+<resources>
+<game_profile_page_info>
+  <has_challenges>false</has_challenges>
+  <suggestions_topic_id>338804</suggestions_topic_id>
+  <has_achievements>false</has_achievements>
+  <has_leaderboards>false</has_leaderboards>
+  <short_name>TW: Free</short_name>
+  <has_featured_application>true</has_featured_application>
+  <has_ipurchase>false</has_ipurchase>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
+  <name>Thumb Wars Free</name>
+  <has_chat_rooms>true</has_chat_rooms>
+  <id>129564</id>
+</game_profile_page_info>
+<offline>
+  <leaderboards/>
+</offline>
+
+</resources>

@@ -1,0 +1,70 @@
+<level name="2-tutorial-02" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="egde_small" pos="188 12" isStatic="TRUE" isTouchable="FALSE" uniqId="2" queue="0" ><poly >
+<vert xy="40 39.99999999999999" />
+<vert xy="39.999999999999986 80" v="2" />
+<vert xy="120 80" v="3" />
+<vert xy="120 40.00000000000001" v="4" /></poly><poly >
+<vert xy="40.000000000000014 -7.105427357601002e-15" v="1" />
+<vert xy="40 39.99999999999999" />
+<vert xy="80 40" v="5" />
+<vert xy="80.00000000000001 0" v="6" /></poly></body>
+<body name="egde_small" pos="-29 12" isStatic="TRUE" isTouchable="FALSE" uniqId="1" queue="0" ><poly >
+<vert xy="80 80" />
+<vert xy="120 80" v="2" />
+<vert xy="120 0" v="3" />
+<vert xy="80 0" v="4" /></poly><poly >
+<vert xy="40 80" v="1" />
+<vert xy="80 80" />
+<vert xy="80 40" v="5" />
+<vert xy="40 40" v="6" /></poly></body>
+<body name="pentagon" pos="234 212" uniqId="6" queue="1" ><poly >
+<vert xy="0 39" v="1" />
+<vert xy="33 63" v="2" />
+<vert xy="67 39" v="3" />
+<vert xy="54 0" v="4" />
+<vert xy="13 0" v="5" /></poly></body>
+<body name="star1" pos="257 372" uniqId="8" queue="2" ><poly >
+<vert xy="20 28" />
+<vert xy="28 52" />
+<vert xy="52 52" />
+<vert xy="60 28" />
+<vert xy="40 14" /></poly><poly >
+<vert xy="0 48" v="1" />
+<vert xy="28 52" />
+<vert xy="20 28" /></poly><poly >
+<vert xy="28 52" v="2" />
+<vert xy="40 76" v="3" />
+<vert xy="52 52" /></poly><poly >
+<vert xy="52 52" v="4" />
+<vert xy="80 48" v="5" />
+<vert xy="60 28" /></poly><poly >
+<vert xy="60 28" v="6" />
+<vert xy="64 0" v="7" />
+<vert xy="40 14" /></poly><poly >
+<vert xy="40 14" v="8" />
+<vert xy="16 0" v="9" />
+<vert xy="20 28" v="10" /></poly></body>
+<body name="bonus_star" pos="53 298" isStatic="TRUE" isTouchable="FALSE" uniqId="9" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="medved" pos="258 132" uniqId="5" queue="0" ><poly >
+<vert xy="0 0" v="19" />
+<vert xy="0 80" v="8" />
+<vert xy="20 80" v="9" />
+<vert xy="20 0" v="18" /></poly><poly >
+<vert xy="-20 -40" v="1" />
+<vert xy="-20 60" v="6" />
+<vert xy="0 60" v="7" />
+<vert xy="0 -40" v="20" /></poly><poly >
+<vert xy="20 -40" v="17" />
+<vert xy="20 60" v="10" />
+<vert xy="40 60" v="11" />
+<vert xy="40 -40" v="16" /></poly><poly >
+<vert xy="-40 40" v="3" />
+<vert xy="-40 100" v="4" />
+<vert xy="-20 100" v="5" />
+<vert xy="-20 40" v="2" /></poly><poly >
+<vert xy="40 40" v="15" />
+<vert xy="40 100" v="12" />
+<vert xy="60 100" v="13" />
+<vert xy="60 40" v="14" /></poly></body>
+</level>

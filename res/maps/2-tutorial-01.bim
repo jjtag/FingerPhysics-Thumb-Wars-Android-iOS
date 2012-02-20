@@ -1,0 +1,23 @@
+<level name="2-tutorial-01" >
+<settings mode="2" gravity="0 -100" descr=" Balance Tutorial 1 - First touch" width="320" height="480" />
+<body name="bonus_star" pos="160 285" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="43 311" queue="1" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="rectangle" pos="46 384" queue="2" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+<body name="triangle_equil" pos="180 366" queue="3" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="rectangle" pos="120 20" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 60" v="4" /></poly></body>
+</level>

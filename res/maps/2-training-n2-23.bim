@@ -1,0 +1,24 @@
+<level name="n2-23" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="circle" pos="223 96" isStatic="TRUE" uniqId="532" isExplodable="TRUE" queue="0" ><circle  radius="40" offset="0 0"/></body>
+<body name="triangle_rect" pos="68 314" uniqId="534" queue="1" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 0" v="3" /></poly></body>
+<body name="circle" pos="172 412" uniqId="536" isExplodable="TRUE" queue="2" ><circle  radius="40" offset="0 0"/></body>
+<body name="triangle_rect" pos="178 229" uniqId="535" queue="3" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 0" v="3" /></poly></body>
+<body name="circle" pos="261 362" uniqId="537" isExplodable="TRUE" queue="4" ><circle  radius="40" offset="0 0"/></body>
+<body name="bonus_star" pos="214 220" isStatic="TRUE" isTouchable="FALSE" uniqId="543" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="194 260" isStatic="TRUE" isTouchable="FALSE" uniqId="542" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="114 280" isStatic="TRUE" isTouchable="FALSE" uniqId="540" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="134 320" isStatic="TRUE" isTouchable="FALSE" uniqId="541" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="234 180" isStatic="TRUE" isTouchable="FALSE" uniqId="544" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="254 180" isStatic="TRUE" isTouchable="FALSE" uniqId="545" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="133 156" isStatic="TRUE" uniqId="531" isExplodable="TRUE" queue="0" ><circle  radius="40" offset="0 0"/></body>
+<body name="bonus_star" pos="94 240" isStatic="TRUE" isTouchable="FALSE" uniqId="539" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="74 240" isStatic="TRUE" isTouchable="FALSE" uniqId="546" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="43 216" isStatic="TRUE" uniqId="530" isExplodable="TRUE" queue="0" ><circle  radius="40" offset="0 0"/></body>
+</level>

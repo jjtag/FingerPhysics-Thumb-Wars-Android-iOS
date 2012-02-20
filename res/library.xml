@@ -1,0 +1,673 @@
+<library name="Finger Physics Shapes">
+
+	<settings pos="0 0" angle="0" isStatic="FALSE" isFixedRotation="FALSE" queue="0" isTouchable="TRUE" isBreakable="FALSE" uniqId="" isExplodable="false" charge="0" force="0 0" forceOffset="0 0" arrowOffset="0 0">
+		<shape offset="0 0" angle="0" density="1" friction="0.5" restitution="0.1" isSensor="FALSE"  isVisible="TRUE"/>
+	</settings>
+	
+<!-- SPECIAL SHAPES -->	
+
+	<body name="bonus_star" isTouchable="FALSE" isStatic="TRUE">
+		<circle radius="12"  offset="0 0" isSensor="TRUE"/>
+	</body>
+	
+	<body name="egg" isTouchable="FALSE">
+
+		<circle radius="25"  offset="0 0"/>
+	</body>
+
+	<body name="bumper" isTouchable="FALSE" isStatic="TRUE">
+		<circle radius="30"  offset="0 0"/>
+	</body>
+
+<!-- BASIC SHAPES -->
+
+	<body name="circle">
+		<circle radius="40"  offset="0 0" />
+
+	</body>
+
+	<body name="rectangle">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 80" v="2"/>
+			<vert xy="80 80" v="3"/>
+			<vert xy="80 0" v="4"/>
+		</poly>
+
+	</body>
+	
+	<body name="triangle_equil">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="44 76" v="2"/>
+			<vert xy="88 0" v="3"/>
+		</poly>
+	</body>
+
+	<body name="triangle_rect">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 80" v="2"/>
+			<vert xy="80 0" v="3"/>
+		</poly>
+	</body>
+
+	<body name="diamond">
+
+		<poly offset="0 0">
+			<vert xy="30 120" v="1"/>
+			<vert xy="60 60" v="2"/>
+			<vert xy="30 0" v="3"/>
+			<vert xy="0 60" v="4"/>
+		</poly>
+	</body>
+
+	<body name="pentagon">
+
+		<poly offset="0 0">
+			<vert xy="0 39" v="1"/>
+			<vert xy="33 63" v="2"/>
+			<vert xy="67 39" v="3"/>
+			<vert xy="54 0" v="4"/>
+			<vert xy="13 0" v="5"/>
+		</poly>
+	</body>
+	
+	<body name="pentagon_reversed">
+
+		<poly offset="0 0">
+			<vert xy="0 24" v="1"/>
+			<vert xy="13 63" v="2"/>
+			<vert xy="53 63" v="3"/>
+			<vert xy="66 24 0" v="4"/>
+			<vert xy="33 0" v="5"/>
+		</poly>
+	</body>	
+
+	<body name="hexagon">
+
+		<poly offset="0 0">
+			<vert xy="0 52" v="1"/>
+			<vert xy="30 69" v="2"/>
+			<vert xy="60 52" v="3"/>
+			<vert xy="60 17" v="4"/>
+			<vert xy="30 0" v="5"/>
+			<vert xy="0 17" v="6"/>
+		</poly>
+	</body>
+
+	<body name="octagon">
+		<poly offset="0 0">
+			<vert xy="0 40" v="1"/>
+			<vert xy="12 68" v="2"/>
+			<vert xy="40 80" v="3"/>
+			<vert xy="68 68" v="4"/>
+			<vert xy="80 40" v="5"/>
+			<vert xy="68 12" v="6"/>
+
+			<vert xy="40 0" v="7"/>
+			<vert xy="12 12" v="8"/>
+		</poly>
+	</body>
+
+	<body name="trapezoid_tiny">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="20 20" v="2"/>
+
+			<vert xy="40 20" v="3"/>
+			<vert xy="60 0" v="4"/>
+		</poly>
+	</body>
+
+	<body name="trapezoid_small">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="20 20" v="2"/>
+
+			<vert xy="60 20" v="3"/>
+			<vert xy="80 0" v="4"/>
+		</poly>
+	</body>
+	
+	<body name="trapezoid_medium">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="20 20" v="2"/>
+			<vert xy="80 20" v="3"/>
+
+			<vert xy="100 0" v="4"/>
+		</poly>
+	</body>
+
+	<body name="trapezoid_long">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="20 20" v="2"/>
+			<vert xy="100 20" v="3"/>
+
+			<vert xy="120 0" v="4"/>
+		</poly>
+	</body>
+
+	<body name="trapezoid_longer">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="20 20" v="2"/>
+			<vert xy="120 20" v="3"/>
+
+			<vert xy="140 0" v="4"/>
+		</poly>
+	</body>
+	
+<!-- TETRIS SHAPES	-->
+
+	<body name="tetris_g">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 120" v="2"/>
+
+			<vert xy="40 120"/>
+			<vert xy="40 0" v="6"/>
+		</poly>
+		<poly offset="40 80">
+			<vert xy="0 0" v="5"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="3"/>
+			<vert xy="40 0" v="4"/>
+		</poly>
+
+	</body>
+
+	<body name="tetris_l">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 120" v="2"/>
+			<vert xy="40 120" v="3"/>
+			<vert xy="40 0"/>
+		</poly>
+
+		<poly offset="40 0">
+			<vert xy="0 0"/>
+			<vert xy="0 40" v="4"/>
+			<vert xy="40 40" v="5"/>
+			<vert xy="40 0" v="6"/>
+		</poly>
+	</body>
+
+
+	<body name="tetris_t">
+
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="120 40" v="7"/>
+			<vert xy="120 0" v="8"/>
+		</poly>
+		<poly offset="40 40">
+			<vert xy="0 0" v="3"/>
+			<vert xy="0 40" v="4"/>
+
+			<vert xy="40 40" v="5"/>
+			<vert xy="40 0" v="6"/>
+		</poly>
+	</body>
+
+	<body name="tetris_z">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40" v="2"/>
+
+			<vert xy="80 40" v="3"/>
+			<vert xy="80 0" v="4"/>
+		</poly>
+		<poly offset="40 -40">
+			<vert xy="0 0" v="7"/>
+			<vert xy="0 40" v="8"/>
+			<vert xy="80 40" v="5"/>
+			<vert xy="80 0" v="6"/>
+		</poly>
+
+	</body>
+
+	
+	<body name="tetris_s">
+		<poly offset="0 0">
+			<vert xy="0 0" v="3"/>
+			<vert xy="0 40" v="4"/>
+			<vert xy="80 40" v="5"/>
+			<vert xy="80 0" v="6"/>
+		</poly>
+
+		<poly offset="-40 -40">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="80 40" v="7"/>
+			<vert xy="80 0" v="8"/>
+		</poly>
+	</body>
+
+
+<!-- OTHER RECTANGLE SHAPES-->
+
+	<body name="egde_small">
+		<poly offset="0 0">
+			<vert xy="40 40"/>
+			<vert xy="40 80" v="2"/>
+			<vert xy="120 80" v="3"/>
+			<vert xy="120 40" v="4"/>
+		</poly>
+		<poly offset="40 0">
+
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="5"/>
+			<vert xy="40 0" v="6"/>
+		</poly>
+	</body>
+
+	<body name="cross_small">
+		<poly offset="0 0">
+
+			<vert xy="0 0" v="3"/>
+			<vert xy="0 40" v="4"/>
+			<vert xy="120 40" v="9"/>
+			<vert xy="120 0" v="10"/>
+		</poly>
+		<poly offset="40 40">
+			<vert xy="0 0" v="5"/>
+			<vert xy="0 40" v="6"/>
+			<vert xy="40 40" v="7"/>
+
+			<vert xy="40 0" v="8"/>
+		</poly>
+		<poly offset="40 -40">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="40 40" v="11"/>
+			<vert xy="40 0" v="12"/>
+		</poly>
+	</body>
+
+	<body name="n_short">
+		<poly offset="0 0">
+			<vert xy="0 0"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="120 40" v="3"/>
+			<vert xy="120 0"/>
+		</poly>
+		<poly offset="0 -40">
+
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="7"/>
+			<vert xy="40 0" v="8"/>
+		</poly>
+		<poly offset="80 -40">
+			<vert xy="0 0" v="5"/>
+			<vert xy="0 40" v="6"/>
+			<vert xy="40 40"/>
+
+			<vert xy="40 0" v="4"/>
+		</poly>
+	</body>
+
+	<body name="n_medium">
+		<poly offset="0 0">
+			<vert xy="0 0"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="160 40" v="3"/>
+
+			<vert xy="160 0"/>
+		</poly>
+		<poly offset="0 -40">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="7"/>
+			<vert xy="40 0" v="8"/>
+		</poly>
+		<poly offset="120 -40">
+
+			<vert xy="0 0" v="5"/>
+			<vert xy="0 40" v="6"/>
+			<vert xy="40 40"/>
+			<vert xy="40 0" v="4"/>
+		</poly>
+	</body>
+
+	<body name="n_long">
+		<poly offset="0 0">
+
+			<vert xy="0 0"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="200 40" v="3"/>
+			<vert xy="200 0"/>
+		</poly>
+		<poly offset="0 -40">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="7"/>
+
+			<vert xy="40 0" v="8"/>
+		</poly>
+		<poly offset="160 -40">
+			<vert xy="0 0" v="5"/>
+			<vert xy="0 40" v="6"/>
+			<vert xy="40 40"/>
+			<vert xy="40 0" v="4"/>
+		</poly>
+	</body>
+
+	<body name="h_short">
+		<poly offset="0 0">
+			<vert xy="0 0"/>
+			<vert xy="0 40"/>
+			<vert xy="120 40"/>
+			<vert xy="120 0"/>
+		</poly>
+		<poly offset="0 -40">
+
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="11"/>
+			<vert xy="40 0" v="12"/>
+		</poly>
+		<poly offset="80 -40">
+			<vert xy="0 0" v="9"/>
+			<vert xy="0 40" v="10"/>
+			<vert xy="40 40"/>
+
+			<vert xy="40 0" v="8"/>
+		</poly>
+		<poly offset="0 40">
+			<vert xy="0 0"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="40 40" v="3"/>
+			<vert xy="40 0" v="4"/>
+		</poly>
+		<poly offset="80 40">
+
+			<vert xy="0 0" v="5"/>
+			<vert xy="0 40" v="6"/>
+			<vert xy="40 40" v="7"/>
+			<vert xy="40 0"/>
+		</poly>
+	</body>
+
+	<body name="s_medium">
+		<poly offset="0 0">
+
+			<vert xy="0 0"/>
+			<vert xy="0 120" v="4"/>
+			<vert xy="40 120"/>
+			<vert xy="40 0" v="8"/>
+		</poly>
+		<poly offset="40 80">
+			<vert xy="0 0" v="7"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="5"/>
+
+			<vert xy="40 0" v="6"/>
+		</poly>
+		<poly offset="-40 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="40 40" v="3"/>
+			<vert xy="40 0"/>
+		</poly>
+	</body>
+
+
+	<body name="s_long">
+		<poly offset="0 0">
+			<vert xy="0 0"/>
+			<vert xy="0 160" v="4"/>
+			<vert xy="40 160"/>
+			<vert xy="40 0" v="8"/>
+		</poly>
+		<poly offset="40 120">
+
+			<vert xy="0 0" v="7"/>
+			<vert xy="0 40"/>
+			<vert xy="40 40" v="5"/>
+			<vert xy="40 0" v="6"/>
+		</poly>
+		<poly offset="-40 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 40" v="2"/>
+			<vert xy="40 40" v="3"/>
+
+			<vert xy="40 0"/>
+		</poly>
+	</body>
+
+	<body name="medved">
+		<poly offset="0 0">
+			<vert xy="0 0" v="19"/>
+			<vert xy="0 80" v="8"/>
+			<vert xy="20 80" v="9"/>
+
+			<vert xy="20 0" v="18"/>
+		</poly>
+		<poly offset="-20 -40">
+			<vert xy="0 0" v="1"/>
+			<vert xy="0 100" v="6"/>
+			<vert xy="20 100" v="7"/>
+			<vert xy="20 0" v="20"/>
+		</poly>
+		<poly offset="20 -40">
+
+			<vert xy="0 0" v="17"/>
+			<vert xy="0 100" v="10"/>
+			<vert xy="20 100" v="11"/>
+			<vert xy="20 0" v="16"/>
+		</poly>
+		<poly offset="-40 40">
+			<vert xy="0 0" v="3"/>
+			<vert xy="0 60" v="4"/>
+			<vert xy="20 60" v="5"/>
+
+			<vert xy="20 0" v="2"/>
+		</poly>
+		<poly offset="40 40">
+			<vert xy="0 0" v="15"/>
+			<vert xy="0 60" v="12"/>
+			<vert xy="20 60" v="13"/>
+			<vert xy="20 0" v="14"/>
+		</poly>
+	</body>
+
+	
+<!-- POLYGONAL SHAPES -->
+
+	<body name="star1">
+		<poly offset="0 0">
+			<vert xy="20 28"/>
+			<vert xy="28 52"/>
+			<vert xy="52 52"/>
+			<vert xy="60 28"/>
+			<vert xy="40 14"/>
+
+		</poly>
+		<poly offset="0 0">
+			<vert xy="0 48" v="1"/>
+			<vert xy="28 52"/>
+			<vert xy="20 28"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="28 52" v="2"/>
+			<vert xy="40 76" v="3"/>
+
+			<vert xy="52 52"/>
+		</poly>	
+		<poly offset="0 0">
+			<vert xy="52 52" v="4"/>
+			<vert xy="80 48" v="5"/>
+			<vert xy="60 28"/>
+		</poly>		
+		<poly offset="0 0">
+			<vert xy="60 28" v="6"/>
+			<vert xy="64 0" v="7"/>
+
+			<vert xy="40 14"/>
+		</poly>		
+		<poly offset="0 0">
+			<vert xy="40 14" v="8"/>
+			<vert xy="16 0" v="9"/>
+			<vert xy="20 28" v="10"/>
+		</poly>		
+	</body>
+
+	<body name="star2">
+
+		<poly offset="0 0">
+			<vert xy="26 54" v="1"/>
+			<vert xy="54 54" v="3"/>
+			<vert xy="54 26" v="5"/>
+			<vert xy="26 26" v="7"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="0 40" v="8"/>
+			<vert xy="26 54"/>
+
+			<vert xy="26 26"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="26 54"/>
+			<vert xy="40 80" v="2"/>
+			<vert xy="54 54"/>
+		</poly>	
+		<poly offset="0 0">
+			<vert xy="54 54"/>
+
+			<vert xy="80 40" v="4"/>
+			<vert xy="54 26"/>
+		</poly>		
+		<poly offset="0 0">
+			<vert xy="54 26"/>
+			<vert xy="40 0" v="6"/>
+			<vert xy="26 26"/>
+		</poly>		
+	</body>
+
+	<body name="chevron">
+		<poly offset="0 0">
+			<vert xy="0 0" v="1"/>
+			<vert xy="80 80" v="2"/>
+			<vert xy="80 40"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="80 80"/>
+			<vert xy="160 0" v="3"/>
+
+			<vert xy="80 40" v="4"/>
+		</poly>
+	</body>	
+	
+<!-- COMPLEX POLYGONAL SHAPES -->	
+
+	<body name="pepyaka">
+		<poly offset="0 0">
+			<vert xy="26 60" v="1"/>
+			<vert xy="26 48"/>
+			<vert xy="0 43"/>
+			<vert xy="0 60" v="24"/>
+
+		</poly>
+		<poly offset="0 0">
+			<vert xy="26 48" v="2"/>
+			<vert xy="28 40"/>
+			<vert xy="5 28"/>
+			<vert xy="0 43" v="23"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="28 40" v="3"/>
+
+			<vert xy="33 33"/>
+			<vert xy="15 15"/>
+			<vert xy="5 28" v="22"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="33 33" v="4"/>
+			<vert xy="40 28"/>
+			<vert xy="28 5"/>
+			<vert xy="15 15" v="21"/>
+
+		</poly>
+		<poly offset="0 0">
+			<vert xy="40 28" v="5"/>
+			<vert xy="48 26"/>
+			<vert xy="44 0"/>
+			<vert xy="28 5" v="20"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="48 26" v="6"/>
+
+			<vert xy="56 26"/>
+			<vert xy="60 0"/>
+			<vert xy="44 0" v="19"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="56 26" v="7"/>
+			<vert xy="63 28"/>
+			<vert xy="75 5"/>
+			<vert xy="60 0" v="18"/>
+
+		</poly>
+		<poly offset="0 0">
+			<vert xy="63 28" v="8"/>
+			<vert xy="70 33"/>
+			<vert xy="89 15"/>
+			<vert xy="75 5" v="17"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="70 33" v="9"/>
+
+			<vert xy="75 40"/>
+			<vert xy="98 28"/>
+			<vert xy="89 15" v="16"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="75 40" v="10"/>
+			<vert xy="77 48"/>
+			<vert xy="103 43"/>
+			<vert xy="98 28" v="15"/>
+
+		</poly>
+		<poly offset="0 0">
+			<vert xy="77 48" v="11"/>
+			<vert xy="77 60" v="12"/>
+			<vert xy="103 60" v="13"/>
+			<vert xy="103 43" v="14"/>
+		</poly>
+	</body>	
+	
+	<body name="trioptimum">
+
+		<poly offset="0 0">
+			<vert xy="52 56"/>
+			<vert xy="82 56"/>
+			<vert xy="67 30"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="0 26" v="1"/>
+			<vert xy="52 56" v="2"/>
+			<vert xy="67 30" v="8"/>
+
+			<vert xy="15 0" v="9"/>
+		</poly>
+		<poly offset="0 0">
+			<vert xy="52 56"/>
+			<vert xy="52 116" v="3"/>
+			<vert xy="82 116" v="4"/>
+			<vert xy="82 56"/>
+		</poly>
+		<poly offset="0 0">
+
+			<vert xy="82 56" v="5"/>
+			<vert xy="134 26" v="6"/>
+			<vert xy="119 0" v="7"/>
+			<vert xy="67 30"/>
+		</poly>
+	</body>		
+</library>

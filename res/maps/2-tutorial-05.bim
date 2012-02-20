@@ -1,0 +1,22 @@
+<level name="2-tutorial-05" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="triangle_equil" pos="87 139" uniqId="51" isExplodable="FALSE" charge="-1" queue="1" ><poly >
+<vert xy="0 -51" v="1" />
+<vert xy="74 76" v="2" />
+<vert xy="148 -51" v="3" /></poly></body>
+<body name="triangle_equil" pos="69 273" uniqId="52" isExplodable="FALSE" charge="1" queue="2" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="triangle_equil" pos="158 273" uniqId="53" isExplodable="FALSE" charge="1" queue="3" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="bonus_star" pos="230 140" isStatic="TRUE" isTouchable="FALSE" uniqId="56" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="90 140" isStatic="TRUE" isTouchable="FALSE" uniqId="55" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="120 8" isStatic="TRUE" isTouchable="FALSE" uniqId="50" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="80 80" v="3" />
+<vert xy="80 0" v="4" /></poly></body>
+</level>

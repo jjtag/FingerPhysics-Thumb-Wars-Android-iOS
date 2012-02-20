@@ -1,0 +1,5 @@
+<Image rotationCenterY="19" x="-12" y="-25" anchor="BOTTOM | LEFT" parentAnchor="BOTTOM | LEFT" src="161" rotationCenterX="-1">
+ <Timeline loop="1" maxKeyFrames="3" ID="0">
+  <Rotation>0@0+-70@1+0@3</Rotation>
+ </Timeline>
+</Image>

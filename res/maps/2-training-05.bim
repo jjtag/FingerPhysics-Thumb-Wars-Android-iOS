@@ -1,0 +1,30 @@
+<level name="2-training-05" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="234 123" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="266 213" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="10" offset="-30 30"/></body>
+<body name="rectangle" pos="100 40" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="120 80" v="3" />
+<vert xy="120 60" v="4" /></poly></body>
+<body name="bonus_star" pos="85 121" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="triangle_equil" pos="83 103" uniqId="" queue="1" ><poly >
+<vert xy="0 17" v="1" />
+<vert xy="34 76" v="2" />
+<vert xy="68 17" v="3" /></poly></body>
+<body name="triangle_equil" pos="168 103" uniqId="" queue="2" ><poly >
+<vert xy="0 17" v="1" />
+<vert xy="34 76" v="2" />
+<vert xy="68 17" v="3" /></poly></body>
+<body name="triangle_equil" pos="55 303" uniqId="" queue="3" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="triangle_equil" pos="99 338" uniqId="" queue="4" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="bonus_star" pos="157 214" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="157 161" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="157 294" isStatic="TRUE" isTouchable="FALSE" uniqId="1" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

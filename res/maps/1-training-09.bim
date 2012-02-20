@@ -1,0 +1,60 @@
+<level name="1-training-09" >
+<settings mode="1" gravity="0 -100" descr=" Egg Tutorial - B2" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bonus_star" pos="161 371" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="140 311" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="100 311" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="triangle_equil" pos="37 199" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="2.999999999999997 79" v="1" />
+<vert xy="45 55" v="2" />
+<vert xy="3.000000000000003 30.999999999999996" v="3" /></poly></body>
+<body name="bonus_star" pos="121 267" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="triangle_equil" pos="137 259" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 33.99999999999999" v="1" />
+<vert xy="24 76" v="2" />
+<vert xy="48 33.99999999999999" v="3" /></poly></body>
+<body name="bonus_star" pos="251 277" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="triangle_equil" pos="97 259" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="48 76" v="1" />
+<vert xy="24.000000000000004 34" v="2" />
+<vert xy="-2.571673343026993e-15 76" v="3" /></poly></body>
+<body name="bonus_star" pos="161 187" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="triangle_equil" pos="177 259" isStatic="TRUE" isBreakable="TRUE" uniqId="1" queue="0" ><poly >
+<vert xy="48 76" v="1" />
+<vert xy="24.000000000000004 34" v="2" />
+<vert xy="-2.571673343026993e-15 76" v="3" /></poly></body>
+<body name="bonus_star" pos="71 277" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="55 295" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bumper" pos="160 46" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="rectangle" pos="180 311" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="bonus_star" pos="201 267" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="triangle_equil" pos="137 179" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 33.99999999999999" v="1" />
+<vert xy="24 76" v="2" />
+<vert xy="48 33.99999999999999" v="3" /></poly></body>
+<body name="egg" pos="160 415" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="triangle_equil" pos="97 179" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="48 76" v="1" />
+<vert xy="24.000000000000004 34" v="2" />
+<vert xy="-2.571673343026993e-15 76" v="3" /></poly></body>
+<body name="triangle_equil" pos="237 199" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="45 31" v="1" />
+<vert xy="3 55" v="2" />
+<vert xy="45 79" v="3" /></poly></body>
+<body name="bonus_star" pos="266 292" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="triangle_equil" pos="177 179" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="48 76" v="1" />
+<vert xy="24.000000000000004 34" v="2" />
+<vert xy="-2.571673343026993e-15 76" v="3" /></poly></body>
+</level>

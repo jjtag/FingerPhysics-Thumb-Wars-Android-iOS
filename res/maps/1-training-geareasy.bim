@@ -1,0 +1,73 @@
+<level name="1-training-geareasy" >
+<settings mode="1" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="rectangle" pos="40 190" isStatic="TRUE" isBreakable="TRUE" uniqId="2" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="bumper" pos="31 116" isStatic="TRUE" isTouchable="FALSE" uniqId="18" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="bonus_star" pos="261 294" isStatic="TRUE" isTouchable="FALSE" uniqId="21" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="242 270" isStatic="TRUE" isBreakable="TRUE" uniqId="12" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="egg" pos="261 375" isTouchable="FALSE" uniqId="14" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="bonus_star" pos="258 150" isStatic="TRUE" isTouchable="FALSE" uniqId="19" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="280 10" isStatic="TRUE" isBreakable="TRUE" uniqId="11" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="egde_small" pos="100 50" isStatic="TRUE" isTouchable="FALSE" uniqId="10" queue="0" ><poly >
+<vert xy="80.00000000000001 0" />
+<vert xy="40.000000000000014 -7.105427357601002e-15" v="2" />
+<vert xy="39.999999999999986 80" v="3" />
+<vert xy="79.99999999999999 80" v="4" /></poly><poly >
+<vert xy="120 7.105427357601002e-15" v="1" />
+<vert xy="80.00000000000001 0" />
+<vert xy="80 40" v="5" />
+<vert xy="120 40.00000000000001" v="6" /></poly></body>
+<body name="diamond" pos="140 360" isStatic="TRUE" isTouchable="FALSE" uniqId="16" queue="0" ><poly >
+<vert xy="15.000000000000004 20" v="1" />
+<vert xy="0 70" v="2" />
+<vert xy="14.999999999999996 120" v="3" />
+<vert xy="30 70" v="4" /></poly></body>
+<body name="tetris_g" pos="240 90" isTouchable="FALSE" uniqId="7" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="79.99999999999999 120" v="1" />
+<vert xy="80.00000000000001 4.898425415289509e-15" v="2" />
+<vert xy="40.00000000000001 0" />
+<vert xy="39.99999999999999 120" v="6" /></poly><poly >
+<vert xy="40 40" v="5" />
+<vert xy="40.00000000000001 0" />
+<vert xy="7.347638122934264e-15 -4.898425415289509e-15" v="3" />
+<vert xy="2.4492127076447545e-15 39.99999999999999" v="4" /></poly></body>
+<body name="tetris_g" pos="0 210" isTouchable="FALSE" uniqId="1" isExplodable="FALSE" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="0 120" v="2" />
+<vert xy="40 120" />
+<vert xy="40 0" v="6" /></poly><poly >
+<vert xy="40 80" v="5" />
+<vert xy="40 120" />
+<vert xy="80 120" v="3" />
+<vert xy="80 80" v="4" /></poly></body>
+<body name="bonus_star" pos="160 205" isStatic="TRUE" isTouchable="FALSE" uniqId="22" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="120 190" isStatic="TRUE" isTouchable="FALSE" uniqId="4" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="120 230" isBreakable="TRUE" uniqId="6" queue="0" ><poly density="3" >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="80 190" isStatic="TRUE" isBreakable="TRUE" uniqId="3" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="bonus_star" pos="125 205" isStatic="TRUE" isTouchable="FALSE" uniqId="20" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<joint type="2" body1Id="1" body2Id="0" rotationOffset="20 20" maxMotorTorque="6000" rotationSpeed="-500" />
+<joint type="2" body1Id="7" body2Id="0" rotationOffset="60 100" maxMotorTorque="10000" rotationSpeed="-100" />
+</level>

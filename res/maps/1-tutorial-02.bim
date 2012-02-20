@@ -1,0 +1,46 @@
+<level name="1-03-tutorial" >
+<settings mode="1" gravity="0 -100" descr="Egg Tutorial 3 - Camera" width="320" height="820" />
+<body name="bumper" pos="160 89" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="bonus_star" pos="114 205" isStatic="TRUE" isTouchable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="diamond" pos="0 240" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="130 324" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="260 240" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="triangle_rect" pos="260 490" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="60.00000000000001 20.000000000000007" v="1" />
+<vert xy="7.105427357601002e-15 19.999999999999993" v="2" />
+<vert xy="59.99999999999999 80" v="3" /></poly></body>
+<body name="rectangle" pos="140 384" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 60" v="4" /></poly></body>
+<body name="rectangle" pos="260 550" isStatic="TRUE" isBreakable="TRUE" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="rectangle" pos="0 550" isStatic="TRUE" isBreakable="TRUE" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 80" v="3" />
+<vert xy="60 20" v="4" /></poly></body>
+<body name="circle" pos="300 650" isTouchable="FALSE" queue="0" ><circle  radius="30" offset="-10 10"/></body>
+<body name="triangle_rect" pos="0 490" isStatic="TRUE" isTouchable="FALSE" queue="0" ><poly >
+<vert xy="0 20" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="60 20" v="3" /></poly></body>
+<body name="egg" pos="160 489" isTouchable="FALSE" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="circle" pos="40 650" isTouchable="FALSE" queue="0" ><circle  radius="30" offset="-10 10"/></body>
+</level>

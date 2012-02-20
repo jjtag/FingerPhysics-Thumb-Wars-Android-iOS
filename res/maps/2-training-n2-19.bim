@@ -1,0 +1,62 @@
+<level name="n2-19" >
+<settings mode="2" gravity="0 -100" descr=" " width="320" height="480" magnetImpulseMultiplier="180" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="15" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="diamond" pos="4 237" uniqId="439" isExplodable="FALSE" charge="-1" queue="1" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="4 357" uniqId="434" isExplodable="FALSE" charge="1" queue="2" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="74 237" uniqId="440" isExplodable="FALSE" charge="-1" queue="3" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="74 357" uniqId="435" isExplodable="FALSE" charge="1" queue="4" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="134 237" uniqId="441" isExplodable="FALSE" charge="-1" queue="5" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="134 357" uniqId="436" isExplodable="FALSE" charge="1" queue="6" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="194 237" uniqId="442" isExplodable="FALSE" charge="-1" queue="7" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="204 357" uniqId="437" isExplodable="FALSE" charge="1" queue="8" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="diamond" pos="195 105" uniqId="455" isExplodable="FALSE" charge="-1" queue="9" ><poly >
+<vert xy="30 120" v="1" />
+<vert xy="60 60" v="2" />
+<vert xy="30 0" v="3" />
+<vert xy="0 60" v="4" /></poly></body>
+<body name="bonus_star" pos="233 322" isStatic="TRUE" isTouchable="FALSE" uniqId="449" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="190 285" isStatic="TRUE" isTouchable="FALSE" uniqId="448" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="210 362" isStatic="TRUE" isTouchable="FALSE" uniqId="454" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="260 362" isStatic="TRUE" isTouchable="FALSE" uniqId="450" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="210 406" isStatic="TRUE" isTouchable="FALSE" uniqId="453" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="triangle_equil" pos="107 17" isStatic="TRUE" uniqId="433" isExplodable="FALSE" charge="1" queue="0" ><poly >
+<vert xy="0 0" v="1" />
+<vert xy="44 76" v="2" />
+<vert xy="88 0" v="3" /></poly></body>
+<body name="bonus_star" pos="31 92" isStatic="TRUE" isTouchable="FALSE" uniqId="445" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="98 59" isStatic="TRUE" isTouchable="FALSE" uniqId="444" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="79 169" isStatic="TRUE" isTouchable="FALSE" uniqId="446" isExplodable="FALSE" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="135 226" isStatic="TRUE" isTouchable="FALSE" uniqId="447" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="261 406" isStatic="TRUE" isTouchable="FALSE" uniqId="451" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>

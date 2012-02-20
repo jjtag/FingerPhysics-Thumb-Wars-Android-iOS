@@ -1,0 +1,20 @@
+<resources>
+<game_profile_page_info>
+  <has_challenges>false</has_challenges>
+  <suggestions_topic_id>253524</suggestions_topic_id>
+  <icon_url>/uploads/application_descriptions/h_icons/9c/7e/85/2d/25514/icon100x100.png</icon_url>
+  <has_achievements>true</has_achievements>
+  <has_leaderboards>false</has_leaderboards>
+  <short_name>Thumb Wars</short_name>
+  <has_featured_application>true</has_featured_application>
+  <has_ipurchase>true</has_ipurchase>
+  <is_owned_by_local_player>true</is_owned_by_local_player>
+  <name>Thumb Wars</name>
+  <has_chat_rooms>true</has_chat_rooms>
+  <id>100014</id>
+</game_profile_page_info>
+<offline>
+  <leaderboards/>
+</offline>
+
+</resources>

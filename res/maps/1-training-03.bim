@@ -1,0 +1,44 @@
+<level name="1-training-03" >
+<settings mode="1" gravity="0 -100" descr=" Egg Tutorial 6 - Multiple 3" width="320" height="480" magnetImpulseMultiplier="40" magnetFreqHz="6" magnetDampingRatio="1.0" magnetMinJointDistance="10" maxMouseForce="1000" mouseBodyMass="0.1" shockWaveWidth="30" shockWaveSpeed="500" shockWaveImpulseFactor="200" shockWaveMaxRadius="1000" />
+<body name="bumper" pos="30 53" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="30" offset="0 0"/></body>
+<body name="triangle_equil" pos="194 51" uniqId="" queue="0" ><poly >
+<vert xy="0 37" v="1" />
+<vert xy="23 76" v="2" />
+<vert xy="46 37" v="3" /></poly></body>
+<body name="rectangle" pos="118 46" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 41" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="39 80" v="3" />
+<vert xy="39 41" v="4" /></poly></body>
+<body name="rectangle" pos="279 46" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 41" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="39 80" v="3" />
+<vert xy="39 41" v="4" /></poly></body>
+<body name="bonus_star" pos="215 269" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="rectangle" pos="120 220" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="egg" pos="264 325" isTouchable="FALSE" uniqId="" queue="0" ><circle  radius="25" offset="0 0"/></body>
+<body name="rectangle" pos="244 220" isStatic="TRUE" isBreakable="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 40" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="40 80" v="3" />
+<vert xy="40 40" v="4" /></poly></body>
+<body name="rectangle" pos="118 7" isStatic="TRUE" uniqId="" queue="0" ><poly >
+<vert xy="0 60" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="200 80" v="3" />
+<vert xy="200 60" v="4" /></poly></body>
+<body name="bonus_star" pos="290 185" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="circle" pos="141 340" isBreakable="TRUE" uniqId="" queue="0" ><circle density="2"  radius="40" offset="0 0"/></body>
+<body name="rectangle" pos="118 56" isTouchable="FALSE" uniqId="" queue="0" ><poly >
+<vert xy="0 70" v="1" />
+<vert xy="0 80" v="2" />
+<vert xy="200 80" v="3" />
+<vert xy="200 70" v="4" /></poly></body>
+<body name="bonus_star" pos="50 105" isStatic="TRUE" isTouchable="FALSE" uniqId="" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+<body name="bonus_star" pos="120 441" isStatic="TRUE" isTouchable="FALSE" uniqId="1" queue="0" ><circle isSensor="TRUE"  radius="12" offset="0 0"/></body>
+</level>
