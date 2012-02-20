@@ -16,7 +16,7 @@
 #import "MapPickerController.h"
 #import "MapsListParser.h"
 #import "ChampionsPreferences.h"
-#import "OFImageCache.h"
+// #import "OFImageCache.h"
 #import "NewsParser.h"
 #import "FlurryAPI.h"
 #import "BannerParser.h"
@@ -233,7 +233,7 @@
 #ifndef MAP_PICKER
 			if (tutorialLevel != UNDEFINED)
 			{	
-				self.selectedMap = [NSString stringWithString:TUTORIAL_MAPS[tutorialLevel]];
+				self.selectedMap = TUTORIAL_MAPS[tutorialLevel];
 				GameController* gameController = [[GameController allocAndAutorelease] initWithParent:self];
 				gameController.selectedMap = selectedMap;
 				user.lastPlayedMap = selectedMap;				
@@ -276,7 +276,7 @@
 			int tutorialLevel = rc.user.tutorialLevel;						
 			if (tutorialLevel != UNDEFINED)
 			{	
-				self.selectedMap = [NSString stringWithString:TUTORIAL_MAPS[tutorialLevel]];
+				self.selectedMap = TUTORIAL_MAPS[tutorialLevel];
 			}				
 			
 			if(tutorialLevel == UNDEFINED)
@@ -875,8 +875,8 @@
 		user = [[FPUser alloc] init];
 		[user setDefaults];
 		user.countryId = cId;
-		user.feintId = [OpenFeint lastLoggedInUserId];
-		user.name = [OpenFeint lastLoggedInUserName];
+		// user.feintId = [OpenFeint lastLoggedInUserId];
+		// user.name = [OpenFeint lastLoggedInUserName];
 		[user updateUserRegistration:TRUE];
 		user.clearBlob = TRUE;
 		[user saveGameProgress];

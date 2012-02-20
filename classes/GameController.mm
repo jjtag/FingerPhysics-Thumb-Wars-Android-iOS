@@ -20,7 +20,7 @@
 #import "GameTimer.h"
 #import "ChampionsPreferences.h"
 #import "Baloon.h"
-#import "OFAchievementService.h"
+// #import "OFAchievementService.h"
 #import "TextScores.h"
 #import "ReviewRequest.h"
 
@@ -42,7 +42,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 {
 #ifndef FREE 
 	ASSERT(ac >= 0);
-	[OFAchievementService unlockAchievement:FORMAT_STRING(@"%d", ac)];
+	// [OFAchievementService unlockAchievement:FORMAT_STRING(@"%d", ac)];
 #endif
 }
 
@@ -846,8 +846,12 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	[self stopTimer];
 	[self showPopup:VIEW_ELEMENT_PAUSE_MENU];
 	ChampionsRootController* rc = (ChampionsRootController*)[Application sharedRootController];
-	int tutorialLevel = rc.user.tutorialLevel;			
-	[Baloon showBaloonWithID:0 Text:HINT_STR((tutorialLevel != UNDEFINED) ? RND_RANGE(STR_HINTS_REDNECK_HINT_01, STR_HINTS_REDNECK_HINT_02) : RND_RANGE(STR_HINTS_SERGEANT_HINT_01, STR_HINTS_SERGEANT_HINT_07))
+	int tutorialLevel = rc.user.tutorialLevel;	
+    int hintIndex = (tutorialLevel != UNDEFINED) ? 
+                    RND_RANGE(STR_HINTS_REDNECK_HINT_01, STR_HINTS_REDNECK_HINT_02) : 
+                    RND_RANGE(STR_HINTS_SERGEANT_HINT_01, STR_HINTS_SERGEANT_HINT_07);
+    
+	[Baloon showBaloonWithID:0 Text:HINTS[hintIndex]
 					   Image:[Image createWithResID:IMG_PERSONAGES Quad:(tutorialLevel != UNDEFINED) ? IMG_PERSONAGES_dude01 : IMG_PERSONAGES_dude02] Blocking:FALSE Type:BALOON_STATIC inView:[self getView:VIEW_GAME]
 					Delegate:nil];
 }

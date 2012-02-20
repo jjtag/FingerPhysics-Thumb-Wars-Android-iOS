@@ -440,7 +440,7 @@ static const int STR_TUTORIAL_TUTORIAL_15_WIN = 18;
 static const int STR_TUTORIAL_TUTORIAL_REGISTRATION_01 = 19;
 static const int STR_TUTORIAL_TUTORIAL_REGISTRATION_02 = 20;
 
-static const NSString* HINTS[] =
+static NSString* HINTS[] =
 {
     @"STR_HINTS_REDNECK_HINT_01",
     @"STR_HINTS_REDNECK_HINT_02",
@@ -453,7 +453,7 @@ static const NSString* HINTS[] =
     @"STR_HINTS_SERGEANT_HINT_07"
 };
 
-static const NSString* TUTORIAL[] = 
+static NSString* TUTORIAL[] = 
 {
     @"STR_TUTORIAL_TUTORIAL_01_01",
     @"STR_TUTORIAL_TUTORIAL_01_02",
@@ -478,9 +478,6 @@ static const NSString* TUTORIAL[] =
     @"STR_TUTORIAL_TUTORIAL_REGISTRATION_02"
 
 };
-
-#define HINT_STR(x) NSLocalizedString(HINTS[(x)], nil)
-#define TUTORIAL_STR(x) NSLocalizedString(TUTORIAL[(x)], nil)
 
 static const ResEntry RES_DATA[] = 
 {

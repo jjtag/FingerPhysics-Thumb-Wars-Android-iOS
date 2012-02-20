@@ -1214,8 +1214,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 			break;
 		
 		case BALOON_REGISTRATION_02:
-			[OpenFeint launchDashboard];			
-			//[[Application sharedRootController] initializeOpenfeint];
+			// [OpenFeint launchDashboard];						
 			break;
 		case BALOON_NEWS:
 			break;
@@ -3416,7 +3415,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		case BUTTON_OPENFEINT:
 		{
 			if([self optionsIsOpened] || [self statisticsIsOpened])return;
-			[OpenFeint launchDashboard];
+			// [OpenFeint launchDashboard];
 			break;
 		}
 			
@@ -3587,7 +3586,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 			{
 				int tutorialLevel = rc.user.tutorialLevel;						
 				if (tutorialLevel != UNDEFINED)
-					rc.selectedMap = [NSString stringWithString:TUTORIAL_MAPS[tutorialLevel]];			
+					rc.selectedMap = TUTORIAL_MAPS[tutorialLevel];			
 				else
 					rc.selectedMap = b->name;
 			}

@@ -6,6 +6,3 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #endif
-#ifdef OPENFEINT
-	#import "OpenFeintPrefix.pch"
-#endif

@@ -12,7 +12,6 @@ extern const NSString* PREFS_IS_EXIST;
 extern const NSString* PREFS_SOUND_ON;
 extern const NSString* PREFS_MUSIC_ON;
 
-extern const NSString* TUTORIAL_MAPS[];
 #define TUTORIAL_LEVELS_COUNT 15
 
 #define AC_Minesweeper 423664
@@ -69,6 +68,25 @@ extern const NSString* TUTORIAL_MAPS[];
 #define AC_Time_Traveler 424834
 #define AC_Quantum_Leap -1
 #define AC_Tutorial 446324
+
+static NSString* TUTORIAL_MAPS[] = 
+{
+	@"1-tutorial-01.bim",
+	@"1-tutorial-02.bim",
+	@"1-tutorial-03.bim",
+	@"1-tutorial-04.bim",
+	@"1-tutorial-05-!pin!.bim",
+	@"1-tutorial-06-gear.bim",
+	@"1-tutorial-07-magnets.bim",
+	@"1-tutorial-08.bim",
+	@"1-tutorial-09.bim",
+	@"2-tutorial-01.bim",
+	@"2-tutorial-02.bim",
+	@"2-tutorial-03.bim",
+	@"2-tutorial-04.bim",
+	@"2-tutorial-05.bim",
+	@"2-tutorial-06.bim",			
+};
 
 @interface ChampionsPreferences : Preferences
 {

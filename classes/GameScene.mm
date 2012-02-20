@@ -116,7 +116,7 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 
 		int type = BALOON_SINGLE;
 		if (strID == STR_TUTORIAL_TUTORIAL_01_01 || strID == STR_TUTORIAL_TUTORIAL_10_01) type = BALOON_MULTIPLE_FIRST;
-		[Baloon showBaloonWithID:strID Text:TUTORIAL_STR(strID) 
+		[Baloon showBaloonWithID:strID Text:TUTORIAL[strID] 
 						   Image:[Image createWithResID:IMG_PERSONAGES Quad:IMG_PERSONAGES_dude01] Blocking:TRUE Type:type inView:view Delegate:self];
 		
 	}
@@ -789,8 +789,9 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 	if([mapParser.queuedElements count] > 0)
 	{
 		FPBody* fpb = [mapParser.queuedElements objectAtIndex:0];
-		fpb.pos.x = 0;
-		fpb.pos.y = 0;
+//		fpb.pos.x = 0;
+//		fpb.pos.y = 0;
+        fpb.pos = vect(0, 0);
 		[self createBody:fpb];
 
 		b2Shape* s = fpb.body->GetShapeList();
@@ -1489,7 +1490,7 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 		int strID = ((tutorialLevel == 0)? STR_TUTORIAL_TUTORIAL_01_WIN : STR_TUTORIAL_TUTORIAL_15_WIN);
 
 		View* view = [[[Application sharedRootController] getCurrentController] activeView];		
-		[Baloon showBaloonWithID:strID Text:TUTORIAL_STR(strID) 
+		[Baloon showBaloonWithID:strID Text:TUTORIAL[strID] 
 						   Image:[Image createWithResID:IMG_PERSONAGES Quad:IMG_PERSONAGES_dude01] Blocking:TRUE Type:BALOON_SINGLE inView:view Delegate:self];		
 	}
 	else

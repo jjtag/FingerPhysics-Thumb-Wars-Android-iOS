@@ -56,7 +56,9 @@
 	[self showView:vID];
 	
 	int tutorialLevel = rc.user.tutorialLevel;
-	[Baloon showBaloonWithID:0 Text:HINT_STR((tutorialLevel != UNDEFINED) ? RND_RANGE(STR_HINTS_REDNECK_HINT_01, STR_HINTS_REDNECK_HINT_02) : RND_RANGE(STR_HINTS_SERGEANT_HINT_01, STR_HINTS_SERGEANT_HINT_06)) 
+	[Baloon showBaloonWithID:0 Text:HINTS[(tutorialLevel != UNDEFINED) ? 
+                                          RND_RANGE(STR_HINTS_REDNECK_HINT_01, STR_HINTS_REDNECK_HINT_02) : 
+                                          RND_RANGE(STR_HINTS_SERGEANT_HINT_01, STR_HINTS_SERGEANT_HINT_06)] 
 					   Image:[Image createWithResID:IMG_PERSONAGES Quad:(tutorialLevel != UNDEFINED) ? IMG_PERSONAGES_dude01 : IMG_PERSONAGES_dude02] Blocking:FALSE Type:BALOON_STATIC inView:[self getView:vID] 
 					Delegate:nil];		
 }

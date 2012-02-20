@@ -13,25 +13,6 @@ const NSString* PREFS_IS_EXIST = @"PREFS_EXIST";
 const NSString* PREFS_SOUND_ON = @"SOUND_ON";
 const NSString* PREFS_MUSIC_ON = @"MUSIC_ON";
 
-const NSString* TUTORIAL_MAPS[] = 
-{
-	@"1-tutorial-01.bim",
-	@"1-tutorial-02.bim",
-	@"1-tutorial-03.bim",
-	@"1-tutorial-04.bim",
-	@"1-tutorial-05-!pin!.bim",
-	@"1-tutorial-06-gear.bim",
-	@"1-tutorial-07-magnets.bim",
-	@"1-tutorial-08.bim",
-	@"1-tutorial-09.bim",
-	@"2-tutorial-01.bim",
-	@"2-tutorial-02.bim",
-	@"2-tutorial-03.bim",
-	@"2-tutorial-04.bim",
-	@"2-tutorial-05.bim",
-	@"2-tutorial-06.bim",			
-};
-
 @implementation ChampionsPreferences
 
 -(id)init

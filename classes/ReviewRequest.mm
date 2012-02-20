@@ -1,8 +1,8 @@
 #include "ReviewRequest.h"
 
 //const NSString* KeyReviewed = @"ReviewRequestReviewedForVersion";
-const NSString* KeyDontAsk = @"ReviewRequestDontAsk";
-const NSString* KeyWinsCount = @"ReviewRequestWinsCount";
+NSString* KeyDontAsk = @"ReviewRequestDontAsk";
+NSString* KeyWinsCount = @"ReviewRequestWinsCount";
 
 #define REMIND_AFTER_LEVELS_NUM 25
 
