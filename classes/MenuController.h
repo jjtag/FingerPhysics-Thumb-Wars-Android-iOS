@@ -49,20 +49,20 @@ enum {BUTTON_PLAY,BUTTON_PLAY_MAP, BUTTON_LEVELS, BUTTON_BUY, BUTTON_MAIN_MENU, 
 };
 
 
-typedef struct CountryProperties
+typedef struct _CountryProperties
 {
 	int cId;
 	NSString* name;
 	NSString* flag;
 	CGPoint p;
-};
+} CountryProperties;
 
-typedef struct StateProperties
+typedef struct _StateProperties
 {
 	int cId;
 	NSString* name;
 	NSString* flag;
-};
+} StateProperties;
 
 enum CountriesId
 {
