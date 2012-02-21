@@ -18,7 +18,6 @@
 #import "ChampionsPreferences.h"
 // #import "OFImageCache.h"
 #import "NewsParser.h"
-#import "FlurryAPI.h"
 #import "BannerParser.h"
 #import "ChampionsSoundMgr.h"
 
@@ -56,12 +55,6 @@
 			[self saveGameProgress];
 		}
 
-		if(user)
-		{
-			[user updateUserRegistration:FALSE];
-			[user countries:nil];
-			[user states:nil];
-		}
 		ChampionsResourceMgr* rm = (ChampionsResourceMgr*)[Application sharedResourceMgr];
 		[rm initLoading];
 		[rm loadPack:(int*)PACK_IMMEDIATE_COMMON];
@@ -268,18 +261,6 @@
 				self.selectedMap = TUTORIAL_MAPS[tutorialLevel];
 			}				
 			
-			if(tutorialLevel == UNDEFINED)
-			{
-				int mode = ([selectedMap hasPrefix:@"1"] ? 1 : 2);
-				if (mode == 1)
-				{
-					[FlurryAPI logEvent:@"MODE1_STARTED"];
-				}
-				else
-				{
-					[FlurryAPI logEvent:@"MODE2_STARTED"];				
-				}
-			}
 			LoadingController* loadingController = (LoadingController*)[self getChild:CHILD_LOADING];					
 #ifdef MAP_PICKER
 			loadingController->nextController = CHILD_MAPPICKER;

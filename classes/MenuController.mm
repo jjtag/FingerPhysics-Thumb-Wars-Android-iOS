@@ -16,7 +16,7 @@
 #import "AlternateImage.h"
 #import "ColoredLayer.h"
 #import "GameController.h"
-#import "FlurryAPI.h"
+
 #import "FPBanner.h"
 
 const int STATES_COUNT = sizeof(states) / sizeof(StateProperties);
@@ -3293,7 +3293,6 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		}			
 		case BUTTON_FACEBOOK:
 		{
-			[FlurryAPI logEvent:@"FACEBOOK"];			
 			[[UIApplication sharedApplication] openURL:
 			 [NSURL URLWithString:@"http://bit.ly/aLkbez"]];
 
@@ -3301,14 +3300,12 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		}
 		case BUTTON_TWITTER:
 		{			
-			[FlurryAPI logEvent:@"TWITTER"];
 			[[UIApplication sharedApplication] openURL:
 			 [NSURL URLWithString:@"http://bit.ly/b5Xy1t"]];
 			break;
 		}
 		case BUTTON_MAIL:	
 		{
-			[FlurryAPI logEvent:@"EMAIL"];			
 			NSString* to = @"support@pressokentertainment.com";
 			NSString* subject = NSLocalizedString(@"STR_TITLE_FEEDBACK", NSLocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback"));
 			NSString* body = @"";
@@ -3353,7 +3350,6 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		case BUTTON_MAIN_SCORES:	
 		{		
 			[MenuController handleMenuVisited:WAS_IN_STATISTICS];
-			[FlurryAPI logEvent:@"STATISTICS_PRESSED"];			
 			
 			if(statScreen->y == statScreenYPos)
 			{
@@ -3474,7 +3470,6 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		}
 		case BUTTON_PLAY:
 		{
-			[FlurryAPI logEvent:@"PLAY_PRESSED"];			
 			if([self optionsIsOpened] || [self statisticsIsOpened])return;
 //			[ChampionsSoundMgr stopAll];		
 			ChampionsRootController* rc = (ChampionsRootController*)[Application sharedRootController];
@@ -3594,7 +3589,6 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		}
 		case BUTTON_COUNTRY_SELECT:
 		{
-			[FlurryAPI logEvent:@"YOUR_COUNTRY_PRESSED"];				
 			ChampionsRootController* rc = (ChampionsRootController*)[Application sharedRootController];
 			if (rc)
 			{
@@ -3732,51 +3726,6 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 			[rc resetProgress];		
 	}
 	[alertView release];
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-	ChampionsRootController* rc = (ChampionsRootController*)[Application sharedRootController];
-	if(rc)
-	{
-		if(rc.user)
-			[rc.user requestFinished:request];
-	}
-	if([request isMemberOfClass:[ASIFormDataRequest class]])
-	{
-		ASIFormDataRequest* r = (ASIFormDataRequest*)request;
-		NSString* action = [r getPostValueForKey:@"extAction"];
-		if([action isEqualToString:@"topall"])
-		{
-			scoreTables |= TOP_ALL;
-			[self recreateScores];
-		}
-		if([action isEqualToString:@"countries"])
-		{
-			scoreTables |= TOP_WORLD;
-			[self recreateWorldChampions];
-			[mapGrid removeAllChilds];
-			[self createPins];
-		}
-		if([action isEqualToString:@"states"])
-		{
-			scoreTables |= TOP_NATIONAL;
-			[self recreateNationalChampions];
-		}
-	}
-	if(rc)
-		[rc stopLoadingAnimation];
-}
-
--(void)requestFailed:(ASIHTTPRequest *)request
-{
-	ChampionsRootController* rc = (ChampionsRootController*)[Application sharedRootController];
-	if(rc)
-	{
-		if(rc.user)
-			[rc.user requestFailed:request];
-		[rc stopLoadingAnimation];
-	}
 }
 
 +(void)handleMenuVisited:(int)m

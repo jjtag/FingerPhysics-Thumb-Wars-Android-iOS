@@ -214,20 +214,6 @@ levelsWoninARow, menusVisited, ownHighscoreBeatenCount, ownBestTimeBeatenCount;
 	return dict;
 }
 
-+(ASIFormDataRequest*)createTemplateRequestWithAction:(NSString*)action
-{
-	NSURL *url = [NSURL URLWithString:@"http://gamarama.reaxion.com/gamarama2/Do"];
-	
-	ASIFormDataRequest *request = [[[ASIFormDataRequest alloc] initWithURL:url] autorelease];
-	[request setPostFormat:ASIURLPostFormat];
-	[request setPostDivider:[NSString stringWithString:@"\n"]];
-	[request addPostValue:@"CallExtension2" forKey:@"action"];
-	[request addPostValue:@"138" forKey:@"gameId"];
-	[request addPostValue:action forKey:@"extAction"];
-		
-	return request;
-}
-
 +(NSString*)calcHashValue:(NSString*)str
 {
 	int hashValue = 0;	
@@ -251,37 +237,7 @@ levelsWoninARow, menusVisited, ownHighscoreBeatenCount, ownBestTimeBeatenCount;
 	{
 		accId = [[UIDevice currentDevice] uniqueIdentifier];
 		type = @"udid";
-	}	
-//	NSLog(@"user %@ type %@", accId, type );
-	NSData* data = [name dataUsingEncoding:NSUTF8StringEncoding];
-	NSString* encodedName = [data base64Encoding];
-	ASIFormDataRequest *request = [FPUser createTemplateRequestWithAction:@"addUser"];
-	[request addRequestHeader:@"content-encoding" value:@"utf-8"];
-	[request setPostValue:accId forKey:@"id"];	
-	[request setPostValue:type forKey:@"type"];	
-	[request setPostValue:encodedName forKey:@"name"];	
-	[request setPostValue:FORMAT_STRING(@"%i", countryId) forKey:@"countryId"];
-	[request setPostValue:FORMAT_STRING(@"%i", stateId) forKey:@"stateId"];
-	[request setPostValue:email forKey:@"email"];
-	[request setDelegate:self];
-	
-	[self retain];	
-	
-	if (synchronously)
-		[request startSynchronous];
-	else
-		[request startAsynchronous];
-		
-//	NSString* content = FORMAT_STRING(@"action=CallExtension2\ngameId=138\nextAction=addUser\nid=%@\ntype=%@\nname=%@\ncountryId=%i\nstateId=%i\nemail=%@\n", accId, type, encodedName, countryId, stateId, @"");
-//	NSLog(@"%@", content);
-//	NSURL *url = [NSURL URLWithString:@"http://model.reaxion.com/gamarama2/Do"];
-//	NSMutableURLRequest* urlRequest = [[[NSMutableURLRequest alloc] initWithURL:url] autorelease];
-//	[urlRequest setHTTPMethod:@"POST"];
-//	[urlRequest setHTTPBody:[content dataUsingEncoding:NSUTF8StringEncoding]]; 
-//	
-//	NSURLConnection* connection = [[[NSURLConnection alloc] initWithRequest:urlRequest delegate:self] autorelease];
-	
-//	[self scores];
+	}
 }
 
 -(FPScores*)getScoresForMap:(NSString*)mapName
@@ -345,112 +301,36 @@ levelsWoninARow, menusVisited, ownHighscoreBeatenCount, ownBestTimeBeatenCount;
 //	NSLog(@"medal %i", scores->medal);
 	[self setScores:scores forMap:mapName];
 	[self saveGameProgress];
-	
-	if(!userId) return;
-	
-#ifndef FREE	
-	ASIFormDataRequest *request = [FPUser createTemplateRequestWithAction:@"points"];	
-	[request setPostValue:@"points" forKey:@"extAction"];
-	[request setPostValue:userId forKey:@"userId"];	
-	[request setPostValue:mapName forKey:@"name"];		
-	[request setPostValue:FORMAT_STRING(@"%.2f", m) forKey:@"bumperMultiplier"];
-	[request setPostValue:FORMAT_STRING(@"%d", s) forKey:@"starBonuses"];
-	[request setPostValue:FORMAT_STRING(@"%d", time) forKey:@"time"];
-	[request setPostValue:FORMAT_STRING(@"%d", score) forKey:@"score"];
-	
-	NSString* hashStr = FORMAT_STRING(@"bumperMultiplier=%.2f&name=%@&score=%d&starBonuses=%d&time=%d&userId=%@",
-				  m, mapName, score, s, time, userId);
-	NSString* hash = [FPUser calcHashValue:hashStr];
-	
-	[request setPostValue:hash forKey:@"sig"];
-	[request setDelegate:self];
-	
-	[self retain];	
-	
-	[request startAsynchronous];
-#endif
 }
 
 -(void)topAll:(id)delegate
 {
-	ASIFormDataRequest *request = [FPUser createTemplateRequestWithAction:@"topall"];	
-	[request setPostValue:userId forKey:@"userId"];
-	[request setPostValue:@"TRUE" forKey:@"team"];
-	[request setPostValue:FORMAT_STRING(@"%i", 20) forKey:@"limit"];
-	if(!delegate)delegate = self;
-	[request setDelegate:delegate];
-	
-	[self retain];	
-
-	[request startAsynchronous];
+    assert(false);
 }
 
 -(void)topStates:(id)delegate
 {
-	ASIFormDataRequest* request = [FPUser createTemplateRequestWithAction:@"topStates"];
-	[request setPostValue:FORMAT_STRING(@"%i", stateId) forKey:@"stateId"];
-	[request setPostValue:FORMAT_STRING(@"%i", 10) forKey:@"limit"];
-	if(!delegate)delegate = self;
-	[request setDelegate:delegate];
-	
-	[self retain];		
-
-	[request startAsynchronous];
+    assert(false);
 }
 
 -(void)states:(id)delegate
 {
-	ASIFormDataRequest* request = [FPUser createTemplateRequestWithAction:@"states"];
-	if(!delegate)delegate = self;
-	[request setDelegate:delegate];
-	
-	[self retain];		
-
-	[request startAsynchronous];
+    assert(false);
 }
 
 -(void)scores
 {
-	ASIFormDataRequest* request = [FPUser createTemplateRequestWithAction:@"scores"];
-	[request setPostValue:userId forKey:@"userId"];
-	[request setDelegate:self];
-	
-	[self retain];		
-	
-	[request startAsynchronous];
+    assert(false);
 }
 
 -(void)countries:(id)delegate
 {
-	ASIFormDataRequest* request = [FPUser createTemplateRequestWithAction:@"countries"];
-	if(!delegate)delegate = self;
-	[request setDelegate:delegate];
-	
-	[self retain];		
-
-	[request startAsynchronous];
+    assert(false);
 }
 
 -(void)clearData
 {
-	ASIFormDataRequest* request =[FPUser createTemplateRequestWithAction:@"clearStats"];
-	[request setPostValue:userId forKey:@"userId"];
-	[request setDelegate:self];
-	
-	[self retain];		
-	
-	[request startAsynchronous];
-
-	NSError* error;
-	NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 		
-	NSString* path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"topAll"];
-	[[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-	path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"countries"];
-	[[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-	path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"states"];
-	[[NSFileManager defaultManager] removeItemAtPath:path error:&error];
-	path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"scores"];
-	[[NSFileManager defaultManager] removeItemAtPath:path error:&error];
+    assert(false);
 }
 
 -(void)print
@@ -470,48 +350,6 @@ levelsWoninARow, menusVisited, ownHighscoreBeatenCount, ownBestTimeBeatenCount;
 		FPScores* scores = [levelsProgress objectForKey:key];
 		NSLog(@"key = %@ medal %i, scores = %i, time = %i", key, scores->medal, scores->scores, scores->time);
 	}
-}
-
-- (void)requestFinished:(ASIHTTPRequest *)request
-{
-	if([request isMemberOfClass:[ASIFormDataRequest class]])
-	{
-		ASIFormDataRequest* r = (ASIFormDataRequest*)request;
-		NSString* responseString = [request responseString];
-		NSString* action = [r getPostValueForKey:@"extAction"];
-//		NSLog(@"%@ %@", action, responseString);
-		//names are in base64 for all actions, except scores
-		BOOL nameInBase64 = ![action isEqualToString:@"scores"];
-		NSDictionary* dict = [FPUser parseString:responseString namesInBase64:nameInBase64];
-		NSString* status = [dict objectForKey:@"Status"];
-		if ([status isEqualToString:@"Ok"])
-		{
-			if([action isEqualToString:@"addUser"])
-			{
-				NSString* uId = [dict objectForKey:@"userId"];
-				if(uId)
-					userId = [uId copy];
-				NSLog(@"name %@", [r getPostValueForKey:@"name"]);
-			}
-			
-			//save score tables to filesystem
-			NSString* countStr = nil;
-			countStr = [dict objectForKey:@"count"];
-			if(countStr && action)
-			{
-				NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 		
-				NSString* path = [[paths objectAtIndex:0] stringByAppendingPathComponent:action];
-				[dict writeToFile:path atomically:TRUE];
-			}
-		}
-	}
-	[self autorelease];	
-}
-
-- (void)requestFailed:(ASIHTTPRequest *)request
-{
-	NSLog(@"req failed");
-	[self autorelease];	
 }
 
 //

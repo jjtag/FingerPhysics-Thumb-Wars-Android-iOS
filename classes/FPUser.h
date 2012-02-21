@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIFormDataRequest.h"
 #import "FPScores.h"
 
 enum {WAS_IN_MAIN_MENU = 1, WAS_IN_REGISTRATION = 2, WAS_IN_STATISTICS = 4, WAS_IN_OPTIONS = 8, 
 	  WAS_IN_LEVEL_SELECT = 16};
 
-@interface FPUser : NSObject <NSCoding, ASIHTTPRequestDelegate>
+@interface FPUser : NSObject <NSCoding>
 {
 	NSString* userId;
 	NSString* feintId;

@@ -809,11 +809,6 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 			[GameController unlockAchievement:AC_Welcome];			
 		}		
 		
-		
-		[rc.user countries:nil];
-		if(rc.user.stateId != 0)
-			[rc.user states:nil];
-		
 		game_state = GAME_RESULT_WIN;
 //		[ChampionsSoundMgr pauseMusic];
 		[ChampionsSoundMgr playSound:SND_WIN];

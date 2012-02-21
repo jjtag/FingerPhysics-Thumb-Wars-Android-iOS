@@ -16,7 +16,6 @@
 #import "FPScrollableContainer.h"
 #import "Baloon.h"
 #import <MessageUI/MessageUI.h>
-#import "ASIFormDataRequest.h"
 
 #define FLAG_HEIGHT 25
 #define FLAG_WIDTH 32
@@ -448,8 +447,7 @@ extern const RGBAColor darkBlueColor;
 extern const RGBAColor dirtRedColor;
 
 @interface MenuController : ViewController <ButtonDelegate, AlternateButtonDelegate,
-	MFMailComposeViewControllerDelegate, UIAlertViewDelegate, ASIHTTPRequestDelegate,
-	BaloonDelegate, ScrollableContainerProtocol>
+	MFMailComposeViewControllerDelegate, UIAlertViewDelegate, BaloonDelegate, ScrollableContainerProtocol>
 {	
 	FPScrollableContainer* mainContainer;
 	Image* levelsScrollBack1;

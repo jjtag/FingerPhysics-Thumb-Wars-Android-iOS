@@ -15,7 +15,6 @@
 #import "MenuController.h"
 #import "ChampionsPreferences.h"
 #import "NewsParser.h"
-#import "FlurryAPI.h"
 
 @implementation StartupController
 
@@ -209,13 +208,11 @@
 #endif
 	switch (n) {
 		case BUTTON_BANNER_SHOW:
-			[FlurryAPI logEvent:@"BANNER_SHOW"];
 			[StartupController setBannerShowed:TRUE];
 			[[UIApplication sharedApplication] openURL:url];
 			[self deactivate];
 			break;
 		case BUTTON_BANNER_SKIP:
-			[FlurryAPI logEvent:@"BANNER_SKIP"];
 			[StartupController setBannerShowed:TRUE];
 			[self deactivate];
 			break;

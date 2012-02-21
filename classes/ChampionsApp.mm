@@ -12,11 +12,6 @@
 #import "ChampionsResourceMgr.h"
 #import "ChampionsSoundMgr.h"
 #import "ChampionsPreferences.h"
-#import "FlurryAPI.h"
-
-#ifdef TAPZILLA
-#import "TapZillaCoupon.h"
-#endif
 
 @implementation ChampionsApp
 
@@ -56,14 +51,6 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
 	[super applicationDidFinishLaunching:application];
-#ifdef FREE
-	[FlurryAPI startSession:@"3W2TQ1C1BBNN9ZK7XTCF"];
-#else
-	[FlurryAPI startSession:@"77219ZKM6V5FHXXG8U1E"];
-#endif
-#ifdef TAPZILLA
-	[TapZillaCoupon sharedManager];
-#endif
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
