@@ -1132,6 +1132,7 @@
 		28FD15070DC6FC5B0079059D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		841A35C113FC47E800675EFB /* ko */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ko; path = ko.lproj/level_constr_logo.png; sourceTree = "<group>"; };
+		8424B3D214F3CE6F005B952B /* Localization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Localization.h; path = classes/Localization.h; sourceTree = SOURCE_ROOT; };
 		8427AA5B13FC47450093A0AE /* ko */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ko; path = ko.lproj/loading_screen_01.png; sourceTree = "<group>"; };
 		8431549613FC46D2005A7BC3 /* ko */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ko; path = ko.lproj/play_button_push.png; sourceTree = "<group>"; };
 		843925E613FC45EF00F2FDE4 /* ko */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ko; path = ko.lproj/try_again.png; sourceTree = "<group>"; };
@@ -1904,6 +1905,7 @@
 				EDF93C9711DB8A3200254915 /* FPBanner.m */,
 				EDF93C9E11DB930000254915 /* BannerParser.h */,
 				EDF93C9F11DB930000254915 /* BannerParser.m */,
+				8424B3D214F3CE6F005B952B /* Localization.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
