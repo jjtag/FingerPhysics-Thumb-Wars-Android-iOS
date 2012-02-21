@@ -1,5 +1,7 @@
 #include "ReviewRequest.h"
 
+#import "Localization.h"
+
 //const NSString* KeyReviewed = @"ReviewRequestReviewedForVersion";
 NSString* KeyDontAsk = @"ReviewRequestDontAsk";
 NSString* KeyWinsCount = @"ReviewRequestWinsCount";
@@ -80,9 +82,9 @@ bool ReviewRequest::PlayerWonCheckIfShouldReview()
 void ReviewRequest::AskForReview()
 {
 	ReviewRequestDelegate* delegate = [[ReviewRequestDelegate alloc] init];
-	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"STR_RATE_TITLE", @"Enjoying Finger Physics: Thumb Wars?") 
-					message:NSLocalizedString(@"STR_RATE_MESSAGE", @"If so, please rate this game with 5 stars on the App Store so we can keep the free updates coming.")
-					delegate:delegate cancelButtonTitle:NSLocalizedString(@"STR_RATE_LATER", @"Remind me later") otherButtonTitles:NSLocalizedString(@"STR_RATE_YES", @"Yes, rate it!"), NSLocalizedString(@"STR_RATE_NO", @"Don't ask again"), nil];
+	UIAlertView* alert = [[UIAlertView alloc] initWithTitle:LocalizedString(@"STR_RATE_TITLE", @"Enjoying Finger Physics: Thumb Wars?") 
+					message:LocalizedString(@"STR_RATE_MESSAGE", @"If so, please rate this game with 5 stars on the App Store so we can keep the free updates coming.")
+					delegate:delegate cancelButtonTitle:LocalizedString(@"STR_RATE_LATER", @"Remind me later") otherButtonTitles:LocalizedString(@"STR_RATE_YES", @"Yes, rate it!"), LocalizedString(@"STR_RATE_NO", @"Don't ask again"), nil];
 	[alert show];
 	[alert release];
 }

@@ -26,6 +26,8 @@
 #import "TextScores.h"
 ///TEMP
 
+#import "Localization.h"
+
 RGBAColor magnetBackBlueColor = RGBA_FROM_HEX(39, 96, 255, 255);
 RGBAColor magnetBackRedColor = RGBA_FROM_HEX(255, 81, 95, 255);
 RGBAColor magnetRedColor = RGBA_FROM_HEX(255, 109, 121, 255);
@@ -53,7 +55,7 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 		GameView* view = (GameView*)[gc getView:0];
 		Image* menu = (Image*)[view getChild:VIEW_ELEMENT_WIN_MENU];
 		Text* text = (Text*)[menu getChild:1];
-		[text setString:FORMAT_STRING(NSLocalizedString(@"STR_SCORE", @"Score: %i"), score)];
+		[text setString:FORMAT_STRING(LocalizedString(@"STR_SCORE", @"Score: %i"), score)];
 		//Temp
 		
 		px = [[DynamicArray alloc] init];
@@ -131,12 +133,12 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 	switch (baloon->baloonID)
 	{
 		case STR_TUTORIAL_TUTORIAL_01_01:
-			[Baloon showBaloonWithID:STR_TUTORIAL_TUTORIAL_01_02 Text:NSLocalizedString(@"STR_TUTORIAL_TUTORIAL_01_02", @"Glass blocks break if you touch them.") 
+			[Baloon showBaloonWithID:STR_TUTORIAL_TUTORIAL_01_02 Text:LocalizedString(@"STR_TUTORIAL_TUTORIAL_01_02", @"Glass blocks break if you touch them.") 
 							   Image:[Image createWithResID:IMG_PERSONAGES Quad:IMG_PERSONAGES_dude01] Blocking:TRUE Type:BALOON_MULTIPLE_LAST inView:view Delegate:self];
 			break;			
 			
 		case STR_TUTORIAL_TUTORIAL_10_01:
-			[Baloon showBaloonWithID:STR_TUTORIAL_TUTORIAL_10_02 Text:NSLocalizedString(@"STR_TUTORIAL_TUTORIAL_10_02", @"Built a tower, reach them stars and win!") 
+			[Baloon showBaloonWithID:STR_TUTORIAL_TUTORIAL_10_02 Text:LocalizedString(@"STR_TUTORIAL_TUTORIAL_10_02", @"Built a tower, reach them stars and win!") 
 							   Image:[Image createWithResID:IMG_PERSONAGES Quad:IMG_PERSONAGES_dude01] Blocking:TRUE Type:BALOON_MULTIPLE_LAST inView:view Delegate:self];
 			break;						
 			
@@ -1424,27 +1426,27 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 	TextScores* bonusesAnimation = (TextScores*)[winBox getChildWithName:@"bonusesAnimation"];
 	int animSteps = ((bonusTime > 0) ? 10 : 6);
 	[bonusesAnimation turnMaxAnimSteps:animSteps];
-	[bonusesAnimation setPoints:score-bonusScore prefix:NSLocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
-	[bonusesAnimation addPointsAnim:0 inTime:0.5 prefix:NSLocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
-	[bonusesAnimation addPointsAnim:-(score-bonusScore) inTime:1 prefix:NSLocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
-	[bonusesAnimation addPointsAnim:0 inTime:0.4 prefix:NSLocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
+	[bonusesAnimation setPoints:score-bonusScore prefix:LocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
+	[bonusesAnimation addPointsAnim:0 inTime:0.5 prefix:LocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
+	[bonusesAnimation addPointsAnim:-(score-bonusScore) inTime:1 prefix:LocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
+	[bonusesAnimation addPointsAnim:0 inTime:0.4 prefix:LocalizedString(@"STR_PREF_STAR_BONUS", @"    Star bonus: ")];
 
 	if(bonusTime > 0)
 	{
 		[bonusesAnimation addPointsAnim:bonusScore inTime:0.4 prefix:nil];
-		[bonusesAnimation addPointsAnim:0 inTime:0.5 prefix:NSLocalizedString(@"STR_PREF_TIME_BONUS", @"    Time bonus: ")];	
-		[bonusesAnimation addPointsAnim:-bonusScore inTime:1 prefix:NSLocalizedString(@"STR_PREF_TIME_BONUS", @"    Time bonus: ")];
-		[bonusesAnimation addPointsAnim:0 inTime:0.5 prefix:NSLocalizedString(@"STR_PREF_TIME_BONUS", @"    Time bonus: ")];
+		[bonusesAnimation addPointsAnim:0 inTime:0.5 prefix:LocalizedString(@"STR_PREF_TIME_BONUS", @"    Time bonus: ")];	
+		[bonusesAnimation addPointsAnim:-bonusScore inTime:1 prefix:LocalizedString(@"STR_PREF_TIME_BONUS", @"    Time bonus: ")];
+		[bonusesAnimation addPointsAnim:0 inTime:0.5 prefix:LocalizedString(@"STR_PREF_TIME_BONUS", @"    Time bonus: ")];
 	}
 	else
-		[bonusesAnimation addPointsAnim:0 inTime:2.4 prefix:NSLocalizedString(@"STR_PREF_NO_TIMEBONUS", @"    No time bonus            ")];
+		[bonusesAnimation addPointsAnim:0 inTime:2.4 prefix:LocalizedString(@"STR_PREF_NO_TIMEBONUS", @"    No time bonus            ")];
 	[bonusesAnimation addPointsAnim:0 inTime:0.4 prefix:nil];
 #ifndef FREE
 	if(rc.user.countryId != 0)
-		[bonusesAnimation addPointsAnim:0 inTime:0.01 prefix:NSLocalizedString(@"STR_PREF_SCORE_IMPROVED", @"Team score improved!               ")];
+		[bonusesAnimation addPointsAnim:0 inTime:0.01 prefix:LocalizedString(@"STR_PREF_SCORE_IMPROVED", @"Team score improved!               ")];
 	else
 #endif
-		[bonusesAnimation addPointsAnim:0 inTime:0.01 prefix:NSLocalizedString(@"STR_PREF_FINAL_SCORE", @"   Your final score!               ")];
+		[bonusesAnimation addPointsAnim:0 inTime:0.01 prefix:LocalizedString(@"STR_PREF_FINAL_SCORE", @"   Your final score!               ")];
 	[bonusesAnimation start];
 	
 	FPScores* scores = [rc.user getScoresForMap:gc.selectedMap];

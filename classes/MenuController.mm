@@ -18,6 +18,7 @@
 #import "GameController.h"
 
 #import "FPBanner.h"
+#import "Localization.h"
 
 const int STATES_COUNT = sizeof(states) / sizeof(StateProperties);
 const int COUNTRIES_COUNT = sizeof(countries) / sizeof(CountryProperties);
@@ -280,7 +281,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	
 	if(b && (countries[index].cId == 0 || index >= COUNTRIES_COUNT) )
 	{
-		country_name = NSLocalizedString(@"STR_COUNTRY_DEFAULT", @"Select your country");
+		country_name = LocalizedString(@"STR_COUNTRY_DEFAULT", @"Select your country");
 	}
 	else
 	{
@@ -344,7 +345,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	NSString* state_name;
 	if (b && (states[index].cId == 0 || index >= STATES_COUNT))
 	{
-		state_name = NSLocalizedString(@"STR_STATE_DEFAULT", @"Select your state");
+		state_name = LocalizedString(@"STR_STATE_DEFAULT", @"Select your state");
 	}
 	else
 	{
@@ -459,9 +460,9 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	Text* scoreLabel = [[[Text alloc] initWithFont:font] autorelease];
 	scoreLabel->parentAnchor = scoreLabel->anchor = TOP | LEFT;
 	if(locked)
-		[scoreLabel setString:NSLocalizedString(@"STR_SCORE_LABEL_LOCKED", @"LOCKED")];
+		[scoreLabel setString:LocalizedString(@"STR_SCORE_LABEL_LOCKED", @"LOCKED")];
 	else
-		[scoreLabel setString:NSLocalizedString(@"STR_SCORE_LABEL", @"SCORE")];
+		[scoreLabel setString:LocalizedString(@"STR_SCORE_LABEL", @"SCORE")];
 	scoreLabel->x = 45;
 	scoreLabel->y = -4;
 	[entry addChild:scoreLabel];
@@ -1101,7 +1102,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	statBack2->parentAnchor = statBack2->anchor = BOTTOM | HCENTER;	
 	[statScreen addChild:statBack2];
 	
-	Button* bstat = [MenuController createButtonWithBackTexture:IMG_STAT_BACK text:NSLocalizedString(@"STR_BTN_STATISTICS", @"Statistics") textAngle:-3 textX:3 textY:0 font:FNT_FONTS_002 buttonId:BUTTON_MAIN_SCORES];
+	Button* bstat = [MenuController createButtonWithBackTexture:IMG_STAT_BACK text:LocalizedString(@"STR_BTN_STATISTICS", @"Statistics") textAngle:-3 textX:3 textY:0 font:FNT_FONTS_002 buttonId:BUTTON_MAIN_SCORES];
 	bstat->parentAnchor = bstat->anchor = BOTTOM | RIGHT;
 	bstat->y = -25;
 	bstat->x = -10;
@@ -1209,7 +1210,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	switch (baloon->baloonID)
 	{
 		case BALOON_REGISTRATION_01:
-			[Baloon showBaloonWithID:BALOON_REGISTRATION_02 Text:NSLocalizedString(@"STR_TUTORIAL_TUTORIAL_REGISTRATION_02", @"Join the finger squad, soldier!") 
+			[Baloon showBaloonWithID:BALOON_REGISTRATION_02 Text:LocalizedString(@"STR_TUTORIAL_TUTORIAL_REGISTRATION_02", @"Join the finger squad, soldier!") 
 							   Image:[Image createWithResID:IMG_PERSONAGES Quad:IMG_PERSONAGES_dude02] Blocking:TRUE Type:BALOON_MULTIPLE_LAST inView:[self getView:VIEW_REGISTRATION] Delegate:self];			
 			break;
 		
@@ -1243,14 +1244,14 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	[t2 addKeyFrame:frame];
 	[optionsBack addTimeline:t2];
 	
-	Button* boptions = [MenuController createButtonWithBackTexture:IMG_OPTIONS_ARROW text:NSLocalizedString(@"STR_BTN_OPTIONS", @"Options") textAngle:-3 textX:50 textY:-8 font:FNT_FONTS_002 buttonId:BUTTON_OPTIONS];
+	Button* boptions = [MenuController createButtonWithBackTexture:IMG_OPTIONS_ARROW text:LocalizedString(@"STR_BTN_OPTIONS", @"Options") textAngle:-3 textX:50 textY:-8 font:FNT_FONTS_002 buttonId:BUTTON_OPTIONS];
 	[boptions setDelegate:self];
 	boptions->x = 10;
 	boptions->y = 30;
 	boptions->parentAnchor = boptions->anchor = TOP | HCENTER;
 	[optionsBack addChild:boptions];
 	
-	ToggleButton* bmusic = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_01 Text:NSLocalizedString(@"STR_BTN_MUSIC", @"Music") ID:BUTTON_MUSIC_ONOFF Delegate:self];
+	ToggleButton* bmusic = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_01 Text:LocalizedString(@"STR_BTN_MUSIC", @"Music") ID:BUTTON_MUSIC_ONOFF Delegate:self];
 	bmusic->parentAnchor = TOP | HCENTER;
 	bmusic->anchor = TOP | LEFT;
 	bmusic->y = 120;
@@ -1258,7 +1259,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	bmusic->rotation = - 3;
 	[optionsBack addChild:bmusic];
 	
-	ToggleButton* bsound = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_02 Text:NSLocalizedString(@"STR_BTN_SOUND", @"Sound") ID:BUTTON_SOUND_ONOFF Delegate:self];
+	ToggleButton* bsound = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_02 Text:LocalizedString(@"STR_BTN_SOUND", @"Sound") ID:BUTTON_SOUND_ONOFF Delegate:self];
 	bsound->parentAnchor = TOP | HCENTER;
 	bsound->anchor = TOP | LEFT;
 	bsound->y = 150;
@@ -1357,10 +1358,10 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	optionsBox->parentAnchor = optionsBox->anchor = TOP | HCENTER;
 	optionsBox->y = 20;
 	
-	Button* babout = [MenuController createButtonWithText:NSLocalizedString(@"STR_BTN_ABOUT", NSLocalizedString(@"STR_TITLE_ABOUT", @"About")) fontID:FNT_FONTS_001 ID:BUTTON_ABOUT Delegate:self color:optionsBlueColor];
+	Button* babout = [MenuController createButtonWithText:LocalizedString(@"STR_BTN_ABOUT", LocalizedString(@"STR_TITLE_ABOUT", @"About")) fontID:FNT_FONTS_001 ID:BUTTON_ABOUT Delegate:self color:optionsBlueColor];
 	[optionsBox addChild:babout];
 	
-	Button* bfeedback = [MenuController createButtonWithText:NSLocalizedString(@"STR_BTN_FEEDBACK", @"Finger feedback") fontID:FNT_FONTS_001 ID:BUTTON_FEEDBACK Delegate:self color:optionsBlueColor];
+	Button* bfeedback = [MenuController createButtonWithText:LocalizedString(@"STR_BTN_FEEDBACK", @"Finger feedback") fontID:FNT_FONTS_001 ID:BUTTON_FEEDBACK Delegate:self color:optionsBlueColor];
 	[optionsBox addChild:bfeedback];
 	return optionsBox;
 }
@@ -1382,8 +1383,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	backBeyond->x = -10;
 	[about addChild:backBeyond];
 	
-	BaseElement* titleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_FEEDBACK", NSLocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
-	BaseElement* titleBack2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_FEEDBACK", NSLocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
+	BaseElement* titleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_FEEDBACK", LocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
+	BaseElement* titleBack2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_FEEDBACK", LocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
 	Button* bfeedback = [[Button allocAndAutorelease] initWithUpElement:titleBack DownElement:titleBack2 andID:BUTTON_FEEDBACK];
 	bfeedback->anchor = bfeedback->parentAnchor = TOP | HCENTER;
 	bfeedback->y = 8;
@@ -1400,8 +1401,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	backBeyond2->x = -10;
 	[about addChild:backBeyond2];
 	
-	BaseElement* titleReset = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
-	BaseElement* titleReset2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
+	BaseElement* titleReset = [MenuController createTitle:LocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
+	BaseElement* titleReset2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
 	Button* breset = [[Button allocAndAutorelease] initWithUpElement:titleReset DownElement:titleReset2 andID:BUTTON_CLEAR_PROGRESS];
 	breset->anchor = breset->parentAnchor = TOP | HCENTER;
 	breset->y = 8;
@@ -1416,7 +1417,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	frontBack->y = 10;
 	[about addChild:frontBack];
 	
-	BaseElement* frontTitleBack = [MenuController createTitle:NSLocalizedString(@"STR_BTN_ABOUT", NSLocalizedString(@"STR_TITLE_ABOUT", @"About")) active:TRUE];
+	BaseElement* frontTitleBack = [MenuController createTitle:LocalizedString(@"STR_BTN_ABOUT", LocalizedString(@"STR_TITLE_ABOUT", @"About")) active:TRUE];
 	frontTitleBack->anchor = frontTitleBack->parentAnchor = TOP | HCENTER;
 	frontTitleBack->y = 8;
 	[frontBack addChild:frontTitleBack];
@@ -1424,7 +1425,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	Text* text = [[Text allocAndAutorelease] initWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL]];
 	text->color = blackRGBA;
 	NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];	
-	NSString* aboutText = FORMAT_STRING(NSLocalizedString(@"STR_MENU_ABOUT_TEXT", @"Finger Physics: Thumb Warsn ver. %@n (build %@)n www.mypressok.comn support@mypressok.comn n (c) 2009 PressOk Entertainment.n Published and developed byn PressOK Entertainment.n PressOK is a registeredn trademark or trademark ofn PressOK Entertainment in then United States and/or n other countries.n Finger Physics is a n trademark of Mobliss, Inc.n n n -= Special Thanks =-n Art:n Maxim Banshchikovn n Level Design:n Natalya Omelyanchuk n n Music:n Pavel "viert" Vorobyovn Angelo Taylorn http://angelotaylor.narod.ru/n n"), version, COMPILATION_TIMESTAMP);
+	NSString* aboutText = FORMAT_STRING(LocalizedString(@"STR_MENU_ABOUT_TEXT", @"Finger Physics: Thumb Warsn ver. %@n (build %@)n www.mypressok.comn support@mypressok.comn n (c) 2009 PressOk Entertainment.n Published and developed byn PressOK Entertainment.n PressOK is a registeredn trademark or trademark ofn PressOK Entertainment in then United States and/or n other countries.n Finger Physics is a n trademark of Mobliss, Inc.n n n -= Special Thanks =-n Art:n Maxim Banshchikovn n Level Design:n Natalya Omelyanchuk n n Music:n Pavel \"viert\" Vorobyovn Angelo Taylorn http://angelotaylor.narod.ru/n n"), version, COMPILATION_TIMESTAMP);
 	
 	const float TEXT_BOX_WIDTH = 230.0;
 	
@@ -1468,8 +1469,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	backBeyond2->y = -15;
 	[feedback addChild:backBeyond2];
 	
-	BaseElement* titleReset = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
-	BaseElement* titleReset2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
+	BaseElement* titleReset = [MenuController createTitle:LocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
+	BaseElement* titleReset2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_CLEAR_PROGRESS", @"Clear progress") active:FALSE];
 	Button* breset = [[Button allocAndAutorelease] initWithUpElement:titleReset DownElement:titleReset2 andID:BUTTON_CLEAR_PROGRESS];
 	breset->anchor = breset->parentAnchor = TOP | HCENTER;
 	breset->y = 8;
@@ -1485,8 +1486,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	backBeyond->x = -10;
 	[feedback addChild:backBeyond];
 	
-	BaseElement* titleBack = [MenuController createTitle:NSLocalizedString(@"STR_BTN_ABOUT", NSLocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
-	BaseElement* titleBack2 = [MenuController createTitle:NSLocalizedString(@"STR_BTN_ABOUT", NSLocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
+	BaseElement* titleBack = [MenuController createTitle:LocalizedString(@"STR_BTN_ABOUT", LocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
+	BaseElement* titleBack2 = [MenuController createTitle:LocalizedString(@"STR_BTN_ABOUT", LocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
 	Button* babout = [[Button allocAndAutorelease] initWithUpElement:titleBack DownElement:titleBack2 andID:BUTTON_ABOUT];
 	babout->anchor = babout->parentAnchor = TOP | HCENTER;
 	babout->y = 8;
@@ -1501,7 +1502,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	frontBack->y = 10;
 	[feedback addChild:frontBack];
 	
-	BaseElement* frontTitleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_FEEDBACK", NSLocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:TRUE];
+	BaseElement* frontTitleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_FEEDBACK", LocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:TRUE];
 	frontTitleBack->anchor = frontTitleBack->parentAnchor = TOP | HCENTER;
 	frontTitleBack->y = 8;
 	[frontBack addChild:frontTitleBack];
@@ -1511,7 +1512,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	description->parentAnchor = BOTTOM | HCENTER;
 	description->anchor = TOP | HCENTER;
 	[description setAlignment:LEFT];
-	[description setString:NSLocalizedString(@"STR_NEWS_DESCRIPTION", @"If you want to get the news about upcoming game updates and levels you can follow us on these services:") andWidth:210];
+	[description setString:LocalizedString(@"STR_NEWS_DESCRIPTION", @"If you want to get the news about upcoming game updates and levels you can follow us on these services:") andWidth:210];
 	description->color = blackRGBA;
 	description->y = 20;
 	description->passColorToChilds = FALSE;
@@ -1564,8 +1565,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	backBeyond2->y = -15;
 	[feedback addChild:backBeyond2];
 	
-	BaseElement* titleAbout = [MenuController createTitle:NSLocalizedString(@"STR_BTN_ABOUT", NSLocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
-	BaseElement* titleAbout2 = [MenuController createTitle:NSLocalizedString(@"STR_BTN_ABOUT", NSLocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
+	BaseElement* titleAbout = [MenuController createTitle:LocalizedString(@"STR_BTN_ABOUT", LocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
+	BaseElement* titleAbout2 = [MenuController createTitle:LocalizedString(@"STR_BTN_ABOUT", LocalizedString(@"STR_TITLE_ABOUT", @"About")) active:FALSE];
 	Button* babout = [[Button allocAndAutorelease] initWithUpElement:titleAbout DownElement:titleAbout2 andID:BUTTON_ABOUT];
 	babout->anchor = babout->parentAnchor = TOP | HCENTER;
 	babout->y = 8;
@@ -1581,8 +1582,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	backBeyond->x = -10;
 	[feedback addChild:backBeyond];
 	
-	BaseElement* titleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_FEEDBACK", NSLocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
-	BaseElement* titleBack2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_FEEDBACK", NSLocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
+	BaseElement* titleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_FEEDBACK", LocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
+	BaseElement* titleBack2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_FEEDBACK", LocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback")) active:FALSE];
 	Button* bfeedback = [[Button allocAndAutorelease] initWithUpElement:titleBack DownElement:titleBack2 andID:BUTTON_FEEDBACK];
 	bfeedback->anchor = bfeedback->parentAnchor = TOP | HCENTER;
 	bfeedback->y = 8;
@@ -1607,13 +1608,13 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	description->parentAnchor = BOTTOM | HCENTER;
 	description->anchor = TOP | HCENTER;
 	[description setAlignment:LEFT];
-	[description setString:NSLocalizedString(@"STR_PROGRESS_DESCRIPTION", @"If you want to clear all statistics and level progress, use button below.") andWidth:210];
+	[description setString:LocalizedString(@"STR_PROGRESS_DESCRIPTION", @"If you want to clear all statistics and level progress, use button below.") andWidth:210];
 	description->color = blackRGBA;
 	description->y = 20;
 	description->passColorToChilds = FALSE;
 	[frontTitleBack addChild:description];
 	
-	Button* resetData = [MenuController createButtonWithText:NSLocalizedString(@"STR_BTN_RESET_PROGRESS", @"Reset progress") fontID:FNT_FONTS_001 ID:BUTTON_RESET_PROGRESS Delegate:self color:optionsBlueColor];
+	Button* resetData = [MenuController createButtonWithText:LocalizedString(@"STR_BTN_RESET_PROGRESS", @"Reset progress") fontID:FNT_FONTS_001 ID:BUTTON_RESET_PROGRESS Delegate:self color:optionsBlueColor];
 	resetData->parentAnchor = BOTTOM | HCENTER;
 	resetData->anchor = TOP | HCENTER;
 	resetData->y = 10;
@@ -1687,7 +1688,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	NSDictionary* plistDictionary = [[NSDictionary dictionaryWithContentsOfFile:finalPath] retain];		
 	NSString* version = (NSString*)[plistDictionary objectForKey:@"CFBundleVersion"];	
 	
-	NSString* aboutText = FORMAT_STRING(NSLocalizedString(@"STR_MENU_ABOUT_TEXT", @"Finger Physics: Thumb Warsn ver. %@n (build %@)n www.mypressok.comn support@mypressok.comn n (c) 2009 PressOk Entertainment.n Published and developed byn PressOK Entertainment.n PressOK is a registeredn trademark or trademark ofn PressOK Entertainment in then United States and/or n other countries.n Finger Physics is a n trademark of Mobliss, Inc.n n n -= Special Thanks =-n Art:n Maxim Banshchikovn n Level Design:n Natalya Omelyanchuk n n Music:n Pavel "viert" Vorobyovn Angelo Taylorn http://angelotaylor.narod.ru/n n"), version, COMPILATION_TIMESTAMP);
+	NSString* aboutText = FORMAT_STRING(LocalizedString(@"STR_MENU_ABOUT_TEXT", @"Finger Physics: Thumb Warsn ver. %@n (build %@)n www.mypressok.comn support@mypressok.comn n (c) 2009 PressOk Entertainment.n Published and developed byn PressOK Entertainment.n PressOK is a registeredn trademark or trademark ofn PressOK Entertainment in then United States and/or n other countries.n Finger Physics is a n trademark of Mobliss, Inc.n n n -= Special Thanks =-n Art:n Maxim Banshchikovn n Level Design:n Natalya Omelyanchuk n n Music:n Pavel "viert" Vorobyovn Angelo Taylorn http://angelotaylor.narod.ru/n n"), version, COMPILATION_TIMESTAMP);
 	
 	const float TEXT_BOX_WIDTH = 270.0;
 
@@ -1770,7 +1771,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	labelBack->x = -4;
 	[photoFrame addChild:labelBack];
 
- 	NSString* name = NSLocalizedString(@"STR_UNKNOWN_USER", @"Unknown");
+ 	NSString* name = LocalizedString(@"STR_UNKNOWN_USER", @"Unknown");
 	ChampionsRootController* rc =(ChampionsRootController*)[Application sharedRootController];
 	FPUser* user = [[FPUser alloc] init];
 	[user setDefaults];
@@ -1798,7 +1799,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	text->passTransformationsToChilds = FALSE;
 	[labelBack addChild:text];
 	
-	Text* label = [Text createWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL] andString:NSLocalizedString(@"STR_TAKE_FROM_OPENFEINT", @"Taken from the OpenFeint login")];
+	Text* label = [Text createWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL] andString:LocalizedString(@"STR_TAKE_FROM_OPENFEINT", @"Taken from the OpenFeint login")];
 	label->rotationCenterX = -label->width/2;
 	label->rotationCenterY = -label->height/2;
 	label->scaleX = label->scaleY = 0.75;
@@ -1859,7 +1860,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		[first_screen addChild:region_box];
 		
 		Text* regionLabel = [[Text allocAndAutorelease] initWithFont:small_font];
-		[regionLabel setString:NSLocalizedString(@"STR_REGION_LABEL", @"Your region") andWidth:SCREEN_WIDTH];
+		[regionLabel setString:LocalizedString(@"STR_REGION_LABEL", @"Your region") andWidth:SCREEN_WIDTH];
 		regionLabel->parentAnchor = regionLabel->anchor = TOP | LEFT;
 		regionLabel->x = 4;
 		[region_box addChild:regionLabel];
@@ -1876,7 +1877,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		
 		Text* countryText = [[Text allocAndAutorelease] initWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL]];
 		countryText->color = darkBlueColor;
-		[countryText setString:NSLocalizedString(@"STR_EU", @"European Union") andWidth:SCREEN_WIDTH];
+		[countryText setString:LocalizedString(@"STR_EU", @"European Union") andWidth:SCREEN_WIDTH];
 		countryText->anchor = countryText->parentAnchor = VCENTER | LEFT;
 		countryText->x = 4;
 		[region_field addChild:countryText];
@@ -1906,7 +1907,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	[first_screen addChild:country_box];
 	
 	Text* countryLabel = [[Text allocAndAutorelease] initWithFont:small_font];
-	[countryLabel setString:NSLocalizedString(@"STR_CONTRY_LABEL", @"Your country") andWidth:SCREEN_WIDTH];
+	[countryLabel setString:LocalizedString(@"STR_CONTRY_LABEL", @"Your country") andWidth:SCREEN_WIDTH];
 	countryLabel->parentAnchor = countryLabel->anchor = TOP | LEFT;
 	countryLabel->x = 4;
 	[country_box addChild:countryLabel];
@@ -1944,7 +1945,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		[first_screen addChild:state_box];
 		
 		Text* stateLabel = [[Text allocAndAutorelease] initWithFont:small_font];
-		[stateLabel setString:NSLocalizedString(@"STR_STATE_LABEL", @"Your state") andWidth:SCREEN_WIDTH];
+		[stateLabel setString:LocalizedString(@"STR_STATE_LABEL", @"Your state") andWidth:SCREEN_WIDTH];
 		stateLabel->parentAnchor = countryLabel->anchor = TOP | LEFT;
 		stateLabel->x = 4;
 		[state_box addChild:stateLabel];
@@ -1973,7 +1974,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	idleText2->color = darkGrayColor;
 	idleText2->parentAnchor = idleText2->anchor = TOP | HCENTER;
 	idleText2->y = yoffset;
-	[idleText2 setString:NSLocalizedString(@"STR_INFO_TEXT", @"You can change this information at any time by clicking your avatar in main menu.") andWidth:first_screen->width-50];
+	[idleText2 setString:LocalizedString(@"STR_INFO_TEXT", @"You can change this information at any time by clicking your avatar in main menu.") andWidth:first_screen->width-50];
 	[first_screen addChild:idleText2];
 	
 	[self addView:view withID:VIEW_REGISTRATION];
@@ -2003,7 +2004,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	[front addChild:labelBack];
 
 	Text* text = [[Text allocAndAutorelease] initWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL]];
-	[text setString:NSLocalizedString(@"STR_SELECT_COUNTRY", @"Select your country.") andWidth:200];
+	[text setString:LocalizedString(@"STR_SELECT_COUNTRY", @"Select your country.") andWidth:200];
 	text->color = darkBlueColor;
 	text->anchor = text->parentAnchor = LEFT | VCENTER;
 	[labelBack addChild:text];
@@ -2105,7 +2106,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	[front addChild:labelBack];
 	
 	Text* text = [[Text allocAndAutorelease] initWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL]];
-	[text setString:NSLocalizedString(@"STR_SELECT_STATE", @"Select your state.") andWidth:200];
+	[text setString:LocalizedString(@"STR_SELECT_STATE", @"Select your state.") andWidth:200];
 	text->color = darkBlueColor;
 	text->anchor = text->parentAnchor = LEFT | VCENTER;
 	text->x = 4;
@@ -2247,7 +2248,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	Font* font_small = [ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL];
 	Text* scoreText = [[[Text alloc] initWithFont:font_small] autorelease];
 	scoreText->parentAnchor = scoreText->anchor = VCENTER | LEFT;
-	[scoreText setString:NSLocalizedString(@"STR_SCORE_TEXT", @"Score:") andWidth:80];
+	[scoreText setString:LocalizedString(@"STR_SCORE_TEXT", @"Score:") andWidth:80];
 	[scoreBack addChild:scoreText];
 	scoreText->color = darkBlueColor;
 	scoreText->x = leftOffset+FLAG_WIDTH+rightOffset;
@@ -2327,7 +2328,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	Font* font_small = [ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL];
 	Text* scoreText = [[[Text alloc] initWithFont:font_small] autorelease];
 	scoreText->parentAnchor = scoreText->anchor = VCENTER | LEFT;
-	[scoreText setString:NSLocalizedString(@"STR_SCORE_TEXT", @"Score:") andWidth:80];
+	[scoreText setString:LocalizedString(@"STR_SCORE_TEXT", @"Score:") andWidth:80];
 	[scoreBack addChild:scoreText];
 	scoreText->color = darkBlueColor;
 	scoreText->x = leftOffset+FLAG_WIDTH+rightOffset;
@@ -2410,7 +2411,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	Font* font_small = [ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL];
 	Text* scoreText = [[[Text alloc] initWithFont:font_small] autorelease];
 	scoreText->parentAnchor = scoreText->anchor = VCENTER | LEFT;
-	[scoreText setString:NSLocalizedString(@"STR_SCORE_TEXT", @"Score:") andWidth:80];
+	[scoreText setString:LocalizedString(@"STR_SCORE_TEXT", @"Score:") andWidth:80];
 	[scoreBack addChild:scoreText];
 	scoreText->color = darkBlueColor;
 	scoreText->x = leftOffset+FLAG_WIDTH+rightOffset;
@@ -2466,8 +2467,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		backBeyond->rotationCenterY = backBeyond->height;
 		[scoresContainer addChild:backBeyond];
 		
-		BaseElement* titleBackBeyond = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
-		BaseElement* titleBackBeyond2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
+		BaseElement* titleBackBeyond = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
+		BaseElement* titleBackBeyond2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
 		Button* bnational = [[Button allocAndAutorelease] initWithUpElement:titleBackBeyond DownElement:titleBackBeyond2 andID:BUTTON_NATIONAL_CHAMPIONS];
 		bnational->anchor = bnational->parentAnchor = TOP | HCENTER;
 		bnational->y = 8;
@@ -2485,8 +2486,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	back->rotationCenterY = back->height;
 	[scoresContainer addChild:back];
 	
-	BaseElement* titleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
-	BaseElement* titleBack2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
+	BaseElement* titleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
+	BaseElement* titleBack2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
 	Button* bworld = [[Button allocAndAutorelease] initWithUpElement:titleBack DownElement:titleBack2 andID:BUTTON_WORLD_CHAMPIONS];
 	bworld->anchor = bworld->parentAnchor = TOP | HCENTER;
 	bworld->y = 8;
@@ -2506,7 +2507,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	frontBack->rotationCenterY = frontBack->height;
 	[scoresContainer addChild:frontBack];
 	
-	BaseElement* frontTitleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:TRUE];
+	BaseElement* frontTitleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:TRUE];
 	frontTitleBack->anchor = frontTitleBack->parentAnchor = TOP | HCENTER;
 	frontTitleBack->y = 8;
 	[frontBack addChild:frontTitleBack];
@@ -2595,7 +2596,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 				}
 			}
 #ifdef FREE
-			Button* buyFull = [MenuController createButtonWithText:NSLocalizedString(@"STR_BUTTON_BUY_FULL", @"Buy full version") fontID:FNT_FONTS_001 ID:BUTTON_BUYFULL Delegate:self color:darkBlueColor];
+			Button* buyFull = [MenuController createButtonWithText:LocalizedString(@"STR_BUTTON_BUY_FULL", @"Buy full version") fontID:FNT_FONTS_001 ID:BUTTON_BUYFULL Delegate:self color:darkBlueColor];
 			buyFull->y = scoresList->y + scoresList->height + 20;
 			buyFull->parentAnchor = buyFull->anchor = TOP | HCENTER;
 			[frontBack addChild:buyFull];
@@ -2634,8 +2635,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	backBeyond->rotationCenterY = backBeyond->height;
 	[nationalContainer addChild:backBeyond];
 	
-	BaseElement* titleBackBeyond = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
-	BaseElement* titleBackBeyond2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
+	BaseElement* titleBackBeyond = [MenuController createTitle:LocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
+	BaseElement* titleBackBeyond2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:FALSE];
 	Button* bworld = [[Button allocAndAutorelease] initWithUpElement:titleBackBeyond DownElement:titleBackBeyond2 andID:BUTTON_WORLD_CHAMPIONS];
 	bworld->anchor = bworld->parentAnchor = TOP | HCENTER;
 	bworld->y = 8;
@@ -2655,8 +2656,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	back->rotationCenterY = back->height;
 	[nationalContainer addChild:back];
 	
-	BaseElement* titleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
-	BaseElement* titleBack2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
+	BaseElement* titleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
+	BaseElement* titleBack2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
 	Button* bnational = [[Button allocAndAutorelease] initWithUpElement:titleBack DownElement:titleBack2 andID:BUTTON_TOP_SCORES];
 	bnational->anchor = bnational->parentAnchor = TOP | HCENTER;
 	bnational->y = 8;
@@ -2672,7 +2673,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	frontBack->rotationCenterY = frontBack->height;
 	[nationalContainer addChild:frontBack];
 	
-	BaseElement* frontTitleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:TRUE];
+	BaseElement* frontTitleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:TRUE];
 	frontTitleBack->anchor = frontTitleBack->parentAnchor = TOP | HCENTER;
 	frontTitleBack->y = 8;
 	[frontBack addChild:frontTitleBack];
@@ -2757,7 +2758,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 				}
 			}
 #ifdef FREE
-			Button* buyFull = [MenuController createButtonWithText:NSLocalizedString(@"STR_BUTTON_BUY_FULL", @"Buy full version") fontID:FNT_FONTS_001 ID:BUTTON_BUYFULL Delegate:self color:darkBlueColor];
+			Button* buyFull = [MenuController createButtonWithText:LocalizedString(@"STR_BUTTON_BUY_FULL", @"Buy full version") fontID:FNT_FONTS_001 ID:BUTTON_BUYFULL Delegate:self color:darkBlueColor];
 			buyFull->y = scoresList->y + scoresList->height + 20;
 			buyFull->parentAnchor = buyFull->anchor = TOP | HCENTER;
 			[frontBack addChild:buyFull];
@@ -2797,8 +2798,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		backBeyond->rotationCenterY = backBeyond->height;
 		[worldContainer addChild:backBeyond];
 		
-		BaseElement* titleBackBeyond = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
-		BaseElement* titleBackBeyond2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
+		BaseElement* titleBackBeyond = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
+		BaseElement* titleBackBeyond2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_NATION_CHAMP", @"Weekly National Champions") active:FALSE];
 		Button* bnational = [[Button allocAndAutorelease] initWithUpElement:titleBackBeyond DownElement:titleBackBeyond2 andID:BUTTON_NATIONAL_CHAMPIONS];
 		bnational->anchor = bnational->parentAnchor = TOP | HCENTER;
 		bnational->y = 8;
@@ -2816,8 +2817,8 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	back->rotationCenterY = back->height;
 	[worldContainer addChild:back];
 	
-	BaseElement* titleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
-	BaseElement* titleBack2 = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
+	BaseElement* titleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
+	BaseElement* titleBack2 = [MenuController createTitle:LocalizedString(@"STR_TITLE_WEEK_CHAMP", @"Weekly Champions") active:FALSE];
 	Button* bscores = [[Button allocAndAutorelease] initWithUpElement:titleBack DownElement:titleBack2 andID:BUTTON_TOP_SCORES];
 	bscores->anchor = bscores->parentAnchor = TOP | HCENTER;
 	bscores->y = 8;
@@ -2837,7 +2838,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	frontBack->rotationCenterY = frontBack->height;
 	[worldContainer addChild:frontBack];
 	
-	BaseElement* frontTitleBack = [MenuController createTitle:NSLocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:TRUE];
+	BaseElement* frontTitleBack = [MenuController createTitle:LocalizedString(@"STR_TITLE_WORLD_CHAMP", @"Weekly World Champions") active:TRUE];
 	frontTitleBack->anchor = frontTitleBack->parentAnchor = TOP | HCENTER;
 	frontTitleBack->y = 8;
 	[frontBack addChild:frontTitleBack];
@@ -2923,7 +2924,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 				}
 			}
 #ifdef FREE
-			Button* buyFull = [MenuController createButtonWithText:NSLocalizedString(@"STR_BUTTON_BUY_FULL", @"Buy full version") fontID:FNT_FONTS_001 ID:BUTTON_BUYFULL Delegate:self color:darkBlueColor];
+			Button* buyFull = [MenuController createButtonWithText:LocalizedString(@"STR_BUTTON_BUY_FULL", @"Buy full version") fontID:FNT_FONTS_001 ID:BUTTON_BUYFULL Delegate:self color:darkBlueColor];
 			buyFull->y = scoresList->y + scoresList->height + 20;
 			buyFull->parentAnchor = buyFull->anchor = TOP | HCENTER;
 			[frontBack addChild:buyFull];
@@ -2943,159 +2944,159 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 
 - (void)initLocalizedNames
 {
-    countries[COUNTRY_UNKNOWN].name = NSLocalizedString(@"STR_COUNTRY_0", @"Unknown");
-    countries[COUNTRY_US].name = NSLocalizedString(@"STR_COUNTRY_1", @"United States");
-    countries[COUNTRY_UK].name = NSLocalizedString(@"STR_COUNTRY_2", @"United Kingdom");
-    countries[COUNTRY_CA].name = NSLocalizedString(@"STR_COUNTRY_3", @"Canada");
-    countries[COUNTRY_AU].name = NSLocalizedString(@"STR_COUNTRY_4", @"Australia");
-    countries[COUNTRY_DE].name = NSLocalizedString(@"STR_COUNTRY_5", @"Germany");
-    countries[COUNTRY_SE].name = NSLocalizedString(@"STR_COUNTRY_6", @"Sweden");
-    countries[COUNTRY_FR].name = NSLocalizedString(@"STR_COUNTRY_7", @"France");
-    countries[COUNTRY_AT].name = NSLocalizedString(@"STR_COUNTRY_8", @"Austria");
-    countries[COUNTRY_DK].name = NSLocalizedString(@"STR_COUNTRY_9", @"Denmark");
-    countries[COUNTRY_JP].name = NSLocalizedString(@"STR_COUNTRY_10", @"Japan");
-    countries[COUNTRY_RU].name = NSLocalizedString(@"STR_COUNTRY_11", @"Russia");
-    countries[COUNTRY_UA].name = NSLocalizedString(@"STR_COUNTRY_12", @"Ukraine");
-    countries[COUNTRY_BY].name = NSLocalizedString(@"STR_COUNTRY_13", @"Belarus");
-    countries[COUNTRY_AR].name = NSLocalizedString(@"STR_COUNTRY_14", @"Argentina");
-    countries[COUNTRY_AM].name = NSLocalizedString(@"STR_COUNTRY_15", @"Armenia");
-    countries[COUNTRY_BH].name = NSLocalizedString(@"STR_COUNTRY_16", @"Bahrain");
-    countries[COUNTRY_BE].name = NSLocalizedString(@"STR_COUNTRY_17", @"Belgium");
-    countries[COUNTRY_BW].name = NSLocalizedString(@"STR_COUNTRY_18", @"Botswana");
-    countries[COUNTRY_BR].name = NSLocalizedString(@"STR_COUNTRY_19", @"Brazil");
-    countries[COUNTRY_BG].name = NSLocalizedString(@"STR_COUNTRY_20", @"Bulgaria");
-    countries[COUNTRY_CM].name = NSLocalizedString(@"STR_COUNTRY_21", @"Cameroon");
-    countries[COUNTRY_CF].name = NSLocalizedString(@"STR_COUNTRY_22", @"Central African Rep.");
-    countries[COUNTRY_CL].name = NSLocalizedString(@"STR_COUNTRY_23", @"Chile");
-    countries[COUNTRY_CN].name = NSLocalizedString(@"STR_COUNTRY_24", @"China");
-    countries[COUNTRY_CO].name = NSLocalizedString(@"STR_COUNTRY_25", @"Colombia");
-    countries[COUNTRY_CR].name = NSLocalizedString(@"STR_COUNTRY_26", @"Costa Rica");
-    countries[COUNTRY_HR].name = NSLocalizedString(@"STR_COUNTRY_27", @"Croatia");
-    countries[COUNTRY_CZ].name = NSLocalizedString(@"STR_COUNTRY_28", @"Czech Republic");
-    countries[COUNTRY_DO].name = NSLocalizedString(@"STR_COUNTRY_29", @"Dominican Republic");
-    countries[COUNTRY_EC].name = NSLocalizedString(@"STR_COUNTRY_30", @"Ecuador");
-    countries[COUNTRY_SV].name = NSLocalizedString(@"STR_COUNTRY_31", @"El Salvador");
-    countries[COUNTRY_EG].name = NSLocalizedString(@"STR_COUNTRY_32", @"Egypt");
-    countries[COUNTRY_EE].name = NSLocalizedString(@"STR_COUNTRY_33", @"Estonia");
-    countries[COUNTRY_GQ].name = NSLocalizedString(@"STR_COUNTRY_34", @"Equatorial Guinea");
-    countries[COUNTRY_FI].name = NSLocalizedString(@"STR_COUNTRY_35", @"Finland");
-    countries[COUNTRY_GR].name = NSLocalizedString(@"STR_COUNTRY_36", @"Greece");
-    countries[COUNTRY_GT].name = NSLocalizedString(@"STR_COUNTRY_37", @"Guatemala");
-    countries[COUNTRY_GW].name = NSLocalizedString(@"STR_COUNTRY_38", @"Guinea-Bissau");
-    countries[COUNTRY_GN].name = NSLocalizedString(@"STR_COUNTRY_39", @"Guinea");
-    countries[COUNTRY_HO].name = NSLocalizedString(@"STR_COUNTRY_40", @"Honduras");
-    countries[COUNTRY_HK].name = NSLocalizedString(@"STR_COUNTRY_41", @"Hong Kong");
-    countries[COUNTRY_HU].name = NSLocalizedString(@"STR_COUNTRY_42", @"Hungary");
-    countries[COUNTRY_IN].name = NSLocalizedString(@"STR_COUNTRY_43", @"India");
-    countries[COUNTRY_ID].name = NSLocalizedString(@"STR_COUNTRY_44", @"Indonesia");
-    countries[COUNTRY_IL].name = NSLocalizedString(@"STR_COUNTRY_45", @"Israel");
-    countries[COUNTRY_IE].name = NSLocalizedString(@"STR_COUNTRY_46", @"Ireland");
-    countries[COUNTRY_IT].name = NSLocalizedString(@"STR_COUNTRY_47", @"Italy");
-    countries[COUNTRY_CI].name = NSLocalizedString(@"STR_COUNTRY_48", @"Ivory Coast");
-    countries[COUNTRY_JM].name = NSLocalizedString(@"STR_COUNTRY_49", @"Jamaica");
-    countries[COUNTRY_JO].name = NSLocalizedString(@"STR_COUNTRY_50", @"Jordan");
-    countries[COUNTRY_KE].name = NSLocalizedString(@"STR_COUNTRY_51", @"Kenya");
-    countries[COUNTRY_KO].name = NSLocalizedString(@"STR_COUNTRY_52", @"Korea");
-    countries[COUNTRY_KW].name = NSLocalizedString(@"STR_COUNTRY_53", @"Kuwait");
-    countries[COUNTRY_LV].name = NSLocalizedString(@"STR_COUNTRY_54", @"Latvia");
-    countries[COUNTRY_LI].name = NSLocalizedString(@"STR_COUNTRY_55", @"Liechtenstein");
-    countries[COUNTRY_LT].name = NSLocalizedString(@"STR_COUNTRY_56", @"Lithuania");
-    countries[COUNTRY_LU].name = NSLocalizedString(@"STR_COUNTRY_57", @"Luxembourg");
-    countries[COUNTRY_MO].name = NSLocalizedString(@"STR_COUNTRY_58", @"Macau");
-    countries[COUNTRY_MK].name = NSLocalizedString(@"STR_COUNTRY_59", @"Macedonia");
-    countries[COUNTRY_MG].name = NSLocalizedString(@"STR_COUNTRY_60", @"Madagascar");
-    countries[COUNTRY_MY].name = NSLocalizedString(@"STR_COUNTRY_61", @"Malaysia");
-    countries[COUNTRY_ML].name = NSLocalizedString(@"STR_COUNTRY_62", @"Mali");
-    countries[COUNTRY_MT].name = NSLocalizedString(@"STR_COUNTRY_63", @"Malta");
-    countries[COUNTRY_MA].name = NSLocalizedString(@"STR_COUNTRY_64", @"Morocco");
-    countries[COUNTRY_MU].name = NSLocalizedString(@"STR_COUNTRY_65", @"Mauritius");
-    countries[COUNTRY_MX].name = NSLocalizedString(@"STR_COUNTRY_66", @"Mexico");
-    countries[COUNTRY_MD].name = NSLocalizedString(@"STR_COUNTRY_67", @"Moldova");
-    countries[COUNTRY_ME].name = NSLocalizedString(@"STR_COUNTRY_68", @"Montenegro");
-    countries[COUNTRY_MZ].name = NSLocalizedString(@"STR_COUNTRY_69", @"Mozambique");
-    countries[COUNTRY_NL].name = NSLocalizedString(@"STR_COUNTRY_70", @"Netherlands");
-    countries[COUNTRY_NZ].name = NSLocalizedString(@"STR_COUNTRY_71", @"New Zealand");
-    countries[COUNTRY_NI].name = NSLocalizedString(@"STR_COUNTRY_72", @"Nicaragua");
-    countries[COUNTRY_NE].name = NSLocalizedString(@"STR_COUNTRY_73", @"Niger");
-    countries[COUNTRY_NG].name = NSLocalizedString(@"STR_COUNTRY_74", @"Nigeria");
-    countries[COUNTRY_NO].name = NSLocalizedString(@"STR_COUNTRY_75", @"Norway");
-    countries[COUNTRY_OM].name = NSLocalizedString(@"STR_COUNTRY_76", @"Oman");
-    countries[COUNTRY_PA].name = NSLocalizedString(@"STR_COUNTRY_77", @"Panama");
-    countries[COUNTRY_PY].name = NSLocalizedString(@"STR_COUNTRY_78", @"Paraguay");
-    countries[COUNTRY_PE].name = NSLocalizedString(@"STR_COUNTRY_79", @"Peru");
-    countries[COUNTRY_PH].name = NSLocalizedString(@"STR_COUNTRY_80", @"Philippines");
-    countries[COUNTRY_PL].name = NSLocalizedString(@"STR_COUNTRY_81", @"Poland");
-    countries[COUNTRY_PT].name = NSLocalizedString(@"STR_COUNTRY_82", @"Portugal");
-    countries[COUNTRY_PR].name = NSLocalizedString(@"STR_COUNTRY_83", @"Puerto Rico");
-    countries[COUNTRY_QA].name = NSLocalizedString(@"STR_COUNTRY_84", @"Qatar");
-    countries[COUNTRY_RO].name = NSLocalizedString(@"STR_COUNTRY_85", @"Romania");
-    countries[COUNTRY_SA].name = NSLocalizedString(@"STR_COUNTRY_86", @"Saudi Arabia");
-    countries[COUNTRY_SN].name = NSLocalizedString(@"STR_COUNTRY_87", @"Senegal");
-    countries[COUNTRY_SG].name = NSLocalizedString(@"STR_COUNTRY_88", @"Singapore");
-    countries[COUNTRY_SK].name = NSLocalizedString(@"STR_COUNTRY_89", @"Slovakia");
-    countries[COUNTRY_ZA].name = NSLocalizedString(@"STR_COUNTRY_90", @"South Africa");
-    countries[COUNTRY_ES].name = NSLocalizedString(@"STR_COUNTRY_91", @"Spain");
-    countries[COUNTRY_CH].name = NSLocalizedString(@"STR_COUNTRY_92", @"Switzerland");
-    countries[COUNTRY_TW].name = NSLocalizedString(@"STR_COUNTRY_93", @"Taiwan");
-    countries[COUNTRY_TH].name = NSLocalizedString(@"STR_COUNTRY_94", @"Thailand");
-    countries[COUNTRY_TN].name = NSLocalizedString(@"STR_COUNTRY_95", @"Tunisia");
-    countries[COUNTRY_TR].name = NSLocalizedString(@"STR_COUNTRY_96", @"Turkey");
-    countries[COUNTRY_UG].name = NSLocalizedString(@"STR_COUNTRY_97", @"Uganda");
-    countries[COUNTRY_AE].name = NSLocalizedString(@"STR_COUNTRY_98", @"United Arab Emirates");
-    countries[COUNTRY_UY].name = NSLocalizedString(@"STR_COUNTRY_99", @"Uruguay");
-    countries[COUNTRY_VE].name = NSLocalizedString(@"STR_COUNTRY_100", @"Venezuela");
-    countries[COUNTRY_VN].name = NSLocalizedString(@"STR_COUNTRY_101", @"Vietnam");
+    countries[COUNTRY_UNKNOWN].name = LocalizedString(@"STR_COUNTRY_0", @"Unknown");
+    countries[COUNTRY_US].name = LocalizedString(@"STR_COUNTRY_1", @"United States");
+    countries[COUNTRY_UK].name = LocalizedString(@"STR_COUNTRY_2", @"United Kingdom");
+    countries[COUNTRY_CA].name = LocalizedString(@"STR_COUNTRY_3", @"Canada");
+    countries[COUNTRY_AU].name = LocalizedString(@"STR_COUNTRY_4", @"Australia");
+    countries[COUNTRY_DE].name = LocalizedString(@"STR_COUNTRY_5", @"Germany");
+    countries[COUNTRY_SE].name = LocalizedString(@"STR_COUNTRY_6", @"Sweden");
+    countries[COUNTRY_FR].name = LocalizedString(@"STR_COUNTRY_7", @"France");
+    countries[COUNTRY_AT].name = LocalizedString(@"STR_COUNTRY_8", @"Austria");
+    countries[COUNTRY_DK].name = LocalizedString(@"STR_COUNTRY_9", @"Denmark");
+    countries[COUNTRY_JP].name = LocalizedString(@"STR_COUNTRY_10", @"Japan");
+    countries[COUNTRY_RU].name = LocalizedString(@"STR_COUNTRY_11", @"Russia");
+    countries[COUNTRY_UA].name = LocalizedString(@"STR_COUNTRY_12", @"Ukraine");
+    countries[COUNTRY_BY].name = LocalizedString(@"STR_COUNTRY_13", @"Belarus");
+    countries[COUNTRY_AR].name = LocalizedString(@"STR_COUNTRY_14", @"Argentina");
+    countries[COUNTRY_AM].name = LocalizedString(@"STR_COUNTRY_15", @"Armenia");
+    countries[COUNTRY_BH].name = LocalizedString(@"STR_COUNTRY_16", @"Bahrain");
+    countries[COUNTRY_BE].name = LocalizedString(@"STR_COUNTRY_17", @"Belgium");
+    countries[COUNTRY_BW].name = LocalizedString(@"STR_COUNTRY_18", @"Botswana");
+    countries[COUNTRY_BR].name = LocalizedString(@"STR_COUNTRY_19", @"Brazil");
+    countries[COUNTRY_BG].name = LocalizedString(@"STR_COUNTRY_20", @"Bulgaria");
+    countries[COUNTRY_CM].name = LocalizedString(@"STR_COUNTRY_21", @"Cameroon");
+    countries[COUNTRY_CF].name = LocalizedString(@"STR_COUNTRY_22", @"Central African Rep.");
+    countries[COUNTRY_CL].name = LocalizedString(@"STR_COUNTRY_23", @"Chile");
+    countries[COUNTRY_CN].name = LocalizedString(@"STR_COUNTRY_24", @"China");
+    countries[COUNTRY_CO].name = LocalizedString(@"STR_COUNTRY_25", @"Colombia");
+    countries[COUNTRY_CR].name = LocalizedString(@"STR_COUNTRY_26", @"Costa Rica");
+    countries[COUNTRY_HR].name = LocalizedString(@"STR_COUNTRY_27", @"Croatia");
+    countries[COUNTRY_CZ].name = LocalizedString(@"STR_COUNTRY_28", @"Czech Republic");
+    countries[COUNTRY_DO].name = LocalizedString(@"STR_COUNTRY_29", @"Dominican Republic");
+    countries[COUNTRY_EC].name = LocalizedString(@"STR_COUNTRY_30", @"Ecuador");
+    countries[COUNTRY_SV].name = LocalizedString(@"STR_COUNTRY_31", @"El Salvador");
+    countries[COUNTRY_EG].name = LocalizedString(@"STR_COUNTRY_32", @"Egypt");
+    countries[COUNTRY_EE].name = LocalizedString(@"STR_COUNTRY_33", @"Estonia");
+    countries[COUNTRY_GQ].name = LocalizedString(@"STR_COUNTRY_34", @"Equatorial Guinea");
+    countries[COUNTRY_FI].name = LocalizedString(@"STR_COUNTRY_35", @"Finland");
+    countries[COUNTRY_GR].name = LocalizedString(@"STR_COUNTRY_36", @"Greece");
+    countries[COUNTRY_GT].name = LocalizedString(@"STR_COUNTRY_37", @"Guatemala");
+    countries[COUNTRY_GW].name = LocalizedString(@"STR_COUNTRY_38", @"Guinea-Bissau");
+    countries[COUNTRY_GN].name = LocalizedString(@"STR_COUNTRY_39", @"Guinea");
+    countries[COUNTRY_HO].name = LocalizedString(@"STR_COUNTRY_40", @"Honduras");
+    countries[COUNTRY_HK].name = LocalizedString(@"STR_COUNTRY_41", @"Hong Kong");
+    countries[COUNTRY_HU].name = LocalizedString(@"STR_COUNTRY_42", @"Hungary");
+    countries[COUNTRY_IN].name = LocalizedString(@"STR_COUNTRY_43", @"India");
+    countries[COUNTRY_ID].name = LocalizedString(@"STR_COUNTRY_44", @"Indonesia");
+    countries[COUNTRY_IL].name = LocalizedString(@"STR_COUNTRY_45", @"Israel");
+    countries[COUNTRY_IE].name = LocalizedString(@"STR_COUNTRY_46", @"Ireland");
+    countries[COUNTRY_IT].name = LocalizedString(@"STR_COUNTRY_47", @"Italy");
+    countries[COUNTRY_CI].name = LocalizedString(@"STR_COUNTRY_48", @"Ivory Coast");
+    countries[COUNTRY_JM].name = LocalizedString(@"STR_COUNTRY_49", @"Jamaica");
+    countries[COUNTRY_JO].name = LocalizedString(@"STR_COUNTRY_50", @"Jordan");
+    countries[COUNTRY_KE].name = LocalizedString(@"STR_COUNTRY_51", @"Kenya");
+    countries[COUNTRY_KO].name = LocalizedString(@"STR_COUNTRY_52", @"Korea");
+    countries[COUNTRY_KW].name = LocalizedString(@"STR_COUNTRY_53", @"Kuwait");
+    countries[COUNTRY_LV].name = LocalizedString(@"STR_COUNTRY_54", @"Latvia");
+    countries[COUNTRY_LI].name = LocalizedString(@"STR_COUNTRY_55", @"Liechtenstein");
+    countries[COUNTRY_LT].name = LocalizedString(@"STR_COUNTRY_56", @"Lithuania");
+    countries[COUNTRY_LU].name = LocalizedString(@"STR_COUNTRY_57", @"Luxembourg");
+    countries[COUNTRY_MO].name = LocalizedString(@"STR_COUNTRY_58", @"Macau");
+    countries[COUNTRY_MK].name = LocalizedString(@"STR_COUNTRY_59", @"Macedonia");
+    countries[COUNTRY_MG].name = LocalizedString(@"STR_COUNTRY_60", @"Madagascar");
+    countries[COUNTRY_MY].name = LocalizedString(@"STR_COUNTRY_61", @"Malaysia");
+    countries[COUNTRY_ML].name = LocalizedString(@"STR_COUNTRY_62", @"Mali");
+    countries[COUNTRY_MT].name = LocalizedString(@"STR_COUNTRY_63", @"Malta");
+    countries[COUNTRY_MA].name = LocalizedString(@"STR_COUNTRY_64", @"Morocco");
+    countries[COUNTRY_MU].name = LocalizedString(@"STR_COUNTRY_65", @"Mauritius");
+    countries[COUNTRY_MX].name = LocalizedString(@"STR_COUNTRY_66", @"Mexico");
+    countries[COUNTRY_MD].name = LocalizedString(@"STR_COUNTRY_67", @"Moldova");
+    countries[COUNTRY_ME].name = LocalizedString(@"STR_COUNTRY_68", @"Montenegro");
+    countries[COUNTRY_MZ].name = LocalizedString(@"STR_COUNTRY_69", @"Mozambique");
+    countries[COUNTRY_NL].name = LocalizedString(@"STR_COUNTRY_70", @"Netherlands");
+    countries[COUNTRY_NZ].name = LocalizedString(@"STR_COUNTRY_71", @"New Zealand");
+    countries[COUNTRY_NI].name = LocalizedString(@"STR_COUNTRY_72", @"Nicaragua");
+    countries[COUNTRY_NE].name = LocalizedString(@"STR_COUNTRY_73", @"Niger");
+    countries[COUNTRY_NG].name = LocalizedString(@"STR_COUNTRY_74", @"Nigeria");
+    countries[COUNTRY_NO].name = LocalizedString(@"STR_COUNTRY_75", @"Norway");
+    countries[COUNTRY_OM].name = LocalizedString(@"STR_COUNTRY_76", @"Oman");
+    countries[COUNTRY_PA].name = LocalizedString(@"STR_COUNTRY_77", @"Panama");
+    countries[COUNTRY_PY].name = LocalizedString(@"STR_COUNTRY_78", @"Paraguay");
+    countries[COUNTRY_PE].name = LocalizedString(@"STR_COUNTRY_79", @"Peru");
+    countries[COUNTRY_PH].name = LocalizedString(@"STR_COUNTRY_80", @"Philippines");
+    countries[COUNTRY_PL].name = LocalizedString(@"STR_COUNTRY_81", @"Poland");
+    countries[COUNTRY_PT].name = LocalizedString(@"STR_COUNTRY_82", @"Portugal");
+    countries[COUNTRY_PR].name = LocalizedString(@"STR_COUNTRY_83", @"Puerto Rico");
+    countries[COUNTRY_QA].name = LocalizedString(@"STR_COUNTRY_84", @"Qatar");
+    countries[COUNTRY_RO].name = LocalizedString(@"STR_COUNTRY_85", @"Romania");
+    countries[COUNTRY_SA].name = LocalizedString(@"STR_COUNTRY_86", @"Saudi Arabia");
+    countries[COUNTRY_SN].name = LocalizedString(@"STR_COUNTRY_87", @"Senegal");
+    countries[COUNTRY_SG].name = LocalizedString(@"STR_COUNTRY_88", @"Singapore");
+    countries[COUNTRY_SK].name = LocalizedString(@"STR_COUNTRY_89", @"Slovakia");
+    countries[COUNTRY_ZA].name = LocalizedString(@"STR_COUNTRY_90", @"South Africa");
+    countries[COUNTRY_ES].name = LocalizedString(@"STR_COUNTRY_91", @"Spain");
+    countries[COUNTRY_CH].name = LocalizedString(@"STR_COUNTRY_92", @"Switzerland");
+    countries[COUNTRY_TW].name = LocalizedString(@"STR_COUNTRY_93", @"Taiwan");
+    countries[COUNTRY_TH].name = LocalizedString(@"STR_COUNTRY_94", @"Thailand");
+    countries[COUNTRY_TN].name = LocalizedString(@"STR_COUNTRY_95", @"Tunisia");
+    countries[COUNTRY_TR].name = LocalizedString(@"STR_COUNTRY_96", @"Turkey");
+    countries[COUNTRY_UG].name = LocalizedString(@"STR_COUNTRY_97", @"Uganda");
+    countries[COUNTRY_AE].name = LocalizedString(@"STR_COUNTRY_98", @"United Arab Emirates");
+    countries[COUNTRY_UY].name = LocalizedString(@"STR_COUNTRY_99", @"Uruguay");
+    countries[COUNTRY_VE].name = LocalizedString(@"STR_COUNTRY_100", @"Venezuela");
+    countries[COUNTRY_VN].name = LocalizedString(@"STR_COUNTRY_101", @"Vietnam");
     
-    states[STATE_UNKNOWN].name = NSLocalizedString(@"STR_STATE_0", @"None");
-    states[STATE_ALABAMA].name = NSLocalizedString(@"STR_STATE_1", @"Alabama");
-    states[STATE_ALASKA].name = NSLocalizedString(@"STR_STATE_2", @"Alaska");
-    states[STATE_ARIZONA].name = NSLocalizedString(@"STR_STATE_3", @"Arizona");
-    states[STATE_ARKANSAS].name = NSLocalizedString(@"STR_STATE_4", @"Arkansas");
-    states[STATE_CALIFORNIA].name = NSLocalizedString(@"STR_STATE_5", @"California");
-    states[STATE_COLORADO].name = NSLocalizedString(@"STR_STATE_6", @"Colorado");
-    states[STATE_CONNECTICUT].name = NSLocalizedString(@"STR_STATE_7", @"Connecticut");
-    states[STATE_DELAWARE].name = NSLocalizedString(@"STR_STATE_8", @"Delaware");
-    states[STATE_FLORIDA].name = NSLocalizedString(@"STR_STATE_9", @"Florida");
-    states[STATE_GEORGIA].name = NSLocalizedString(@"STR_STATE_10", @"Georgia");
-    states[STATE_HAWAII].name = NSLocalizedString(@"STR_STATE_11", @"Hawaii");
-    states[STATE_IDAHO].name = NSLocalizedString(@"STR_STATE_12", @"Idaho");
-    states[STATE_ILLINOIS].name = NSLocalizedString(@"STR_STATE_13", @"Illinois");
-    states[STATE_INDIANA].name = NSLocalizedString(@"STR_STATE_14", @"Indiana");
-    states[STATE_IOWA].name = NSLocalizedString(@"STR_STATE_15", @"Iowa");
-    states[STATE_KANSAS].name = NSLocalizedString(@"STR_STATE_16", @"Kansas");
-    states[STATE_KENTUCKY].name = NSLocalizedString(@"STR_STATE_17", @"Kentucky");
-    states[STATE_LOISIANA].name = NSLocalizedString(@"STR_STATE_18", @"Louisiana");
-    states[STATE_MAINE].name = NSLocalizedString(@"STR_STATE_19", @"Maine");
-    states[STATE_MARYLAND].name = NSLocalizedString(@"STR_STATE_20", @"Maryland");
-    states[STATE_MASSACHUSETTS].name = NSLocalizedString(@"STR_STATE_21", @"Massachusetts");
-    states[STATE_MICHIGAN].name = NSLocalizedString(@"STR_STATE_22", @"Michigan");
-    states[STATE_MINNESOTA].name = NSLocalizedString(@"STR_STATE_23", @"Minnesota");
-    states[STATE_MISSISSIPPI].name = NSLocalizedString(@"STR_STATE_24", @"Mississippi");
-    states[STATE_MISSOURI].name = NSLocalizedString(@"STR_STATE_25", @"Missouri");
-    states[STATE_MONTANA].name = NSLocalizedString(@"STR_STATE_26", @"Montana");
-    states[STATE_NEBRASKA].name = NSLocalizedString(@"STR_STATE_27", @"Nebraska");
-    states[STATE_NEVADA].name = NSLocalizedString(@"STR_STATE_28", @"Nevada");
-    states[STATE_NEW_HAMPSHIRE].name = NSLocalizedString(@"STR_STATE_29", @"New Hampshire");
-    states[STATE_NEW_JERSEY].name = NSLocalizedString(@"STR_STATE_30", @"New Jersey");
-    states[STATE_NEW_MEXICO].name = NSLocalizedString(@"STR_STATE_31", @"New Mexico");
-    states[STATE_NEW_YORK].name = NSLocalizedString(@"STR_STATE_32", @"New York");
-    states[STATE_NORTH_CAROLINA].name = NSLocalizedString(@"STR_STATE_33", @"North Carolina");
-    states[STATE_NORTH_DAKOTA].name = NSLocalizedString(@"STR_STATE_34", @"North Dakota");
-    states[STATE_OHIO].name = NSLocalizedString(@"STR_STATE_35", @"Ohio");
-    states[STATE_OKLAHOMA].name = NSLocalizedString(@"STR_STATE_36", @"Oklahoma");
-    states[STATE_OREGON].name = NSLocalizedString(@"STR_STATE_37", @"Oregon");
-    states[STATE_PENNSYLVANIA].name = NSLocalizedString(@"STR_STATE_38", @"Pennsylvania");
-    states[STATE_RHODE_ISLAND].name = NSLocalizedString(@"STR_STATE_39", @"Rhode Island");
-    states[STATE_SOUTH_CAROLINA].name = NSLocalizedString(@"STR_STATE_40", @"South Carolina");
-    states[STATE_SOUTH_DAKOTA].name = NSLocalizedString(@"STR_STATE_41", @"South Dakota");
-    states[STATE_TENNESSEE].name = NSLocalizedString(@"STR_STATE_42", @"Tennessee");
-    states[STATE_TEXAS].name = NSLocalizedString(@"STR_STATE_43", @"Texas");
-    states[STATE_UTAH].name = NSLocalizedString(@"STR_STATE_44", @"Utah");
-    states[STATE_VERMONT].name = NSLocalizedString(@"STR_STATE_45", @"Vermont");
-    states[STATE_VIRGINIA].name = NSLocalizedString(@"STR_STATE_46", @"Virginia");
-    states[STATE_WASHINGTON].name = NSLocalizedString(@"STR_STATE_47", @"Washington");
-    states[STATE_WEST_VIRGINIA].name = NSLocalizedString(@"STR_STATE_48", @"West Virginia");
-    states[STATE_WISCONSIN].name = NSLocalizedString(@"STR_STATE_49", @"Wisconsin");
+    states[STATE_UNKNOWN].name = LocalizedString(@"STR_STATE_0", @"None");
+    states[STATE_ALABAMA].name = LocalizedString(@"STR_STATE_1", @"Alabama");
+    states[STATE_ALASKA].name = LocalizedString(@"STR_STATE_2", @"Alaska");
+    states[STATE_ARIZONA].name = LocalizedString(@"STR_STATE_3", @"Arizona");
+    states[STATE_ARKANSAS].name = LocalizedString(@"STR_STATE_4", @"Arkansas");
+    states[STATE_CALIFORNIA].name = LocalizedString(@"STR_STATE_5", @"California");
+    states[STATE_COLORADO].name = LocalizedString(@"STR_STATE_6", @"Colorado");
+    states[STATE_CONNECTICUT].name = LocalizedString(@"STR_STATE_7", @"Connecticut");
+    states[STATE_DELAWARE].name = LocalizedString(@"STR_STATE_8", @"Delaware");
+    states[STATE_FLORIDA].name = LocalizedString(@"STR_STATE_9", @"Florida");
+    states[STATE_GEORGIA].name = LocalizedString(@"STR_STATE_10", @"Georgia");
+    states[STATE_HAWAII].name = LocalizedString(@"STR_STATE_11", @"Hawaii");
+    states[STATE_IDAHO].name = LocalizedString(@"STR_STATE_12", @"Idaho");
+    states[STATE_ILLINOIS].name = LocalizedString(@"STR_STATE_13", @"Illinois");
+    states[STATE_INDIANA].name = LocalizedString(@"STR_STATE_14", @"Indiana");
+    states[STATE_IOWA].name = LocalizedString(@"STR_STATE_15", @"Iowa");
+    states[STATE_KANSAS].name = LocalizedString(@"STR_STATE_16", @"Kansas");
+    states[STATE_KENTUCKY].name = LocalizedString(@"STR_STATE_17", @"Kentucky");
+    states[STATE_LOISIANA].name = LocalizedString(@"STR_STATE_18", @"Louisiana");
+    states[STATE_MAINE].name = LocalizedString(@"STR_STATE_19", @"Maine");
+    states[STATE_MARYLAND].name = LocalizedString(@"STR_STATE_20", @"Maryland");
+    states[STATE_MASSACHUSETTS].name = LocalizedString(@"STR_STATE_21", @"Massachusetts");
+    states[STATE_MICHIGAN].name = LocalizedString(@"STR_STATE_22", @"Michigan");
+    states[STATE_MINNESOTA].name = LocalizedString(@"STR_STATE_23", @"Minnesota");
+    states[STATE_MISSISSIPPI].name = LocalizedString(@"STR_STATE_24", @"Mississippi");
+    states[STATE_MISSOURI].name = LocalizedString(@"STR_STATE_25", @"Missouri");
+    states[STATE_MONTANA].name = LocalizedString(@"STR_STATE_26", @"Montana");
+    states[STATE_NEBRASKA].name = LocalizedString(@"STR_STATE_27", @"Nebraska");
+    states[STATE_NEVADA].name = LocalizedString(@"STR_STATE_28", @"Nevada");
+    states[STATE_NEW_HAMPSHIRE].name = LocalizedString(@"STR_STATE_29", @"New Hampshire");
+    states[STATE_NEW_JERSEY].name = LocalizedString(@"STR_STATE_30", @"New Jersey");
+    states[STATE_NEW_MEXICO].name = LocalizedString(@"STR_STATE_31", @"New Mexico");
+    states[STATE_NEW_YORK].name = LocalizedString(@"STR_STATE_32", @"New York");
+    states[STATE_NORTH_CAROLINA].name = LocalizedString(@"STR_STATE_33", @"North Carolina");
+    states[STATE_NORTH_DAKOTA].name = LocalizedString(@"STR_STATE_34", @"North Dakota");
+    states[STATE_OHIO].name = LocalizedString(@"STR_STATE_35", @"Ohio");
+    states[STATE_OKLAHOMA].name = LocalizedString(@"STR_STATE_36", @"Oklahoma");
+    states[STATE_OREGON].name = LocalizedString(@"STR_STATE_37", @"Oregon");
+    states[STATE_PENNSYLVANIA].name = LocalizedString(@"STR_STATE_38", @"Pennsylvania");
+    states[STATE_RHODE_ISLAND].name = LocalizedString(@"STR_STATE_39", @"Rhode Island");
+    states[STATE_SOUTH_CAROLINA].name = LocalizedString(@"STR_STATE_40", @"South Carolina");
+    states[STATE_SOUTH_DAKOTA].name = LocalizedString(@"STR_STATE_41", @"South Dakota");
+    states[STATE_TENNESSEE].name = LocalizedString(@"STR_STATE_42", @"Tennessee");
+    states[STATE_TEXAS].name = LocalizedString(@"STR_STATE_43", @"Texas");
+    states[STATE_UTAH].name = LocalizedString(@"STR_STATE_44", @"Utah");
+    states[STATE_VERMONT].name = LocalizedString(@"STR_STATE_45", @"Vermont");
+    states[STATE_VIRGINIA].name = LocalizedString(@"STR_STATE_46", @"Virginia");
+    states[STATE_WASHINGTON].name = LocalizedString(@"STR_STATE_47", @"Washington");
+    states[STATE_WEST_VIRGINIA].name = LocalizedString(@"STR_STATE_48", @"West Virginia");
+    states[STATE_WISCONSIN].name = LocalizedString(@"STR_STATE_49", @"Wisconsin");
 }
 
 - (id)initWithParent:(ViewController*)p
@@ -3287,7 +3288,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		}
 		case BUTTON_RESET_PROGRESS:
 		{
-			[[[UIAlertView alloc] initWithTitle:CLEAR_DATA_STRING message:NSLocalizedString(@"STR_CLEAR_WARNING", @"Are you sure you want to clear level progress and user statistics?") delegate:self cancelButtonTitle:NSLocalizedString(@"STR_CLEAR_YES", @"No") otherButtonTitles:NSLocalizedString(@"STR_CLEAR_NO", @"Yes"), nil] show];
+			[[[UIAlertView alloc] initWithTitle:CLEAR_DATA_STRING message:LocalizedString(@"STR_CLEAR_WARNING", @"Are you sure you want to clear level progress and user statistics?") delegate:self cancelButtonTitle:LocalizedString(@"STR_CLEAR_YES", @"No") otherButtonTitles:LocalizedString(@"STR_CLEAR_NO", @"Yes"), nil] show];
 			break;
 		}			
 		case BUTTON_FACEBOOK:
@@ -3306,7 +3307,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		case BUTTON_MAIL:	
 		{
 			NSString* to = @"support@pressokentertainment.com";
-			NSString* subject = NSLocalizedString(@"STR_TITLE_FEEDBACK", NSLocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback"));
+			NSString* subject = LocalizedString(@"STR_TITLE_FEEDBACK", LocalizedString(@"STR_FEEDBACK_SUBJECT", @"Finger Feedback"));
 			NSString* body = @"";
 			[ChampionsRootController mailWithSubject:subject body:body to:to isHTML:TRUE delegate:self];			
 			break;

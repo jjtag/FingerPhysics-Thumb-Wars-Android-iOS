@@ -16,6 +16,8 @@
 #import "ChampionsPreferences.h"
 #import "NewsParser.h"
 
+#import "Localization.h"
+
 @implementation StartupController
 
 -(NSString*)getNews
@@ -26,7 +28,7 @@
 //	NSData* data = [NSData dataWithContentsOfFile:path];
 	NSArray* newsArray = [NSArray arrayWithContentsOfFile:path];
 	if(!newsArray)
-		return NSLocalizedString(@"STR_NEWS_DEFAULT", @"[#043C87]Just like in Finger Physics: Finger Fun, your 5 star reviews ensure we provide constant updates and more levels to Finger Physics: Thumb Wars. Enjoy the battle!!!");
+		return LocalizedString(@"STR_NEWS_DEFAULT", @"[#043C87]Just like in Finger Physics: Finger Fun, your 5 star reviews ensure we provide constant updates and more levels to Finger Physics: Thumb Wars. Enjoy the battle!!!");
 //	else
 //		NewsParser* newsParser = [[[NewsParser alloc] initWithData:data] autorelease];
 //	
@@ -63,7 +65,7 @@
 		[element getCurrentTimeline].delegate = self;
 		[startView addChild:element];
 		
-		BaseElement* titleNews = [MenuController createTitle:NSLocalizedString(@"STR_NEWS_TITLE", @"News") active:TRUE];		
+		BaseElement* titleNews = [MenuController createTitle:LocalizedString(@"STR_NEWS_TITLE", @"News") active:TRUE];		
 		titleNews->anchor = titleNews->parentAnchor = TOP | HCENTER;
 		titleNews->y = 150.0;
 		[element addChild:titleNews];

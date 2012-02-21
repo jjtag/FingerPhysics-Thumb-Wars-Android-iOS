@@ -24,6 +24,8 @@
 #import "TextScores.h"
 #import "ReviewRequest.h"
 
+#import "Localization.h"
+
 RGBAColor greenColor = RGBA_FROM_HEX(133, 166, 3, 255);
 RGBAColor three_color = RGBA_FROM_HEX(198, 214, 16, 255);
 RGBAColor three_color_a = RGBA_FROM_HEX(198, 214, 16, 0);
@@ -300,7 +302,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	bestScoreLabel->x = 65.0;
 	bestScoreLabel->y = 55.0;
 	bestScoreLabel->rotation = -4.0;
-	[bestScoreLabel setString:NSLocalizedString(@"STR_WIN_BEST_SCORE", @"Your Best Score")];
+	[bestScoreLabel setString:LocalizedString(@"STR_WIN_BEST_SCORE", @"Your Best Score")];
 	[bestScoreBack addChild:bestScoreLabel];
 	[pauseMenu addChild:bestScoreBack];			
 
@@ -327,7 +329,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	Text* pauseLabel = [[Text allocAndAutorelease] initWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001]];
 	pauseLabel->color = MakeRGBA(0.4, 0.4, 0.4, 1.0);
 	pauseLabel->x = 30.0;
-	[pauseLabel setString:NSLocalizedString(@"STR_PAUSE_LABEL", @"Pause Menu")];
+	[pauseLabel setString:LocalizedString(@"STR_PAUSE_LABEL", @"Pause Menu")];
 	pauseLabel->anchor = pauseLabel->parentAnchor = CENTER;
 	[pauseTitle addChild:pauseLabel];
 	[pauseMenu addChild:pauseTitle];			
@@ -345,17 +347,17 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	
 	VBox* box = [[VBox allocAndAutorelease] initWithOffset:3.0 Align:HCENTER Width:SCREEN_WIDTH];
 	
-	Button* resumeb = [MenuController createButtonWithText:NSLocalizedString(@"STR_RESUME_LABEL", @"Back to Game") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_RESUME Delegate:self color:pauseBlueColor];
+	Button* resumeb = [MenuController createButtonWithText:LocalizedString(@"STR_RESUME_LABEL", @"Back to Game") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_RESUME Delegate:self color:pauseBlueColor];
 	[box addChild:resumeb];
 	
-	Button* restartb = [MenuController createButtonWithText:NSLocalizedString(@"STR_RESTART_LABEL", @"Restart") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_RESTART Delegate:self color:pauseBlueColor];
+	Button* restartb = [MenuController createButtonWithText:LocalizedString(@"STR_RESTART_LABEL", @"Restart") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_RESTART Delegate:self color:pauseBlueColor];
 	[box addChild:restartb];		
 	
 	int tutorialLevel = rc.user.tutorialLevel;
 	
 	if (tutorialLevel == UNDEFINED)
 	{
-		Button* nextWinb = [MenuController createButtonWithText:NSLocalizedString(@"STR_NEXT_LEVEL", @"Next level") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_NEXT Delegate:self color:pauseBlueColor];
+		Button* nextWinb = [MenuController createButtonWithText:LocalizedString(@"STR_NEXT_LEVEL", @"Next level") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_NEXT Delegate:self color:pauseBlueColor];
 		[box addChild:nextWinb];		
 	}
 	else
@@ -363,7 +365,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 		Font* font = [ChampionsResourceMgr getResource:FNT_PAUSE_MENU_BIG_FONT]; 
 		Text* tn = [[Text allocAndAutorelease] initWithFont:font];
 		tn->color = pauseBlueColor;
-		[tn setString:NSLocalizedString(@"STR_NEXT_LEVEL", @"Next level")];
+		[tn setString:LocalizedString(@"STR_NEXT_LEVEL", @"Next level")];
 		[box addChild:tn];
 		tn->passColorToChilds = FALSE;
 
@@ -379,7 +381,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 		//Button* selectlvlb = [MenuController createButtonWithText:@"Select level" fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_SELECT_LEVEL Delegate:self color:pauseBlueColor];
 		//[box addChild:selectlvlb];	
 
-		Button* mainmenub = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:pauseBlueColor];
+		Button* mainmenub = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:pauseBlueColor];
 		[box addChild:mainmenub];		
 	}
 	else
@@ -387,7 +389,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 		Font* font = [ChampionsResourceMgr getResource:FNT_PAUSE_MENU_BIG_FONT]; 
 		Text* tn = [[Text allocAndAutorelease] initWithFont:font];
 		tn->color = pauseBlueColor;
-		[tn setString:NSLocalizedString(@"STR_MAIN_MENU", @"Main Menu")];
+		[tn setString:LocalizedString(@"STR_MAIN_MENU", @"Main Menu")];
 		[box addChild:tn];
 		tn->passColorToChilds = FALSE;
 		Image* ts = [Image createWithResID:IMG_PAUSE_NON_ACTIVE_MENU_02];
@@ -396,7 +398,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 		[tn addChild:ts];
 	}
 	
-	Button* optionsb = [MenuController createButtonWithText:NSLocalizedString(@"STR_OPTIONS", @"Options") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_OPTIONS Delegate:self color:pauseBlueColor];
+	Button* optionsb = [MenuController createButtonWithText:LocalizedString(@"STR_OPTIONS", @"Options") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_OPTIONS Delegate:self color:pauseBlueColor];
 	[box addChild:optionsb];			
 	
 #ifdef CHEAT
@@ -435,7 +437,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	pauseLabel = [[Text allocAndAutorelease] initWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001]];
 	pauseLabel->color = MakeRGBA(0.4, 0.4, 0.4, 1.0);
 	pauseLabel->x = 30.0;
-	[pauseLabel setString:NSLocalizedString(@"STR_OPTIONS", @"Options")];
+	[pauseLabel setString:LocalizedString(@"STR_OPTIONS", @"Options")];
 	pauseLabel->anchor = pauseLabel->parentAnchor = CENTER;
 	[pauseTitle addChild:pauseLabel];
 	[pauseMenu addChild:pauseTitle];			
@@ -455,7 +457,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	b = [self createPauseButton:IMG_PAUSEMENU_PLAY_BUTTON withID:BUTTON_PAUSE_RESUME];
 	[pauseTimerBack addChild:b];	
 	
-	ToggleButton* bmusic = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_01 Text:NSLocalizedString(@"STR_OPTIONS_MUSIC", @"Music") ID:BUTTON_PAUSE_MUSIC_ONOFF Delegate:self];
+	ToggleButton* bmusic = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_01 Text:LocalizedString(@"STR_OPTIONS_MUSIC", @"Music") ID:BUTTON_PAUSE_MUSIC_ONOFF Delegate:self];
 	bmusic->parentAnchor = TOP | HCENTER;
 	bmusic->anchor = TOP | LEFT;
 	bmusic->y = 180;
@@ -463,7 +465,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	bmusic->rotation = - 3;
 	[pauseMenu addChild:bmusic];
 	
-	ToggleButton* bsound = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_02 Text:NSLocalizedString(@"STR_OPTIONS_SOUND", @"Sound") ID:BUTTON_PAUSE_SOUND_ONOFF Delegate:self];
+	ToggleButton* bsound = [MenuController createToggleButtonWithBack:IMG_TITLE_BIG toggleFront:IMG_RED_LINE_02 Text:LocalizedString(@"STR_OPTIONS_SOUND", @"Sound") ID:BUTTON_PAUSE_SOUND_ONOFF Delegate:self];
 	bsound->parentAnchor = TOP | HCENTER;
 	bsound->anchor = TOP | LEFT;
 	bsound->y = 210;
@@ -534,14 +536,14 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	winBox->y = -100;	
 	Text* upgradeText = [[Text allocAndAutorelease] initWithFont:font_pause_menu];
 	[upgradeText setAlignment:HCENTER];
-	[upgradeText setString:NSLocalizedString(@"STR_UPGRADE_TEXT", @"Upgrade to Full to compete in weekly Thumb Wars!") andWidth:280.0];
+	[upgradeText setString:LocalizedString(@"STR_UPGRADE_TEXT", @"Upgrade to Full to compete in weekly Thumb Wars!") andWidth:280.0];
 	upgradeText->scaleX = upgradeText->scaleY = 0.75;
 	upgradeText->passColorToChilds = FALSE;
 	upgradeText->color = bestScoreColor;
 	
 	Text* upgradeTextPressed = [[Text allocAndAutorelease] initWithFont:font_pause_menu];
 	[upgradeTextPressed setAlignment:HCENTER];
-	[upgradeTextPressed setString:NSLocalizedString(@"STR_UPGRADE_TEXT", @"Upgrade to Full to compete in weekly Thumb Wars!") andWidth:280.0];
+	[upgradeTextPressed setString:LocalizedString(@"STR_UPGRADE_TEXT", @"Upgrade to Full to compete in weekly Thumb Wars!") andWidth:280.0];
 	upgradeTextPressed->scaleX = upgradeTextPressed->scaleY = 0.90;
 	upgradeTextPressed->passColorToChilds = FALSE;
 	upgradeTextPressed->color = bestScoreColor;
@@ -642,13 +644,13 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 //	winScore->y = 80.0;
 	[winScore setName:@"winScore"];
 	
-//	Button* menuWin = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:grayColor];
+//	Button* menuWin = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:grayColor];
 //	[winBox addChild:menuWin];
 	
-//	Button* restartWin = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_RESTART", @"Play Again") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_WIN_RESTART Delegate:self color:grayColor];
+//	Button* restartWin = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_RESTART", @"Play Again") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_WIN_RESTART Delegate:self color:grayColor];
 //	[winBox addChild:restartWin];
 	
-	TextScores* bonusesAnimation = [TextScores createWithFont:font_pause_menu points:0 prefix:NSLocalizedString(@"STR_STAR_BONUS", @"Star bonus: ")];
+	TextScores* bonusesAnimation = [TextScores createWithFont:font_pause_menu points:0 prefix:LocalizedString(@"STR_STAR_BONUS", @"Star bonus: ")];
 	[bonusesAnimation setName:@"bonusesAnimation"];
 	bonusesAnimation->color = bestScoreColor;
 	[winBox addChild:bonusesAnimation];
@@ -666,12 +668,12 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	}
 	[winBox addChild:lights];
 	
-	Text* best_score = [Text createWithFont:font_pause_menu andString:FORMAT_STRING(NSLocalizedString(@"STR_BEST_SCORE", @"Best score: %@"), bestScore)];
+	Text* best_score = [Text createWithFont:font_pause_menu andString:FORMAT_STRING(LocalizedString(@"STR_BEST_SCORE", @"Best score: %@"), bestScore)];
 	best_score->color = grayColor;
 	best_score->scaleX = best_score->scaleY = 0.75;
 	[winBox addChild:best_score];
 	
-	Button* nextWin = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_WIN_CONTINUE", @"Continue") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_WIN_CONTINUE Delegate:self color:grayColor];
+	Button* nextWin = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_WIN_CONTINUE", @"Continue") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_WIN_CONTINUE Delegate:self color:grayColor];
 	[winBox addChild:nextWin];
 	
 	[winMenu addChild:winBox];
@@ -685,7 +687,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	
 	if (tutorialLevel == UNDEFINED)
 	{
-		Button* menuWin2 = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:grayColor];
+		Button* menuWin2 = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:grayColor];
 		[winBox2 addChild:menuWin2];
 	}
 	else
@@ -693,7 +695,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 		Font* font = [ChampionsResourceMgr getResource:FNT_PAUSE_MENU_BIG_FONT]; 
 		Text* tn = [[Text allocAndAutorelease] initWithFont:font];
 		tn->color = grayColor;
-		NSString* str = NSLocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu");
+		NSString* str = LocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu");
 		[tn setString:str];
 		[winBox2 addChild:tn];
 		tn->passColorToChilds = FALSE;
@@ -705,10 +707,10 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 		
 	}
 
-	Button* restartWin2 = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_RESTART", @"Play Again") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_WIN_RESTART Delegate:self color:grayColor];
+	Button* restartWin2 = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_RESTART", @"Play Again") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_WIN_RESTART Delegate:self color:grayColor];
 	[winBox2 addChild:restartWin2];
 
-	Button* nextWin2 = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_NEXT_LEVEL", @"Next Level") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_NEXT Delegate:self color:grayColor];
+	Button* nextWin2 = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_NEXT_LEVEL", @"Next Level") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_NEXT Delegate:self color:grayColor];
 	[winBox2 addChild:nextWin2];
 
 	[winMenu addChild:winBox2];
@@ -729,10 +731,10 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 	VBox* vbox = [[[VBox alloc] initWithOffset:10 Align:HCENTER Width:loseMenu->width] autorelease];
 	vbox->parentAnchor = vbox->anchor = CENTER;
 	
-	Button* menuLose = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:grayColor];
+	Button* menuLose = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_MAIN_MENU", @"Main Menu") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_PAUSE_EXIT Delegate:self color:grayColor];
 	[vbox addChild:menuLose];
 	
-	Button* restartLose = [MenuController createButtonWithText:NSLocalizedString(@"STR_MENU_RESTART", @"Play Again") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_LOSE_RESTART Delegate:self color:grayColor];
+	Button* restartLose = [MenuController createButtonWithText:LocalizedString(@"STR_MENU_RESTART", @"Play Again") fontID:FNT_PAUSE_MENU_BIG_FONT ID:BUTTON_LOSE_RESTART Delegate:self color:grayColor];
 	[vbox addChild:restartLose];
 	
 	[loseMenu addChild:vbox];	

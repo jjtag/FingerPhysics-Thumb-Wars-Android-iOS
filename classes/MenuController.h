@@ -26,13 +26,13 @@
 #define optionsBackYPos -65
 #define statScreenYPos 60
 #define statTablesYPos 120
-#define STRING_NO_DATA NSLocalizedString(@"STR_NO_DATA", @"You need a data connection to check the rankings. Hop to it finger soldier!")
+#define STRING_NO_DATA LocalizedString(@"STR_NO_DATA", @"You need a data connection to check the rankings. Hop to it finger soldier!")
 #define MODS_COUNT 2
 #define MAP_ENTRY_HEIGHT 60
 #define DEFAULT_MAPS_UNLOCKED 4
 #define MAPS_UNLOCK_FOR_LVL_COMPLETE 1
-#define CLEAR_DATA_STRING NSLocalizedString(@"STR_CLEAR_DATA", @"Clear all progress?")
-#define STRING_REGISTRATION_INSPIRING_TEXT NSLocalizedString(@"STR_SELECT_SQUAD", @"Select your finger squad:")
+#define CLEAR_DATA_STRING LocalizedString(@"STR_CLEAR_DATA", @"Clear all progress?")
+#define STRING_REGISTRATION_INSPIRING_TEXT LocalizedString(@"STR_SELECT_SQUAD", @"Select your finger squad:")
 
 enum {VIEW_MAIN_MENU, VIEW_OPTIONS, VIEW_HELP, VIEW_ABOUT, VIEW_REGISTRATION,
 		VIEW_COUNTRY_LIST, VIEW_STATE_LIST, VIEW_TOP_SCORES, VIEW_NATIONAL_CHAMPIONS, VIEW_WORLD_CHAMPIONS, VIRTUAL_VIEW_LEVEL_SELECT};
@@ -259,20 +259,20 @@ const int eu[] =
 
 //const StateProperties countries[] = 
 //{
-//	{COUNTRY_UNKNOWN, NSLocalizedString(@"STR_COUNTRY_0", @"Unknown"), @""},
-//	{COUNTRY_US, NSLocalizedString(@"STR_COUNTRY_1", @"United States"), @"United-States-Flag-32.png"},
-//	{COUNTRY_UK, NSLocalizedString(@"STR_COUNTRY_2", @"United Kingdom"), @"United-Kingdom-flag-32.png"},
-//	{COUNTRY_DE, NSLocalizedString(@"STR_COUNTRY_5", @"Germany"), @"Germany-Flag-32.png"},
-//	{COUNTRY_SE, NSLocalizedString(@"STR_COUNTRY_6", @"Sweden"), @"Sweden-Flag-32.png"},
-//	{COUNTRY_AU, NSLocalizedString(@"STR_COUNTRY_4", @"Australia"), @"Australia-Flag-32.png"},
-//	{COUNTRY_AT, NSLocalizedString(@"STR_COUNTRY_8", @"Austria"), @"Austria-Flag-32.png"},
-//	{COUNTRY_DK, NSLocalizedString(@"STR_COUNTRY_9", @"Denmark"), @"Denmark-Flag-32.png"},
-//	{COUNTRY_CA, NSLocalizedString(@"STR_COUNTRY_3", @"Canada"), @"Canada-Flag-32.png"},
-//	{COUNTRY_JP, NSLocalizedString(@"STR_COUNTRY_10", @"Japan"), @"Japan-Flag-32.png"},
-//	{COUNTRY_FR, NSLocalizedString(@"STR_COUNTRY_7", @"France"), @"France-Flag-32.png"},
-//	{COUNTRY_IE, NSLocalizedString(@"STR_COUNTRY_46", @"Ireland"), @"Ireland-Flag-32.png"},
-//	{COUNTRY_BY, NSLocalizedString(@"STR_COUNTRY_13", @"Belarus"), @"Belarus-Flag-32.png"},
-//	{COUNTRY_RU, NSLocalizedString(@"STR_COUNTRY_11", @"Russia"), @"Russia-Flag-32.png"},
+//	{COUNTRY_UNKNOWN, LocalizedString(@"STR_COUNTRY_0", @"Unknown"), @""},
+//	{COUNTRY_US, LocalizedString(@"STR_COUNTRY_1", @"United States"), @"United-States-Flag-32.png"},
+//	{COUNTRY_UK, LocalizedString(@"STR_COUNTRY_2", @"United Kingdom"), @"United-Kingdom-flag-32.png"},
+//	{COUNTRY_DE, LocalizedString(@"STR_COUNTRY_5", @"Germany"), @"Germany-Flag-32.png"},
+//	{COUNTRY_SE, LocalizedString(@"STR_COUNTRY_6", @"Sweden"), @"Sweden-Flag-32.png"},
+//	{COUNTRY_AU, LocalizedString(@"STR_COUNTRY_4", @"Australia"), @"Australia-Flag-32.png"},
+//	{COUNTRY_AT, LocalizedString(@"STR_COUNTRY_8", @"Austria"), @"Austria-Flag-32.png"},
+//	{COUNTRY_DK, LocalizedString(@"STR_COUNTRY_9", @"Denmark"), @"Denmark-Flag-32.png"},
+//	{COUNTRY_CA, LocalizedString(@"STR_COUNTRY_3", @"Canada"), @"Canada-Flag-32.png"},
+//	{COUNTRY_JP, LocalizedString(@"STR_COUNTRY_10", @"Japan"), @"Japan-Flag-32.png"},
+//	{COUNTRY_FR, LocalizedString(@"STR_COUNTRY_7", @"France"), @"France-Flag-32.png"},
+//	{COUNTRY_IE, LocalizedString(@"STR_COUNTRY_46", @"Ireland"), @"Ireland-Flag-32.png"},
+//	{COUNTRY_BY, LocalizedString(@"STR_COUNTRY_13", @"Belarus"), @"Belarus-Flag-32.png"},
+//	{COUNTRY_RU, LocalizedString(@"STR_COUNTRY_11", @"Russia"), @"Russia-Flag-32.png"},
 //};
 
 static CountryProperties countries[] =
