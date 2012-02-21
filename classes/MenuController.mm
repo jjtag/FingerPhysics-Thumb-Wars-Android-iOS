@@ -3207,11 +3207,10 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		int tutorialLevel = rc.user.tutorialLevel;	
 		if (tutorialLevel >= TUTORIAL_LEVELS_COUNT)
 		{
-			rc.user.tutorialLevel = UNDEFINED;	
-			[Baloon showBaloonWithID:BALOON_REGISTRATION_01 Text:NSLocalizedString(@"STR_TUTORIAL_TUTORIAL_REGISTRATION_01", @"Welcome to Finger Physics: Thumb Wars.  I'm here to help you win.  Let's get moving!") 
-							   Image:[Image createWithResID:IMG_PERSONAGES Quad:IMG_PERSONAGES_dude02] Blocking:TRUE Type:BALOON_MULTIPLE_FIRST inView:[self getView:VIEW_REGISTRATION] Delegate:self];			
+			rc.user.tutorialLevel = UNDEFINED;			
 		}
-		[self showView:VIEW_REGISTRATION];
+		// [self showView:VIEW_REGISTRATION];
+        [self onButtonPressed:BUTTON_REGISTRATION_CANCEL];
 	}
 #ifdef FREE
 	[rc setAdWhirlBanner];
@@ -3349,45 +3348,45 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		
 		case BUTTON_MAIN_SCORES:	
 		{		
-			[MenuController handleMenuVisited:WAS_IN_STATISTICS];
-			
-			if(statScreen->y == statScreenYPos)
-			{
-				ChampionsRootController* rc =(ChampionsRootController*)[Application sharedRootController];
-				if(rc && rc.user)
-				{
-					if((scoreTables & TOP_ALL) != TOP_ALL)
-					{
-						[rc startLoadingAnimation];
-						[rc.user topAll:self];
-					}
-
-					if((scoreTables & TOP_WORLD) != TOP_WORLD)
-					{
-						[rc startLoadingAnimation];
-						[rc.user countries:self];
-					}
-					
-					if(rc.user.countryId == COUNTRY_US && (scoreTables & TOP_NATIONAL) != TOP_NATIONAL)
-					{					
-						[rc startLoadingAnimation];
-						[rc.user states:self];
-					}
-				}
-				[statScreen playTimeline:0];
-				mainContainer->maxTouchMoveLength = 0;
-			}
-			else
-			{
-				[statScreen playTimeline:1];
-				mainContainer->maxTouchMoveLength = 50;
-			}
-			
-			if([self optionsIsOpened])
-			{
-				[optionsBack playTimeline:1];
-				mainContainer->maxTouchMoveLength = 50;
-			}
+//			[MenuController handleMenuVisited:WAS_IN_STATISTICS];
+//			
+//			if(statScreen->y == statScreenYPos)
+//			{
+//				ChampionsRootController* rc =(ChampionsRootController*)[Application sharedRootController];
+//				if(rc && rc.user)
+//				{
+//					if((scoreTables & TOP_ALL) != TOP_ALL)
+//					{
+//						[rc startLoadingAnimation];
+//						[rc.user topAll:self];
+//					}
+//
+//					if((scoreTables & TOP_WORLD) != TOP_WORLD)
+//					{
+//						[rc startLoadingAnimation];
+//						[rc.user countries:self];
+//					}
+//					
+//					if(rc.user.countryId == COUNTRY_US && (scoreTables & TOP_NATIONAL) != TOP_NATIONAL)
+//					{					
+//						[rc startLoadingAnimation];
+//						[rc.user states:self];
+//					}
+//				}
+//				[statScreen playTimeline:0];
+//				mainContainer->maxTouchMoveLength = 0;
+//			}
+//			else
+//			{
+//				[statScreen playTimeline:1];
+//				mainContainer->maxTouchMoveLength = 50;
+//			}
+//			
+//			if([self optionsIsOpened])
+//			{
+//				[optionsBack playTimeline:1];
+//				mainContainer->maxTouchMoveLength = 50;
+//			}
 			break;
 		}
 		case BUTTON_TOP_SCORES:
@@ -3463,9 +3462,9 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		}
 		case BUTTON_REGISTRATION:
 		{
-			if([self optionsIsOpened] || [self statisticsIsOpened])return;
-			[self recreateRegistration];
-			[self showView:VIEW_REGISTRATION];
+//			if([self optionsIsOpened] || [self statisticsIsOpened])return;
+//			[self recreateRegistration];
+//			[self showView:VIEW_REGISTRATION];
 			break;
 		}
 		case BUTTON_PLAY:
