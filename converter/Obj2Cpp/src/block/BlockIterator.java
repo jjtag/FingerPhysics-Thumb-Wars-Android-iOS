@@ -10,7 +10,7 @@ public class BlockIterator
 	
 	public BlockIterator(String code)
 	{
-		lines = spliteLines(code);
+		lines = spliteLines(code);		
 		position = -1;
 	}
 	
@@ -151,6 +151,11 @@ public class BlockIterator
 				result.append(chr);
 			}
 			prevChar = chr;
+		}
+		
+		if (result.length() > 0)
+		{
+			lines.add(result.toString().trim());
 		}
 		
 		return lines;

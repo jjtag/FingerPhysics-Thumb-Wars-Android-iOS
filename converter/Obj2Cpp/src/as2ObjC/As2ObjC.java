@@ -68,7 +68,7 @@ public class As2ObjC
 				dest.writeln(line);
 				dest.incTab();
 			}
-			else if (line.endsWith("}"))
+			else if (line.endsWith("}") || line.endsWith("};"))
 			{
 				dest.decTab();
 				dest.writeln(line);
