@@ -10,6 +10,7 @@ import code.BcFuncParam;
 import code.BcPropertyDefinition;
 import code.BcType;
 
+import as2ObjC.CodeHelper;
 import as2ObjC.ListWriteDestination;
 import block.processors.LineProcessor;
 import static block.RegexHelp.SPACE;
@@ -91,15 +92,29 @@ public class TopLevelProcessor extends LineProcessor
 			{
 				String modifiers = m.group(1);
 				
-				String type = m.group(2) + m.group(3) != null ? "*" : "";
+				String type = m.group(2) + (m.group(3) != null ? "*" : "");
 				String name = m.group(4);
 				
-				BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, type);
+				BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, new BcType(type));
 				m = modifierDef.matcher(modifiers);
 				while (m.find())
 				{
 					bcProperty.setModifier(m.group(1));
 				}
+				
+				ListWriteDestination propDest = new ListWriteDestination();
+				
+				String propType = CodeHelper.type(bcProperty.getType());
+				String propName = CodeHelper.identifier(name);
+				
+				propDest.writef("%s %s();", propType, propName);
+				if (!bcProperty.isReadonly())
+				{
+					propDest.writef("void set%s(%s __value);", Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
+				}
+				propDest.writeln();
+				
+				return propDest.toString();
 			}
 		}
 		else

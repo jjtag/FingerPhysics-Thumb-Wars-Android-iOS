@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+import code.BcType;
+
 public class CodeHelper
 {
 	private static Pattern vectorPattern = Pattern.compile("Vector" + DOT + "<" + MBSPACE + IDENTIFIER + MBSPACE + ">");
@@ -134,6 +136,11 @@ public class CodeHelper
 //		return identifier(item.getText());
 //	}
 
+	public static String type(BcType type)
+	{
+		return type.getName();
+	}
+	
 	public static String identifier(String name) 
 	{
 		return name;

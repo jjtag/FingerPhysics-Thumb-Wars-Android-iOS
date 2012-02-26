@@ -10,12 +10,12 @@ public class BcPropertyDefinition
 	}
 	
 	private String name;
-	private String type;
+	private BcType type;
 	
 	private boolean readonly;
 	private AssignType assignType;
 
-	public BcPropertyDefinition(String name, String type)
+	public BcPropertyDefinition(String name, BcType type)
 	{
 		this.name = name;
 		this.type = type;
@@ -58,7 +58,7 @@ public class BcPropertyDefinition
 		return name;
 	}
 
-	public String getType()
+	public BcType getType()
 	{
 		return type;
 	}
