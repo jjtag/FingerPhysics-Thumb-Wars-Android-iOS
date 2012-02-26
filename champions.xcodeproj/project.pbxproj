@@ -62,8 +62,6 @@
 		0495977510514DA9009EAEC3 /* ToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 0495977410514DA9009EAEC3 /* ToggleButton.m */; };
 		04A5AD321057E05A0022E12B /* MenuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04A5AD311057E05A0022E12B /* MenuController.mm */; };
 		04B33AF111E32ECC00C0B074 /* library.xml in Resources */ = {isa = PBXBuildFile; fileRef = ED026A6F115278FC003EC213 /* library.xml */; };
-		04B33C1711E32ECC00C0B074 /* flags in Resources */ = {isa = PBXBuildFile; fileRef = EDDF05DD11919C0300B96EBD /* flags */; };
-		04B33C1811E32ECC00C0B074 /* flags-state in Resources */ = {isa = PBXBuildFile; fileRef = EDDF069611919C0300B96EBD /* flags-state */; };
 		04B33C1911E32ECC00C0B074 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED56439D11B6A56B006A173C /* Entitlements.plist */; };
 		04B33C7111E32ECC00C0B074 /* 1-tutorial-01.bim in Resources */ = {isa = PBXBuildFile; fileRef = ED70173F11BE9B330004F7FF /* 1-tutorial-01.bim */; };
 		04B33C7311E32ECC00C0B074 /* 1-tutorial-02.bim in Resources */ = {isa = PBXBuildFile; fileRef = ED70176C11BE9FCC0004F7FF /* 1-tutorial-02.bim */; };
@@ -946,13 +944,9 @@
 		EDC94519114A9AEF00739589 /* FPCircleShape.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC94518114A9AEF00739589 /* FPCircleShape.mm */; };
 		EDC9AED41201C0540072E634 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC9AEA21201BED30072E634 /* libz.dylib */; };
 		EDC9AED51201C0630072E634 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EDC9AEA21201BED30072E634 /* libz.dylib */; };
-		EDC9AEF31201C20B0072E634 /* openfeint_offline_config.xml in Resources */ = {isa = PBXBuildFile; fileRef = EDC9AEF21201C20B0072E634 /* openfeint_offline_config.xml */; };
-		EDC9AEF61201C2350072E634 /* openfeint_offline_config.xml in Resources */ = {isa = PBXBuildFile; fileRef = EDC9AEF51201C2350072E634 /* openfeint_offline_config.xml */; };
 		EDDCC08C11DA372E00CE7D99 /* FPUser.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDCC08B11DA372E00CE7D99 /* FPUser.mm */; };
 		EDDCC1F211DA626A00CE7D99 /* ReviewRequest.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDDCC1F111DA626A00CE7D99 /* ReviewRequest.mm */; };
 		EDDCC25F11DB438B00CE7D99 /* NewsParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EDDCC25E11DB438B00CE7D99 /* NewsParser.m */; };
-		EDDF06CC11919C0300B96EBD /* flags in Resources */ = {isa = PBXBuildFile; fileRef = EDDF05DD11919C0300B96EBD /* flags */; };
-		EDDF06CD11919C0300B96EBD /* flags-state in Resources */ = {isa = PBXBuildFile; fileRef = EDDF069611919C0300B96EBD /* flags-state */; };
 		EDE8182F11B3ED2300EB50E6 /* GameTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = EDE8182E11B3ED2300EB50E6 /* GameTimer.m */; };
 		EDEF59AA116610520005A14E /* Bonus.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDEF59A9116610520005A14E /* Bonus.mm */; };
 		EDF13867115901C300179CA7 /* Joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF13866115901C300179CA7 /* Joystick.m */; };
@@ -1550,15 +1544,11 @@
 		EDC94517114A9AEF00739589 /* FPCircleShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPCircleShape.h; sourceTree = "<group>"; };
 		EDC94518114A9AEF00739589 /* FPCircleShape.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = FPCircleShape.mm; sourceTree = "<group>"; };
 		EDC9AEA21201BED30072E634 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		EDC9AEF21201C20B0072E634 /* openfeint_offline_config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = openfeint_offline_config.xml; path = res/openfeint_offline_config.xml; sourceTree = "<group>"; };
-		EDC9AEF51201C2350072E634 /* openfeint_offline_config.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = openfeint_offline_config.xml; sourceTree = "<group>"; };
 		EDDCC08B11DA372E00CE7D99 /* FPUser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FPUser.mm; path = classes/FPUser.mm; sourceTree = SOURCE_ROOT; };
 		EDDCC1F011DA626A00CE7D99 /* ReviewRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReviewRequest.h; path = classes/ReviewRequest.h; sourceTree = SOURCE_ROOT; };
 		EDDCC1F111DA626A00CE7D99 /* ReviewRequest.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ReviewRequest.mm; path = classes/ReviewRequest.mm; sourceTree = SOURCE_ROOT; };
 		EDDCC25D11DB438B00CE7D99 /* NewsParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsParser.h; sourceTree = "<group>"; };
 		EDDCC25E11DB438B00CE7D99 /* NewsParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsParser.m; sourceTree = "<group>"; };
-		EDDF05DD11919C0300B96EBD /* flags */ = {isa = PBXFileReference; lastKnownFileType = folder; name = flags; path = res/flags; sourceTree = "<group>"; };
-		EDDF069611919C0300B96EBD /* flags-state */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "flags-state"; path = "res/flags-state"; sourceTree = "<group>"; };
 		EDE8182D11B3ED2300EB50E6 /* GameTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameTimer.h; sourceTree = "<group>"; };
 		EDE8182E11B3ED2300EB50E6 /* GameTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameTimer.m; sourceTree = "<group>"; };
 		EDEF59A8116610520005A14E /* Bonus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bonus.h; sourceTree = "<group>"; };
@@ -1947,11 +1937,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EDC9AEF21201C20B0072E634 /* openfeint_offline_config.xml */,
 				ED756A3111E74433003E376B /* free */,
 				ED70173E11BE9B330004F7FF /* maps */,
-				EDDF05DD11919C0300B96EBD /* flags */,
-				EDDF069611919C0300B96EBD /* flags-state */,
 				ED026A6F115278FC003EC213 /* library.xml */,
 				04959449105013CE009EAEC3 /* icon.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -2318,7 +2305,6 @@
 		ED756A3111E74433003E376B /* free */ = {
 			isa = PBXGroup;
 			children = (
-				EDC9AEF51201C2350072E634 /* openfeint_offline_config.xml */,
 				ED756A3311E74433003E376B /* maplist.xml */,
 				ED756A3211E74433003E376B /* icon.png */,
 			);
@@ -2574,8 +2560,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B33AF111E32ECC00C0B074 /* library.xml in Resources */,
-				04B33C1711E32ECC00C0B074 /* flags in Resources */,
-				04B33C1811E32ECC00C0B074 /* flags-state in Resources */,
 				04B33C1911E32ECC00C0B074 /* Entitlements.plist in Resources */,
 				04B33C7111E32ECC00C0B074 /* 1-tutorial-01.bim in Resources */,
 				04B33C7311E32ECC00C0B074 /* 1-tutorial-02.bim in Resources */,
@@ -2666,7 +2650,6 @@
 				ED2328C812007AA300706EB6 /* 1-n1-11.bim in Resources */,
 				ED2328C912007AA300706EB6 /* 2-n2-01.bim in Resources */,
 				ED2328CA12007AA300706EB6 /* 2-n2-02.bim in Resources */,
-				EDC9AEF61201C2350072E634 /* openfeint_offline_config.xml in Resources */,
 				ED23C4591219754F000ABE35 /* 1-n1-08.bim in Resources */,
 				ED23C45A1219754F000ABE35 /* 1-n1-09.bim in Resources */,
 				ED23C45B1219754F000ABE35 /* 1-n1-10.bim in Resources */,
@@ -2866,8 +2849,6 @@
 			files = (
 				09C82F74108D0A0B0006E6A9 /* icon.png in Resources */,
 				ED026A70115278FC003EC213 /* library.xml in Resources */,
-				EDDF06CC11919C0300B96EBD /* flags in Resources */,
-				EDDF06CD11919C0300B96EBD /* flags-state in Resources */,
 				ED56439F11B6A56B006A173C /* Entitlements.plist in Resources */,
 				ED70174111BE9B330004F7FF /* 1-tutorial-01.bim in Resources */,
 				ED70174211BE9B330004F7FF /* maplist.xml in Resources */,
@@ -2957,7 +2938,6 @@
 				ED2328CE12007AA300706EB6 /* 1-n1-11.bim in Resources */,
 				ED2328CF12007AA300706EB6 /* 2-n2-01.bim in Resources */,
 				ED2328D012007AA300706EB6 /* 2-n2-02.bim in Resources */,
-				EDC9AEF31201C20B0072E634 /* openfeint_offline_config.xml in Resources */,
 				ED23C46D1219754F000ABE35 /* 1-n1-08.bim in Resources */,
 				ED23C46E1219754F000ABE35 /* 1-n1-09.bim in Resources */,
 				ED23C46F1219754F000ABE35 /* 1-n1-10.bim in Resources */,
