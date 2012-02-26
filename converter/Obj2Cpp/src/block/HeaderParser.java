@@ -25,7 +25,7 @@ import code.BcType;
 import as2ObjC.CodeHelper;
 import as2ObjC.ListWriteDestination;
 
-public class HeaderParser
+public class HeaderParser extends Parser
 {
 	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">"));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
@@ -38,13 +38,9 @@ public class HeaderParser
 
 	private BcClassDefinition lastBcClass;
 
-	private BlockIterator iter;
-	private ListWriteDestination dest;
-
 	public HeaderParser(BlockIterator iter)
 	{
-		this.iter = iter;
-		dest = new ListWriteDestination();
+		super(iter);
 	}
 
 	public void parse()
@@ -178,10 +174,5 @@ public class HeaderParser
 		{
 			dest.writeln(line);
 		}
-	}
-	
-	public List<String> getCodeLines()
-	{
-		return dest.getLines();
 	}
 }

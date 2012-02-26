@@ -7,23 +7,29 @@ public class BlockIterator
 {
 	private List<String> lines;
 	private int position;
-	
+
+	private BlockIterator()
+	{
+		position = -1;
+		lines = new ArrayList<String>();
+	}
+
 	public BlockIterator(String code)
 	{
-		lines = spliteLines(code);		
 		position = -1;
+		lines = spliteLines(code);
 	}
-	
+
 	public boolean hasNext()
 	{
 		return position < lines.size() - 1;
 	}
-	
+
 	public String next()
 	{
 		return lines.get(++position);
 	}
-	
+
 	public void pushBack()
 	{
 		if (position > 0)
@@ -32,18 +38,98 @@ public class BlockIterator
 		}
 	}
 
+	public BlockIterator readBlock()
+	{
+		BlockIterator iter = new BlockIterator();
+
+		int counter = 0;
+		int parentnessis = 0;
+		boolean inStringLiteral = false;
+		boolean inParentnessis = false;
+		boolean inComment = false;
+		boolean inSingleLineComment = false;
+
+		char prevChar = 0;
+		boolean complete = false;
+		while (!complete)
+		{
+			StringBuilder lineBuffer = new StringBuilder();
+			inSingleLineComment = false;
+			
+			String codeLine = next();
+			for (int i = 0; i < codeLine.length(); i++)
+			{
+				char chr = codeLine.charAt(i);
+				if (chr == '"' && prevChar != '\\')
+				{
+					inStringLiteral = !inStringLiteral;
+				}
+				if (chr == '*' && prevChar == '/')
+				{
+					inComment = true;
+				}
+				else if (chr == '/' && prevChar == '/')
+				{
+					inSingleLineComment = true;
+				}
+				else if (chr == '/' && prevChar == '*')
+				{
+					inComment = false;
+				}
+				if ((chr == '(' || chr == '[') && !inStringLiteral)
+				{
+					inParentnessis = true;
+					counter++;
+				}
+				else if ((chr == ')' || chr == ']') && !inStringLiteral)
+				{
+					counter--;
+					inParentnessis = counter > 0;
+				}
+
+				lineBuffer.append(chr);
+				
+				if (!inSingleLineComment && !inComment && !inParentnessis && !inStringLiteral)
+				{
+					if (chr == '{')
+					{
+						parentnessis++;						
+					}
+					else if (chr == '}')
+					{
+						parentnessis--;
+						if (parentnessis == 0)
+						{
+							complete = true;
+							break;
+						}
+					}
+				}
+				
+				prevChar = chr;
+			}
+			
+			iter.lines.add(lineBuffer.toString());
+		}
+		
+		iter.lines.remove(0);
+		iter.lines.remove(iter.lines.size() - 1);
+		
+		return iter;
+	}
+
 	private List<String> spliteLines(String code)
 	{
 		List<String> lines = new ArrayList<String>();
-		
+
 		StringBuilder result = new StringBuilder();
-		
+
 		int counter = 0;
 		boolean inStringLiteral = false;
 		boolean inParentnessis = false;
 		boolean inComment = false;
 		boolean inSingleLineComment = false;
-		
+
 		char prevChar = 0;
 		for (int i = 0; i < code.length(); i++)
 		{
@@ -64,88 +150,60 @@ public class BlockIterator
 			{
 				inComment = false;
 			}
-			if (chr == '(' && !inStringLiteral)
+			if ((chr == '(' || chr == '[') && !inStringLiteral)
 			{
 				inParentnessis = true;
 				counter++;
 			}
-			else if (chr == ')' && !inStringLiteral)
+			else if ((chr == ')' || chr == ']') && !inStringLiteral)
 			{
 				counter--;
 				inParentnessis = counter > 0;
 			}
-			
+
 			if ((chr == '\t' || chr == '\r') && !inComment)
 			{
 				continue;
 			}
-			
+
 			if (chr == '\n' && inSingleLineComment)
 			{
 				inSingleLineComment = false;
 			}
 			if (chr == '\n' && !inComment)
-			{	
+			{
 				String currentLine = result.toString().trim();
 				if (currentLine.length() == 0)
 				{
 					result.setLength(0);
-					continue;
 				}
 				else if (currentLine.startsWith("//"))
 				{
 					lines.add(currentLine);
 					result.setLength(0);
-					continue;
 				}
 				else if (currentLine.endsWith(",") || currentLine.endsWith(":"))
 				{
-					continue;
 				}
+				else
+				{
+					lines.add(currentLine);
+					result.setLength(0);
+				}
+				continue;
 			}
-			
+
 			if ((chr == ';' || chr == '{' || chr == '}') && !(inStringLiteral || inParentnessis) && !inSingleLineComment)
 			{
 				if (chr == ';')
 				{
 					result.append(chr);
 				}
-				
+
 				String line = result.toString().trim();
-				
-//				if (isSingleLineOperator(line))
-//				{
-//					if (line.contains("\n"))
-//					{
-//						String[] split = line.split("\n");
-//						int lineIndex = 0;
-//						for (String s : split) 
-//						{
-//							lines.add(++lineIndex > 1 ? ("\t" + s) : s);
-//						}
-//					}
-//					else
-//					{
-//						lines.add(line);
-//					}
-//				}
-//				else if (isCaseSwitch(line) || isDefaultSwitch(line))
-//				{
-//					if (line.contains("\n"))
-//					{
-//						String[] split = line.split("\n");
-//						for (String s : split) 
-//						{
-//							lines.add(s);
-//						}
-//					}
-//					else
-//					{
-//						lines.add(line);
-//					}
-//				}
+
 				if (line.length() > 0)
-				{				
+				{
 					lines.add(line);
 				}
 				if (chr != ';')
@@ -160,33 +218,12 @@ public class BlockIterator
 			}
 			prevChar = chr;
 		}
-		
+
 		if (result.length() > 0)
 		{
 			lines.add(result.toString().trim());
 		}
-		
-		return lines;
-	}
 
-	private boolean isSingleLineOperator(String line) 
-	{
-		if (line.endsWith("{"))
-			return false;
-		
-		return 	line.startsWith("if(") || line.startsWith("if ") ||
-				line.startsWith("for(") || line.startsWith("for ") ||
-				line.startsWith("while(") || line.startsWith("while ") ||
-				line.equals("do");
-	}
-	
-	private boolean isCaseSwitch(String line) 
-	{
-		return 	line.startsWith("case ");
-	}
-	
-	private boolean isDefaultSwitch(String line) 
-	{
-		return 	line.startsWith("default:");
+		return lines;
 	}
 }

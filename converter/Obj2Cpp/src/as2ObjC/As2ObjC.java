@@ -8,6 +8,8 @@ import bc.utils.file.FileUtils;
 import block.BlockIterator;
 import block.BlockParser;
 import block.HeaderParser;
+import block.ImplParser;
+import block.Parser;
 
 public class As2ObjC 
 {
@@ -54,7 +56,17 @@ public class As2ObjC
 		
 		String code = FileUtils.readFileString(source);
 		BlockIterator iter = new BlockIterator(code);
-		HeaderParser parser = new HeaderParser(iter);
+		
+		Parser parser;
+		if (sourceName.endsWith(".h"))
+		{
+			parser = new HeaderParser(iter);
+		}
+		else
+		{
+			parser = new ImplParser(iter);
+		}
+		
 		parser.parse();
 		
 		File outFile = new File(outputDir, source.getName());
@@ -67,20 +79,7 @@ public class As2ObjC
 		
 		for (String line : lines)
 		{
-			if (line.endsWith("{"))
-			{
-				dest.writeln(line);
-				dest.incTab();
-			}
-			else if (line.endsWith("}") || line.endsWith("};"))
-			{
-				dest.decTab();
-				dest.writeln(line);
-			}
-			else
-			{
-				dest.writeln(line);
-			}
+			dest.writeln(line);
 		}
 		
 		dest.close();
