@@ -8,6 +8,7 @@ public class RegexHelp
 	public static final String TIDENTIFIER = group("[\\p{Upper}_$]+[\\p{Upper}\\w\\d_$]*");
 	public static final String IDENTIFIER = group("[\\w_$]+[\\w\\d_$]*");
 	public static final String ANY = group(".*?");
+	public static final String STAR = "\\*";
 	public static final String PLUS = "\\+";
 	public static final String LPAR = "\\(";
 	public static final String RPAR = "\\)";
@@ -25,8 +26,13 @@ public class RegexHelp
 		return group(str) + "?";
 	}
 	
-	public static String or(String a, String b)
+	public static String or(String a, String... other)
 	{
-		return a + "|" + b;
+		StringBuilder result = new StringBuilder(a);
+		for (String o : other)
+		{
+			result.append("|" + o);
+		}
+		return result.toString();
 	}
 }

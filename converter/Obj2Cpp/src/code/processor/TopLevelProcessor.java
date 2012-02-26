@@ -7,6 +7,7 @@ import java.util.regex.Pattern;
 import code.BcClassDefinition;
 import code.BcFuncDefinition;
 import code.BcFuncParam;
+import code.BcPropertyDefinition;
 import code.BcType;
 
 import as2ObjC.ListWriteDestination;
@@ -15,6 +16,7 @@ import static block.RegexHelp.SPACE;
 import static block.RegexHelp.LPAR;
 import static block.RegexHelp.RPAR;
 import static block.RegexHelp.PLUS;
+import static block.RegexHelp.STAR;
 import static block.RegexHelp.MBSPACE;
 import static block.RegexHelp.IDENTIFIER;
 import static block.RegexHelp.TIDENTIFIER;
@@ -30,6 +32,9 @@ public class TopLevelProcessor extends LineProcessor
 
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
+	
+	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + IDENTIFIER + MBSPACE + ";");
+	private static Pattern modifierDef = Pattern.compile(group(or("assign", "retain", "copy", "readonly", "readwrite", "nonatomic", "atomic")));
 	
 	private BcClassDefinition lastBcClass;
 	
@@ -55,12 +60,10 @@ public class TopLevelProcessor extends LineProcessor
 				ListWriteDestination paramsDest = new ListWriteDestination();
 				if (hasParams)
 				{
-					String params = m.group(5);
-					System.out.println(params);
+					String params = m.group(5);					
 					m = paramDef.matcher(params);
 					while (m.find())
 					{
-						traceGroups(m);
 						String paramType = m.group(1);
 						String paramName = m.group(2);
 						
@@ -83,6 +86,20 @@ public class TopLevelProcessor extends LineProcessor
 				
 				
 				return dest.toString();
+			}
+			else if ((m = propertyDef.matcher(line)).find())
+			{
+				String modifiers = m.group(1);
+				
+				String type = m.group(2) + m.group(3) != null ? "*" : "";
+				String name = m.group(4);
+				
+				BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, type);
+				m = modifierDef.matcher(modifiers);
+				while (m.find())
+				{
+					bcProperty.setModifier(m.group(1));
+				}
 			}
 		}
 		else

@@ -16,7 +16,7 @@ public class As2ObjC
 		
 		try
 		{
-			for (int i = 0; i < args.length; ++i)
+			for (int i = 1; i < args.length; ++i)
 			{
 				File asSourceFile = new File(args[i]);
 				process(asSourceFile, outputDir);
@@ -53,7 +53,7 @@ public class As2ObjC
 		BlockParser parser = new BlockParser();
 		List<String> lines = parser.parse(code);
 		
-		File outFile = new File("/Users/weee/data/dev/work/Obj2Cpp/converted/" + source.getName());
+		File outFile = new File(outputDir, source.getName());
 		writeCode(outFile, lines);
 	}
 
