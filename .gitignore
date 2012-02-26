@@ -2,3 +2,5 @@
 /build
 champions.xcodeproj/project.xcworkspace
 champions.xcodeproj/xcuserdata
+converter/Obj2Cpp/as2ObjC/bin
+converter/Obj2Cpp/converted
