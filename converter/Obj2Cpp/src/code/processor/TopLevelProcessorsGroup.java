@@ -9,6 +9,6 @@ public class TopLevelProcessorsGroup extends ProcessorsGroup
 	
 	public TopLevelProcessorsGroup()
 	{
-		addProcessor(new TopLevelProcessor());
+		addProcessor(new HeaderProcessor());
 	}
 }

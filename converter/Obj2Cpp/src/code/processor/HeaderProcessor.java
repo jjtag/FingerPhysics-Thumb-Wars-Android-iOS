@@ -26,7 +26,7 @@ import static block.RegexHelp.group;
 import static block.RegexHelp.mb;
 import static block.RegexHelp.or;
 
-public class TopLevelProcessor extends LineProcessor
+public class HeaderProcessor extends LineProcessor
 {
 	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">"));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
