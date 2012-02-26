@@ -101,4 +101,28 @@ public abstract class WriteDestination
 
 		tabs.setLength(tabs.length() - 1);
 	}
+	
+	public void writeBlockOpen()
+	{
+		writeln("{");
+		incTab();
+	}
+	
+	public void writeBlockClose()
+	{
+		writeBlockClose(false);
+	}
+	
+	public void writeBlockClose(boolean addSeparator)
+	{
+		decTab();
+		if (addSeparator)
+		{
+			writeln("};");
+		}
+		else
+		{
+			writeln("}");
+		}
+	}
 }

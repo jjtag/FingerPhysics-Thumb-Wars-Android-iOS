@@ -23,6 +23,14 @@ public class BlockIterator
 	{
 		return lines.get(++position);
 	}
+	
+	public void pushBack()
+	{
+		if (position > 0)
+		{
+			position--;
+		}
+	}
 
 	private List<String> spliteLines(String code)
 	{

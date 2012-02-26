@@ -1,12 +1,13 @@
 package as2ObjC;
 
 import java.io.File;
-import java.io.FileFilter;
 import java.io.IOException;
 import java.util.List;
 
 import bc.utils.file.FileUtils;
+import block.BlockIterator;
 import block.BlockParser;
+import block.HeaderParser;
 
 public class As2ObjC 
 {
@@ -49,12 +50,15 @@ public class As2ObjC
 	{
 		System.out.println("Converting: " + source);
 				
+		String sourceName = source.getName();		
+		
 		String code = FileUtils.readFileString(source);
-		BlockParser parser = new BlockParser();
-		List<String> lines = parser.parse(code);
+		BlockIterator iter = new BlockIterator(code);
+		HeaderParser parser = new HeaderParser(iter);
+		parser.parse();
 		
 		File outFile = new File(outputDir, source.getName());
-		writeCode(outFile, lines);
+		writeCode(outFile, parser.getCodeLines());		
 	}
 
 	private static void writeCode(File outFile, List<String> lines) throws IOException
