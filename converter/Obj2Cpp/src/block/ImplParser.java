@@ -16,6 +16,7 @@ import static block.RegexHelp.mb;
 import static block.RegexHelp.group;
 import static block.RegexHelp.or;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -33,7 +34,7 @@ public class ImplParser extends Parser
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ALL);
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
 
-	private static Pattern argumentPattern = Pattern.compile(group(NOTSPACE) + ":");
+	private static Pattern argumentPattern = Pattern.compile(ANY + SPACE + IDENTIFIER + MBSPACE + ":");
 
 	private String implClass;
 
@@ -309,57 +310,41 @@ public class ImplParser extends Parser
 	{
 		StringBuilder result = new StringBuilder();
 
-		String paramsStr = str;
-		Matcher matcher;
-		boolean argsFound = false;
-		while ((matcher = argumentPattern.matcher(paramsStr)).find())
+		TokenIterator iter = new TokenIterator(str);
+		
+		String target = iter.captureUntilChar(str, ' ');
+		String message = iter.captureUntilChar(str, ':');
+		
+		result.append(target);
+		result.append(canBeType(target) ? staticCallMarker : "->");
+		result.append(message);
+		
+		List<String> args = new ArrayList<String>();
+		
+		while (iter.canCapture())
 		{
-			int nameStart = matcher.start();
-			int start = matcher.end();
-			int end = matcher.find() ? matcher.start() : paramsStr.length();
-			String paramValue = paramsStr.substring(start, end).trim();
-			if (!argsFound)
+			String arg = iter.captureUntilChar(str, ' ');
+			args.add(arg);
+			
+			if (iter.canCapture())
 			{
-				String target = str.substring(0, nameStart > 0 ? nameStart - 1 : nameStart);
-				String message = str.substring(nameStart, start - 1);
-
-				result.append(target);
-				result.append(canBeType(target) ? staticCallMarker : "->");
-				result.append(message);
-
-				result.append("(");
-
-				result.append(paramValue);
-				argsFound = true;
+				iter.captureUntilChar(str, ':'); // skip identifiers				
 			}
-			else
+		}
+		
+		result.append('(');
+		int argIndex = 0;
+		for (String arg : args)
+		{
+			result.append(arg);
+			if (++argIndex < args.size())
 			{
-				result.append(",");
-				result.append(paramValue);
+				result.append(',');
 			}
-			paramsStr = paramsStr.substring(end);
 		}
-
-		if (argsFound)
-		{
-			result.append(")");
-			result.append(paramsStr);
-		}
-		else
-		{
-			int index = str.indexOf(" ");
-			if (index == -1)
-				return str;
-
-			String target = str.substring(0, index);
-			String message = str.substring(index + 1);
-
-			result.append(target);
-			result.append(canBeType(target) ? staticCallMarker : "->");
-			result.append(message);
-			result.append("()");
-		}
-
+		
+		result.append(')');
+		
 		return result.toString();
 	}
 
