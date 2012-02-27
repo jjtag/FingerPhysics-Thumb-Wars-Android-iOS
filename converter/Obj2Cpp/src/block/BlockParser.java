@@ -16,9 +16,9 @@ public class BlockParser
 		processors = new TopLevelProcessorsGroup();
 	}
 	
-	public List<String> parse(String body)
+	public List<String> parse(List<String> codeLines)
 	{
-		BlockIterator iter = new BlockIterator(body);
+		BlockIterator iter = new BlockIterator(codeLines);
 		
 		List<String> lines = new ArrayList<String>();
 		while (iter.hasNext())

@@ -28,9 +28,9 @@ public class ClassParser
 		processors.add(varProcessor = new FieldVarProcessor());
 	}
 	
-	public void parse(String code)
+	public void parse(List<String> lines)
 	{
-		BlockIterator iterator = new BlockIterator(code);
+		BlockIterator iterator = new BlockIterator(lines);
 		
 		int counter = 0;
 		while (iterator.hasNext()) 

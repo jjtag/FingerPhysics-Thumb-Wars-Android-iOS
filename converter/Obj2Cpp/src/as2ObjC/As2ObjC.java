@@ -2,7 +2,9 @@ package as2ObjC;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import bc.utils.file.FileUtils;
 import block.BlockIterator;
@@ -13,9 +15,13 @@ import block.Parser;
 
 public class As2ObjC 
 {
+	private static Map<String, HeaderParser> headers;
+	
 	public static void main(String[] args) 
 	{
 		File outputDir = new File(args[0]);		
+		
+		headers = new HashMap<String, HeaderParser>();
 		
 		try
 		{
@@ -54,13 +60,15 @@ public class As2ObjC
 				
 		String sourceName = source.getName();		
 		
-		String code = FileUtils.readFileString(source);
-		BlockIterator iter = new BlockIterator(code);
+		List<String> lines = FileUtils.readFile(source);
+		BlockIterator iter = new BlockIterator(lines);
 		
 		Parser parser;
 		if (sourceName.endsWith(".h"))
 		{
-			parser = new HeaderParser(iter);
+			HeaderParser headerParse = new HeaderParser(iter);
+			headers.put(FileUtils.fileNameNoExt(sourceName), headerParse);
+			parser = headerParse;
 		}
 		else
 		{
@@ -83,20 +91,5 @@ public class As2ObjC
 		}
 		
 		dest.close();
-	}
-
-	private static String extractFileNameNoExt(File file)
-	{
-		String filename = file.getName();
-		int dotIndex = filename.lastIndexOf('.');
-		return dotIndex == -1 ? filename : filename.substring(0, dotIndex);
-	}
-	
-	private static String extractPackageName(String code) 
-	{
-		String token = "package ";
-		int start = code.indexOf(token) + token.length();
-		int end = code.indexOf("\n", start);
-		return code.substring(start, end).trim();
 	}
 }

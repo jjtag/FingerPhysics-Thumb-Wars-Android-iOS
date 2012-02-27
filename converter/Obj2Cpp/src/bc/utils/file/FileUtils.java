@@ -105,5 +105,20 @@ public class FileUtils
 				return false;
 			}
 		});
-	}	
+	}
+	
+	public static String fileNameNoExt(File file)
+	{
+		return fileNameNoExt(file.getName());
+	}
+	
+	public static String fileNameNoExt(String filename)
+	{
+		int index = filename.lastIndexOf('.');
+		if (index != -1)
+		{
+			return filename.substring(index);
+		}
+		return filename;
+	}
 }

@@ -1,33 +1,34 @@
 package block;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class BlockIterator
 {
-	private List<String> lines;
+	private List<String> codeLines;
 	private int position;
 
 	private BlockIterator()
 	{
 		position = -1;
-		lines = new ArrayList<String>();
+		codeLines = new ArrayList<String>();
 	}
 
-	public BlockIterator(String code)
+	public BlockIterator(List<String> lines)
 	{
 		position = -1;
-		lines = spliteLines(code);
+		codeLines = processLines(lines);
 	}
 
 	public boolean hasNext()
 	{
-		return position < lines.size() - 1;
+		return position < codeLines.size() - 1;
 	}
 
 	public String next()
 	{
-		return lines.get(++position);
+		return codeLines.get(++position);
 	}
 
 	public void pushBack()
@@ -109,123 +110,130 @@ public class BlockIterator
 				prevChar = chr;
 			}
 			
-			iter.lines.add(lineBuffer.toString());
+			iter.codeLines.add(lineBuffer.toString());
 		}
 		
-		iter.lines.remove(0);
-		iter.lines.remove(iter.lines.size() - 1);
+		iter.codeLines.remove(0);
+		iter.codeLines.remove(iter.codeLines.size() - 1);
 		
 		return iter;
 	}
 
-	private List<String> spliteLines(String code)
+	private List<String> processLines(List<String> lines)
 	{
-		List<String> lines = new ArrayList<String>();
+		List<String> codeLines = new ArrayList<String>();
 
-		StringBuilder result = new StringBuilder();
-
-		int counter = 0;
+		int parentnessisCounter = 0;
 		boolean inStringLiteral = false;
-		boolean inParentnessis = false;
 		boolean inComment = false;
-		boolean inSingleLineComment = false;
 
 		char prevChar = 0;
-		for (int i = 0; i < code.length(); i++)
+		
+		Iterator<String> iter = lines.iterator();
+		StringBuilder lineBuffer = new StringBuilder();
+		
+		while (iter.hasNext())
 		{
-			char chr = code.charAt(i);
-			if (chr == '"' && prevChar != '\\')
+			boolean inSingleLineComment = false;
+			
+			String line = iter.next().trim();
+			if (line.length() == 0)
 			{
-				inStringLiteral = !inStringLiteral;
-			}
-			if (chr == '*' && prevChar == '/')
-			{
-				inComment = true;
-			}
-			else if (chr == '/' && prevChar == '/')
-			{
-				inSingleLineComment = true;
-			}
-			else if (chr == '/' && prevChar == '*')
-			{
-				inComment = false;
-			}
-			if ((chr == '(' || chr == '[') && !inStringLiteral)
-			{
-				inParentnessis = true;
-				counter++;
-			}
-			else if ((chr == ')' || chr == ']') && !inStringLiteral)
-			{
-				counter--;
-				inParentnessis = counter > 0;
-			}
-
-			if ((chr == '\t' || chr == '\r') && !inComment)
-			{
+				codeLines.add(line);
 				continue;
 			}
-
-			if (chr == '\n' && inSingleLineComment)
+			
+			char chr = 0;
+			for (int i = 0; i < line.length(); i++)
 			{
-				inSingleLineComment = false;
-			}
-			if (chr == '\n' && !inComment)
-			{
-				String currentLine = result.toString().trim();
+				chr = line.charAt(i);
 				
-				if (currentLine.equals("ToggleButton* b = [[ToggleButton allocAndAutorelease] initWithUpElement1:tn DownElement1:tp"))
+				// strings
+				if (chr == '"' && prevChar != '\\')
 				{
-					System.out.print("");
+					inStringLiteral = !inStringLiteral;
 				}
 				
-				if (currentLine.length() == 0)
+				if (inStringLiteral)
 				{
-					result.setLength(0);
-				}
-				else if (currentLine.startsWith("//") || 
-						currentLine.startsWith("@implementation") || 
-						currentLine.startsWith("@interface") || 
-						currentLine.startsWith("#import"))
-				{
-					lines.add(currentLine);
-					result.setLength(0);
+					lineBuffer.append(chr);
+					continue;
 				}
 				
-				continue;
-			}
+				// multiline comment
+				if (chr == '*' && prevChar == '/')
+				{
+					inComment = true;
+				}
+				else if (chr == '/' && prevChar == '*')
+				{
+					inComment = false;
+				}
+				
+				if (inComment)
+				{
+					lineBuffer.append(chr);
+					continue;
+				}
+				
+				// single line comment				
+				else if (chr == '/' && prevChar == '/')
+				{
+					inSingleLineComment = true;
+				}
+				
+				if (inSingleLineComment)
+				{
+					lineBuffer.append(chr);
+					continue;
+				}
+				
+				if (chr == '(' || chr == '[')
+				{
+					parentnessisCounter++;
+				}
+				else if (chr == ')' || chr == ']')
+				{
+					assert parentnessisCounter > 0;
+					parentnessisCounter--;
+				}
 
-			if ((chr == ';' || chr == '{' || chr == '}') && !(inStringLiteral || inParentnessis) && !inSingleLineComment)
+				if ((chr == ';' && parentnessisCounter == 0))
+				{
+					lineBuffer.append(chr);
+					flushBuffer(codeLines, lineBuffer);
+					continue;
+				}
+				
+				if (chr == '{' || chr == '}')
+				{
+					flushBuffer(codeLines, lineBuffer);					
+					codeLines.add(Character.toString(chr));
+				}
+				else
+				{
+					lineBuffer.append(chr);				
+				}
+				
+				prevChar = chr;
+			}
+			
+			if ((inComment || inSingleLineComment || parentnessisCounter == 0) && chr != ',')
 			{
-				if (chr == ';')
-				{
-					result.append(chr);
-				}
-
-				String line = result.toString().trim();
-
-				if (line.length() > 0)
-				{
-					lines.add(line);
-				}
-				if (chr != ';')
-				{
-					lines.add("" + chr);
-				}
-				result.setLength(0);
+				flushBuffer(codeLines, lineBuffer);
 			}
-			else
-			{
-				result.append(chr);
-			}
-			prevChar = chr;
 		}
+		
+		return codeLines;
+	}
 
-		if (result.length() > 0)
+	private void flushBuffer(List<String> codeLines, StringBuilder buffer)
+	{
+		String line = buffer.toString().trim();
+		if (line.length() > 0)
 		{
-			lines.add(result.toString().trim());
+			codeLines.add(line);
 		}
-
-		return lines;
+		buffer.setLength(0);
 	}
 }
