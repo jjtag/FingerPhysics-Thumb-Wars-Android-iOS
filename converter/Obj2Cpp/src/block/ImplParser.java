@@ -33,8 +33,6 @@ public class ImplParser extends Parser
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ALL);
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
 
-	private static Pattern callPattern = Pattern.compile(LBRKT + ALL + RBRKT);
-
 	private static Pattern argumentPattern = Pattern.compile(group(NOTSPACE) + ":");
 
 	private String implClass;
@@ -174,6 +172,7 @@ public class ImplParser extends Parser
 		if (callLine != null && !isArrayCall(callLine))
 		{	
 			String content = parseMethodCall(callLine);
+			content = parseMethodCall(content);
 			content = parseArguments(content);
 			
 			return line.replace('[' + callLine + ']', content);
