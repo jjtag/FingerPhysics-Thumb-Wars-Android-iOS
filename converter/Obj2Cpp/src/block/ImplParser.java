@@ -1,15 +1,20 @@
 package block;
 
+import static block.RegexHelp.ALL;
+import static block.RegexHelp.ANY;
 import static block.RegexHelp.IDENTIFIER;
+import static block.RegexHelp.LBRKT;
 import static block.RegexHelp.LPAR;
 import static block.RegexHelp.MBSPACE;
-import static block.RegexHelp.ANY;
+import static block.RegexHelp.NOTSPACE;
 import static block.RegexHelp.PLUS;
+import static block.RegexHelp.RBRKT;
 import static block.RegexHelp.RPAR;
 import static block.RegexHelp.SPACE;
 import static block.RegexHelp.TIDENTIFIER;
-import static block.RegexHelp.group;
 import static block.RegexHelp.mb;
+import static block.RegexHelp.group;
+import static block.RegexHelp.few;
 import static block.RegexHelp.or;
 
 import java.util.List;
@@ -25,12 +30,18 @@ public class ImplParser extends Parser
 {
 	private static Pattern implPattern = Pattern.compile("@implementation" + SPACE + TIDENTIFIER);
 	private static Pattern syntesizePattern = Pattern.compile("@synthesize" + SPACE + ANY + ";");
-	
+
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY);
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
-	
+
+	private static Pattern callPattern = Pattern.compile(LBRKT + ALL + RBRKT);
+	private static Pattern arrayPattern = Pattern.compile(IDENTIFIER + MBSPACE + LBRKT + ALL + RBRKT);
+
+	private static Pattern argumentPatternSimple = Pattern.compile(IDENTIFIER + SPACE + IDENTIFIER);
+	private static Pattern argumentPattern = Pattern.compile(group(NOTSPACE) + ":");
+
 	private String implClass;
-	
+
 	public ImplParser(BlockIterator iter)
 	{
 		super(iter);
@@ -51,12 +62,10 @@ public class ImplParser extends Parser
 
 		if ((m = implPattern.matcher(line)).find())
 		{
-			System.out.println(line);
-			
 			assert implClass == null : implClass;
-			
+
 			implClass = m.group(1);
-			
+
 			String bodyLine;
 			while (!(bodyLine = iter.next()).equals("@end"))
 			{
@@ -126,7 +135,12 @@ public class ImplParser extends Parser
 
 	private void processFuncBody(String line)
 	{
-		if (line.equals("{"))
+		if (line.contains("[") && line.contains("]") && !arrayPattern.matcher(line).find())
+		{
+			String callLine = parseMethodCall(line);
+			dest.writeln(callLine.replace("#", "::"));
+		}
+		else if (line.equals("{"))
 		{
 			dest.writeln(line);
 			dest.incTab();
@@ -140,5 +154,86 @@ public class ImplParser extends Parser
 		{
 			dest.writeln(line);
 		}
+	}
+
+	private String parseMethodCall(String line)
+	{
+		Matcher matcher = callPattern.matcher(line);
+		if (matcher.find() && !arrayPattern.matcher(line).find())
+		{
+			int start = matcher.start();
+			int end = matcher.end();
+
+			StringBuilder result = new StringBuilder(line);
+			String content = parseMethodCall(matcher.group(1));
+			content = parseArguments(content);
+			result.delete(start, end);
+			result.insert(start, content);
+
+			return result.toString();
+		}
+		else
+		{
+			return line;
+		}
+	}
+
+	private String parseArguments(String str)
+	{
+		StringBuilder result = new StringBuilder();
+
+		String paramsStr = str;
+		Matcher matcher;
+		boolean methodNameFound = false;
+		while ((matcher = argumentPattern.matcher(paramsStr)).find())
+		{
+			int nameStart = matcher.start();
+			int start = matcher.end();
+			int end = matcher.find() ? matcher.start() : paramsStr.length();
+			String paramValue = paramsStr.substring(start, end).trim();
+			if (!methodNameFound)
+			{
+				result.append(str.substring(0, nameStart > 0 ? nameStart - 1 : nameStart));
+				result.append("->");
+				result.append(str.substring(nameStart, start - 1));
+
+				result.append("(");
+
+				result.append(paramValue);
+				methodNameFound = true;
+			}
+			else
+			{
+				result.append(",");
+				result.append(paramValue);
+			}
+			paramsStr = paramsStr.substring(end);
+		}
+
+		if (methodNameFound)
+		{
+			result.append(")");
+			result.append(paramsStr);
+		}
+		else
+		{
+			int index = str.indexOf(" ");
+			if (index == -1)
+				return str;
+
+			if ((str.charAt(0) == Character.toUpperCase(str.charAt(0))) && !str.contains("::"))
+			{
+				return str.substring(0, index) + "#" + str.substring(index + 1);
+			}
+
+			return str.substring(0, index) + "->" + str.substring(index + 1) + "()";
+		}
+
+		return result.toString();
+	}
+
+	private static boolean canBeType(String str)
+	{
+		return str.matches(TIDENTIFIER);
 	}
 }
