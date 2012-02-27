@@ -168,19 +168,17 @@ public class ImplParser extends Parser
 
 	private String parseMethodCall(String line)
 	{
-		String callLine = getCallLine(line);
-		if (callLine != null)
+		String callLine;
+		while ((callLine = getCallLine(line)) != null)
 		{	
 			String content = parseMethodCall(callLine);
 			content = parseMethodCall(content);
 			content = parseArguments(content);
 			
-			return line.replace('[' + callLine + ']', content);
+			line = line.replace('[' + callLine + ']', content);
 		}
-		else
-		{
-			return line;
-		}
+		
+		return line;
 	}
 
 	private String getCallLine(String line)
