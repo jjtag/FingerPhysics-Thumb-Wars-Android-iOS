@@ -169,7 +169,7 @@ public class ImplParser extends Parser
 	private String parseMethodCall(String line)
 	{
 		String callLine = getCallLine(line);
-		if (callLine != null && !isArrayCall(callLine))
+		if (callLine != null)
 		{	
 			String content = parseMethodCall(callLine);
 			content = parseMethodCall(content);
@@ -217,8 +217,15 @@ public class ImplParser extends Parser
 					
 					if (bracketCounter == 0)
 					{
-						result.deleteCharAt(result.length() - 1);
-						return result.toString();
+						String callLine = result.substring(0, result.length() - 1);
+						if (isArrayCall(callLine))
+						{
+							result.setLength(0);
+						}
+						else
+						{						
+							return callLine;
+						}
 					}
 				}
 				else if (chr == '(')
@@ -242,6 +249,7 @@ public class ImplParser extends Parser
 	{
 		String content = line.trim();
 
+		boolean spaceFound = false;
 		boolean insideString = false;
 		int parentnessisCounter = 0;
 		int bracketCounter = 0;
@@ -250,27 +258,41 @@ public class ImplParser extends Parser
 		{
 			char chr = content.charAt(i);
 			if (chr == '[')
+			{
 				bracketCounter++;
+			}
 			else if (chr == ']')
 			{
 				assert bracketCounter > 0;
 				bracketCounter--;
 			}
 			else if (chr == '(')
+			{
 				parentnessisCounter++;
+			}
 			else if (chr == ')')
 			{
 				assert parentnessisCounter > 0;
 				parentnessisCounter--;
 			}
 			else if (chr == '"' && prevChar != '\\')
-				insideString = !insideString;
-			else if (chr == ' ')
 			{
-				if (bracketCounter == 0 && parentnessisCounter == 0 && !insideString)
+				insideString = !insideString;
+			}
+			else if (spaceFound)
+			{
+				if (chr == '+' || chr == '-' || chr == '/' || chr == '*')
+				{
+					return true;
+				}
+				else if (chr != ' ')
 				{
 					return false;
 				}
+			}
+			else if (chr == ' ')
+			{
+				spaceFound = bracketCounter == 0 && parentnessisCounter == 0 && !insideString;
 			}
 
 			prevChar = chr;
