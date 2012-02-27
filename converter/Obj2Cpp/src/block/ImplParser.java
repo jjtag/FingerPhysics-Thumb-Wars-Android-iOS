@@ -14,7 +14,6 @@ import static block.RegexHelp.SPACE;
 import static block.RegexHelp.TIDENTIFIER;
 import static block.RegexHelp.mb;
 import static block.RegexHelp.group;
-import static block.RegexHelp.few;
 import static block.RegexHelp.or;
 
 import java.util.List;
@@ -152,7 +151,7 @@ public class ImplParser extends Parser
 		if (line.contains("[") && line.contains("]") && !arrayPattern.matcher(line).find())
 		{
 			String callLine = parseMethodCall(line);
-			dest.writeln(callLine.replace("#", "::"));
+			dest.writeln(callLine.replace(staticCallMarker, "::"));
 		}
 		else if (line.equals("{"))
 		{
@@ -192,29 +191,34 @@ public class ImplParser extends Parser
 		}
 	}
 
+	private static String staticCallMarker = "__$static$__";
+	
 	private String parseArguments(String str)
 	{
 		StringBuilder result = new StringBuilder();
 
 		String paramsStr = str;
 		Matcher matcher;
-		boolean methodNameFound = false;
+		boolean argsFound = false;
 		while ((matcher = argumentPattern.matcher(paramsStr)).find())
 		{
 			int nameStart = matcher.start();
 			int start = matcher.end();
 			int end = matcher.find() ? matcher.start() : paramsStr.length();
 			String paramValue = paramsStr.substring(start, end).trim();
-			if (!methodNameFound)
+			if (!argsFound)
 			{
-				result.append(str.substring(0, nameStart > 0 ? nameStart - 1 : nameStart));
-				result.append("->");
-				result.append(str.substring(nameStart, start - 1));
+				String target = str.substring(0, nameStart > 0 ? nameStart - 1 : nameStart);
+				String message = str.substring(nameStart, start - 1);
+				
+				result.append(target);
+				result.append(canBeType(target) ? staticCallMarker : "->");
+				result.append(message);
 
 				result.append("(");
 
 				result.append(paramValue);
-				methodNameFound = true;
+				argsFound = true;
 			}
 			else
 			{
@@ -224,7 +228,7 @@ public class ImplParser extends Parser
 			paramsStr = paramsStr.substring(end);
 		}
 
-		if (methodNameFound)
+		if (argsFound)
 		{
 			result.append(")");
 			result.append(paramsStr);
@@ -235,12 +239,13 @@ public class ImplParser extends Parser
 			if (index == -1)
 				return str;
 
-			if ((str.charAt(0) == Character.toUpperCase(str.charAt(0))) && !str.contains("::"))
-			{
-				return str.substring(0, index) + "#" + str.substring(index + 1) + "()";
-			}
-
-			return str.substring(0, index) + "->" + str.substring(index + 1) + "()";
+			String target = str.substring(0, index);
+			String message = str.substring(index + 1);
+			
+			result.append(target);
+			result.append(canBeType(target) ? staticCallMarker : "->");
+			result.append(message);
+			result.append("()");
 		}
 
 		return result.toString();
