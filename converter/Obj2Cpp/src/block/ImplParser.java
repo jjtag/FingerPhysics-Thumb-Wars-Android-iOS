@@ -34,7 +34,6 @@ public class ImplParser extends Parser
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
 
 	private static Pattern callPattern = Pattern.compile(LBRKT + ALL + RBRKT);
-	private static Pattern arrayPattern = Pattern.compile(IDENTIFIER + MBSPACE + LBRKT + ALL + RBRKT);
 
 	private static Pattern argumentPattern = Pattern.compile(group(NOTSPACE) + ":");
 
@@ -148,7 +147,7 @@ public class ImplParser extends Parser
 
 	private void processFuncBody(String line)
 	{
-		if (line.contains("[") && line.contains("]") && !arrayPattern.matcher(line).find())
+		if (line.contains("[") && line.contains("]"))
 		{
 			String callLine = parseMethodCall(line);
 			dest.writeln(callLine.replace(staticCallMarker, "::"));
@@ -171,19 +170,13 @@ public class ImplParser extends Parser
 
 	private String parseMethodCall(String line)
 	{
-		Matcher matcher = callPattern.matcher(line);
-		if (matcher.find() && !arrayPattern.matcher(line).find())
-		{
-			int start = matcher.start();
-			int end = matcher.end();
-
-			StringBuilder result = new StringBuilder(line);
-			String content = parseMethodCall(matcher.group(1));
+		String callLine = getCallLine(line);
+		if (callLine != null && !isArrayCall(callLine))
+		{	
+			String content = parseMethodCall(callLine);
 			content = parseArguments(content);
-			result.delete(start, end);
-			result.insert(start, content);
-
-			return result.toString();
+			
+			return line.replace('[' + callLine + ']', content);
 		}
 		else
 		{
@@ -191,8 +184,108 @@ public class ImplParser extends Parser
 		}
 	}
 
+	private String getCallLine(String line)
+	{
+		StringBuilder result = new StringBuilder();
+		
+		boolean insideString = false;
+		int parentnessisCounter = 0;
+		int bracketCounter = 0;
+		char prevChar = 0;
+		for (int i = 0; i < line.length(); ++i)
+		{
+			char chr = line.charAt(i);
+			
+			if (bracketCounter > 0)
+			{
+				result.append(chr);
+			}
+			
+			if (chr == '"' && prevChar != '\\')
+			{
+				insideString = !insideString;
+			}
+			else if (!insideString)
+			{			
+				if (chr == '[')
+				{
+					bracketCounter++;
+				}
+				else if (chr == ']')
+				{
+					assert bracketCounter > 0;
+					bracketCounter--;
+					
+					if (bracketCounter == 0)
+					{
+						result.deleteCharAt(result.length() - 1);
+						return result.toString();
+					}
+				}
+				else if (chr == '(')
+				{
+					parentnessisCounter++;
+				}
+				else if (chr == ')')
+				{
+					assert parentnessisCounter > 0;
+					parentnessisCounter--;
+				}
+			}
+
+			prevChar = chr;
+		}
+
+		return null;
+	}
+
+	private boolean isArrayCall(String line)
+	{
+		String content = line.trim();
+
+		boolean insideString = false;
+		int parentnessisCounter = 0;
+		int bracketCounter = 0;
+		char prevChar = 0;
+		for (int i = 0; i < content.length(); ++i)
+		{
+			char chr = content.charAt(i);
+			if (chr == '[')
+				bracketCounter++;
+			else if (chr == ']')
+			{
+				assert bracketCounter > 0;
+				bracketCounter--;
+			}
+			else if (chr == '(')
+				parentnessisCounter++;
+			else if (chr == ')')
+			{
+				assert parentnessisCounter > 0;
+				parentnessisCounter--;
+			}
+			else if (chr == '"' && prevChar != '\\')
+				insideString = !insideString;
+			else if (chr == ' ')
+			{
+				if (bracketCounter == 0 && parentnessisCounter == 0 && !insideString)
+				{
+					return false;
+				}
+			}
+
+			prevChar = chr;
+		}
+
+		assert bracketCounter == 0 : bracketCounter;
+		assert parentnessisCounter == 0 : parentnessisCounter;
+		assert !insideString;
+
+		return true;
+	}
+
 	private static String staticCallMarker = "__$static$__";
-	
+
 	private String parseArguments(String str)
 	{
 		StringBuilder result = new StringBuilder();
@@ -210,7 +303,7 @@ public class ImplParser extends Parser
 			{
 				String target = str.substring(0, nameStart > 0 ? nameStart - 1 : nameStart);
 				String message = str.substring(nameStart, start - 1);
-				
+
 				result.append(target);
 				result.append(canBeType(target) ? staticCallMarker : "->");
 				result.append(message);
@@ -241,7 +334,7 @@ public class ImplParser extends Parser
 
 			String target = str.substring(0, index);
 			String message = str.substring(index + 1);
-			
+
 			result.append(target);
 			result.append(canBeType(target) ? staticCallMarker : "->");
 			result.append(message);
