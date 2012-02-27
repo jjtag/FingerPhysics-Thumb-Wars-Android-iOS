@@ -31,13 +31,12 @@ public class ImplParser extends Parser
 	private static Pattern implPattern = Pattern.compile("@implementation" + SPACE + TIDENTIFIER);
 	private static Pattern syntesizePattern = Pattern.compile("@synthesize" + SPACE + ANY + ";");
 
-	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY);
+	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ALL);
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
 
 	private static Pattern callPattern = Pattern.compile(LBRKT + ALL + RBRKT);
 	private static Pattern arrayPattern = Pattern.compile(IDENTIFIER + MBSPACE + LBRKT + ALL + RBRKT);
 
-	private static Pattern argumentPatternSimple = Pattern.compile(IDENTIFIER + SPACE + IDENTIFIER);
 	private static Pattern argumentPattern = Pattern.compile(group(NOTSPACE) + ":");
 
 	private String implClass;
@@ -69,7 +68,14 @@ public class ImplParser extends Parser
 			String bodyLine;
 			while (!(bodyLine = iter.next()).equals("@end"))
 			{
-				processClassBody(bodyLine);
+				if (isComment(bodyLine))
+				{
+					dest.writeln(bodyLine);
+				}
+				else
+				{
+					processClassBody(bodyLine);
+				}
 			}
 			implClass = null;
 		}
@@ -92,6 +98,8 @@ public class ImplParser extends Parser
 			String methodName = m.group(3);
 			boolean hasParams = m.group(4) != null;
 
+			debugTraceGroups(m);
+			
 			BcFuncDefinition bcFunc = new BcFuncDefinition(methodName, new BcType(returnType));
 
 			ListWriteDestination paramsDest = new ListWriteDestination();
@@ -123,7 +131,15 @@ public class ImplParser extends Parser
 			BlockIterator bodyIter = iter.readBlock();
 			while (bodyIter.hasNext())
 			{
-				processFuncBody(bodyIter.next());
+				String bodyLine = bodyIter.next();
+				if (isComment(bodyLine))
+				{
+					dest.writeln(bodyLine);
+				}
+				else
+				{
+					processFuncBody(bodyLine);
+				}
 			}
 			dest.writeBlockClose();
 		}
