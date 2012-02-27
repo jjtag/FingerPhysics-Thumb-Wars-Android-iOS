@@ -98,8 +98,6 @@ public class ImplParser extends Parser
 			String methodName = m.group(3);
 			boolean hasParams = m.group(4) != null;
 
-			debugTraceGroups(m);
-			
 			BcFuncDefinition bcFunc = new BcFuncDefinition(methodName, new BcType(returnType));
 
 			ListWriteDestination paramsDest = new ListWriteDestination();
@@ -239,7 +237,7 @@ public class ImplParser extends Parser
 
 			if ((str.charAt(0) == Character.toUpperCase(str.charAt(0))) && !str.contains("::"))
 			{
-				return str.substring(0, index) + "#" + str.substring(index + 1);
+				return str.substring(0, index) + "#" + str.substring(index + 1) + "()";
 			}
 
 			return str.substring(0, index) + "->" + str.substring(index + 1) + "()";
