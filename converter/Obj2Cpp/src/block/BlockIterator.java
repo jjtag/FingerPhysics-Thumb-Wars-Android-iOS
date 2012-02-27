@@ -173,23 +173,25 @@ public class BlockIterator
 			if (chr == '\n' && !inComment)
 			{
 				String currentLine = result.toString().trim();
+				
+				if (currentLine.equals("ToggleButton* b = [[ToggleButton allocAndAutorelease] initWithUpElement1:tn DownElement1:tp"))
+				{
+					System.out.print("");
+				}
+				
 				if (currentLine.length() == 0)
 				{
 					result.setLength(0);
 				}
-				else if (currentLine.startsWith("//"))
+				else if (currentLine.startsWith("//") || 
+						currentLine.startsWith("@implementation") || 
+						currentLine.startsWith("@interface") || 
+						currentLine.startsWith("#import"))
 				{
 					lines.add(currentLine);
 					result.setLength(0);
 				}
-				else if (currentLine.endsWith(",") || currentLine.endsWith(":"))
-				{
-				}
-				else
-				{
-					lines.add(currentLine);
-					result.setLength(0);
-				}
+				
 				continue;
 			}
 
