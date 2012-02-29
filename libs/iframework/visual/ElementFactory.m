@@ -14,7 +14,6 @@
 @interface ElementFactory (Private)
 -(void)setBasicParams:(XMLNode*)xml forElement:(BaseElement*)e;
 -(Timeline*)createTimeline:(XMLNode*)timeline forElement:(BaseElement*)e;
--(void)setVarsAutomatically:(XMLNode*)xml forElement:(BaseElement*)e;
 -(void)createKeyFrame:(XMLNode*)n forTimeline:(Timeline*)t ofType:(int)type Element:(BaseElement*)e;
 -(BaseElement*)generateElementsRecursively:(XMLNode*)xml;
 @end
@@ -396,44 +395,6 @@
 		{
 			e->parentAnchor = [BaseElement parseAlignmentString:[xml stringAttr:n]];
 		}				
-	}
-}
-
-// not used now
--(void)setVarsAutomatically:(XMLNode*)xml forElement:(BaseElement*)e
-{
-	NSArray* keys = [xml->attributes allKeys];
-	for (int i = 0; i < [xml->attributes count]; i++)
-	{
-		NSString* n = [keys objectAtIndex:i];        
-		const char* type = [self getIVarType:n];
-		if (type)
-		{
-			if (*type == 'i')
-			{
-				int v = [xml intAttr:n];
-				unsigned int addr = (unsigned int)&v;				
-				[e setIVar:n withValue:*(int**)addr];
-			}
-			else if (*type == 'f')
-			{
-				float v = [xml floatAttr:n];
-				unsigned int addr = (unsigned int)&v;				
-				[e setIVar:n withValue:*(float**)addr];
-			}
-			else if (*type == 'B')
-			{
-				bool v = ([xml intAttr:n] != 0);
-				unsigned int addr = (unsigned int)&v;				
-				[e setIVar:n withValue:*(bool**)addr];
-			}
-			else if (*type == 'c')
-			{
-				char v = ([xml intAttr:n] != 0);
-				unsigned int addr = (unsigned int)&v;				
-				[e setIVar:n withValue:*(char**)addr];
-			}				
-		}
 	}
 }
 

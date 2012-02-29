@@ -56,9 +56,3 @@
 +(id)allocAndAutorelease;
 @end
 
-@interface NSObject (Dynamic)
--(const char*)getIVarType:(NSString*)name;
--(void*)getIVar:(NSString*)name;
--(void)setIVar:(NSString*)name withValue:(void*)value;
-@end
-
