@@ -13,6 +13,7 @@ import static block.RegexHelp.group;
 import static block.RegexHelp.mb;
 import static block.RegexHelp.or;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -37,7 +38,7 @@ public class HeaderParser extends Parser
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
 
-	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + IDENTIFIER + MBSPACE + ";");
+	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + ANY + ";");
 	private static Pattern modifierDef = Pattern.compile(group(or("assign", "retain", "copy", "readonly", "readwrite", "nonatomic", "atomic")));
 
 	private BcClassDefinition lastBcClass;
@@ -164,28 +165,38 @@ public class HeaderParser extends Parser
 		}
 		else if ((m = propertyDef.matcher(line)).find())
 		{
-			String modifiers = m.group(1);
-
+			String modifiersString = m.group(1);
 			String type = m.group(2) + (m.group(3) != null ? "*" : "");
-			String name = m.group(4);
-
-			BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, new BcType(type));
-			lastBcClass.addProperty(bcProperty);
 			
-			m = modifierDef.matcher(modifiers);
+			String namesString = m.group(4).trim();
+			String[] names = namesString.split(MBSPACE + "," + MBSPACE);
+			
+			m = modifierDef.matcher(modifiersString);
+			List<String> modifiers = new ArrayList<String>();
 			while (m.find())
 			{
-				bcProperty.setModifier(m.group(1));
+				modifiers.add(m.group(1));
 			}
 
-			String propType = CodeHelper.type(bcProperty.getType());
-			String propName = CodeHelper.identifier(name);
-
-			dest.writelnf("%s %s();", propType, propName);
-			if (!bcProperty.isReadonly())
+			for (String name : names)
 			{
-				dest.writelnf("void set%s(%s __value);", Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
-			}
+				BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, new BcType(type));
+				lastBcClass.addProperty(bcProperty);
+				
+				for (String modifier : modifiers)
+				{
+					bcProperty.setModifier(modifier);
+				}
+				
+				String propType = CodeHelper.type(bcProperty.getType());
+				String propName = CodeHelper.identifier(name);
+				
+				dest.writelnf("%s %s();", propType, propName);
+				if (!bcProperty.isReadonly())
+				{
+					dest.writelnf("void set%s(%s __value);", Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
+				}				
+			}			
 		}
 		else
 		{
