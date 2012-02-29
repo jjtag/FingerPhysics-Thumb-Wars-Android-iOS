@@ -9,7 +9,7 @@ public class BlockIterator
 	private List<String> codeLines;
 	private int position;
 
-	private BlockIterator()
+	public BlockIterator()
 	{
 		position = -1;
 		codeLines = new ArrayList<String>();
@@ -30,7 +30,12 @@ public class BlockIterator
 	{
 		return codeLines.get(++position);
 	}
-
+	
+	public void add(String line)
+	{
+		codeLines.add(line);
+	}
+	
 	public void pushBack()
 	{
 		if (position > 0)

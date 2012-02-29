@@ -24,6 +24,7 @@ import code.BcPropertyDefinition;
 import code.BcType;
 import as2ObjC.CodeHelper;
 import as2ObjC.ListWriteDestination;
+import as2ObjC.WriteDestination;
 
 public class HeaderParser extends Parser
 {
@@ -38,17 +39,9 @@ public class HeaderParser extends Parser
 
 	private BcClassDefinition lastBcClass;
 
-	public HeaderParser(BlockIterator iter)
+	public HeaderParser(BlockIterator iter, WriteDestination dest)
 	{
-		super(iter);
-	}
-
-	public void parse()
-	{
-		while (iter.hasNext())
-		{
-			process(iter.next());
-		}
+		super(iter, dest);
 	}
 
 	public void process(String line)

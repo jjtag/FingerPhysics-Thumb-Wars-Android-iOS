@@ -63,22 +63,24 @@ public class As2ObjC
 		List<String> lines = FileUtils.readFile(source);
 		BlockIterator iter = new BlockIterator(lines);
 		
+		ListWriteDestination dest = new ListWriteDestination();
+		
 		Parser parser;
 		if (sourceName.endsWith(".h"))
 		{
-			HeaderParser headerParse = new HeaderParser(iter);
+			HeaderParser headerParse = new HeaderParser(iter, dest);
 			headers.put(FileUtils.fileNameNoExt(sourceName), headerParse);
 			parser = headerParse;
 		}
 		else
 		{
-			parser = new ImplParser(iter);
+			parser = new ImplParser(iter, dest);
 		}
 		
 		parser.parse();
 		
 		File outFile = new File(outputDir, source.getName());
-		writeCode(outFile, parser.getCodeLines());		
+		writeCode(outFile, dest.getLines());		
 	}
 
 	private static void writeCode(File outFile, List<String> lines) throws IOException
