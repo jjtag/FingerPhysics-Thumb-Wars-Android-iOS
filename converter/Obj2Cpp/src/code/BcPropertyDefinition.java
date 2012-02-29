@@ -2,9 +2,10 @@ package code;
 
 public class BcPropertyDefinition
 {
-	
 	private String name;
 	private BcType type;
+	
+	private String bindingName;
 	
 	private boolean readonly;
 	private PropertyAssignType assignType;
@@ -13,6 +14,7 @@ public class BcPropertyDefinition
 	{
 		this.name = name;
 		this.type = type;
+		this.bindingName = name;
 		
 		assignType = PropertyAssignType.ASSIGN;
 	}
@@ -35,6 +37,16 @@ public class BcPropertyDefinition
 		{
 			assignType = PropertyAssignType.ASSIGN;
 		}
+	}
+	
+	public void setBindingName(String bindingName)
+	{
+		this.bindingName = bindingName;
+	}
+	
+	public String getBindingName()
+	{
+		return bindingName;
 	}
 	
 	public boolean isReadonly()
