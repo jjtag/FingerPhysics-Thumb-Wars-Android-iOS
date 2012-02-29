@@ -86,6 +86,14 @@ typedef enum {
 /// Default pixel format: RGBA8888
 #define kTexture2DPixelFormat_Default kTexture2DPixelFormat_RGBA8888
 
+typedef struct TexParams {
+	GLuint	minFilter;
+	GLuint	magFilter;
+	GLuint	wrapS;
+	GLuint	wrapT;
+} TexParams;
+
+
 //CLASS INTERFACES:
 
 /** Texture2D class
@@ -147,13 +155,13 @@ typedef enum {
 /** whether or not the texture has their Alpha premultiplied */
 @property(readonly) BOOL hasPremultipliedAlpha;
 
-@end
+//@end
 
 /**
 Drawing extensions to make it easy to draw basic quads using a Texture2D object.
 These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_COORD_ARRAY client states to be enabled.
 */
-@interface Texture2D (Drawing)
+//@interface Texture2D (Drawing)
 /** draws a texture at a given point */
 - (void) drawAtPoint:(CGPoint)point;
 // draws without binding
@@ -164,13 +172,13 @@ These functions require GL_TEXTURE_2D and both GL_VERTEX_ARRAY and GL_TEXTURE_CO
 - (void) drawRect:(Rectangle)rect At:(CGPoint)point;
 // fills polygon with texture
 - (void) drawPolygon:(const float*)vertices Texels:(const float*)texels Count:(int)vertexCount Mode:(int)m; 
-@end
+//@end
 
 /**
 Extensions to make it easy to create a Texture2D object from an image file.
 Note that RGBA type textures will have their alpha premultiplied - use the blending mode (GL_ONE, GL_ONE_MINUS_SRC_ALPHA).
 */
-@interface Texture2D (Image)
+//@interface Texture2D (Image)
 /** Initializes a texture from a UIImage object */
 -(id) initWithImage:(UIImage *)uiImage;
 // calculate inner variables
@@ -186,40 +194,34 @@ Note that RGBA type textures will have their alpha premultiplied - use the blend
 // increase all quad offsets by given values
 -(void)addToQuadOffsetsX:(float)x Y:(float)y;
 
-@end
+//@end
 
 /**
 Extensions to make it easy to create a Texture2D object from a string of text.
 Note that the generated textures are of type A8 - use the blending mode (GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA).
 */
-@interface Texture2D (Text)
+//@interface Texture2D (Text)
 /** Initializes a texture from a string with dimensions, alignment, font name and font size */
 - (id) initWithString:(NSString*)string dimensions:(CGSize)dimensions alignment:(UITextAlignment)alignment fontName:(NSString*)name fontSize:(CGFloat)size;
 /** Initializes a texture from a string with font name and font size */
 - (id) initWithString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size;
-@end
+//@end
 
 /**
  Extensions to make it easy to create a Texture2D object from a PVRTC file
  */
-@interface Texture2D (PVRTC)
+//@interface Texture2D (PVRTC)
 /** Initializes a texture from a PVRTC buffer */
 -(id) initWithPVRTCData: (const void*)data level:(int)level bpp:(int)bpp hasAlpha:(BOOL)hasAlpha length:(int)length;
 /** Initializes a texture from a PVRTC file */
 -(id) initWithPVRTCFile: (NSString*) file;
-@end
+//@end
 
 /**
  Extension to set the Min / Mag filter
  */
-typedef struct TexParams {
-	GLuint	minFilter;
-	GLuint	magFilter;
-	GLuint	wrapS;
-	GLuint	wrapT;
-} TexParams;
 
-@interface Texture2D (GLFilter)
+//@interface Texture2D (GLFilter)
 /** sets the min filter, mag filter, wrap s and wrap t texture parameters
  @warning this function is not thread safe
  */
@@ -255,9 +257,9 @@ typedef struct TexParams {
  */
 + (void) setAliasTexParameters;
 
-@end
+//@end
 
-@interface Texture2D (PixelFormat)
+//@interface Texture2D (PixelFormat)
 /** sets the default pixel format for UIImages that contains alpha channel.
  If the UIImage contains alpha channel, then the options are:
     - generate 32-bit textures: RGBA8 (kTexture2DPixelFormat_RGBA8888)

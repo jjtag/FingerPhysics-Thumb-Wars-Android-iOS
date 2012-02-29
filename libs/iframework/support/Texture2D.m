@@ -219,9 +219,9 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 	return [NSString stringWithFormat:@"<%@ = %08X | Name = %i | Dimensions = %ix%i | Coordinates = (%.2f, %.2f)>", [self class], self, _name, _width, _height, _maxS, _maxT];
 }
 
-@end
-
-@implementation Texture2D (Image)
+//@end
+//
+//@implementation Texture2D (Image)
 	
 - (id) initWithImage:(UIImage *)uiImage
 {
@@ -444,9 +444,9 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 	}
 }
 
-@end
-
-@implementation Texture2D (Text)
+//@end
+//
+//@implementation Texture2D (Text)
 
 - (id) initWithString:(NSString*)string fontName:(NSString*)name fontSize:(CGFloat)size
 {
@@ -502,9 +502,9 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 	return self;
 }
 
-@end
-
-@implementation Texture2D (Drawing)
+//@end
+//
+//@implementation Texture2D (Drawing)
 
 - (void) drawAtPoint:(CGPoint)point 
 {
@@ -595,9 +595,9 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 }
 
-@end
-
-@implementation Texture2D (PVRTC)
+//@end
+//
+//@implementation Texture2D (PVRTC)
 -(id) initWithPVRTCData: (const void*)data level:(int)level bpp:(int)bpp hasAlpha:(BOOL)hasAlpha length:(int)length
 {
 	GLint saveName;
@@ -661,12 +661,12 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 	}
 	return self;
 }
-@end
-
+//@end
 //
-// Used to apply MIN/MAG filter
-//
-@implementation Texture2D (GLFilter)
+////
+//// Used to apply MIN/MAG filter
+////
+//@implementation Texture2D (GLFilter)
 
 +(void) setTexParameters: (TexParams*) texParams
 {
@@ -706,11 +706,11 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 	_texParams.magFilter = _texParams.minFilter = GL_LINEAR;
 }
 
-@end
-//
-// Texture options for images that contains alpha
-//
-@implementation Texture2D (PixelFormat)
+//@end
+////
+//// Texture options for images that contains alpha
+////
+//@implementation Texture2D (PixelFormat)
 +(void) setDefaultAlphaPixelFormat:(Texture2DPixelFormat)format
 {
 	defaultAlphaPixelFormat = format;
