@@ -14,7 +14,6 @@ ApplicationSettings* appSettings;
 ResourceMgr* resourceMgr;
 Accelerometer* accelerometer;
 SoundMgr* soundMgr;
-MovieMgr* movieMgr;
 GLCanvas* canvas;
 AppUIViewController* uiViewController;
 Preferences* prefs;
@@ -47,11 +46,6 @@ Preferences* prefs;
 +(SoundMgr*) sharedSoundMgr
 {
 	return soundMgr;
-}
-
-+(MovieMgr*) sharedMovieMgr
-{
-	return movieMgr;
 }
 
 +(GLCanvas*) sharedCanvas
@@ -97,12 +91,6 @@ Preferences* prefs;
 {
 	ASSERT(!soundMgr);
 	return [[SoundMgr alloc] init];	
-}
-
--(MovieMgr*) createMovieMgr
-{
-	ASSERT(!movieMgr);
-	return [[MovieMgr alloc] init];	
 }
 
 -(GLCanvas*) createCanvas
@@ -156,7 +144,6 @@ Preferences* prefs;
 	root = [self createRootController];		
 	accelerometer = [self createAccelerometer];	
 	soundMgr = [self createSoundMgr];
-	movieMgr = [self createMovieMgr];
 	prefs = [self createPreferences];
 	
 	// add canvas to window, show it and start root controller
@@ -237,7 +224,6 @@ Preferences* prefs;
 	[resourceMgr release];	
 	[accelerometer release];
 	[soundMgr release];
-	[movieMgr release];
 	[prefs release];	
 }
 

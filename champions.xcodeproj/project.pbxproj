@@ -10,7 +10,6 @@
 		04101153112AA927006EFA28 /* Device.m in Sources */ = {isa = PBXBuildFile; fileRef = 04101152112AA927006EFA28 /* Device.m */; };
 		041FA21E0F84BFA0000F2A4F /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041FA21D0F84BFA0000F2A4F /* MenuView.m */; };
 		041FA2410F84C9AA000F2A4F /* StartupView.m in Sources */ = {isa = PBXBuildFile; fileRef = 041FA2400F84C9AA000F2A4F /* StartupView.m */; };
-		04337581107E2BFB009AA50A /* MovieMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433757F107E2BFB009AA50A /* MovieMgr.m */; };
 		0465E2FF105525C500CC58B8 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0465E2FE105525C500CC58B8 /* GameScene.mm */; };
 		047A22BE0F961F360006778F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047A22BD0F961F360006778F /* OpenAL.framework */; };
 		047A234B0F9626420006778F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047A234A0F9626420006778F /* AudioToolbox.framework */; };
@@ -203,7 +202,6 @@
 		04B33CFD11E32ECC00C0B074 /* BulletScrollbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AD8FF2105390E500BC7487 /* BulletScrollbar.m */; };
 		04B33CFE11E32ECC00C0B074 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0465E2FE105525C500CC58B8 /* GameScene.mm */; };
 		04B33CFF11E32ECC00C0B074 /* MenuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04A5AD311057E05A0022E12B /* MenuController.mm */; };
-		04B33D0011E32ECC00C0B074 /* MovieMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 0433757F107E2BFB009AA50A /* MovieMgr.m */; };
 		04B33D0111E32ECC00C0B074 /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31E8E108A733F00674ACD /* XMLDocument.m */; };
 		04B33D0211E32ECC00C0B074 /* XMLDomLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82F81108D0F640006E6A9 /* XMLDomLoader.m */; };
 		04B33D0311E32ECC00C0B074 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C830EF1090FDD30006E6A9 /* Strings.m */; };
@@ -254,7 +252,6 @@
 		04B33D3011E32ECC00C0B074 /* AppUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3AB73114FBDFF00BFE026 /* AppUIViewController.m */; };
 		04B33D3111E32ECC00C0B074 /* PushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3ABDE114FBFCF00BFE026 /* PushButton.m */; };
 		04B33D3211E32ECC00C0B074 /* TileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3ABE0114FBFCF00BFE026 /* TileMap.m */; };
-		04B33D3311E32ECC00C0B074 /* InAppPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3ABE4114FBFE700BFE026 /* InAppPurchase.m */; };
 		04B33D3411E32ECC00C0B074 /* MapPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED02666B11522068003EC213 /* MapPickerController.m */; };
 		04B33D3511E32ECC00C0B074 /* Joystick.m in Sources */ = {isa = PBXBuildFile; fileRef = EDF13866115901C300179CA7 /* Joystick.m */; };
 		04B33D3611E32ECC00C0B074 /* Mode1Scene.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDF13CC8115A389300179CA7 /* Mode1Scene.mm */; };
@@ -934,7 +931,6 @@
 		EDB3AB74114FBDFF00BFE026 /* AppUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3AB73114FBDFF00BFE026 /* AppUIViewController.m */; };
 		EDB3ABE1114FBFCF00BFE026 /* PushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3ABDE114FBFCF00BFE026 /* PushButton.m */; };
 		EDB3ABE2114FBFCF00BFE026 /* TileMap.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3ABE0114FBFCF00BFE026 /* TileMap.m */; };
-		EDB3ABE5114FBFE700BFE026 /* InAppPurchase.m in Sources */ = {isa = PBXBuildFile; fileRef = EDB3ABE4114FBFE700BFE026 /* InAppPurchase.m */; };
 		EDC7460E11AA4DDD00C443B6 /* NSDataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC7460C11AA4DDD00C443B6 /* NSDataAdditions.m */; };
 		EDC74A1311ABBD6B00C443B6 /* ColoredLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EDC74A1111ABBD6B00C443B6 /* ColoredLayer.m */; };
 		EDC9434F114A343600739589 /* MapParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = EDC9434E114A343600739589 /* MapParser.mm */; };
@@ -982,8 +978,6 @@
 		041FA21D0F84BFA0000F2A4F /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
 		041FA23F0F84C9AA000F2A4F /* StartupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupView.h; sourceTree = "<group>"; };
 		041FA2400F84C9AA000F2A4F /* StartupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupView.m; sourceTree = "<group>"; };
-		0433757F107E2BFB009AA50A /* MovieMgr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieMgr.m; sourceTree = "<group>"; };
-		04337580107E2BFB009AA50A /* MovieMgr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieMgr.h; sourceTree = "<group>"; };
 		0465E2FD105525C500CC58B8 /* GameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		0465E2FE105525C500CC58B8 /* GameScene.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameScene.mm; sourceTree = "<group>"; };
 		047A22BD0F961F360006778F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -1526,8 +1520,6 @@
 		EDB3ABDE114FBFCF00BFE026 /* PushButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushButton.m; sourceTree = "<group>"; };
 		EDB3ABDF114FBFCF00BFE026 /* TileMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TileMap.h; sourceTree = "<group>"; };
 		EDB3ABE0114FBFCF00BFE026 /* TileMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TileMap.m; sourceTree = "<group>"; };
-		EDB3ABE3114FBFE700BFE026 /* InAppPurchase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchase.h; sourceTree = "<group>"; };
-		EDB3ABE4114FBFE700BFE026 /* InAppPurchase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchase.m; sourceTree = "<group>"; };
 		EDC73C0111A40D7000C443B6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		EDC7460B11AA4DDD00C443B6 /* NSDataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NSDataAdditions.h; path = classes/NSDataAdditions.h; sourceTree = SOURCE_ROOT; };
 		EDC7460C11AA4DDD00C443B6 /* NSDataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NSDataAdditions.m; path = classes/NSDataAdditions.m; sourceTree = SOURCE_ROOT; };
@@ -1693,8 +1685,6 @@
 		049590BC104FD493009EAEC3 /* net */ = {
 			isa = PBXGroup;
 			children = (
-				EDB3ABE3114FBFE700BFE026 /* InAppPurchase.h */,
-				EDB3ABE4114FBFE700BFE026 /* InAppPurchase.m */,
 				049590BD104FD493009EAEC3 /* Loader.h */,
 				049590BE104FD493009EAEC3 /* Loader.m */,
 				049590BF104FD493009EAEC3 /* XMLSaxLoader.h */,
@@ -1786,8 +1776,6 @@
 		049590ED104FD493009EAEC3 /* media */ = {
 			isa = PBXGroup;
 			children = (
-				0433757F107E2BFB009AA50A /* MovieMgr.m */,
-				04337580107E2BFB009AA50A /* MovieMgr.h */,
 				049590EE104FD493009EAEC3 /* OALSound.h */,
 				049590EF104FD493009EAEC3 /* OALSound.m */,
 				049590F0104FD493009EAEC3 /* SoundMgr.h */,
@@ -3197,7 +3185,6 @@
 				04B33CFD11E32ECC00C0B074 /* BulletScrollbar.m in Sources */,
 				04B33CFE11E32ECC00C0B074 /* GameScene.mm in Sources */,
 				04B33CFF11E32ECC00C0B074 /* MenuController.mm in Sources */,
-				04B33D0011E32ECC00C0B074 /* MovieMgr.m in Sources */,
 				04B33D0111E32ECC00C0B074 /* XMLDocument.m in Sources */,
 				04B33D0211E32ECC00C0B074 /* XMLDomLoader.m in Sources */,
 				04B33D0311E32ECC00C0B074 /* Strings.m in Sources */,
@@ -3248,7 +3235,6 @@
 				04B33D3011E32ECC00C0B074 /* AppUIViewController.m in Sources */,
 				04B33D3111E32ECC00C0B074 /* PushButton.m in Sources */,
 				04B33D3211E32ECC00C0B074 /* TileMap.m in Sources */,
-				04B33D3311E32ECC00C0B074 /* InAppPurchase.m in Sources */,
 				04B33D3411E32ECC00C0B074 /* MapPickerController.m in Sources */,
 				04B33D3511E32ECC00C0B074 /* Joystick.m in Sources */,
 				04B33D3611E32ECC00C0B074 /* Mode1Scene.mm in Sources */,
@@ -3344,7 +3330,6 @@
 				09AD8FF3105390E500BC7487 /* BulletScrollbar.m in Sources */,
 				0465E2FF105525C500CC58B8 /* GameScene.mm in Sources */,
 				04A5AD321057E05A0022E12B /* MenuController.mm in Sources */,
-				04337581107E2BFB009AA50A /* MovieMgr.m in Sources */,
 				09C31E8F108A733F00674ACD /* XMLDocument.m in Sources */,
 				09C82F82108D0F640006E6A9 /* XMLDomLoader.m in Sources */,
 				09C830F01090FDD30006E6A9 /* Strings.m in Sources */,
@@ -3395,7 +3380,6 @@
 				EDB3AB74114FBDFF00BFE026 /* AppUIViewController.m in Sources */,
 				EDB3ABE1114FBFCF00BFE026 /* PushButton.m in Sources */,
 				EDB3ABE2114FBFCF00BFE026 /* TileMap.m in Sources */,
-				EDB3ABE5114FBFE700BFE026 /* InAppPurchase.m in Sources */,
 				ED02666C11522068003EC213 /* MapPickerController.m in Sources */,
 				EDF13867115901C300179CA7 /* Joystick.m in Sources */,
 				EDF13CC9115A389300179CA7 /* Mode1Scene.mm in Sources */,

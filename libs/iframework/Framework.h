@@ -47,7 +47,6 @@
 #import "visual/TiledImage.h"
 #import "visual/Slider.h"
 #import "media/SoundMgr.h"
-#import "media/MovieMgr.h"
 #import "net/XMLSaxLoader.h"
 #import "net/XMLDomLoader.h"
 

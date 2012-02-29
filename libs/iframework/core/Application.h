@@ -12,7 +12,6 @@
 #import "ResourceMgr.h"
 #import "Accelerometer.h"
 #import "SoundMgr.h"
-#import "MovieMgr.h"
 #import "GLCanvas.h"
 #import "AppUIViewController.h"
 #import "Preferences.h"
@@ -30,7 +29,6 @@
 -(ResourceMgr*) createResourceMgr;
 -(Accelerometer*) createAccelerometer;
 -(SoundMgr*) createSoundMgr;
--(MovieMgr*) createMovieMgr;
 -(GLCanvas*) createCanvas;
 -(AppUIViewController*) createUIViewController;
 -(Preferences*) createPreferences;
@@ -40,7 +38,6 @@
 +(ResourceMgr*) sharedResourceMgr;
 +(Accelerometer*) sharedAccelerometer;
 +(SoundMgr*) sharedSoundMgr;
-+(MovieMgr*) sharedMovieMgr;
 +(GLCanvas*) sharedCanvas;
 +(AppUIViewController*) sharedUIViewController;
 +(Preferences*) sharedPreferences;
@@ -55,7 +52,6 @@ extern ApplicationSettings* appSettings;
 extern ResourceMgr* resourceMgr;
 extern Accelerometer* accelerometer;
 extern SoundMgr* soundMgr;
-extern MovieMgr* movieMgr;
 extern GLCanvas* canvas;
 extern AppUIViewController* uiViewController;
 extern Preferences* prefs;
