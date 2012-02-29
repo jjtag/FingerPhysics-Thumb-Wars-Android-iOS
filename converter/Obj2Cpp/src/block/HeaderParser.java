@@ -29,7 +29,7 @@ import as2ObjC.WriteDestination;
 
 public class HeaderParser extends Parser
 {
-	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">"));
+	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + mb(MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">")));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
 
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
@@ -56,13 +56,13 @@ public class HeaderParser extends Parser
 			assert lastBcClass == null : lastBcClass.getName();
 
 			String className = m.group(1);
-			String extendsName = m.group(2);
-			String interfaces = m.group(4);
+			String extendsName = m.group(3);
+			String interfaces = m.group(5);
 
 			lastBcClass = new BcClassDefinition(className);
 			bcClasses.put(className, lastBcClass);
 
-			dest.write("public class " + className + " : public " + extendsName);
+			dest.write("public class " + className + " : public " + (extendsName == null ? "NSObject" : extendsName));
 			if (interfaces != null)
 			{
 				m = typePattern.matcher(interfaces);

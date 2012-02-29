@@ -51,7 +51,7 @@ public class As2ObjC
 			
 			for (File child : files) 
 			{
-				process(child, outputDir);
+				process(child, outputDir, extensions);
 			}
 		}
 		else
