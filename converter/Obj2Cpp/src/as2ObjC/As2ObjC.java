@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import code.BcClassDefinition;
+
 import bc.utils.file.FileUtils;
 import block.BlockIterator;
 import block.BlockParser;
@@ -15,20 +17,24 @@ import block.Parser;
 
 public class As2ObjC 
 {
-	private static Map<String, HeaderParser> headers;
+	private static Map<String, BcClassDefinition> bcClasses;
 	
 	public static void main(String[] args) 
 	{
-		File outputDir = new File(args[0]);		
-		
-		headers = new HashMap<String, HeaderParser>();
+		File outputDir = new File(args[0]);
+		bcClasses = new HashMap<String, BcClassDefinition>();
 		
 		try
 		{
 			for (int i = 1; i < args.length; ++i)
 			{
 				File asSourceFile = new File(args[i]);
-				process(asSourceFile, outputDir);
+				process(asSourceFile, outputDir, ".h"); // collect headers first
+			}
+			for (int i = 1; i < args.length; ++i)
+			{
+				File asSourceFile = new File(args[i]);
+				process(asSourceFile, outputDir, ".m", ".mm"); // collect the rest of sources
 			}
 		}
 		catch (IOException e)
@@ -37,11 +43,11 @@ public class As2ObjC
 		}
     }
 
-	private static void process(File file, File outputDir) throws IOException
+	private static void process(File file, File outputDir, String...extensions) throws IOException
 	{
 		if (file.isDirectory())
 		{
-			File[] files = FileUtils.listFiles(file, ".h", ".m", ".mm");
+			File[] files = FileUtils.listFiles(file, extensions);
 			
 			for (File child : files) 
 			{
@@ -68,13 +74,12 @@ public class As2ObjC
 		Parser parser;
 		if (sourceName.endsWith(".h"))
 		{
-			HeaderParser headerParse = new HeaderParser(iter, dest);
-			headers.put(FileUtils.fileNameNoExt(sourceName), headerParse);
+			HeaderParser headerParse = new HeaderParser(iter, dest, bcClasses);
 			parser = headerParse;
 		}
 		else
 		{
-			parser = new ImplParser(iter, dest);
+			parser = new ImplParser(iter, dest, bcClasses);
 		}
 		
 		parser.parse();

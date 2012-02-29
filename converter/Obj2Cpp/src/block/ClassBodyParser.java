@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
 
 import as2ObjC.ListWriteDestination;
 import as2ObjC.WriteDestination;
+import code.BcClassDefinition;
 import code.BcFuncDefinition;
 import code.BcFuncParam;
 import code.BcType;
@@ -31,12 +32,12 @@ public class ClassBodyParser extends Parser
 
 	private static Pattern argumentPattern = Pattern.compile(ANY + SPACE + IDENTIFIER + MBSPACE + ":");
 
-	private String className;
+	private BcClassDefinition bcClass;
 
-	public ClassBodyParser(BlockIterator iter, WriteDestination dest, String className)
+	public ClassBodyParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
 	{
 		super(iter, dest);
-		this.className = className;
+		this.bcClass = bcClass;
 	}
 
 	@Override
@@ -79,7 +80,7 @@ public class ClassBodyParser extends Parser
 					}
 				}
 			}
-			dest.writelnf("%s %s::%s(%s)", returnType, className, methodName, paramsDest);
+			dest.writelnf("%s %s::%s(%s)", returnType, bcClass.getName(), methodName, paramsDest);
 			dest.writeBlockOpen();
 			BlockIterator bodyIter = iter.readBlock();
 

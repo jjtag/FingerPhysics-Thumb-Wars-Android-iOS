@@ -14,6 +14,7 @@ import static block.RegexHelp.mb;
 import static block.RegexHelp.or;
 
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,10 +39,12 @@ public class HeaderParser extends Parser
 	private static Pattern modifierDef = Pattern.compile(group(or("assign", "retain", "copy", "readonly", "readwrite", "nonatomic", "atomic")));
 
 	private BcClassDefinition lastBcClass;
+	private Map<String, BcClassDefinition> bcClasses;
 
-	public HeaderParser(BlockIterator iter, WriteDestination dest)
+	public HeaderParser(BlockIterator iter, WriteDestination dest, Map<String, BcClassDefinition> bcClasses)
 	{
 		super(iter, dest);
+		this.bcClasses = bcClasses;
 	}
 
 	public void process(String line)
@@ -57,6 +60,7 @@ public class HeaderParser extends Parser
 			String interfaces = m.group(4);
 
 			lastBcClass = new BcClassDefinition(className);
+			bcClasses.put(className, lastBcClass);
 
 			dest.write("public class " + className + " : public " + extendsName);
 			if (interfaces != null)

@@ -3,18 +3,23 @@ package block;
 import static block.RegexHelp.SPACE;
 import static block.RegexHelp.TIDENTIFIER;
 
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import as2ObjC.WriteDestination;
+import code.BcClassDefinition;
 
 public class ImplParser extends Parser
 {
 	private static Pattern implPattern = Pattern.compile("@implementation" + SPACE + TIDENTIFIER);
 
-	public ImplParser(BlockIterator iter, WriteDestination dest)
+	private Map<String, BcClassDefinition> bcClasses;
+	
+	public ImplParser(BlockIterator iter, WriteDestination dest, Map<String, BcClassDefinition> bcClasses)
 	{
 		super(iter, dest);
+		this.bcClasses = bcClasses;
 	}
 
 	protected void process(String line)
@@ -24,6 +29,8 @@ public class ImplParser extends Parser
 		if ((m = implPattern.matcher(line)).find())
 		{
 			String className = m.group(1);
+			BcClassDefinition bcClass = bcClasses.get(className);
+			assert bcClass != null;			
 
 			BlockIterator bodyIter = new BlockIterator();
 			String bodyLine;
@@ -32,7 +39,7 @@ public class ImplParser extends Parser
 				bodyIter.add(bodyLine);
 			}
 			
-			ClassBodyParser parser = new ClassBodyParser(bodyIter, dest, className);
+			ClassBodyParser parser = new ClassBodyParser(bodyIter, dest, bcClass);
 			parser.parse();
 		}
 		else
