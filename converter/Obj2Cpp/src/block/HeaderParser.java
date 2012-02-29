@@ -67,7 +67,7 @@ public class HeaderParser extends Parser
 			lastBcClass = new BcClassDefinition(className);
 			bcClasses.put(className, lastBcClass);
 
-			dest.write("public class " + className + " : public " + (extendsName == null ? "NSObject" : extendsName));
+			dest.write("class " + className + " : public " + (extendsName == null ? "NSObject" : extendsName));
 			if (interfaces != null)
 			{
 				m = typePattern.matcher(interfaces);
@@ -78,6 +78,10 @@ public class HeaderParser extends Parser
 			}
 			dest.writeln();
 			dest.writeBlockOpen();
+
+			dest.decTab();
+			dest.writeln("public:");
+			dest.incTab();
 			
 			String bodyLine;
 			bodyLine = iter.next();
