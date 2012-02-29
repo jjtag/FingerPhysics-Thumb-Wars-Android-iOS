@@ -91,4 +91,10 @@ enum { CONTROLLER_DEACTIVE = 0, CONTROLLER_ACTIVE = 1, CONTROLLER_PAUSED = 2 };
 -(void)calculateTimeDelta;
 -(void)calculateFPS;
 
+// used for debugging
+-(bool) checkNoChildsActive;
+-(void) hideActiveView;
+// convert touch events for landscape mode
+-(Vector)convertTouchForLandscape:(Vector)t;
+
 @end

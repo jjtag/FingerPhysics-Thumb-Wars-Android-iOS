@@ -13,16 +13,6 @@
 #define DEFAULT_VIEWS_CAPACITY 10
 #define DEFAULT_CHILDS_CAPACITY 10
 
-@interface ViewController (Private)
-
-// used for debugging
--(bool) checkNoChildsActive;
--(void) hideActiveView;
-// convert touch events for landscape mode
--(Vector)convertTouchForLandscape:(Vector)t;
-
-@end
-
 @implementation ViewController
 
 @synthesize controllerState;

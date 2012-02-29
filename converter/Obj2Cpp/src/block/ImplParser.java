@@ -42,6 +42,10 @@ public class ImplParser extends Parser
 			ClassBodyParser parser = new ClassBodyParser(bodyIter, dest, bcClass);
 			parser.parse();
 		}
+		if (line.contains("@interface"))
+		{
+			assert false : line;
+		}		
 		else
 		{
 			dest.writeln(line);

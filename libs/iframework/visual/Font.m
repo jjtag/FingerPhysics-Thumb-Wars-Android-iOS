@@ -24,10 +24,6 @@ int getCharOffset(Font* f, unichar* s, int c, int len)
 	}	
 }
 
-@interface Font (Private)
--(void)initCharTextureCoords;
-@end
-
 @implementation Font
 
 -(id)initWithVariableSizeChars:(NSString*)string charMapFile:(Texture2D*)charmapfile Kerning:(NSMutableDictionary*)k

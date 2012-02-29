@@ -98,4 +98,6 @@ typedef struct ResEntry
 -(int)getResourceIDFromPath:(NSString*)p;
 +(NSString*) fullPathFromRelativePath:(NSString*) relPath;
 
+-(void)setQuads:(Texture2D*)t Info:(XMLNode*)i;
+
 @end

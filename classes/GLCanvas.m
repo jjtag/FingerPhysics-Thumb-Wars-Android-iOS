@@ -17,14 +17,6 @@
 
 #define USE_DEPTH_BUFFER 0
 
-// A class extension to declare private methods
-@interface GLCanvas ()
-
-- (BOOL) createFramebuffer;
-- (void) destroyFramebuffer;
-
-@end
-
 @implementation GLCanvas
 
 @synthesize touchDelegate;

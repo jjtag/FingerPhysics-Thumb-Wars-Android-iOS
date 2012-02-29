@@ -28,11 +28,6 @@ const Vector impossibleTouch = {-1000, -1000};
 #define DEFAULT_TOUCH_PASS_TIMEOUT 0.1
 #define AUTO_RELEASE_TOUCH_TIMEOUT 0.2
 
-@interface ScrollableContainer (Private)
--(void)moveToPoint:(Vector)tsp Delta:(TimeType)delta Duration:(float)scrollDuration;
-@end
-
-
 @implementation ScrollableContainer
 
 @synthesize delegate;

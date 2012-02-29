@@ -10,10 +10,6 @@
 #import "../support/Texture2D.h"
 #import "Framework.h"
 
-@interface Animation (Private)
--(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c First:(int)s Last:(int)e ArgumentList:(va_list)al;
-@end
-
 @implementation Animation
 
 -(int)addAnimationWithDelay:(float)d Looped:(bool)l Count:(int)c Sequence:(int)s,...

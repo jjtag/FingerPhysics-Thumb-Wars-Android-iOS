@@ -49,5 +49,9 @@ enum {ALT_BUTTON_UP = 0, ALT_BUTTON_DOWN = 1};
 
 // private
 -(bool)isInTouchZoneX:(float)tx Y:(float)ty;
+
+-(void)setState:(int)s;
+-(bool)isInTouchZoneX:(float)tx Y:(float)ty;
+
 @end
 

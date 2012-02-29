@@ -97,4 +97,6 @@ enum {TOUCH_STATE_UP, TOUCH_STATE_DOWN, TOUCH_STATE_MOVING};
 -(void)calculateNearsetScrollPoint;
 -(void)moveContainerBy:(Vector)off;
 
+-(void)moveToPoint:(Vector)tsp Delta:(TimeType)delta Duration:(float)scrollDuration;
+
 @end

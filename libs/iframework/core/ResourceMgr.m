@@ -11,10 +11,6 @@
 
 #define LOADING_TIMER_INTERVAL 1.0 / 20.0
 
-@interface ResourceMgr (Private)
--(void)setQuads:(Texture2D*)t Info:(XMLNode*)i;
-@end
-
 @implementation ResourceMgr
 
 @synthesize resourcesDelegate;

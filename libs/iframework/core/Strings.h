@@ -31,4 +31,6 @@
 -(id)initWithXML:(XMLNode*)xml;
 -(NSString*)getString:(int)sid;
 
+-(void)parseXML:(XMLNode*)xml;
+
 @end

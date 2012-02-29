@@ -9,11 +9,6 @@
 #import "AlternateButton.h"
 #import "Framework.h"
 
-@interface AlternateButton (Private)
--(void)setState:(int)s;
--(bool)isInTouchZoneX:(float)tx Y:(float)ty;
-@end
-
 @implementation AlternateButton
 
 @synthesize delegate;

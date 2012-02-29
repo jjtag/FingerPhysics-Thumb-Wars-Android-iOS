@@ -13,10 +13,6 @@
 @implementation TileEntry
 @end
 
-@interface TileMap (Private)
--(void)updateVars;
-@end
-
 @implementation TileMap
 
 -(id)initWithRows:(int)r Columns:(int)c

@@ -42,6 +42,9 @@
 -(void)pause;
 -(void)unpause;
 -(void)update:(TimeType)delta;
+
+-(void)calculateOffset;
+
 @end
 
 // lightweight c function which moves v to t with specified speed per second

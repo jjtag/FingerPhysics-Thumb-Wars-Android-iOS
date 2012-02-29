@@ -88,4 +88,16 @@ enum
 
 -(Grabber*)getScreenGrabber;
 
+// main application loop
+-(void)runLoop;
+// updates current controller and draws current view
+-(void)operateCurrentMVC;
+// draw transition of views
+-(void)drawViewTransition;
+-(void)applyLandscape;
+#ifndef NO_ALERTS
+// terminate application
+-(void)terminateApp:(int)code;
+#endif
+
 @end

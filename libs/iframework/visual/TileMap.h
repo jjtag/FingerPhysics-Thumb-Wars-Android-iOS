@@ -70,4 +70,7 @@ enum {REPEAT_NONE, REPEAT_ALL, REPEAT_EDGES};
 -(void)setRepeatHorizontally:(int)r;
 -(void)setRepeatVertically:(int)r;
 -(void)updateWithCameraPos:(Vector)pos;
+
+-(void)updateVars;
+
 @end

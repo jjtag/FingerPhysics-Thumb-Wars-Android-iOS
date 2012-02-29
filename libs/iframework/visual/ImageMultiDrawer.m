@@ -9,11 +9,6 @@
 #import "ImageMultiDrawer.h"
 #import "Debug.h"
 
-@interface ImageMultiDrawer (Private)
--(void)initIndices;
--(void)freeWithCheck;
-@end
-
 @implementation ImageMultiDrawer
 
 -(id)initWithImage:(Image*)i andCapacity:(int)n;

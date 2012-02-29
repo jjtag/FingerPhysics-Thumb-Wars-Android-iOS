@@ -9,13 +9,6 @@
 #import "Timeline.h"
 #import "Framework.h"
 
-@interface Track (Private)
--(void)initKeyFrameStepFrom:(KeyFrame*)src To:(KeyFrame*)dst withTime:(TimeType)time;
--(void)timelineKeyFrameFinished;
--(void)setElementFromKeyFrame:(KeyFrame*)kf;
--(void)setKeyFrameFromElement:(KeyFrame*)kf;
-@end
-
 // c-functions used for speed increase 
 void updateActionTrack(Track* this, TimeType delta)
 {
@@ -323,10 +316,6 @@ Action* createAction(BaseElement* target, NSString* action, int p, int sp)
 	
 	return [a autorelease];
 }
-
-@interface Timeline (Private)
--(void)deactivateTracks;
-@end
 
 @implementation Action
 

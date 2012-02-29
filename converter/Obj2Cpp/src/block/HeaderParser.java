@@ -63,6 +63,7 @@ public class HeaderParser extends Parser
 			String extendsName = m.group(3);
 			String interfaces = m.group(5);
 
+			assert !bcClasses.containsKey(className);
 			lastBcClass = new BcClassDefinition(className);
 			bcClasses.put(className, lastBcClass);
 

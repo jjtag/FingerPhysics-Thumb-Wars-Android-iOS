@@ -150,6 +150,11 @@ extern "C" {
 -(TimeType)getFrameTime:(int)f;
 -(void)updateRange;
 
+-(void)initKeyFrameStepFrom:(KeyFrame*)src To:(KeyFrame*)dst withTime:(TimeType)time;
+
+-(void)setElementFromKeyFrame:(KeyFrame*)kf;
+-(void)setKeyFrameFromElement:(KeyFrame*)kf;
+
 @end
 
 
@@ -182,6 +187,8 @@ enum {TIMELINE_STOPPED, TIMELINE_PLAYING, TIMELINE_PAUSED};
 
 -(void)addKeyFrame:(KeyFrame)k;
 -(void)setKeyFrame:(KeyFrame)k At:(int)i;
+
+-(void)deactivateTracks;
 
 @end
 

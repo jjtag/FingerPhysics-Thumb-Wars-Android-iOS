@@ -30,4 +30,6 @@
 // go to the specified sequence frame of the current animation
 -(void)jumpTo:(int)i;
 
+-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c First:(int)s Last:(int)e ArgumentList:(va_list)al;
+
 @end

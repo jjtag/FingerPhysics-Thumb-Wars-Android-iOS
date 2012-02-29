@@ -29,10 +29,6 @@
 
 @end
 
-@interface Strings (Private)
--(void)parseXML:(XMLNode*)xml;
-@end
-
 @implementation Strings
 
 -(id)initWithXML:(XMLNode*)xml;

@@ -9,11 +9,6 @@
 #import "Button.h"
 #import "Framework.h"
 
-@interface Button (Private)
--(void)setState:(int)s;
--(bool)isInTouchZoneX:(float)tx Y:(float)ty;
-@end
-
 @implementation Button
 
 @synthesize delegate;

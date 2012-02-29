@@ -9,11 +9,6 @@
 #import "Mover.h"
 #import "Framework.h"
 
-@interface Mover (Private)
--(void)calculateOffset;
-@end
-
-
 @implementation Mover
 
 -(id)initWithPathCapacity:(int)l MoveSpeed:(int)m RotateSpeed:(int)r;

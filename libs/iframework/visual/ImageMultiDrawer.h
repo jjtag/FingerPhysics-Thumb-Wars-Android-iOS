@@ -37,4 +37,7 @@
 -(void)draw;
 -(void)resizeCapacity:(int)n;
 
+-(void)initIndices;
+-(void)freeWithCheck;
+
 @end

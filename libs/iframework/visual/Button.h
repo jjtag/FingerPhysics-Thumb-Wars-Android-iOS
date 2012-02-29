@@ -46,4 +46,8 @@ enum {BUTTON_UP = 0, BUTTON_DOWN = 1};
 -(void)forceTouchRect:(Rectangle)r;
 
 -(bool)isInTouchZoneX:(float)tx Y:(float)ty;
+
+-(void)setState:(int)s;
+-(bool)isInTouchZoneX:(float)tx Y:(float)ty;
+
 @end

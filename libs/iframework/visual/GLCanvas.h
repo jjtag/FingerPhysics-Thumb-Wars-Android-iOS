@@ -59,4 +59,8 @@
 - (void)swapBuffers;
 
 -(void) setDefaultProjection;
+
+- (BOOL) createFramebuffer;
+- (void) destroyFramebuffer;
+
 @end
