@@ -41,7 +41,7 @@ public class As2ObjC
 	{
 		if (file.isDirectory())
 		{
-			File[] files = FileUtils.listFiles(file, ".h", ".m");
+			File[] files = FileUtils.listFiles(file, ".h", ".m", ".mm");
 			
 			for (File child : files) 
 			{

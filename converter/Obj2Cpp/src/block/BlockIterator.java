@@ -137,6 +137,7 @@ public class BlockIterator
 			boolean inSingleLineComment = false;
 			
 			String line = iter.next().trim();
+			
 			if (line.length() == 0)
 			{
 				codeLines.add(line);
@@ -157,6 +158,7 @@ public class BlockIterator
 				if (inStringLiteral)
 				{
 					lineBuffer.append(chr);
+					prevChar = chr;
 					continue;
 				}
 				
@@ -173,6 +175,7 @@ public class BlockIterator
 				if (inComment)
 				{
 					lineBuffer.append(chr);
+					prevChar = chr;
 					continue;
 				}
 				
@@ -185,6 +188,7 @@ public class BlockIterator
 				if (inSingleLineComment)
 				{
 					lineBuffer.append(chr);
+					prevChar = chr;
 					continue;
 				}
 				
@@ -202,6 +206,7 @@ public class BlockIterator
 				{
 					lineBuffer.append(chr);
 					flushBuffer(codeLines, lineBuffer);
+					prevChar = chr;
 					continue;
 				}
 				
