@@ -2,25 +2,19 @@ package code;
 
 public class BcPropertyDefinition
 {
-	enum AssignType
-	{
-		ASSIGN,
-		COPY,
-		RETAIN
-	}
 	
 	private String name;
 	private BcType type;
 	
 	private boolean readonly;
-	private AssignType assignType;
+	private PropertyAssignType assignType;
 
 	public BcPropertyDefinition(String name, BcType type)
 	{
 		this.name = name;
 		this.type = type;
 		
-		assignType = AssignType.ASSIGN;
+		assignType = PropertyAssignType.ASSIGN;
 	}
 	
 	public void setModifier(String modifier)
@@ -31,15 +25,15 @@ public class BcPropertyDefinition
 		}
 		else if (modifier.equals("retain"))
 		{
-			assignType = AssignType.RETAIN;
+			assignType = PropertyAssignType.RETAIN;
 		}
 		else if (modifier.equals("copy"))
 		{
-			assignType = AssignType.COPY;
+			assignType = PropertyAssignType.COPY;
 		}
 		else if (modifier.equals("assign"))
 		{
-			assignType = AssignType.ASSIGN;
+			assignType = PropertyAssignType.ASSIGN;
 		}
 	}
 	
@@ -48,7 +42,7 @@ public class BcPropertyDefinition
 		return readonly;
 	}
 	
-	public AssignType getAssignType()
+	public PropertyAssignType getAssignType()
 	{
 		return assignType;
 	}

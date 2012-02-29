@@ -170,6 +170,8 @@ public class HeaderParser extends Parser
 			String name = m.group(4);
 
 			BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, new BcType(type));
+			lastBcClass.addProperty(bcProperty);
+			
 			m = modifierDef.matcher(modifiers);
 			while (m.find())
 			{

@@ -16,11 +16,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import as2ObjC.CodeHelper;
 import as2ObjC.ListWriteDestination;
 import as2ObjC.WriteDestination;
+import code.PropertyAssignType;
 import code.BcClassDefinition;
 import code.BcFuncDefinition;
 import code.BcFuncParam;
+import code.BcPropertyDefinition;
 import code.BcType;
 
 public class ClassBodyParser extends Parser
@@ -29,8 +32,6 @@ public class ClassBodyParser extends Parser
 
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ALL);
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
-
-	private static Pattern argumentPattern = Pattern.compile(ANY + SPACE + IDENTIFIER + MBSPACE + ":");
 
 	private BcClassDefinition bcClass;
 
@@ -46,7 +47,16 @@ public class ClassBodyParser extends Parser
 		Matcher m;
 		if ((m = syntesizePattern.matcher(line)).find())
 		{
-			dest.writeln(line);
+			String propertiesString = m.group(1);
+			String[] properties = propertiesString.split(MBSPACE + "," + MBSPACE);
+			
+			for (String propertyName : properties)
+			{
+				BcPropertyDefinition property = bcClass.findProperty(propertyName);
+				assert property != null;
+				
+				writeProperty(property);
+			}
 		}
 		else if ((m = methodDef.matcher(line)).find())
 		{
@@ -93,5 +103,44 @@ public class ClassBodyParser extends Parser
 		{
 			dest.writeln(line);
 		}
+	}
+
+	private void writeProperty(BcPropertyDefinition property)
+	{
+		String propType = CodeHelper.type(property.getType());
+		String propName = CodeHelper.identifier(property.getName());
+		
+		dest.writelnf("%s %s::%s()", propType, bcClass.getName(), propName);
+		dest.writeBlockOpen();
+		dest.writelnf("return %s;", propName);
+		dest.writeBlockClose();
+		
+		if (!property.isReadonly())
+		{
+			dest.writelnf("void %s::set%s(%s __value)", bcClass.getName(), Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
+			dest.writeBlockOpen();
+			
+			if (property.getAssignType() == PropertyAssignType.ASSIGN)
+			{
+				dest.writelnf("%s = __value;", propName);
+			}
+			else
+			{
+				dest.writelnf("if (%s != __value)", propName);
+				dest.writeBlockOpen();
+				dest.writelnf("[%s release];", propName);
+				if (property.getAssignType() == PropertyAssignType.RETAIN)
+				{
+					dest.writelnf("%s = [__value retain];", propName);
+				}
+				else if (property.getAssignType() == PropertyAssignType.COPY)
+				{
+					dest.writelnf("%s = [__value copy];", propName);
+				}
+				dest.writeBlockClose();
+			}
+			
+			dest.writeBlockClose();
+		}		
 	}
 }
