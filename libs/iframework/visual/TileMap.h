@@ -16,7 +16,7 @@
 	int quad;
 }
 
-@end;
+@end
 
 enum {REPEAT_NONE, REPEAT_ALL, REPEAT_EDGES};
 
