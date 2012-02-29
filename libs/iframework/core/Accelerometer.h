@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 // accelerometer wrapper
-@interface Accelerometer: NSObject <UIAccelerometerDelegate>
+@interface Accelerometer: NSObject
 {
 	UIAccelerationValue x, y, z;
 	bool useFilter, useHighPassFilter;

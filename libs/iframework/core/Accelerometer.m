@@ -18,7 +18,7 @@
 -(void) startAccelerometerWithFrequency:(float) freq useFilter:(bool) filter useHighPassFilter:(bool) filtertype;
 {
 		[[UIAccelerometer sharedAccelerometer] setUpdateInterval:(1.0 / freq)];
-		[[UIAccelerometer sharedAccelerometer] setDelegate:self];
+		// [[UIAccelerometer sharedAccelerometer] setDelegate:self];
 
 		useFilter = filter;
 		useHighPassFilter = filtertype;
