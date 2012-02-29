@@ -11,23 +11,6 @@
 
 #define DEFAULT_MAX_KEY_FRAMES 20
 
-@interface ElementFactory (Private)
--(void)setBasicParams:(XMLNode*)xml forElement:(BaseElement*)e;
--(Timeline*)createTimeline:(XMLNode*)timeline forElement:(BaseElement*)e;
--(void)createKeyFrame:(XMLNode*)n forTimeline:(Timeline*)t ofType:(int)type Element:(BaseElement*)e;
--(BaseElement*)generateElementsRecursively:(XMLNode*)xml;
-@end
-
-@interface PostLinkData: NSObject
-{
-@public
-	BaseElement** address;
-	NSString* name;
-}
-
--(id)initWithAddress:(BaseElement**)a andName:(NSString*)n;
-@end
-
 @implementation PostLinkData
 -(id)initWithAddress:(BaseElement**)a andName:(NSString*)n
 {
