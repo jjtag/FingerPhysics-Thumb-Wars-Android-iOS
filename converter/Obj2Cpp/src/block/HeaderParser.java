@@ -31,6 +31,8 @@ public class HeaderParser extends Parser
 {
 	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + mb(MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">")));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
+	
+	private static Pattern visiblityPattern = Pattern.compile("@" + group(or("public", "private", "protected")));
 
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
@@ -80,7 +82,7 @@ public class HeaderParser extends Parser
 			{
 				while (!(bodyLine = iter.next()).equals("}"))
 				{
-					dest.writeln(bodyLine);
+					processFieldsDef(bodyLine);
 				}
 			}
 			else
@@ -102,6 +104,22 @@ public class HeaderParser extends Parser
 		}
 	}
 
+	private void processFieldsDef(String line)
+	{
+		Matcher m;
+		if ((m = visiblityPattern.matcher(line)).find())
+		{
+			String modifier = m.group(1);
+			dest.decTab();
+			dest.writeln(m.replaceFirst(modifier + ":"));
+			dest.incTab();
+		}
+		else
+		{		
+			dest.writeln(line);
+		}
+	}
+	
 	private void processClassBody(String line)
 	{
 		Matcher m;
