@@ -195,9 +195,16 @@ public class FunctionBodyParser extends Parser
 		{
 			target = bcClass.getExtendsName();
 		}
-		
-		result.append(target);
-		result.append(canBeType(target) ? staticCallMarker : "->");
+
+		if (target.equals("self"))
+		{
+			// don't generate this->...
+		}
+		else
+		{
+			result.append(target);
+			result.append(canBeType(target) ? staticCallMarker : "->");
+		}
 		result.append(message);
 		
 		List<String> args = new ArrayList<String>();
