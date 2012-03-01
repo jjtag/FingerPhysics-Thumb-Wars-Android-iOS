@@ -35,6 +35,9 @@ enum {BUTTON_CLOSE};
 +(void)showBaloonWithID:(int)bID Text:(NSString*)text Image:(Image*)im Blocking:(bool)bl Type:(int)tp inView:(BaseElement*)v Delegate:(id<BaloonDelegate>)dl;
 +(void)hideBaloonInView:(BaseElement*)v;
 +(bool)hasBaloonInView:(BaseElement*)v;
+
++(void)setBaloonAnimations:(Baloon*)activeBaloon;
+
 @end
 
 enum {BUTTON_BANNER = 1};

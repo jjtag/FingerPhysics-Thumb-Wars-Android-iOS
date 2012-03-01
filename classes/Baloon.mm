@@ -12,11 +12,6 @@
 
 enum {SHOW_TIMELINE, HIDE_TIMELINE};
 
-@interface Baloon (Protected)
-+(void)setBaloonAnimations:(Baloon*)activeBaloon;
-@end
-
-
 @implementation Baloon
 
 +(void)setBaloonAnimations:(Baloon*)activeBaloon
