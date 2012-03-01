@@ -38,7 +38,8 @@ public class HeaderParser extends Parser
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
 
-	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + ANY + ";");
+	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + ANY + ";");
+	private static Pattern propertyEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
 	private static Pattern protocolPropertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + "id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + ">"+ MBSPACE + ANY + ";");
 	private static Pattern modifierDef = Pattern.compile(group(or("assign", "retain", "copy", "readonly", "readwrite", "nonatomic", "atomic")));
 
@@ -169,45 +170,67 @@ public class HeaderParser extends Parser
 			}
 			dest.writelnf("%s %s(%s);", returnType, methodName, paramsDest);
 		}
-		else if ((m = protocolPropertyDef.matcher(line)).find() || (m = propertyDef.matcher(line)).find())
+		else if ((m = protocolPropertyDef.matcher(line)).find())
 		{
 			String modifiersString = m.group(1);
-			String type = m.group(2) + (m.group(3) != null ? "*" : "");
+			String typeName = m.group(2) + (m.group(3) != null ? "*" : "");			
+			String entriesString = m.group(4).trim();
 			
-			String namesString = m.group(4).trim();
+			writeProperties(typeName, entriesString, modifiersString);
+		}
+		else if ((m = propertyDef.matcher(line)).find())
+		{
+			String modifiersString = m.group(1);
+			String typeName = m.group(2);
 			
-			String[] names = namesString.split(MBSPACE + "," + MBSPACE);
-			
-			Matcher matcher = modifierDef.matcher(modifiersString);
-			List<String> modifiers = new ArrayList<String>();
-			while (matcher.find())
+			if (m.group(3) == null)
 			{
-				modifiers.add(matcher.group(1));
+				debugTraceGroups(m);
 			}
 			
-			for (String name : names)
-			{
-				BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, new BcType(type));
-				lastBcClass.addProperty(bcProperty);
-				
-				for (String modifier : modifiers)
-				{
-					bcProperty.setModifier(modifier);
-				}
-				
-				String propType = CodeHelper.type(bcProperty.getType());
-				String propName = CodeHelper.identifier(name);
-				
-				dest.writelnf("%s %s();", propType, propName);
-				if (!bcProperty.isReadonly())
-				{
-					dest.writelnf("void set%s(%s __value);", Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
-				}				
-			}
+			String entriesString = m.group(3).trim();
+			
+			writeProperties(typeName, entriesString, modifiersString);
 		}
 		else
 		{
 			dest.writeln(line);
+		}
+	}
+
+	private void writeProperties(String typeName, String entriesStr, String modifiersStr)
+	{
+		Matcher matcher = modifierDef.matcher(modifiersStr);
+		List<String> modifiers = new ArrayList<String>();
+		while (matcher.find())
+		{
+			modifiers.add(matcher.group(1));
+		}
+		
+		matcher = propertyEntry.matcher(entriesStr);
+		while (matcher.find())
+		{
+			boolean isReference = matcher.group(1) != null;
+			String name = matcher.group(2);
+
+			String type = typeName + (isReference ? "*" : "");
+			
+			BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, new BcType(type));
+			lastBcClass.addProperty(bcProperty);
+			
+			for (String modifier : modifiers)
+			{
+				bcProperty.setModifier(modifier);
+			}
+			
+			String propType = CodeHelper.type(bcProperty.getType());
+			String propName = CodeHelper.identifier(name);
+			
+			dest.writelnf("%s %s();", propType, propName);
+			if (!bcProperty.isReadonly())
+			{
+				dest.writelnf("void set%s(%s __value);", Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
+			}				
 		}
 	}
 }
