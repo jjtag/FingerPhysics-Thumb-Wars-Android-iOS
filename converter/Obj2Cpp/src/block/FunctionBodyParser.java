@@ -1,9 +1,17 @@
 package block;
 
 import static block.RegexHelp.TIDENTIFIER;
+import static block.RegexHelp.MBSPACE;
+import static block.RegexHelp.LPAR;
+import static block.RegexHelp.RPAR;
+import static block.RegexHelp.ANY;
+import static block.RegexHelp.ALL;
+import static block.RegexHelp.group;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import code.BcClassDefinition;
 
@@ -11,6 +19,9 @@ import as2ObjC.WriteDestination;
 
 public class FunctionBodyParser extends Parser
 {
+	private static Pattern selfIfCallPattern = Pattern.compile("if" + MBSPACE + LPAR + group(MBSPACE + "self" + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + RPAR);
+	private static Pattern selfCallPattern = Pattern.compile("self" + MBSPACE + "=" + MBSPACE + ANY);
+	
 	private BcClassDefinition bcClass;
 
 	public FunctionBodyParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
@@ -24,8 +35,19 @@ public class FunctionBodyParser extends Parser
 	{
 		if (line.contains("[") && line.contains("]"))
 		{
-			String callLine = parseMethodCall(line);
-			dest.writeln(callLine.replace(staticCallMarker, "::"));
+			String callLine = parseMethodCall(line).replace(staticCallMarker, "::");
+			
+			Matcher m;
+			if ((m = selfIfCallPattern.matcher(callLine)).find())
+			{
+				callLine = callLine.replace(m.group(1), m.group(2));
+			}
+			else if ((m = selfCallPattern.matcher(callLine)).find())
+			{
+				callLine = m.replaceFirst(m.group(1));
+			}
+			
+			dest.writeln(callLine);
 		}
 		else if (line.equals("{"))
 		{
