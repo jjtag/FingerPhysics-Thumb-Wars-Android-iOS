@@ -8,12 +8,6 @@ NSString* KeyWinsCount = @"ReviewRequestWinsCount";
 
 #define REMIND_AFTER_LEVELS_NUM 25
 
-@interface ReviewRequestDelegate : NSObject < UIAlertViewDelegate >
-{
-}
-
-@end
-
 @implementation ReviewRequestDelegate
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
