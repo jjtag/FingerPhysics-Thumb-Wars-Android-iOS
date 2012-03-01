@@ -61,14 +61,15 @@ public class HeaderParser extends Parser
 			assert lastBcClass == null : lastBcClass.getName();
 
 			String className = m.group(1);
-			String extendsName = m.group(3);
+			String extendsName = m.group(3) == null ? "NSObject" : m.group(3);
 			String interfaces = m.group(5);
 
 			assert !bcClasses.containsKey(className);
 			lastBcClass = new BcClassDefinition(className);
+			lastBcClass.setExtendsName(extendsName);
 			bcClasses.put(className, lastBcClass);
 
-			dest.write("class " + className + " : public " + (extendsName == null ? "NSObject" : extendsName));
+			dest.write("class " + className + " : public " + extendsName);
 			if (interfaces != null)
 			{
 				m = typePattern.matcher(interfaces);

@@ -5,13 +5,18 @@ import static block.RegexHelp.TIDENTIFIER;
 import java.util.ArrayList;
 import java.util.List;
 
+import code.BcClassDefinition;
+
 import as2ObjC.WriteDestination;
 
 public class FunctionBodyParser extends Parser
 {
-	public FunctionBodyParser(BlockIterator iter, WriteDestination dest)
+	private BcClassDefinition bcClass;
+
+	public FunctionBodyParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
 	{
 		super(iter, dest);
+		this.bcClass = bcClass;
 	}
 
 	@Override
@@ -185,6 +190,11 @@ public class FunctionBodyParser extends Parser
 		
 		String target = iter.captureUntilChar(str, ' ');
 		String message = iter.captureUntilChar(str, ':');
+		
+		if (target.equals("super"))
+		{
+			target = bcClass.getExtendsName();
+		}
 		
 		result.append(target);
 		result.append(canBeType(target) ? staticCallMarker : "->");

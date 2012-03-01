@@ -6,6 +6,8 @@ import java.util.List;
 public class BcClassDefinition 
 {
 	private String name;
+	private String extendsName;
+	
 	private List<BcFuncDefinition> functions;
 	private List<BcPropertyDefinition> properties;
 	
@@ -21,6 +23,16 @@ public class BcClassDefinition
 		return name;
 	}
 
+	public void setExtendsName(String extendsName)
+	{
+		this.extendsName = extendsName;
+	}
+	
+	public String getExtendsName()
+	{
+		return extendsName;
+	}
+	
 	public void addFunc(BcFuncDefinition bcFunc)
 	{
 		functions.add(bcFunc);

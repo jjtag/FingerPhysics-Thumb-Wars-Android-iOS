@@ -102,7 +102,7 @@ public class ClassBodyParser extends Parser
 			dest.writeBlockOpen();
 			BlockIterator bodyIter = iter.readBlock();
 
-			FunctionBodyParser parser = new FunctionBodyParser(bodyIter, dest);
+			FunctionBodyParser parser = new FunctionBodyParser(bodyIter, dest, bcClass);
 			parser.parse();
 
 			dest.writeBlockClose();
