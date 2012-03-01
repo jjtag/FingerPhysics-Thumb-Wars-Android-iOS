@@ -30,7 +30,7 @@ public class ImplParser extends Parser
 		{
 			String className = m.group(1);
 			BcClassDefinition bcClass = bcClasses.get(className);
-			assert bcClass != null;			
+			assert bcClass != null : className;		
 
 			BlockIterator bodyIter = new BlockIterator();
 			String bodyLine;

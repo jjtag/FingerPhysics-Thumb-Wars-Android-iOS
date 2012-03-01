@@ -3,7 +3,6 @@ package bc.utils.file;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileFilter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -120,5 +119,15 @@ public class FileUtils
 			return filename.substring(index);
 		}
 		return filename;
+	}
+	
+	public static String relativePath(File parent, File child)
+	{
+		assert parent.isDirectory();
+		
+		String parentPath = parent.getAbsolutePath();
+		String childPath = parent.getAbsolutePath();
+		
+		return childPath.substring(parentPath.length());
 	}
 }

@@ -56,7 +56,7 @@ public class ClassBodyParser extends Parser
 				String bindingName = matcher.group(3);
 				
 				BcPropertyDefinition property = bcClass.findProperty(name);
-				assert property != null;
+				assert property != null : name;
 				
 				if (bindingName != null)
 				{

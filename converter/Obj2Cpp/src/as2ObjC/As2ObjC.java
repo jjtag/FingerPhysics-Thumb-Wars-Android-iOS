@@ -50,8 +50,8 @@ public class As2ObjC
 			File[] files = FileUtils.listFiles(file, extensions);
 			
 			for (File child : files) 
-			{
-				process(child, outputDir, extensions);
+			{				
+				process(child, new File(outputDir, file.getName()), extensions);
 			}
 		}
 		else
@@ -83,6 +83,8 @@ public class As2ObjC
 		}
 		
 		parser.parse();
+		
+		outputDir.mkdirs();
 		
 		File outFile = new File(outputDir, source.getName());
 		writeCode(outFile, dest.getLines());		
