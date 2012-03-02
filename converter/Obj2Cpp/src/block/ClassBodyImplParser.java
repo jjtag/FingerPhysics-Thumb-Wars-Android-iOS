@@ -89,17 +89,16 @@ public class ClassBodyImplParser extends Parser
 	private void writeProperty(BcPropertyDefinition property)
 	{
 		String propType = CodeHelper.type(property.getType());
-		String propName = CodeHelper.identifier(property.getName());
 		String propBindName = CodeHelper.identifier(property.getBindingName());
 		
-		dest.writelnf("%s %s::%s()", propType, bcClass.getName(), propName);
+		dest.writelnf("%s %s::%s()", propType, bcClass.getName(), property.getterName());
 		dest.writeBlockOpen();
 		dest.writelnf("return %s;", propBindName);
 		dest.writeBlockClose();
 		
 		if (!property.isReadonly())
 		{
-			dest.writelnf("void %s::set%s(%s __value)", bcClass.getName(), Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
+			dest.writelnf("void %s::set%s(%s __value)", bcClass.getName(), property.setterName(), propType);
 			dest.writeBlockOpen();
 			
 			if (property.getAssignType() == PropertyAssignType.ASSIGN)

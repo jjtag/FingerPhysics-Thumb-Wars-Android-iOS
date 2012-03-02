@@ -29,7 +29,7 @@ import code.BcPropertyDefinition;
 public class FunctionBodyParser extends Parser
 {
 	private static Pattern propertySetPattern = Pattern.compile(ANY + DOT + group(MBSPACE + IDENTIFIER + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + ";");
-	private static Pattern propertyGetPattern = Pattern.compile(ANY + group(DOT + MBSPACE + IDENTIFIER) + MBSPACE + oneOff(STAR, DOT, ",", ";", PLUS, "-", "/", RPAR, RBRKT));
+	private static Pattern propertyGetPattern = Pattern.compile(DOT + MBSPACE + IDENTIFIER + MBSPACE + group(oneOff(STAR, DOT, ",", ";", PLUS, "-", "/", RPAR, RBRKT)));
 	
 	private static Pattern selfIfCallPattern = Pattern.compile("if" + MBSPACE + LPAR + group(MBSPACE + "self" + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + RPAR);
 	private static Pattern selfCallPattern = Pattern.compile("self" + MBSPACE + "=" + MBSPACE + ANY);
@@ -63,7 +63,7 @@ public class FunctionBodyParser extends Parser
 			String name = m.group(3);
 			if (hasRegisteredProperty(name))
 			{
-				String setterName = "set" + Character.toUpperCase(name.charAt(0)) + name.substring(1);
+				String setterName = BcPropertyDefinition.createSetterName(name);
 				line = line.replace(m.group(2), String.format("%s(%s)", setterName, m.group(4)));
 			}			
 		}
@@ -72,10 +72,12 @@ public class FunctionBodyParser extends Parser
 			m = propertyGetPattern.matcher(line);
 			while (m.find())
 			{
-				String name = m.group(3);
+				String name = m.group(1);
 				if (hasRegisteredProperty(name))
-				{
-					line = line.replace(m.group(2), String.format(".%s()", name));
+				{					
+					String getterName = BcPropertyDefinition.createGetterName(name);
+					line = m.replaceFirst(String.format(".%s()%s", getterName, m.group(2)));
+					m = propertyGetPattern.matcher(line);
 				}
 			}
 		}

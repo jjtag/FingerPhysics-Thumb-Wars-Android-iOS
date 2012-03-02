@@ -61,7 +61,7 @@ public abstract class Parser
 
 	protected void debugTraceGroups(Matcher m)
 	{
-		for (int i = 1; i <= m.groupCount(); ++i)
+		for (int i = 0; i <= m.groupCount(); ++i)
 		{
 			System.out.println(i + ": " + m.group(i));
 		}

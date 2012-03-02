@@ -68,4 +68,24 @@ public class BcPropertyDefinition
 	{
 		return type;
 	}
+	
+	public String getterName()
+	{
+		return createGetterName(name);
+	}
+	
+	public String setterName()
+	{
+		return createSetterName(name);
+	}
+	
+	public static String createGetterName(String name)
+	{
+		return name;
+	}
+	
+	public static String createSetterName(String name)
+	{
+		return "set" + Character.toUpperCase(name.charAt(0)) + name.substring(1);
+	}
 }
