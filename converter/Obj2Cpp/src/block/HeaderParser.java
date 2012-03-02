@@ -83,6 +83,8 @@ public class HeaderParser extends Parser
 			dest.writeln("public:");
 			dest.incTab();
 			
+			writeConstructor();
+			
 			BlockIterator classIter = new BlockIterator();			
 			while (!(bodyLine = iter.next()).equals("@end"))
 			{
@@ -119,5 +121,11 @@ public class HeaderParser extends Parser
 		{
 			dest.writeln(line);
 		}
+	}
+
+	private void writeConstructor()
+	{
+		dest.writelnf("%s();", lastBcClass.getName());
+		dest.writeln();
 	}
 }

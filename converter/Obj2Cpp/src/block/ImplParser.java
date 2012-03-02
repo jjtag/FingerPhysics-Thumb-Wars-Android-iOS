@@ -3,12 +3,14 @@ package block;
 import static block.RegexHelp.SPACE;
 import static block.RegexHelp.TIDENTIFIER;
 
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import as2ObjC.WriteDestination;
 import code.BcClassDefinition;
+import code.BcFieldDefinition;
 
 public class ImplParser extends Parser
 {
@@ -32,6 +34,8 @@ public class ImplParser extends Parser
 			BcClassDefinition bcClass = bcClasses.get(className);
 			assert bcClass != null : className;		
 
+			writeConstructor(bcClass);
+			
 			BlockIterator bodyIter = new BlockIterator();
 			String bodyLine;
 			while (!(bodyLine = iter.next()).equals("@end"))
@@ -50,5 +54,24 @@ public class ImplParser extends Parser
 		{
 			dest.writeln(line);
 		}
+	}
+
+	private void writeConstructor(BcClassDefinition bcClass)
+	{
+		String className = bcClass.getName();
+		dest.writef("%s::%s()", className, className);
+		
+		List<BcFieldDefinition> fields = bcClass.getFields();
+		dest.writeln(fields.isEmpty() ? "" : " : ");
+		
+		int index = 0;
+		for (BcFieldDefinition field : fields)
+		{
+			dest.writef("  %s(0)", field.getName());
+			dest.writeln(++index < fields.size() ? "," : "");
+		}
+		
+		dest.writeBlockOpen();
+		dest.writeBlockClose();
 	}
 }
