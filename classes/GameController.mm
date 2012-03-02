@@ -160,7 +160,7 @@ RGBAColor bestScoreColor = RGBA_FROM_HEX(171, 16, 0, 255);
 
 -(void)createGameView
 {	
-	showCameraUI = mapParser.settings.height > SCREEN_HEIGHT;
+	showCameraUI = mapParser.settings.Height > SCREEN_HEIGHT;
 	RGBAColor grayColor = (RGBAColor)RGBA_FROM_HEX(64,64,64,255);
 	GameView* view = [[GameView allocAndAutorelease] initFullscreen];
 	

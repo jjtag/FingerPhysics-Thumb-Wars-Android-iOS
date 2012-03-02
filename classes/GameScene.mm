@@ -856,11 +856,11 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 	modelTime = [self calculcateModelTime];
 //	NSLog(@"model time %f", modelTime);
 	
-	maxCameraPosY = mapParser.settings.height-SCREEN_HEIGHT;
+	maxCameraPosY = mapParser.settings.Height-SCREEN_HEIGHT;
 	
 	b2AABB worldAABB;
-	worldAABB.lowerBound.Set(-mapParser.settings.width*2 / PTM_RATIO, -mapParser.settings.height / PTM_RATIO);
-	worldAABB.upperBound.Set(mapParser.settings.width*2 / PTM_RATIO, 100.0f);
+	worldAABB.lowerBound.Set(-mapParser.settings.Width*2 / PTM_RATIO, -mapParser.settings.Height / PTM_RATIO);
+	worldAABB.upperBound.Set(mapParser.settings.Width*2 / PTM_RATIO, 100.0f);
 	
 	
 	// Define the gravity vector.

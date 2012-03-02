@@ -33,6 +33,6 @@
 
 @property (assign) Vector gravity;
 @property (nonatomic, retain) NSString* description;
-@property (assign) float width, height, maxMouseForce;
+@property (assign) float Width, Height, maxMouseForce;
 @property (assign) int mode, iterations;
 @end

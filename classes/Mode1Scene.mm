@@ -133,7 +133,7 @@
 		}
 	}
 	
-	if(mapParser.settings.height > SCREEN_HEIGHT && bumper && focusBody)
+	if(mapParser.settings.Height > SCREEN_HEIGHT && bumper && focusBody)
 	{
 		b2AABB bumperBB = [self computeBodyBB:bumper.body];
 		b2AABB eggBB = [self computeBodyBB:focusBody.body];
@@ -188,7 +188,7 @@
 		drawImage(back3, 0, ypos);
 
 	Texture2D* tile = [ChampionsResourceMgr getResource:IMG_BACK_TILE];	
-	while(camera->pos.y + ypos >= 0 && ABS(ypos) <= mapParser.settings.height)
+	while(camera->pos.y + ypos >= 0 && ABS(ypos) <= mapParser.settings.Height)
 	{
 		ypos -= tile.realHeight;
 		drawImage(tile, 0, ypos);
@@ -255,9 +255,9 @@
 			b2AABB aabb;
 			shape->ComputeAABB(&aabb, b->GetXForm());
 			if(aabb.upperBound.x < 0 
-			   || aabb.lowerBound.x*PTM_RATIO > mapParser.settings.width
+			   || aabb.lowerBound.x*PTM_RATIO > mapParser.settings.Width
 			   || aabb.lowerBound.y*PTM_RATIO - SCREEN_HEIGHT > 0 
-			   || aabb.upperBound.y * PTM_RATIO - SCREEN_HEIGHT < -mapParser.settings.height )
+			   || aabb.upperBound.y * PTM_RATIO - SCREEN_HEIGHT < -mapParser.settings.Height )
 			{
 //				[ChampionsSoundMgr playSound:SND_UPS];
 				return TRUE;
@@ -279,12 +279,12 @@
 		{
 			if(obj.isTouchable)
 			{
-				time += ceil(mapParser.settings.height / 150);
+				time += ceil(mapParser.settings.Height / 150);
 			}				
 			else
 				if(!obj.isStatic)
 				{
-					time += ceil(mapParser.settings.height / 120);
+					time += ceil(mapParser.settings.Height / 120);
 				}					
 		}		
 	}

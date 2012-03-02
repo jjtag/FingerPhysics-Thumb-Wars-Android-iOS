@@ -79,11 +79,11 @@
 -(void)initPhysics
 {
 	[super initPhysics];
-	if(mapParser.settings.height > SCREEN_HEIGHT)
+	if(mapParser.settings.Height > SCREEN_HEIGHT)
 	{
 		[camera turnMaxPathPoints:3];
 		[camera addPathPoint:vect(0, 0)];
-		[camera addPathPoint:vect(0, mapParser.settings.height-SCREEN_HEIGHT)];		
+		[camera addPathPoint:vect(0, mapParser.settings.Height-SCREEN_HEIGHT)];		
 		[camera addPathPoint:vect(0, 0)];
 	}
 }
@@ -144,9 +144,9 @@
 			shape->ComputeAABB(&aabb, b->GetXForm());
 			if(
 			   aabb.upperBound.x < 0 
-			   || aabb.lowerBound.x*PTM_RATIO > mapParser.settings.width
+			   || aabb.lowerBound.x*PTM_RATIO > mapParser.settings.Width
 			   || aabb.lowerBound.y*PTM_RATIO - SCREEN_HEIGHT > 0
-			   || aabb.upperBound.y*PTM_RATIO - SCREEN_HEIGHT < -mapParser.settings.height
+			   || aabb.upperBound.y*PTM_RATIO - SCREEN_HEIGHT < -mapParser.settings.Height
 			   )
 			{				
 				bodyIsOutOfBorders = TRUE;
@@ -219,7 +219,7 @@
 
 -(float)calculcateModelTime
 {
-	int queuedBlocksBonus = [mapParser.queuedElements count] * 7 * 	ceil(mapParser.settings.height / 480);
+	int queuedBlocksBonus = [mapParser.queuedElements count] * 7 * 	ceil(mapParser.settings.Height / 480);
 	int presettedBlocksBonus = 0;
 	int pinnedBlocksBonus = 0;
 	for (FPBody* body in mapParser.elements)
@@ -230,7 +230,7 @@
 //			continue;
 //		}
 		if(body.isTouchable && !body.isStatic)
-			presettedBlocksBonus += ceil(mapParser.settings.height/150);
+			presettedBlocksBonus += ceil(mapParser.settings.Height/150);
 	}
 	
 	for (FPJoint* joint in mapParser.joints)

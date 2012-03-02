@@ -13,7 +13,7 @@
 
 @synthesize gravity;
 @synthesize description;
-@synthesize width, height, maxMouseForce;
+@synthesize Width = width, Height = height, maxMouseForce;
 @synthesize mode, iterations;
 
 @end

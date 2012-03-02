@@ -585,8 +585,8 @@
 					}
 					
 					if(settings.maxMouseForce == 0) settings.maxMouseForce = 1000;
-					if(settings.width == 0) settings.width = SCREEN_WIDTH;
-					if(settings.height == 0) settings.height = SCREEN_HEIGHT; 
+					if(settings.Width == 0) settings.Width = SCREEN_WIDTH;
+					if(settings.Height == 0) settings.Height = SCREEN_HEIGHT; 
 					break;
 				}
 				default:
