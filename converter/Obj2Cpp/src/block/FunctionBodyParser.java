@@ -81,7 +81,7 @@ public class FunctionBodyParser extends Parser
 				if (hasRegisteredProperty(name))
 				{	
 					String getterName = BcPropertyDefinition.createGetterName(name);
-					line = line.replace(m.group(0), String.format(".%s()%s", getterName, m.group(2)));
+					line = line.replace(m.group(0), String.format("->%s()%s", getterName, m.group(2)));
 					m = propertyGetPattern.matcher(line);
 				}
 			}
