@@ -87,7 +87,7 @@ public class HeaderParser extends Parser
 			dest.writeBlockOpen();
 
 			dest.decTab();
-			dest.writeln("public:");
+			dest.writeln("private:");
 			dest.incTab();
 			
 			String bodyLine;
@@ -103,6 +103,11 @@ public class HeaderParser extends Parser
 			{
 				iter.pushBack();
 			}
+			
+			dest.writeln();
+			dest.decTab();
+			dest.writeln("public:");
+			dest.incTab();
 			
 			while (!(bodyLine = iter.next()).equals("@end"))
 			{
