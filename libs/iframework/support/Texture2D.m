@@ -144,7 +144,7 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 
 @implementation Texture2D
 
-@synthesize contentSize=_size, pixelFormat=_format, width=_width, height=_height, realWidth=_realWidth, realHeight=_realHeight, name=_name, maxS=_maxS, maxT=_maxT, hasPremultipliedAlpha=_hasPremultipliedAlpha;
+@synthesize contentSize=_size, pixelFormat=_format, Width=_width, Height=_height, realWidth=_realWidth, realHeight=_realHeight, name=_name, maxS=_maxS, maxT=_maxT, hasPremultipliedAlpha=_hasPremultipliedAlpha;
 - (id) initWithData:(const void*)data pixelFormat:(Texture2DPixelFormat)pixelFormat pixelsWide:(NSUInteger)width pixelsHigh:(NSUInteger)height contentSize:(CGSize)size
 {
 	GLint					saveName;

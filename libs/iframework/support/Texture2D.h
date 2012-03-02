@@ -134,9 +134,9 @@ typedef struct TexParams {
 /** pixelFormat */
 @property(readonly) Texture2DPixelFormat pixelFormat;
 /** width in pixels */
-@property(readonly) NSUInteger width;
+@property(readonly) NSUInteger Width;
 /** hight in pixels */
-@property(readonly) NSUInteger height;
+@property(readonly) NSUInteger Height;
 /** real (not padded) width in pixels */
 @property(readonly) NSUInteger realWidth;
 /** real (not padded) hight in pixels */
