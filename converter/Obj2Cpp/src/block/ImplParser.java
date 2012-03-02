@@ -39,7 +39,7 @@ public class ImplParser extends Parser
 				bodyIter.add(bodyLine);
 			}
 			
-			ClassBodyParser parser = new ClassBodyParser(bodyIter, dest, bcClass);
+			ClassBodyImplParser parser = new ClassBodyImplParser(bodyIter, dest, bcClass);
 			parser.parse();
 		}
 		else if (line.contains("@interface"))

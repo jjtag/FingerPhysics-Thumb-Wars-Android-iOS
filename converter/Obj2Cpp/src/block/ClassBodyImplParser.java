@@ -26,7 +26,7 @@ import code.BcFuncParam;
 import code.BcPropertyDefinition;
 import code.BcType;
 
-public class ClassBodyParser extends Parser
+public class ClassBodyImplParser extends Parser
 {
 	private static Pattern syntesizePattern = Pattern.compile("@synthesize" + SPACE + ANY + ";");
 	private static Pattern syntesizeEntryPattern = Pattern.compile(IDENTIFIER + mb(MBSPACE + "=" + MBSPACE + IDENTIFIER));
@@ -36,7 +36,7 @@ public class ClassBodyParser extends Parser
 
 	private BcClassDefinition bcClass;
 
-	public ClassBodyParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
+	public ClassBodyImplParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
 	{
 		super(iter, dest);
 		this.bcClass = bcClass;
