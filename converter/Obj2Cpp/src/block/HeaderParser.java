@@ -47,6 +47,8 @@ public class HeaderParser extends Parser
 	private static Pattern propertyEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
 	private static Pattern protocolPropertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + "id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + ">"+ MBSPACE + ANY + ";");
 	private static Pattern modifierDef = Pattern.compile(group(or("assign", "retain", "copy", "readonly", "readwrite", "nonatomic", "atomic")));
+	
+	private static Pattern protocolPattern = Pattern.compile("@protocol" + SPACE + TIDENTIFIER);
 
 	private BcClassDefinition lastBcClass;
 	private Map<String, BcClassDefinition> bcClasses;
@@ -116,6 +118,27 @@ public class HeaderParser extends Parser
 			dest.writeBlockClose(true);
 			
 			lastBcClass = null;
+		}
+		else if ((m = protocolPattern.matcher(line)).find())
+		{
+			String name = m.group(1);
+			dest.writelnf("class %s", name);
+			dest.writeBlockOpen();
+			
+			dest.decTab();
+			dest.writeln("public:");
+			dest.incTab();
+			
+			BlockIterator bodyIter = new BlockIterator();
+			String bodyLine;
+			while (!(bodyLine = iter.next()).equals("@end"))
+			{
+				bodyIter.add(bodyLine);
+			}
+			
+			new ProtocolParser(bodyIter, dest).parse();
+			
+			dest.writeBlockClose(true);
 		}
 		else
 		{
@@ -197,7 +220,7 @@ public class HeaderParser extends Parser
 					}
 				}
 			}
-			dest.writelnf("%s %s(%s);", returnType, methodName, paramsDest);
+			dest.writelnf("virtual %s %s(%s);", returnType, methodName, paramsDest);
 		}
 		else if ((m = protocolPropertyDef.matcher(line)).find())
 		{
