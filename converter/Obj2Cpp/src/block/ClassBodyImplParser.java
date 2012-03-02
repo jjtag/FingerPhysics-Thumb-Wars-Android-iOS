@@ -33,6 +33,7 @@ public class ClassBodyImplParser extends Parser
 
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ALL);
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
+	private static Pattern paramProtocolType = Pattern.compile("<" + MBSPACE + IDENTIFIER + MBSPACE + ">");
 
 	private BcClassDefinition bcClass;
 
@@ -83,6 +84,12 @@ public class ClassBodyImplParser extends Parser
 				{
 					String paramType = m.group(1);
 					String paramName = m.group(2);
+					
+					Matcher matcher;
+					if ((matcher = paramProtocolType.matcher(paramType)).find())
+					{
+						paramType = matcher.group(1) + "*";
+					}
 
 					bcFunc.addParam(new BcFuncParam(paramName, new BcType(paramType)));
 				}

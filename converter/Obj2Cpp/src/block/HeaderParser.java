@@ -42,6 +42,7 @@ public class HeaderParser extends Parser
 
 	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
+	private static Pattern paramProtocolType = Pattern.compile("<" + MBSPACE + IDENTIFIER + MBSPACE + ">");
 
 	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + ANY + ";");
 	private static Pattern propertyEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
@@ -203,8 +204,14 @@ public class HeaderParser extends Parser
 				m = paramDef.matcher(params);
 				while (m.find())
 				{
-					String paramType = m.group(1);
+					String paramType = m.group(1);					
 					String paramName = m.group(2);
+					
+					Matcher matcher;
+					if ((matcher = paramProtocolType.matcher(paramType)).find())
+					{
+						paramType = matcher.group(1) + "*";
+					}
 
 					bcFunc.addParam(new BcFuncParam(paramName, new BcType(paramType)));
 				}
