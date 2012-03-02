@@ -1,41 +1,22 @@
 package block;
 
 import static block.RegexHelp.ANY;
-import static block.RegexHelp.IDENTIFIER;
-import static block.RegexHelp.LPAR;
 import static block.RegexHelp.MBSPACE;
-import static block.RegexHelp.RPAR;
 import static block.RegexHelp.SPACE;
-import static block.RegexHelp.STAR;
 import static block.RegexHelp.TIDENTIFIER;
-import static block.RegexHelp.group;
 import static block.RegexHelp.mb;
-import static block.RegexHelp.or;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import as2ObjC.CodeHelper;
-import as2ObjC.ListWriteDestination;
 import as2ObjC.WriteDestination;
 import code.BcClassDefinition;
-import code.BcFuncDefinition;
-import code.BcFuncParam;
-import code.BcPropertyDefinition;
-import code.BcType;
 
 public class HeaderParser extends Parser
 {
 	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + mb(MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">")));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
-	
-	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + ANY + ";");
-	private static Pattern propertyEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
-	private static Pattern protocolPropertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + "id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + ">"+ MBSPACE + ANY + ";");
-	private static Pattern modifierDef = Pattern.compile(group(or("assign", "retain", "copy", "readonly", "readwrite", "nonatomic", "atomic")));
 	
 	private static Pattern protocolPattern = Pattern.compile("@protocol" + SPACE + TIDENTIFIER);
 
@@ -90,8 +71,7 @@ public class HeaderParser extends Parser
 				{
 					fieldsIter.add(bodyLine);
 				}
-				FieldsDefParser parser = new FieldsDefParser(fieldsIter, dest, lastBcClass);
-				parser.parse();
+				new FieldsDefParser(fieldsIter, dest, lastBcClass).parse();
 			}
 			else
 			{
@@ -103,10 +83,13 @@ public class HeaderParser extends Parser
 			dest.writeln("public:");
 			dest.incTab();
 			
+			BlockIterator classIter = new BlockIterator();			
 			while (!(bodyLine = iter.next()).equals("@end"))
 			{
-				processClassBody(bodyLine);
-			}
+				classIter.add(bodyLine);
+			}			
+			new ClassBodyHeaderParser(classIter, dest, lastBcClass).parse();
+			
 			dest.writeBlockClose(true);
 			
 			lastBcClass = null;
@@ -135,87 +118,6 @@ public class HeaderParser extends Parser
 		else
 		{
 			dest.writeln(line);
-		}
-	}
-
-	private void processClassBody(String line)
-	{
-		Matcher m;
-		
-		BcFuncDefinition bcFunc;
-		if ((bcFunc = BcFunctionCapture.tryCapture(line)) != null)
-		{
-			lastBcClass.addFunc(bcFunc);
-
-			ListWriteDestination paramsDest = new ListWriteDestination();
-			List<BcFuncParam> funcParams = bcFunc.getParams();
-			int index = 0;
-			for (BcFuncParam param : funcParams)
-			{
-				paramsDest.writef("%s %s", param.getType().getName(), param.getName());
-				if (++index < funcParams.size())
-				{
-					paramsDest.write(", ");
-				}
-			}
-			dest.writelnf("%s %s %s(%s);", bcFunc.isStatic() ? "static" : "virtual", bcFunc.getReturnType().getName(), bcFunc.getName(), paramsDest);
-		}
-		else if ((m = protocolPropertyDef.matcher(line)).find())
-		{
-			String modifiersString = m.group(1);
-			String typeName = m.group(2) + (m.group(3) != null ? "*" : "");			
-			String entriesString = m.group(4).trim();
-			
-			writeProperties(typeName, entriesString, modifiersString);
-		}
-		else if ((m = propertyDef.matcher(line)).find())
-		{
-			String modifiersString = m.group(1);
-			String typeName = m.group(2);
-			
-			String entriesString = m.group(3).trim();
-			
-			writeProperties(typeName, entriesString, modifiersString);
-		}
-		else
-		{
-			dest.writeln(line);
-		}
-	}
-	
-	private void writeProperties(String typeName, String entriesStr, String modifiersStr)
-	{
-		Matcher matcher = modifierDef.matcher(modifiersStr);
-		List<String> modifiers = new ArrayList<String>();
-		while (matcher.find())
-		{
-			modifiers.add(matcher.group(1));
-		}
-		
-		matcher = propertyEntry.matcher(entriesStr);
-		while (matcher.find())
-		{
-			boolean isReference = matcher.group(1) != null;
-			String name = matcher.group(2);
-
-			String type = typeName + (isReference ? "*" : "");
-			
-			BcPropertyDefinition bcProperty = new BcPropertyDefinition(name, new BcType(type));
-			lastBcClass.addProperty(bcProperty);
-			
-			for (String modifier : modifiers)
-			{
-				bcProperty.setModifier(modifier);
-			}
-			
-			String propType = CodeHelper.type(bcProperty.getType());
-			String propName = CodeHelper.identifier(name);
-			
-			dest.writelnf("%s %s();", propType, propName);
-			if (!bcProperty.isReadonly())
-			{
-				dest.writelnf("void set%s(%s __value);", Character.toUpperCase(propName.charAt(0)) + propName.substring(1), propType);
-			}				
 		}
 	}
 }
