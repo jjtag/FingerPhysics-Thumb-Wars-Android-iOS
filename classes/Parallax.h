@@ -20,5 +20,5 @@
 -(void)drawWithOffsetX:(float) offsetX offsetY: (float) offsetY;
 -(void)setXPos:(float) xpos YPos:(float) ypos;
 
-@property (assign) float x, y, parallaxRatioX, parallaxRatioY;
+@property (assign) float offX, offY, parallaxRatioX, parallaxRatioY;
 @end

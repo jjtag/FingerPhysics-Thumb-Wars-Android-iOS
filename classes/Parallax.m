@@ -50,5 +50,5 @@
 	[img release];
 	[super dealloc];
 }
-@synthesize x, y, parallaxRatioX, parallaxRatioY;
+@synthesize offX = x, offY = y, parallaxRatioX, parallaxRatioY;
 @end

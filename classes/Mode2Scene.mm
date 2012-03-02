@@ -34,7 +34,7 @@
 		
 		Image* field = [Image createWithResID:IMG_FIELD_02];
 		field->x = -20;
-		field->y = obj.y + field->height/2 + pxOffsetY;
+		field->y = obj.offY + field->height/2 + pxOffsetY;
 		
 		Image* tube = [Image createWithResID:IMG_CRANE_TUBE];
 		tube->x = 10;
@@ -99,8 +99,8 @@
 	Parallax* obj = [px objectAtIndex:0];
 	float x1 = 83;
 	float y1 = SCREEN_HEIGHT - 869;
-	float x2 = obj.x+(acc.ax*obj.parallaxRatioX) + 95;
-	float y2 = obj.y-(acc.ay*obj.parallaxRatioY) + 12;
+	float x2 = obj.offX+(acc.ax*obj.parallaxRatioX) + 95;
+	float y2 = obj.offY-(acc.ay*obj.parallaxRatioY) + 12;
 	Texture2D* rope = [ChampionsResourceMgr getResource:IMG_ROPE];
 	Texture2D* rope_shadow = [ChampionsResourceMgr getResource:IMG_ROPE_SHADOW];
 	drawTexturedLine(x1+13, y1+3, x2+4, y2, 2, rope_shadow);
