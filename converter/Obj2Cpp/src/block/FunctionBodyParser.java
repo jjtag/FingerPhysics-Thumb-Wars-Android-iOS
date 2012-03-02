@@ -68,15 +68,15 @@ public class FunctionBodyParser extends Parser
 			}			
 		}
 		else
-		{
+		{	
 			m = propertyGetPattern.matcher(line);
 			while (m.find())
 			{
 				String name = m.group(1);
 				if (hasRegisteredProperty(name))
-				{					
+				{	
 					String getterName = BcPropertyDefinition.createGetterName(name);
-					line = m.replaceFirst(String.format(".%s()%s", getterName, m.group(2)));
+					line = line.replace(m.group(0), String.format(".%s()%s", getterName, m.group(2)));
 					m = propertyGetPattern.matcher(line);
 				}
 			}
