@@ -1,6 +1,7 @@
 package block;
 
 import static block.RegexHelp.ANY;
+import static block.RegexHelp.ALL;
 import static block.RegexHelp.IDENTIFIER;
 import static block.RegexHelp.LPAR;
 import static block.RegexHelp.MBSPACE;
@@ -19,15 +20,16 @@ import code.BcType;
 
 public class BcFunctionCapture
 {
-	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
+	private static Pattern methodHeaderDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
+	private static Pattern methodImplDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ALL);
 	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
 	private static Pattern paramProtocolType = Pattern.compile("<" + MBSPACE + IDENTIFIER + MBSPACE + ">");
 
 	public static BcFuncDefinition tryCapture(String line)
 	{
-		Matcher m = methodDef.matcher(line);
+		Matcher m;
 
-		if (m.find())
+		if ((m = methodHeaderDef.matcher(line)).find() || (m = methodImplDef.matcher(line)).find())
 		{
 			boolean isStatic = m.group(1).equals("+");
 			String returnType = m.group(2);

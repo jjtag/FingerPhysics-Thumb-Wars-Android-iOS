@@ -31,10 +31,6 @@ public class ClassBodyImplParser extends Parser
 	private static Pattern syntesizePattern = Pattern.compile("@synthesize" + SPACE + ANY + ";");
 	private static Pattern syntesizeEntryPattern = Pattern.compile(IDENTIFIER + mb(MBSPACE + "=" + MBSPACE + IDENTIFIER));
 
-	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ALL);
-	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
-	private static Pattern paramProtocolType = Pattern.compile("<" + MBSPACE + IDENTIFIER + MBSPACE + ">");
-
 	private BcClassDefinition bcClass;
 
 	public ClassBodyImplParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
@@ -47,7 +43,30 @@ public class ClassBodyImplParser extends Parser
 	protected void process(String line)
 	{
 		Matcher m;
-		if ((m = syntesizePattern.matcher(line)).find())
+		BcFuncDefinition bcFunc;
+		if ((bcFunc = BcFunctionCapture.tryCapture(line)) != null)
+		{
+			ListWriteDestination paramsDest = new ListWriteDestination();
+			List<BcFuncParam> funcParams = bcFunc.getParams();
+			int index = 0;
+			for (BcFuncParam param : funcParams)
+			{
+				paramsDest.writef("%s %s", param.getType().getName(), param.getName());
+				if (++index < funcParams.size())
+				{
+					paramsDest.write(", ");
+				}
+			}
+			dest.writelnf("%s %s::%s(%s)", bcFunc.getReturnType().getName(), bcClass.getName(), bcFunc.getName(), paramsDest);
+			dest.writeBlockOpen();
+			BlockIterator bodyIter = iter.readBlock();
+
+			FunctionBodyParser parser = new FunctionBodyParser(bodyIter, dest, bcClass);
+			parser.parse();
+
+			dest.writeBlockClose();
+		}
+		else if ((m = syntesizePattern.matcher(line)).find())
 		{
 			String propertiesString = m.group(1);
 			Matcher matcher = syntesizeEntryPattern.matcher(propertiesString);
@@ -66,53 +85,6 @@ public class ClassBodyImplParser extends Parser
 				
 				writeProperty(property);
 			}
-		}
-		else if ((m = methodDef.matcher(line)).find())
-		{
-			String returnType = m.group(2);
-			String methodName = m.group(3);
-			boolean hasParams = m.group(4) != null;
-
-			BcFuncDefinition bcFunc = new BcFuncDefinition(methodName, new BcType(returnType));
-
-			ListWriteDestination paramsDest = new ListWriteDestination();
-			if (hasParams)
-			{
-				String params = m.group(5);
-				m = paramDef.matcher(params);
-				while (m.find())
-				{
-					String paramType = m.group(1);
-					String paramName = m.group(2);
-					
-					Matcher matcher;
-					if ((matcher = paramProtocolType.matcher(paramType)).find())
-					{
-						paramType = matcher.group(1) + "*";
-					}
-
-					bcFunc.addParam(new BcFuncParam(paramName, new BcType(paramType)));
-				}
-
-				List<BcFuncParam> funcParams = bcFunc.getParams();
-				int index = 0;
-				for (BcFuncParam param : funcParams)
-				{
-					paramsDest.writef("%s %s", param.getType().getName(), param.getName());
-					if (++index < funcParams.size())
-					{
-						paramsDest.write(", ");
-					}
-				}
-			}
-			dest.writelnf("%s %s::%s(%s)", returnType, bcClass.getName(), methodName, paramsDest);
-			dest.writeBlockOpen();
-			BlockIterator bodyIter = iter.readBlock();
-
-			FunctionBodyParser parser = new FunctionBodyParser(bodyIter, dest, bcClass);
-			parser.parse();
-
-			dest.writeBlockClose();
 		}
 		else
 		{
