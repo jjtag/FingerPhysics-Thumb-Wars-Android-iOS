@@ -2,18 +2,19 @@ package bc.converter;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import code.BcClassDefinition;
-
 import bc.utils.file.FileUtils;
 import block.BlockIterator;
-import block.BlockParser;
+import block.FunctionBodyParser;
 import block.HeaderParser;
 import block.ImplParser;
 import block.Parser;
+import code.BcClassDefinition;
+import code.BcPropertyDefinition;
 
 public class Obj2Cpp 
 {
@@ -31,6 +32,18 @@ public class Obj2Cpp
 				File asSourceFile = new File(args[i]);
 				process(asSourceFile, outputDir, ".h"); // collect headers first
 			}
+
+			// das hack
+			Collection<BcClassDefinition> classes = bcClasses.values();
+			for (BcClassDefinition bcClass : classes)
+			{
+				List<BcPropertyDefinition> properties = bcClass.getProperties();
+				for (BcPropertyDefinition bcProperty : properties)
+				{
+					FunctionBodyParser.registerProperty(bcProperty);
+				}
+			}
+			
 			for (int i = 1; i < args.length; ++i)
 			{
 				File asSourceFile = new File(args[i]);
@@ -42,7 +55,7 @@ public class Obj2Cpp
 			e.printStackTrace();
 		}
     }
-
+	
 	private static void process(File file, File outputDir, String...extensions) throws IOException
 	{
 		if (file.isDirectory())

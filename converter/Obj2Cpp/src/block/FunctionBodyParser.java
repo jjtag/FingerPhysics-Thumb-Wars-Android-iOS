@@ -1,26 +1,36 @@
 package block;
 
 import static block.RegexHelp.TIDENTIFIER;
+import static block.RegexHelp.IDENTIFIER;
 import static block.RegexHelp.MBSPACE;
 import static block.RegexHelp.LPAR;
 import static block.RegexHelp.RPAR;
 import static block.RegexHelp.ANY;
 import static block.RegexHelp.ALL;
+import static block.RegexHelp.DOT;
 import static block.RegexHelp.group;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import code.BcClassDefinition;
+import bc.converter.WriteDestination;
 
-import as2ObjC.WriteDestination;
+import code.BcClassDefinition;
+import code.BcPropertyDefinition;
+
 
 public class FunctionBodyParser extends Parser
 {
+	private static Pattern propertySetPattern = Pattern.compile(IDENTIFIER + MBSPACE + DOT + group(MBSPACE + IDENTIFIER + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + ";");
+	
 	private static Pattern selfIfCallPattern = Pattern.compile("if" + MBSPACE + LPAR + group(MBSPACE + "self" + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + RPAR);
 	private static Pattern selfCallPattern = Pattern.compile("self" + MBSPACE + "=" + MBSPACE + ANY);
+	
+	private static Set<String> propertiesNames = new HashSet<String>();
 	
 	private BcClassDefinition bcClass;
 
@@ -30,14 +40,35 @@ public class FunctionBodyParser extends Parser
 		this.bcClass = bcClass;
 	}
 
+	public static void registerProperty(BcPropertyDefinition property)
+	{
+		System.out.println("Register property: " + property.getName());
+		propertiesNames.add(property.getName());
+	}
+	
+	public static boolean hasRegisteredProperty(String name)
+	{
+		return propertiesNames.contains(name);
+	}
+	
 	@Override
 	protected void process(String line)
 	{
+		Matcher m;
+		if ((m = propertySetPattern.matcher(line)).find())
+		{
+			String name = m.group(3);
+			if (hasRegisteredProperty(name))
+			{
+				String setterName = "set" + Character.toUpperCase(name.charAt(0)) + name.substring(1);
+				line = line.replace(m.group(2), String.format("%s(%s)", setterName, m.group(4)));
+			}			
+		}
+		
 		if (line.contains("[") && line.contains("]"))
 		{
 			String callLine = parseMethodCall(line).replace(staticCallMarker, "::");
 			
-			Matcher m;
 			if ((m = selfIfCallPattern.matcher(callLine)).find())
 			{
 				callLine = callLine.replace(m.group(1), m.group(2));

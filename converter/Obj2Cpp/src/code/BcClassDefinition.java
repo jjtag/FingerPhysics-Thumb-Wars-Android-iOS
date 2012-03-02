@@ -63,6 +63,11 @@ public class BcClassDefinition
 		return null;
 	}
 	
+	public List<BcPropertyDefinition> getProperties()
+	{
+		return properties;
+	}
+	
 	public List<BcFieldDefinition> getFields()
 	{
 		return fields;
