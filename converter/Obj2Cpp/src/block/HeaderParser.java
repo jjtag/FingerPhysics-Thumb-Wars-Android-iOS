@@ -40,10 +40,6 @@ public class HeaderParser extends Parser
 	
 	private static Pattern visiblityPattern = Pattern.compile("@" + group(or("public", "private", "protected")));
 
-	private static Pattern methodDef = Pattern.compile(group(or(PLUS, "-")) + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + MBSPACE + mb(":") + ANY + ";");
-	private static Pattern paramDef = Pattern.compile(LPAR + ANY + RPAR + MBSPACE + IDENTIFIER);
-	private static Pattern paramProtocolType = Pattern.compile("<" + MBSPACE + IDENTIFIER + MBSPACE + ">");
-
 	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + ANY + ";");
 	private static Pattern propertyEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
 	private static Pattern protocolPropertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + "id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + ">"+ MBSPACE + ANY + ";");
@@ -201,7 +197,7 @@ public class HeaderParser extends Parser
 					paramsDest.write(", ");
 				}
 			}
-			dest.writelnf("virtual %s %s(%s);", bcFunc.getReturnType().getName(), bcFunc.getName(), paramsDest);
+			dest.writelnf("%s %s %s(%s);", bcFunc.isStatic() ? "static" : "virtual", bcFunc.getReturnType().getName(), bcFunc.getName(), paramsDest);
 		}
 		else if ((m = protocolPropertyDef.matcher(line)).find())
 		{
