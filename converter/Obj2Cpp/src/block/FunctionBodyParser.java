@@ -1,14 +1,18 @@
 package block;
 
-import static block.RegexHelp.TIDENTIFIER;
-import static block.RegexHelp.IDENTIFIER;
-import static block.RegexHelp.MBSPACE;
-import static block.RegexHelp.LPAR;
-import static block.RegexHelp.RPAR;
-import static block.RegexHelp.ANY;
 import static block.RegexHelp.ALL;
+import static block.RegexHelp.ANY;
 import static block.RegexHelp.DOT;
+import static block.RegexHelp.IDENTIFIER;
+import static block.RegexHelp.LPAR;
+import static block.RegexHelp.MBSPACE;
+import static block.RegexHelp.RBRKT;
+import static block.RegexHelp.STAR;
+import static block.RegexHelp.PLUS;
+import static block.RegexHelp.RPAR;
+import static block.RegexHelp.TIDENTIFIER;
 import static block.RegexHelp.group;
+import static block.RegexHelp.oneOff;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -18,14 +22,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import bc.converter.WriteDestination;
-
 import code.BcClassDefinition;
 import code.BcPropertyDefinition;
 
 
 public class FunctionBodyParser extends Parser
 {
-	private static Pattern propertySetPattern = Pattern.compile(IDENTIFIER + MBSPACE + DOT + group(MBSPACE + IDENTIFIER + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + ";");
+	private static Pattern propertySetPattern = Pattern.compile(ANY + DOT + group(MBSPACE + IDENTIFIER + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + ";");
+	private static Pattern propertyGetPattern = Pattern.compile(ANY + group(DOT + MBSPACE + IDENTIFIER) + MBSPACE + oneOff(STAR, DOT, ",", ";", PLUS, "-", "/", RPAR, RBRKT));
 	
 	private static Pattern selfIfCallPattern = Pattern.compile("if" + MBSPACE + LPAR + group(MBSPACE + "self" + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + RPAR);
 	private static Pattern selfCallPattern = Pattern.compile("self" + MBSPACE + "=" + MBSPACE + ANY);
@@ -62,6 +66,18 @@ public class FunctionBodyParser extends Parser
 				String setterName = "set" + Character.toUpperCase(name.charAt(0)) + name.substring(1);
 				line = line.replace(m.group(2), String.format("%s(%s)", setterName, m.group(4)));
 			}			
+		}
+		else
+		{
+			m = propertyGetPattern.matcher(line);
+			while (m.find())
+			{
+				String name = m.group(3);
+				if (hasRegisteredProperty(name))
+				{
+					line = line.replace(m.group(2), String.format(".%s()", name));
+				}
+			}
 		}
 		
 		if (line.contains("[") && line.contains("]"))

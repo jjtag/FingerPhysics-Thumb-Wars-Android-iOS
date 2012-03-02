@@ -33,6 +33,17 @@ public class RegexHelp
 		return group(str) + "+";
 	}
 	
+	public static String oneOff(String... items)
+	{		
+		StringBuilder result = new StringBuilder("[");
+		for (String o : items)
+		{
+			result.append(o);
+		}
+		result.append("]");
+		return result.toString();
+	}
+	
 	public static String or(String a, String... other)
 	{
 		StringBuilder result = new StringBuilder(a);
