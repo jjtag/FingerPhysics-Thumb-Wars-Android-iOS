@@ -10,9 +10,10 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import as2ObjC.CodeHelper;
-import as2ObjC.ListWriteDestination;
-import as2ObjC.WriteDestination;
+import bc.converter.CodeHelper;
+import bc.converter.ListWriteDestination;
+import bc.converter.WriteDestination;
+
 import code.BcClassDefinition;
 import code.BcFuncDefinition;
 import code.BcFuncParam;

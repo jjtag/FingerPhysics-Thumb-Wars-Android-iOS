@@ -7,7 +7,8 @@ import static block.RegexHelp.MBSPACE;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import as2ObjC.CodeHelper;
+import bc.converter.CodeHelper;
+
 
 public class XmlFakeProcessor extends LineProcessor 
 {

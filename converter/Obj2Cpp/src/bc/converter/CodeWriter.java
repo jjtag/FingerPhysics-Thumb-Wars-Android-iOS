@@ -1,4 +1,4 @@
-package as2ObjC;
+package bc.converter;
 
 
 public class CodeWriter

@@ -10,7 +10,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import as2ObjC.WriteDestination;
+import bc.converter.WriteDestination;
+
 import code.BcClassDefinition;
 
 public class HeaderParser extends Parser

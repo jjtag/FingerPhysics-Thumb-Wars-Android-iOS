@@ -10,8 +10,8 @@ import code.BcFuncParam;
 import code.BcPropertyDefinition;
 import code.BcType;
 
-import as2ObjC.CodeHelper;
-import as2ObjC.ListWriteDestination;
+import bc.converter.CodeHelper;
+import bc.converter.ListWriteDestination;
 import block.processors.LineProcessor;
 import static block.RegexHelp.SPACE;
 import static block.RegexHelp.LPAR;

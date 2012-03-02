@@ -2,7 +2,8 @@ package block;
 
 import java.util.regex.Matcher;
 
-import as2ObjC.WriteDestination;
+import bc.converter.WriteDestination;
+
 
 public abstract class Parser
 {

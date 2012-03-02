@@ -1,4 +1,4 @@
-package as2ObjC;
+package bc.converter;
 
 import static block.RegexHelp.DOT;
 import static block.RegexHelp.IDENTIFIER;

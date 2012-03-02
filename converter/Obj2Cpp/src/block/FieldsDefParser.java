@@ -11,10 +11,11 @@ import static block.RegexHelp.or;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import bc.converter.WriteDestination;
+
 import code.BcClassDefinition;
 import code.BcFieldDefinition;
 import code.BcType;
-import as2ObjC.WriteDestination;
 
 public class FieldsDefParser extends Parser
 {

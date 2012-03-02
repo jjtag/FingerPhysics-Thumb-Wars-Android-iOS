@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import as2ObjC.CodeHelper;
+import bc.converter.CodeHelper;
+
 
 public class FunctionCallProcessor extends LineProcessor
 {

@@ -2,8 +2,9 @@ package block;
 
 import java.util.List;
 
-import as2ObjC.ListWriteDestination;
-import as2ObjC.WriteDestination;
+import bc.converter.ListWriteDestination;
+import bc.converter.WriteDestination;
+
 import code.BcFuncDefinition;
 import code.BcFuncParam;
 

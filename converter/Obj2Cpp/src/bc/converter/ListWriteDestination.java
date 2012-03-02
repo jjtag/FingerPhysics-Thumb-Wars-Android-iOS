@@ -1,4 +1,4 @@
-package as2ObjC;
+package bc.converter;
 
 import java.util.ArrayList;
 import java.util.List;
