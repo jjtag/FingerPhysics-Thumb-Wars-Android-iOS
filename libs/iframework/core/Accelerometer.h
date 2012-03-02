@@ -18,6 +18,6 @@
 -(void)startAccelerometerWithFrequency:(float) freq useFilter:(bool) filter useHighPassFilter:(bool) filtertype;
 -(void)stopAccelerometer;
 -(void)setFilterFactor:(float)f;
-@property (readonly) UIAccelerationValue x, y, z;
+@property (readonly) UIAccelerationValue ax, ay, az;
 
 @end

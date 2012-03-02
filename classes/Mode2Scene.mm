@@ -99,8 +99,8 @@
 	Parallax* obj = [px objectAtIndex:0];
 	float x1 = 83;
 	float y1 = SCREEN_HEIGHT - 869;
-	float x2 = obj.x+(acc.x*obj.parallaxRatioX) + 95;
-	float y2 = obj.y-(acc.y*obj.parallaxRatioY) + 12;
+	float x2 = obj.x+(acc.ax*obj.parallaxRatioX) + 95;
+	float y2 = obj.y-(acc.ay*obj.parallaxRatioY) + 12;
 	Texture2D* rope = [ChampionsResourceMgr getResource:IMG_ROPE];
 	Texture2D* rope_shadow = [ChampionsResourceMgr getResource:IMG_ROPE_SHADOW];
 	drawTexturedLine(x1+13, y1+3, x2+4, y2, 2, rope_shadow);

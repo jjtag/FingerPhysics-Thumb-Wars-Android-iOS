@@ -354,7 +354,7 @@ RGBAColor magnetBlueColor = RGBA_FROM_HEX(77, 129, 255, 255);
 	{
 		Parallax* obj = [px objectAtIndex:i];
 		if(obj)
-			[obj drawWithOffsetX:acc.x offsetY:acc.y];
+			[obj drawWithOffsetX:acc.ax offsetY:acc.ay];
 	}
 }
 

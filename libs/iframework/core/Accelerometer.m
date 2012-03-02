@@ -13,7 +13,7 @@
 
 @implementation Accelerometer
 
-@synthesize x, y, z;
+@synthesize ax = x, ay = y, az = z;
 
 -(void) startAccelerometerWithFrequency:(float) freq useFilter:(bool) filter useHighPassFilter:(bool) filtertype;
 {
