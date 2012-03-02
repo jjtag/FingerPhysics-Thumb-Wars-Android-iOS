@@ -112,10 +112,10 @@ public class ClassBodyHeaderParser extends Parser
 			}
 			
 			String propType = CodeHelper.type(bcProperty.getType());
-			dest.writelnf("%s %s();", propType, bcProperty.getterName());
+			dest.writelnf("inline %s %s();", propType, bcProperty.getterName());
 			if (!bcProperty.isReadonly())
 			{
-				dest.writelnf("void set%s(%s __value);", bcProperty.setterName(), propType);
+				dest.writelnf("inline void %s(%s __value);", bcProperty.setterName(), propType);
 			}				
 		}
 	}

@@ -91,37 +91,32 @@ public class ClassBodyImplParser extends Parser
 		String propType = CodeHelper.type(property.getType());
 		String propBindName = CodeHelper.identifier(property.getBindingName());
 		
-		dest.writelnf("%s %s::%s()", propType, bcClass.getName(), property.getterName());
-		dest.writeBlockOpen();
-		dest.writelnf("return %s;", propBindName);
-		dest.writeBlockClose();
+		dest.writelnf("%s %s::%s() { return %s; }", propType, bcClass.getName(), property.getterName(), propBindName);
 		
 		if (!property.isReadonly())
 		{
-			dest.writelnf("void %s::set%s(%s __value)", bcClass.getName(), property.setterName(), propType);
-			dest.writeBlockOpen();
+			dest.writef("void %s::%s(%s __value) { ", bcClass.getName(), property.setterName(), propType);
 			
 			if (property.getAssignType() == PropertyAssignType.ASSIGN)
 			{
-				dest.writelnf("%s = __value;", propBindName);
+				dest.writef("%s = __value; ", propBindName);
 			}
 			else
 			{
-				dest.writelnf("if (%s != __value)", propBindName);
-				dest.writeBlockOpen();
-				dest.writelnf("%s->release();", propBindName);
+				dest.writef("if (%s != __value) { ", propBindName);				
+				dest.writef("%s->release(); ", propBindName);
 				if (property.getAssignType() == PropertyAssignType.RETAIN)
 				{
-					dest.writelnf("%s = __value->retain();", propBindName);
+					dest.writef("%s = __value->retain(); ", propBindName);
 				}
 				else if (property.getAssignType() == PropertyAssignType.COPY)
 				{
-					dest.writelnf("%s = __value->copy();", propBindName);
+					dest.writef("%s = __value->copy(); ", propBindName);
 				}
-				dest.writeBlockClose();
+				dest.write("}");
 			}
 			
-			dest.writeBlockClose();
+			dest.writeln("}");
 		}		
 	}
 }
