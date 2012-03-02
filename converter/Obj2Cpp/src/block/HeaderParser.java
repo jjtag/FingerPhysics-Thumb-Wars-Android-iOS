@@ -185,49 +185,23 @@ public class HeaderParser extends Parser
 	{
 		Matcher m;
 		
-		if ((m = methodDef.matcher(line)).find())
+		BcFuncDefinition bcFunc;
+		if ((bcFunc = BcFunctionCapture.tryCapture(line)) != null)
 		{
-			boolean isStatic = m.group(1).equals("+");
-			String returnType = m.group(2);
-			String methodName = m.group(3);
-			boolean hasParams = m.group(4) != null;
-
-			BcFuncDefinition bcFunc = new BcFuncDefinition(methodName, new BcType(returnType));
-			bcFunc.setStatic(isStatic);
-
 			lastBcClass.addFunc(bcFunc);
 
 			ListWriteDestination paramsDest = new ListWriteDestination();
-			if (hasParams)
+			List<BcFuncParam> funcParams = bcFunc.getParams();
+			int index = 0;
+			for (BcFuncParam param : funcParams)
 			{
-				String params = m.group(5);
-				m = paramDef.matcher(params);
-				while (m.find())
+				paramsDest.writef("%s %s", param.getType().getName(), param.getName());
+				if (++index < funcParams.size())
 				{
-					String paramType = m.group(1);					
-					String paramName = m.group(2);
-					
-					Matcher matcher;
-					if ((matcher = paramProtocolType.matcher(paramType)).find())
-					{
-						paramType = matcher.group(1) + "*";
-					}
-
-					bcFunc.addParam(new BcFuncParam(paramName, new BcType(paramType)));
-				}
-
-				List<BcFuncParam> funcParams = bcFunc.getParams();
-				int index = 0;
-				for (BcFuncParam param : funcParams)
-				{
-					paramsDest.writef("%s %s", param.getType().getName(), param.getName());
-					if (++index < funcParams.size())
-					{
-						paramsDest.write(", ");
-					}
+					paramsDest.write(", ");
 				}
 			}
-			dest.writelnf("virtual %s %s(%s);", returnType, methodName, paramsDest);
+			dest.writelnf("virtual %s %s(%s);", bcFunc.getReturnType().getName(), bcFunc.getName(), paramsDest);
 		}
 		else if ((m = protocolPropertyDef.matcher(line)).find())
 		{

@@ -20,6 +20,16 @@ public class BcFuncDefinition
 		params = new ArrayList<BcFuncParam>();
 	}
 	
+	public String getName()
+	{
+		return name;
+	}
+	
+	public BcType getReturnType()
+	{
+		return returnType;
+	}
+	
 	public boolean isStatic()
 	{
 		return isStatic;
