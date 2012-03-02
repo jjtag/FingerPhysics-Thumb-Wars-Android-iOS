@@ -36,6 +36,11 @@ public class FunctionBodyParser extends Parser
 	
 	private static Set<String> propertiesNames = new HashSet<String>();
 	
+	static
+	{
+		propertiesNames.add("frame");
+	}
+	
 	private BcClassDefinition bcClass;
 
 	public FunctionBodyParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
