@@ -3471,8 +3471,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
@@ -3496,8 +3494,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = ChampionsFree;
-				PROVISIONING_PROFILE = "A3FAAC30-5727-45EF-B21B-B4A9529D1AC3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A3FAAC30-5727-45EF-B21B-B4A9529D1AC3";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
 			};
@@ -3507,8 +3503,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
@@ -3530,8 +3524,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Champions;
-				PROVISIONING_PROFILE = "A3FAAC30-5727-45EF-B21B-B4A9529D1AC3";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A3FAAC30-5727-45EF-B21B-B4A9529D1AC3";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
 			};
@@ -3541,8 +3533,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobliss Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobliss Inc.";
 				COPY_PHASE_STRIP = YES;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3559,8 +3549,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = ChampionsFree;
-				PROVISIONING_PROFILE = "D9D2C52B-4C21-4D2E-8B85-2581EF108991";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D9D2C52B-4C21-4D2E-8B85-2581EF108991";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
 			};
@@ -3570,8 +3558,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobliss Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobliss Inc.";
 				COPY_PHASE_STRIP = YES;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3591,8 +3577,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = ChampionsFree;
-				PROVISIONING_PROFILE = "FFC6A8CA-F9F6-4728-81A3-DAC1643A6E6F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FFC6A8CA-F9F6-4728-81A3-DAC1643A6E6F";
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
@@ -3604,8 +3588,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobliss Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobliss Inc.";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
@@ -3619,8 +3603,6 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "FF113732-1129-427F-96F2-FCBDF17AAD28";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FF113732-1129-427F-96F2-FCBDF17AAD28";
 				SDKROOT = iphoneos;
 			};
 			name = Distribution;
@@ -3629,8 +3611,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobliss Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobliss Inc.";
 				COPY_PHASE_STRIP = YES;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3647,8 +3627,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Champions;
-				PROVISIONING_PROFILE = "DD544447-99CD-49B6-8338-E767079849AA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DD544447-99CD-49B6-8338-E767079849AA";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
 			};
@@ -3659,8 +3637,8 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobliss Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobliss Inc.";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
@@ -3674,8 +3652,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "3D53A113-D94A-4EF5-8132-2DEBFDC4BA21";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3D53A113-D94A-4EF5-8132-2DEBFDC4BA21";
 				SDKROOT = iphoneos;
 			};
 			name = AdHoc;
@@ -3684,8 +3660,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mobliss Inc.";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mobliss Inc.";
 				COPY_PHASE_STRIP = YES;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -3702,8 +3676,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Champions;
-				PROVISIONING_PROFILE = "F67AEEF7-CCA3-4207-AED7-7D5A78D09A7F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F67AEEF7-CCA3-4207-AED7-7D5A78D09A7F";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3714,8 +3686,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
@@ -3737,8 +3707,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Champions;
-				PROVISIONING_PROFILE = "758CFA63-5A68-48E3-AFC8-1CC9C4136F8B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "758CFA63-5A68-48E3-AFC8-1CC9C4136F8B";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
 			};
@@ -3748,8 +3716,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
 				COPY_PHASE_STRIP = YES;
 				GCC_ENABLE_CPP_EXCEPTIONS = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
@@ -3771,8 +3737,6 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Champions;
-				PROVISIONING_PROFILE = "758CFA63-5A68-48E3-AFC8-1CC9C4136F8B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "758CFA63-5A68-48E3-AFC8-1CC9C4136F8B";
 				SDKROOT = iphoneos;
 				SYMROOT = build;
 			};
@@ -3782,8 +3746,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Efim Voinov";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Efim Voinov";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Alex Lementuev (8M223Q7QM6)";
 				COMPRESS_PNG_FILES = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OBJC_CALL_CXX_CDTORS = YES;
@@ -3800,8 +3764,8 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PREBINDING = NO;
-				PROVISIONING_PROFILE = "1C51AFB2-BB3B-414A-B515-6C7B125C4693";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1C51AFB2-BB3B-414A-B515-6C7B125C4693";
+				PROVISIONING_PROFILE = "1376B258-C77D-4E37-BA94-403F88D14C67";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1376B258-C77D-4E37-BA94-403F88D14C67";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
