@@ -80,8 +80,8 @@ typedef struct _PVRTexHeader
 @implementation PVRTexture
 
 @synthesize name = _name;
-@synthesize width = _width;
-@synthesize height = _height;
+@synthesize Width = _width;
+@synthesize Height = _height;
 @synthesize internalFormat = _internalFormat;
 @synthesize hasAlpha = _hasAlpha;
 

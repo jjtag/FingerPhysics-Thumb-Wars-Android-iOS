@@ -647,8 +647,8 @@ void drawRectAtPoint(Texture2D* t, Rectangle rect, Vector point)
 		_name = pvr.name;	// texture id
 		_maxS = 1.0f;
 		_maxT = 1.0f;
-		_width = pvr.width;		// width
-		_height = pvr.height;	// height
+		_width = pvr.Width;		// width
+		_height = pvr.Height;	// height
 		_size = CGSizeMake(_width, _height);
 
 		quadsCount = 0;
