@@ -42,7 +42,6 @@ public class FunctionBodyParser extends Parser
 
 	public static void registerProperty(BcPropertyDefinition property)
 	{
-		System.out.println("Register property: " + property.getName());
 		propertiesNames.add(property.getName());
 	}
 	
