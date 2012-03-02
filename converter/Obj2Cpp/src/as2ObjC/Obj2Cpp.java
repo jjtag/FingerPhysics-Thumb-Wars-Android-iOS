@@ -15,7 +15,7 @@ import block.HeaderParser;
 import block.ImplParser;
 import block.Parser;
 
-public class As2ObjC 
+public class Obj2Cpp 
 {
 	private static Map<String, BcClassDefinition> bcClasses;
 	
