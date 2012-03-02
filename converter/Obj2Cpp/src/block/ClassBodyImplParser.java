@@ -116,14 +116,14 @@ public class ClassBodyImplParser extends Parser
 			{
 				dest.writelnf("if (%s != __value)", propBindName);
 				dest.writeBlockOpen();
-				dest.writelnf("[%s release];", propBindName);
+				dest.writelnf("%s->release();", propBindName);
 				if (property.getAssignType() == PropertyAssignType.RETAIN)
 				{
-					dest.writelnf("%s = [__value retain];", propBindName);
+					dest.writelnf("%s = __value->retain();", propBindName);
 				}
 				else if (property.getAssignType() == PropertyAssignType.COPY)
 				{
-					dest.writelnf("%s = [__value copy];", propBindName);
+					dest.writelnf("%s = __value->copy();", propBindName);
 				}
 				dest.writeBlockClose();
 			}
