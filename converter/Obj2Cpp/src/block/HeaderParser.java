@@ -4,7 +4,6 @@ import static block.RegexHelp.ANY;
 import static block.RegexHelp.IDENTIFIER;
 import static block.RegexHelp.LPAR;
 import static block.RegexHelp.MBSPACE;
-import static block.RegexHelp.PLUS;
 import static block.RegexHelp.RPAR;
 import static block.RegexHelp.SPACE;
 import static block.RegexHelp.STAR;
@@ -23,7 +22,6 @@ import as2ObjC.CodeHelper;
 import as2ObjC.ListWriteDestination;
 import as2ObjC.WriteDestination;
 import code.BcClassDefinition;
-import code.BcFieldDefinition;
 import code.BcFuncDefinition;
 import code.BcFuncParam;
 import code.BcPropertyDefinition;
@@ -34,12 +32,6 @@ public class HeaderParser extends Parser
 	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + mb(MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">")));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
 	
-	private static Pattern fieldPattern = Pattern.compile(IDENTIFIER + MBSPACE + ANY + ";");
-	private static Pattern fieldProtocolPattern = Pattern.compile(group("id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + ">") + MBSPACE + ANY + ";");
-	private static Pattern fieldEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
-	
-	private static Pattern visiblityPattern = Pattern.compile("@" + group(or("public", "private", "protected")));
-
 	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + ANY + ";");
 	private static Pattern propertyEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
 	private static Pattern protocolPropertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + "id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + mb(STAR) + MBSPACE + ">"+ MBSPACE + ANY + ";");
@@ -93,10 +85,13 @@ public class HeaderParser extends Parser
 			bodyLine = iter.next();
 			if (bodyLine.equals("{"))
 			{
+				BlockIterator fieldsIter = new BlockIterator();
 				while (!(bodyLine = iter.next()).equals("}"))
 				{
-					processFieldsDef(bodyLine);
+					fieldsIter.add(bodyLine);
 				}
+				FieldsDefParser parser = new FieldsDefParser(fieldsIter, dest, lastBcClass);
+				parser.parse();
 			}
 			else
 			{
@@ -143,40 +138,6 @@ public class HeaderParser extends Parser
 		}
 	}
 
-	private void processFieldsDef(String line)
-	{
-		Matcher m;
-		if ((m = fieldProtocolPattern.matcher(line)).find())
-		{
-			String typeName = m.group(2) + "*";
-			String entriesStr = m.group(1);
-			
-			addFields(typeName, entriesStr);
-			
-			dest.writeln(line.replace(m.group(1), typeName));
-		}
-		else if ((m = fieldPattern.matcher(line)).find())
-		{
-			String typeName = m.group(1);
-			String entriesStr = m.group(2);
-			
-			addFields(typeName, entriesStr);
-			
-			dest.writeln(line);
-		}
-		else if ((m = visiblityPattern.matcher(line)).find())
-		{
-			String modifier = m.group(1);
-			dest.decTab();
-			dest.writeln(m.replaceFirst(modifier + ":"));
-			dest.incTab();
-		}
-		else
-		{		
-			dest.writeln(line);
-		}
-	}
-	
 	private void processClassBody(String line)
 	{
 		Matcher m;
@@ -219,21 +180,6 @@ public class HeaderParser extends Parser
 		else
 		{
 			dest.writeln(line);
-		}
-	}
-
-	private void addFields(String typeName, String entriesStr)
-	{
-		Matcher matcher = fieldEntry.matcher(entriesStr);
-		while (matcher.find())
-		{
-			boolean isReference = matcher.group(1) != null;
-			String name = matcher.group(2);
-
-			String type = typeName + (isReference ? "*" : "");
-			
-			BcFieldDefinition bcField = new BcFieldDefinition(name, new BcType(type));
-			lastBcClass.addField(bcField);
 		}
 	}
 	

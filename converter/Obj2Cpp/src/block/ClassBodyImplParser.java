@@ -1,16 +1,10 @@
 package block;
 
-import static block.RegexHelp.ALL;
 import static block.RegexHelp.ANY;
 import static block.RegexHelp.IDENTIFIER;
-import static block.RegexHelp.LPAR;
 import static block.RegexHelp.MBSPACE;
-import static block.RegexHelp.PLUS;
-import static block.RegexHelp.RPAR;
 import static block.RegexHelp.SPACE;
-import static block.RegexHelp.group;
 import static block.RegexHelp.mb;
-import static block.RegexHelp.or;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -19,12 +13,11 @@ import java.util.regex.Pattern;
 import as2ObjC.CodeHelper;
 import as2ObjC.ListWriteDestination;
 import as2ObjC.WriteDestination;
-import code.PropertyAssignType;
 import code.BcClassDefinition;
 import code.BcFuncDefinition;
 import code.BcFuncParam;
 import code.BcPropertyDefinition;
-import code.BcType;
+import code.PropertyAssignType;
 
 public class ClassBodyImplParser extends Parser
 {
