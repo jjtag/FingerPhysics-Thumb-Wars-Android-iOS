@@ -67,9 +67,9 @@ public class FunctionBodyParser extends Parser
 		{
 			String name = m.group(3);
 			if (hasRegisteredProperty(name))
-			{
+			{				
 				String setterName = BcPropertyDefinition.createSetterName(name);
-				line = line.replace(m.group(2), String.format("%s(%s)", setterName, m.group(4)));
+				line = line.replace("." + m.group(2), String.format("->%s(%s)", setterName, m.group(4)));
 			}			
 		}
 		else
