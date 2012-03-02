@@ -19,19 +19,24 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import as2ObjC.CodeHelper;
+import as2ObjC.ListWriteDestination;
+import as2ObjC.WriteDestination;
 import code.BcClassDefinition;
+import code.BcFieldDefinition;
 import code.BcFuncDefinition;
 import code.BcFuncParam;
 import code.BcPropertyDefinition;
 import code.BcType;
-import as2ObjC.CodeHelper;
-import as2ObjC.ListWriteDestination;
-import as2ObjC.WriteDestination;
 
 public class HeaderParser extends Parser
 {
 	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + mb(MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">")));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
+	
+	private static Pattern fieldPattern = Pattern.compile(IDENTIFIER + MBSPACE + ANY + ";");
+	private static Pattern fieldProtocolPattern = Pattern.compile(group("id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + ">") + MBSPACE + ANY + ";");
+	private static Pattern fieldEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
 	
 	private static Pattern visiblityPattern = Pattern.compile("@" + group(or("public", "private", "protected")));
 
@@ -116,7 +121,25 @@ public class HeaderParser extends Parser
 	private void processFieldsDef(String line)
 	{
 		Matcher m;
-		if ((m = visiblityPattern.matcher(line)).find())
+		if ((m = fieldProtocolPattern.matcher(line)).find())
+		{
+			String typeName = m.group(2) + "*";
+			String entriesStr = m.group(1);
+			
+			addFields(typeName, entriesStr);
+			
+			dest.writeln(line.replace(m.group(1), typeName));
+		}
+		else if ((m = fieldPattern.matcher(line)).find())
+		{
+			String typeName = m.group(1);
+			String entriesStr = m.group(2);
+			
+			addFields(typeName, entriesStr);
+			
+			dest.writeln(line);
+		}
+		else if ((m = visiblityPattern.matcher(line)).find())
 		{
 			String modifier = m.group(1);
 			dest.decTab();
@@ -184,11 +207,6 @@ public class HeaderParser extends Parser
 			String modifiersString = m.group(1);
 			String typeName = m.group(2);
 			
-			if (m.group(3) == null)
-			{
-				debugTraceGroups(m);
-			}
-			
 			String entriesString = m.group(3).trim();
 			
 			writeProperties(typeName, entriesString, modifiersString);
@@ -199,6 +217,21 @@ public class HeaderParser extends Parser
 		}
 	}
 
+	private void addFields(String typeName, String entriesStr)
+	{
+		Matcher matcher = fieldEntry.matcher(entriesStr);
+		while (matcher.find())
+		{
+			boolean isReference = matcher.group(1) != null;
+			String name = matcher.group(2);
+
+			String type = typeName + (isReference ? "*" : "");
+			
+			BcFieldDefinition bcField = new BcFieldDefinition(name, new BcType(type));
+			lastBcClass.addField(bcField);
+		}
+	}
+	
 	private void writeProperties(String typeName, String entriesStr, String modifiersStr)
 	{
 		Matcher matcher = modifierDef.matcher(modifiersStr);
