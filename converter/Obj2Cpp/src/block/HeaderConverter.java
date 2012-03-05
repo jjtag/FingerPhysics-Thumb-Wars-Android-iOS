@@ -14,7 +14,7 @@ import bc.converter.WriteDestination;
 
 import code.BcClassDefinition;
 
-public class HeaderParser extends Parser
+public class HeaderConverter extends Converter
 {
 	private static Pattern interfacePattern = Pattern.compile("@interface" + SPACE + TIDENTIFIER + mb(MBSPACE + ":" + MBSPACE + TIDENTIFIER + MBSPACE + mb("<" + ANY + ">")));
 	private static Pattern typePattern = Pattern.compile(TIDENTIFIER);
@@ -24,7 +24,7 @@ public class HeaderParser extends Parser
 	private BcClassDefinition lastBcClass;
 	private Map<String, BcClassDefinition> bcClasses;
 
-	public HeaderParser(BlockIterator iter, WriteDestination dest, Map<String, BcClassDefinition> bcClasses)
+	public HeaderConverter(BlockIterator iter, WriteDestination dest, Map<String, BcClassDefinition> bcClasses)
 	{
 		super(iter, dest);
 		this.bcClasses = bcClasses;
@@ -66,7 +66,7 @@ public class HeaderParser extends Parser
 			if (iter.peek().trim().equals("{"))
 			{
 				BlockIterator fieldsIter = iter.readBlock();
-				new FieldsDefParser(fieldsIter, dest, lastBcClass).parse();
+				new FieldsDefConverter(fieldsIter, dest, lastBcClass).parse();
 			}
 			
 			dest.writeln();
@@ -80,7 +80,7 @@ public class HeaderParser extends Parser
 			BlockIterator classIter = iter.readCodeUntilToken("@end");
 			assert classIter != null;
 			
-			new ClassBodyHeaderParser(classIter, dest, lastBcClass).parse();			
+			new ClassBodyHeaderConverter(classIter, dest, lastBcClass).parse();			
 			dest.writeBlockClose(true);
 			
 			lastBcClass = null;
@@ -100,7 +100,7 @@ public class HeaderParser extends Parser
 			BlockIterator bodyIter = iter.readCodeUntilToken("@end");
 			assert bodyIter != null;
 			
-			new ProtocolParser(bodyIter, dest).parse();
+			new ProtocolConverter(bodyIter, dest).parse();
 			
 			dest.writeBlockClose(true);			
 		}

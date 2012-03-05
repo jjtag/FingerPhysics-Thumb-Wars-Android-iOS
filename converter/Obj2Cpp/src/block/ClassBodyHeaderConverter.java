@@ -25,7 +25,7 @@ import code.BcFuncParam;
 import code.BcPropertyDefinition;
 import code.BcType;
 
-public class ClassBodyHeaderParser extends Parser
+public class ClassBodyHeaderConverter extends Converter
 {
 	private static Pattern propertyDef = Pattern.compile("@property" + MBSPACE + LPAR + ANY + RPAR + MBSPACE + IDENTIFIER + ANY + ";");
 	private static Pattern propertyEntry = Pattern.compile(mb(STAR) + MBSPACE + IDENTIFIER);
@@ -34,7 +34,7 @@ public class ClassBodyHeaderParser extends Parser
 	
 	private BcClassDefinition bcClass;
 
-	public ClassBodyHeaderParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
+	public ClassBodyHeaderConverter(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
 	{
 		super(iter, dest);
 		this.bcClass = bcClass;

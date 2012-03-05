@@ -9,10 +9,10 @@ import java.util.Map;
 
 import bc.utils.file.FileUtils;
 import block.BlockIterator;
-import block.FunctionBodyParser;
-import block.HeaderParser;
-import block.ImplParser;
-import block.Parser;
+import block.FunctionBodyConverter;
+import block.HeaderConverter;
+import block.ImplConverter;
+import block.Converter;
 import code.BcClassDefinition;
 import code.BcPropertyDefinition;
 
@@ -40,7 +40,7 @@ public class Obj2Cpp
 				List<BcPropertyDefinition> properties = bcClass.getProperties();
 				for (BcPropertyDefinition bcProperty : properties)
 				{
-					FunctionBodyParser.registerProperty(bcProperty);
+					FunctionBodyConverter.registerProperty(bcProperty);
 				}
 			}
 			
@@ -84,15 +84,15 @@ public class Obj2Cpp
 		
 		ListWriteDestination dest = new ListWriteDestination();
 		
-		Parser parser;
+		Converter parser;
 		if (sourceName.endsWith(".h"))
 		{
-			HeaderParser headerParse = new HeaderParser(iter, dest, bcClasses);
+			HeaderConverter headerParse = new HeaderConverter(iter, dest, bcClasses);
 			parser = headerParse;
 		}
 		else
 		{
-			parser = new ImplParser(iter, dest, bcClasses);
+			parser = new ImplConverter(iter, dest, bcClasses);
 		}
 		
 		parser.parse();

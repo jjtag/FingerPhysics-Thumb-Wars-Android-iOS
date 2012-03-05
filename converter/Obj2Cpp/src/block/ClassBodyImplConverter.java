@@ -20,14 +20,14 @@ import code.BcFuncParam;
 import code.BcPropertyDefinition;
 import code.PropertyAssignType;
 
-public class ClassBodyImplParser extends Parser
+public class ClassBodyImplConverter extends Converter
 {
 	private static Pattern syntesizePattern = Pattern.compile("@synthesize" + SPACE + ANY + ";");
 	private static Pattern syntesizeEntryPattern = Pattern.compile(IDENTIFIER + mb(MBSPACE + "=" + MBSPACE + IDENTIFIER));
 
 	private BcClassDefinition bcClass;
 
-	public ClassBodyImplParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
+	public ClassBodyImplConverter(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
 	{
 		super(iter, dest);
 		this.bcClass = bcClass;
@@ -56,7 +56,7 @@ public class ClassBodyImplParser extends Parser
 
 			dest.writeBlockOpen();
 			
-			FunctionBodyParser parser = new FunctionBodyParser(bodyIter, dest, bcClass);
+			FunctionBodyConverter parser = new FunctionBodyConverter(bodyIter, dest, bcClass);
 			parser.parse();
 			
 			dest.writeBlockClose();

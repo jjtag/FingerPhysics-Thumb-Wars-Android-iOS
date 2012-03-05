@@ -4,14 +4,14 @@ import java.util.regex.Matcher;
 
 import bc.converter.WriteDestination;
 
-public abstract class Parser
+public abstract class Converter
 {
 	protected BlockIterator iter;
 	protected WriteDestination dest;
 
 	protected boolean preprocessingEnabled = true;
 	
-	public Parser(BlockIterator iter, WriteDestination dest)
+	public Converter(BlockIterator iter, WriteDestination dest)
 	{
 		this.iter = iter;
 		this.dest = dest;

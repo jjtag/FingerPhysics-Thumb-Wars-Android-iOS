@@ -8,9 +8,9 @@ import bc.converter.WriteDestination;
 import code.BcFuncDefinition;
 import code.BcFuncParam;
 
-public class ProtocolParser extends Parser
+public class ProtocolConverter extends Converter
 {
-	public ProtocolParser(BlockIterator iter, WriteDestination dest)
+	public ProtocolConverter(BlockIterator iter, WriteDestination dest)
 	{
 		super(iter, dest);
 	}

@@ -13,13 +13,13 @@ import bc.converter.WriteDestination;
 import code.BcClassDefinition;
 import code.BcFieldDefinition;
 
-public class ImplParser extends Parser
+public class ImplConverter extends Converter
 {
 	private static Pattern implPattern = Pattern.compile("@implementation" + SPACE + TIDENTIFIER);
 
 	private Map<String, BcClassDefinition> bcClasses;
 	
-	public ImplParser(BlockIterator iter, WriteDestination dest, Map<String, BcClassDefinition> bcClasses)
+	public ImplConverter(BlockIterator iter, WriteDestination dest, Map<String, BcClassDefinition> bcClasses)
 	{
 		super(iter, dest);
 		this.bcClasses = bcClasses;
@@ -42,7 +42,7 @@ public class ImplParser extends Parser
 			BlockIterator bodyIter = iter.readCodeUntilToken("@end");
 			assert bodyIter != null;	
 			
-			ClassBodyImplParser parser = new ClassBodyImplParser(bodyIter, dest, bcClass);
+			ClassBodyImplConverter parser = new ClassBodyImplConverter(bodyIter, dest, bcClass);
 			parser.parse();
 		}
 		else if (line.contains("@interface"))

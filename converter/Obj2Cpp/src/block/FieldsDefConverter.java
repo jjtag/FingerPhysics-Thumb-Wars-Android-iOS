@@ -17,7 +17,7 @@ import code.BcClassDefinition;
 import code.BcFieldDefinition;
 import code.BcType;
 
-public class FieldsDefParser extends Parser
+public class FieldsDefConverter extends Converter
 {
 	private static Pattern fieldPattern = Pattern.compile(IDENTIFIER + MBSPACE + ANY + ";");
 	private static Pattern fieldProtocolPattern = Pattern.compile(group("id" + MBSPACE + "<" + MBSPACE + IDENTIFIER + MBSPACE + ">") + MBSPACE + ANY + ";");
@@ -27,7 +27,7 @@ public class FieldsDefParser extends Parser
 	
 	private BcClassDefinition bcClass;
 
-	public FieldsDefParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
+	public FieldsDefConverter(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
 	{
 		super(iter, dest);
 		this.bcClass = bcClass;

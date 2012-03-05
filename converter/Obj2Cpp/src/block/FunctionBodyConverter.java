@@ -26,7 +26,7 @@ import code.BcClassDefinition;
 import code.BcPropertyDefinition;
 
 
-public class FunctionBodyParser extends Parser
+public class FunctionBodyConverter extends Converter
 {
 	private static Pattern propertySetPattern = Pattern.compile(ANY + DOT + group(MBSPACE + IDENTIFIER + MBSPACE + "=" + MBSPACE + ALL + MBSPACE) + ";");
 	private static Pattern propertyGetPattern = Pattern.compile(DOT + MBSPACE + IDENTIFIER + MBSPACE + group(oneOff(STAR, DOT, ",", ";", PLUS, "-", "/", RPAR, RBRKT)));
@@ -43,7 +43,7 @@ public class FunctionBodyParser extends Parser
 	
 	private BcClassDefinition bcClass;
 
-	public FunctionBodyParser(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
+	public FunctionBodyConverter(BlockIterator iter, WriteDestination dest, BcClassDefinition bcClass)
 	{
 		super(iter, dest);
 		this.bcClass = bcClass;
