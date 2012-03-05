@@ -24,7 +24,7 @@ public abstract class Parser
 
 		while (iter.hasNext())
 		{
-			boolean inSingleLineComment = false;
+			boolean noProcessing = false;
 
 			String line = iter.next();
 			for (int i = 0; i < line.length(); ++i)
@@ -32,22 +32,24 @@ public abstract class Parser
 				char chr = line.charAt(i);
 				if (chr == '/' && prevChar == '/')
 				{
-					inSingleLineComment = true;
+					noProcessing = true;
 					break;
 				}
-				else if (chr == '*' && prevChar == '/')
+				
+				if (chr == '*' && prevChar == '/')
 				{
 					inComment = true;
 				}
 				else if (chr == '/' && prevChar == '*')
 				{
 					inComment = false;
+					noProcessing = i == line.length() - 1 || line.substring(i + 1).trim().length() == 0;
 				}
 
 				prevChar = chr;
 			}
 
-			if (inSingleLineComment || inComment)
+			if (noProcessing || inComment)
 			{
 				dest.writeln(line.trim());
 			}

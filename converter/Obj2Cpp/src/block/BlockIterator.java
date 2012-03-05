@@ -63,28 +63,39 @@ public class BlockIterator
 	{
 		BlockIterator iter = new BlockIterator();
 
-		int counter = 0;
-		int parentnessis = 0;
-		boolean inStringLiteral = false;
-		boolean inParentnessis = false;
+		int bracketCounter = 0;
+		int parenthesisCounter = 0;
+		boolean inStringLiteral = false;		
 		boolean inComment = false;
 		boolean inSingleLineComment = false;
+		
+		StringBuilder lineBuffer = new StringBuilder();
 
 		char prevChar = 0;
-		boolean complete = false;
-		while (!complete)
+		char chr = 0;
+		
+		boolean blockCompleted = false;
+		while (!blockCompleted)
 		{
-			StringBuilder lineBuffer = new StringBuilder();
 			inSingleLineComment = false;
 			
 			String codeLine = next();
 			for (int i = 0; i < codeLine.length(); i++)
 			{
-				char chr = codeLine.charAt(i);
+				prevChar = chr;
+				chr = codeLine.charAt(i);
+				
 				if (chr == '"' && prevChar != '\\')
 				{
 					inStringLiteral = !inStringLiteral;
 				}
+				
+				if (inStringLiteral)
+				{
+					lineBuffer.append(chr);
+					continue;
+				}
+				
 				if (chr == '*' && prevChar == '/')
 				{
 					inComment = true;
@@ -97,44 +108,49 @@ public class BlockIterator
 				{
 					inComment = false;
 				}
-				if ((chr == '(' || chr == '[') && !inStringLiteral)
+				
+				if (inSingleLineComment || inComment)
 				{
-					inParentnessis = true;
-					counter++;
+					lineBuffer.append(chr);
+					continue;
 				}
-				else if ((chr == ')' || chr == ']') && !inStringLiteral)
+				
+				if (chr == '(' || chr == '[')
 				{
-					counter--;
-					inParentnessis = counter > 0;
+					bracketCounter++;
+				}
+				else if (chr == ')' || chr == ']')
+				{
+					assert bracketCounter > 0;
+					bracketCounter--;
 				}
 
 				lineBuffer.append(chr);
 				
-				if (!inSingleLineComment && !inComment && !inParentnessis && !inStringLiteral)
+				if (bracketCounter > 0)
 				{
-					if (chr == '{')
-					{
-						parentnessis++;						
-					}
-					else if (chr == '}')
-					{
-						parentnessis--;
-						if (parentnessis == 0)
-						{
-							complete = true;
-							break;
-						}
-					}
+					continue;
 				}
 				
-				prevChar = chr;
+				if (chr == '{')
+				{
+					parenthesisCounter++;						
+				}
+				else if (chr == '}')
+				{
+					assert parenthesisCounter > 0;
+					parenthesisCounter--;
+					if (parenthesisCounter == 0)
+					{
+						blockCompleted = true;
+						break;
+					}
+				}
 			}
 			
 			iter.codeLines.add(lineBuffer.toString());
+			lineBuffer.setLength(0);
 		}
-		
-		iter.codeLines.remove(0);
-		iter.codeLines.remove(iter.codeLines.size() - 1);
 		
 		return iter;
 	}

@@ -52,13 +52,10 @@ public class ClassBodyImplParser extends Parser
 				}
 			}
 			dest.writelnf("%s %s::%s(%s)", bcFunc.getReturnType().getName(), bcClass.getName(), bcFunc.getName(), paramsDest);
-			dest.writeBlockOpen();
 			BlockIterator bodyIter = iter.readBlock();
 
 			FunctionBodyParser parser = new FunctionBodyParser(bodyIter, dest, bcClass);
 			parser.parse();
-
-			dest.writeBlockClose();
 		}
 		else if ((m = syntesizePattern.matcher(line)).find())
 		{
