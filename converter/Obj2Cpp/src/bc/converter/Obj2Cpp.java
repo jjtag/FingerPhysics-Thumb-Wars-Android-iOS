@@ -2,6 +2,7 @@ package bc.converter;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,7 @@ import block.FunctionBodyConverter;
 import block.HeaderConverter;
 import block.ImplConverter;
 import block.Converter;
+import block.processors.group.ProcessorsGroup;
 import code.BcClassDefinition;
 import code.BcPropertyDefinition;
 
@@ -76,7 +78,7 @@ public class Obj2Cpp
 	private static void convert(File source, File outputDir) throws IOException 
 	{
 		System.out.println("Converting: " + source);
-				
+		
 		String sourceName = source.getName();		
 		
 		List<String> lines = FileUtils.readFile(source);
@@ -93,13 +95,20 @@ public class Obj2Cpp
 		{
 			converter = new ImplConverter(iter, dest, bcClasses);
 		}
-		
 		converter.convert();
 		
-		outputDir.mkdirs();
+		List<String> convertedLines = dest.getLines();
+		List<String> processedLines = new ArrayList<String>(convertedLines.size());
 		
+		ProcessorsGroup processor = new ProcessorsGroup();
+		for (String line : convertedLines)
+		{
+			processedLines.add(processor.process(line));
+		}
+		
+		outputDir.mkdirs();
 		File outFile = new File(outputDir, source.getName());
-		writeCode(outFile, dest.getLines());		
+		writeCode(outFile, processedLines);		
 	}
 
 	private static void writeCode(File outFile, List<String> lines) throws IOException
