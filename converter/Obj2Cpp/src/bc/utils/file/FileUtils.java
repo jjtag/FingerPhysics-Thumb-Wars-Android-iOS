@@ -116,7 +116,7 @@ public class FileUtils
 		int index = filename.lastIndexOf('.');
 		if (index != -1)
 		{
-			return filename.substring(index);
+			return filename.substring(0, index);
 		}
 		return filename;
 	}

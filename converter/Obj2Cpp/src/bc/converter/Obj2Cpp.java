@@ -115,9 +115,25 @@ public class Obj2Cpp
 	{
 		FileWriteDestination dest = new FileWriteDestination(outFile);
 		
+		boolean needsDefGuard = outFile.getName().endsWith(".h");
+		String defguardName = String.format("___%s_h_", FileUtils.fileNameNoExt(outFile));
+		
+		if (needsDefGuard)
+		{
+			dest.writelnf("#ifndef %s", defguardName);
+			dest.writelnf("#define %s", defguardName);
+			dest.writeln();
+		}
+		
 		for (String line : lines)
 		{
 			dest.writeln(line);
+		}
+		
+		if (needsDefGuard)
+		{
+			dest.writeln();
+			dest.writelnf("#endif // %s", defguardName);
 		}
 		
 		dest.close();
