@@ -3,6 +3,7 @@ package block.processors.group;
 import java.util.ArrayList;
 import java.util.List;
 
+import block.processors.ImportProcessor;
 import block.processors.LineProcessor;
 import block.processors.ReplaceTokensProcessor;
 import block.processors.StringLiteralProcessor;
@@ -16,6 +17,7 @@ public class ProcessorsGroup
 		processors = new ArrayList<LineProcessor>();
 		processors.add(new StringLiteralProcessor());
 		processors.add(new ReplaceTokensProcessor());
+		processors.add(new ImportProcessor());
 	}
 	
 	protected void addProcessor(LineProcessor processor)
