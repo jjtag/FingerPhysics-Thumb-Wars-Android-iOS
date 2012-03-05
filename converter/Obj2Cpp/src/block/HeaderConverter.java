@@ -66,7 +66,7 @@ public class HeaderConverter extends Converter
 			if (iter.peek().trim().equals("{"))
 			{
 				BlockIterator fieldsIter = iter.readBlock();
-				new FieldsDefConverter(fieldsIter, dest, lastBcClass).parse();
+				new FieldsDefConverter(fieldsIter, dest, lastBcClass).convert();
 			}
 			
 			dest.writeln();
@@ -80,7 +80,7 @@ public class HeaderConverter extends Converter
 			BlockIterator classIter = iter.readCodeUntilToken("@end");
 			assert classIter != null;
 			
-			new ClassBodyHeaderConverter(classIter, dest, lastBcClass).parse();			
+			new ClassBodyHeaderConverter(classIter, dest, lastBcClass).convert();			
 			dest.writeBlockClose(true);
 			
 			lastBcClass = null;
@@ -100,7 +100,7 @@ public class HeaderConverter extends Converter
 			BlockIterator bodyIter = iter.readCodeUntilToken("@end");
 			assert bodyIter != null;
 			
-			new ProtocolConverter(bodyIter, dest).parse();
+			new ProtocolConverter(bodyIter, dest).convert();
 			
 			dest.writeBlockClose(true);			
 		}

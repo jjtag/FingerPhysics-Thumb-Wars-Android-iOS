@@ -17,7 +17,7 @@ public abstract class Converter
 		this.dest = dest;
 	}
 	
-	public void parse()
+	public void convert()
 	{
 		boolean inComment = false;
 		char prevChar = 0;

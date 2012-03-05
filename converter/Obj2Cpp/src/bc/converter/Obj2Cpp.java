@@ -94,7 +94,7 @@ public class Obj2Cpp
 			converter = new ImplConverter(iter, dest, bcClasses);
 		}
 		
-		converter.parse();
+		converter.convert();
 		
 		outputDir.mkdirs();
 		

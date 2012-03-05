@@ -42,7 +42,7 @@ public class ImplConverter extends Converter
 			BlockIterator bodyIter = iter.readCodeUntilToken("@end");
 			assert bodyIter != null;	
 			
-			new ClassBodyImplConverter(bodyIter, dest, bcClass).parse();
+			new ClassBodyImplConverter(bodyIter, dest, bcClass).convert();
 		}
 		else if (line.contains("@interface"))
 		{
