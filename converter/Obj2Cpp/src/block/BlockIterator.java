@@ -59,6 +59,25 @@ public class BlockIterator
 		}
 	}
 
+	public BlockIterator readCodeUntilToken(String token)
+	{
+		int storePos = position;
+		
+		BlockIterator iter = new BlockIterator();
+		while (hasNext())
+		{
+			String line = next().trim();
+			if (line.equals(token))
+			{
+				return iter;
+			}
+			iter.codeLines.add(line);
+		}
+		
+		position = storePos;
+		return null;
+	}
+	
 	public BlockIterator readBlock()
 	{
 		BlockIterator iter = new BlockIterator();
@@ -151,6 +170,9 @@ public class BlockIterator
 			iter.codeLines.add(lineBuffer.toString());
 			lineBuffer.setLength(0);
 		}
+		
+		iter.codeLines.remove(0);
+		iter.codeLines.remove(iter.codeLines.size() - 1);
 		
 		return iter;
 	}

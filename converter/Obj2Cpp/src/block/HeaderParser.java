@@ -63,20 +63,10 @@ public class HeaderParser extends Parser
 			dest.writeln("private:");
 			dest.incTab();
 			
-			String bodyLine;
-			bodyLine = iter.next();
-			if (bodyLine.equals("{"))
+			if (iter.peek().trim().equals("{"))
 			{
-				BlockIterator fieldsIter = new BlockIterator();
-				while (!(bodyLine = iter.next()).equals("}"))
-				{
-					fieldsIter.add(bodyLine);
-				}
+				BlockIterator fieldsIter = iter.readBlock();
 				new FieldsDefParser(fieldsIter, dest, lastBcClass).parse();
-			}
-			else
-			{
-				iter.pushBack();
 			}
 			
 			dest.writeln();
@@ -86,15 +76,11 @@ public class HeaderParser extends Parser
 			
 			writeConstructor();
 			
-			BlockIterator classIter = new BlockIterator();			
-			while (!(bodyLine = iter.next()).equals("@end"))
-			{
-				classIter.add(bodyLine);
-			}
 			preprocessingEnabled = false;
+			BlockIterator classIter = iter.readCodeUntilToken("@end");
+			assert classIter != null;
 			
-			new ClassBodyHeaderParser(classIter, dest, lastBcClass).parse();
-			
+			new ClassBodyHeaderParser(classIter, dest, lastBcClass).parse();			
 			dest.writeBlockClose(true);
 			
 			lastBcClass = null;
@@ -109,13 +95,10 @@ public class HeaderParser extends Parser
 			dest.writeln("public:");
 			dest.incTab();
 			
-			BlockIterator bodyIter = new BlockIterator();
-			String bodyLine;
-			while (!(bodyLine = iter.next()).equals("@end"))
-			{
-				bodyIter.add(bodyLine);
-			}
 			preprocessingEnabled = false;
+			
+			BlockIterator bodyIter = iter.readCodeUntilToken("@end");
+			assert bodyIter != null;
 			
 			new ProtocolParser(bodyIter, dest).parse();
 			

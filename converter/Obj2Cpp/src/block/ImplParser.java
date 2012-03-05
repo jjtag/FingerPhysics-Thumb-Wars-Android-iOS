@@ -37,13 +37,10 @@ public class ImplParser extends Parser
 
 			writeConstructor(bcClass);
 			
-			BlockIterator bodyIter = new BlockIterator();
-			String bodyLine;
-			while (!(bodyLine = iter.next()).equals("@end"))
-			{
-				bodyIter.add(bodyLine);
-			}
 			preprocessingEnabled = false;
+			
+			BlockIterator bodyIter = iter.readCodeUntilToken("@end");
+			assert bodyIter != null;	
 			
 			ClassBodyImplParser parser = new ClassBodyImplParser(bodyIter, dest, bcClass);
 			parser.parse();
