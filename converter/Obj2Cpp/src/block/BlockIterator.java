@@ -18,7 +18,7 @@ public class BlockIterator
 	public BlockIterator(List<String> lines)
 	{
 		position = -1;
-		codeLines = processLines(lines);
+		codeLines = lines;
 	}
 
 	public boolean hasNext()
@@ -31,9 +31,24 @@ public class BlockIterator
 		return codeLines.get(++position);
 	}
 	
+	public String peek()
+	{
+		if (hasNext())
+		{
+			return codeLines.get(position + 1);
+		}
+		
+		return null;
+	}
+	
 	public void add(String line)
 	{
 		codeLines.add(line);
+	}
+	
+	public void insert(String line)
+	{
+		codeLines.add(position + 1, line);
 	}
 	
 	public void pushBack()
@@ -122,128 +137,5 @@ public class BlockIterator
 		iter.codeLines.remove(iter.codeLines.size() - 1);
 		
 		return iter;
-	}
-
-	private List<String> processLines(List<String> lines)
-	{
-		List<String> codeLines = new ArrayList<String>();
-
-		int parentnessisCounter = 0;
-		boolean inStringLiteral = false;
-		boolean inComment = false;
-
-		char prevChar = 0;
-		
-		Iterator<String> iter = lines.iterator();
-		StringBuilder lineBuffer = new StringBuilder();
-		
-		while (iter.hasNext())
-		{
-			boolean inSingleLineComment = false;
-			
-			String line = iter.next().trim();
-			
-			if (line.length() == 0)
-			{
-				codeLines.add(line);
-				continue;
-			}
-			
-			char chr = 0;
-			for (int i = 0; i < line.length(); i++)
-			{
-				chr = line.charAt(i);
-				
-				// strings
-				if (chr == '"' && prevChar != '\\')
-				{
-					inStringLiteral = !inStringLiteral;
-				}
-				
-				if (inStringLiteral)
-				{
-					lineBuffer.append(chr);
-					prevChar = chr;
-					continue;
-				}
-				
-				// multiline comment
-				if (chr == '*' && prevChar == '/')
-				{
-					inComment = true;
-				}
-				else if (chr == '/' && prevChar == '*')
-				{
-					inComment = false;
-				}
-				
-				if (inComment)
-				{
-					lineBuffer.append(chr);
-					prevChar = chr;
-					continue;
-				}
-				
-				// single line comment				
-				else if (chr == '/' && prevChar == '/')
-				{
-					inSingleLineComment = true;
-				}
-				
-				if (inSingleLineComment)
-				{
-					lineBuffer.append(chr);
-					prevChar = chr;
-					continue;
-				}
-				
-				if (chr == '(' || chr == '[')
-				{
-					parentnessisCounter++;
-				}
-				else if (chr == ')' || chr == ']')
-				{
-					assert parentnessisCounter > 0;
-					parentnessisCounter--;
-				}
-
-				if ((chr == ';' && parentnessisCounter == 0))
-				{
-					lineBuffer.append(chr);
-					flushBuffer(codeLines, lineBuffer);
-					prevChar = chr;
-					continue;
-				}
-				
-				if (chr == '{' || chr == '}')
-				{
-					flushBuffer(codeLines, lineBuffer);					
-					codeLines.add(Character.toString(chr));
-				}
-				else
-				{
-					lineBuffer.append(chr);				
-				}
-				
-				prevChar = chr;
-			}
-			
-			if ((inComment || inSingleLineComment || parentnessisCounter == 0) && chr != ',')
-			{
-				flushBuffer(codeLines, lineBuffer);
-			}
-		}
-		
-		return codeLines;
-	}
-
-	private void flushBuffer(List<String> codeLines, StringBuilder buffer)
-	{
-		String line = buffer.toString().trim();
-		if (line.length() > 0)
-		{
-			codeLines.add(line);
-		}
-		buffer.setLength(0);
 	}
 }

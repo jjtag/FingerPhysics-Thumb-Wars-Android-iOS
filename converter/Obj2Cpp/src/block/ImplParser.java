@@ -43,6 +43,7 @@ public class ImplParser extends Parser
 			{
 				bodyIter.add(bodyLine);
 			}
+			preprocessingEnabled = false;
 			
 			ClassBodyImplParser parser = new ClassBodyImplParser(bodyIter, dest, bcClass);
 			parser.parse();
@@ -54,6 +55,15 @@ public class ImplParser extends Parser
 		else
 		{
 			dest.writeln(line);
+			
+			if (!preprocessingEnabled)
+			{
+				String nextLine = peek();
+				if (nextLine != null && nextLine.contains("@implementation"))
+				{
+					preprocessingEnabled = true;
+				}
+			}
 		}
 	}
 

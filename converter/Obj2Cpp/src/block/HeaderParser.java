@@ -28,12 +28,12 @@ public class HeaderParser extends Parser
 	{
 		super(iter, dest);
 		this.bcClasses = bcClasses;
+		preprocessingEnabled = false;
 	}
 
 	public void process(String line)
 	{
 		Matcher m;
-
 		if ((m = interfacePattern.matcher(line)).find())
 		{
 			assert lastBcClass == null : lastBcClass.getName();
@@ -90,7 +90,9 @@ public class HeaderParser extends Parser
 			while (!(bodyLine = iter.next()).equals("@end"))
 			{
 				classIter.add(bodyLine);
-			}			
+			}
+			preprocessingEnabled = false;
+			
 			new ClassBodyHeaderParser(classIter, dest, lastBcClass).parse();
 			
 			dest.writeBlockClose(true);
@@ -113,14 +115,24 @@ public class HeaderParser extends Parser
 			{
 				bodyIter.add(bodyLine);
 			}
+			preprocessingEnabled = false;
 			
 			new ProtocolParser(bodyIter, dest).parse();
 			
-			dest.writeBlockClose(true);
+			dest.writeBlockClose(true);			
 		}
 		else
 		{
 			dest.writeln(line);
+			
+			if (!preprocessingEnabled)
+			{
+				String nextLine = peek();
+				if (nextLine != null && (nextLine.contains("@interface") || nextLine.contains("@protocol")))
+				{
+					preprocessingEnabled = true;
+				}
+			}
 		}
 	}
 
