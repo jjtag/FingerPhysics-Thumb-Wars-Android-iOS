@@ -13,6 +13,7 @@ public class ReplaceTokensProcessor extends LineProcessor
 	{
 		lookup = new HashMap<String, String>();
 		lookup.put(boundary("self"), "this");
+		lookup.put(boundary("id"), "IID");
 		lookup.put("@class", "class");
 		lookup.put("@protocol", "class");
 	}
