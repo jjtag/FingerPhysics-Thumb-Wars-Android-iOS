@@ -56,8 +56,7 @@ public class ClassBodyImplConverter extends Converter
 
 			dest.writeBlockOpen();
 			
-			FunctionBodyConverter parser = new FunctionBodyConverter(bodyIter, dest, bcClass);
-			parser.parse();
+			new FunctionBodyConverter(bodyIter, dest, bcClass).parse();
 			
 			dest.writeBlockClose();
 		}

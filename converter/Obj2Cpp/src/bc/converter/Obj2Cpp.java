@@ -84,18 +84,17 @@ public class Obj2Cpp
 		
 		ListWriteDestination dest = new ListWriteDestination();
 		
-		Converter parser;
+		Converter converter;
 		if (sourceName.endsWith(".h"))
 		{
-			HeaderConverter headerParse = new HeaderConverter(iter, dest, bcClasses);
-			parser = headerParse;
+			converter = new HeaderConverter(iter, dest, bcClasses);
 		}
 		else
 		{
-			parser = new ImplConverter(iter, dest, bcClasses);
+			converter = new ImplConverter(iter, dest, bcClasses);
 		}
 		
-		parser.parse();
+		converter.parse();
 		
 		outputDir.mkdirs();
 		
