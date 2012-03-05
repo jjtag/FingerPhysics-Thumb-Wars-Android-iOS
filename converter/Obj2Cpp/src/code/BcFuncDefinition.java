@@ -9,6 +9,7 @@ public class BcFuncDefinition
 	private BcType returnType;
 	
 	private boolean isStatic;
+	private boolean isInitializer;
 	
 	private List<BcFuncParam> params;
 	
@@ -38,6 +39,16 @@ public class BcFuncDefinition
 	public void setStatic(boolean flag)
 	{
 		isStatic = flag;
+	}
+	
+	public void setInitializer(boolean isInitializer)
+	{
+		this.isInitializer = isInitializer;
+	}
+	
+	public boolean isInitializer()
+	{
+		return isInitializer;
 	}
 	
 	public void addParam(BcFuncParam param)

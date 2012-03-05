@@ -61,7 +61,15 @@ public class ClassBodyHeaderConverter extends Converter
 					paramsDest.write(", ");
 				}
 			}
-			dest.writelnf("%s %s %s(%s);", bcFunc.isStatic() ? "static" : "virtual", bcFunc.getReturnType().getName(), bcFunc.getName(), paramsDest);
+			
+			if (bcFunc.isInitializer())
+			{
+				dest.writelnf("%s %s %s(%s);", "virtual", bcClass.getName() + "*", bcFunc.getName(), paramsDest);
+			}
+			else
+			{
+				dest.writelnf("%s %s %s(%s);", bcFunc.isStatic() ? "static" : "virtual", bcFunc.getReturnType().getName(), bcFunc.getName(), paramsDest);
+			}
 		}
 		else if ((m = protocolPropertyDef.matcher(line)).find())
 		{

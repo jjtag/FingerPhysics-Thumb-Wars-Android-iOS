@@ -35,9 +35,10 @@ public class BcFunctionCapture
 			String returnType = m.group(2);
 			String methodName = m.group(3);
 			boolean hasParams = m.group(4) != null;
-
+			
 			BcFuncDefinition bcFunc = new BcFuncDefinition(methodName, new BcType(returnType));
 			bcFunc.setStatic(isStatic);
+			bcFunc.setInitializer(returnType.equals("id") && methodName.startsWith("init"));
 
 			if (hasParams)
 			{

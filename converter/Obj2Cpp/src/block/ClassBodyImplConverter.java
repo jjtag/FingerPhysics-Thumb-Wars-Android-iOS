@@ -51,7 +51,15 @@ public class ClassBodyImplConverter extends Converter
 					paramsDest.write(", ");
 				}
 			}
-			dest.writelnf("%s %s::%s(%s)", bcFunc.getReturnType().getName(), bcClass.getName(), bcFunc.getName(), paramsDest);
+			
+			if (bcFunc.isInitializer())
+			{
+				dest.writelnf("%s %s::%s(%s)", bcClass.getName() + "*", bcClass.getName(), bcFunc.getName(), paramsDest);
+			}
+			else
+			{
+				dest.writelnf("%s %s::%s(%s)", bcFunc.getReturnType().getName(), bcClass.getName(), bcFunc.getName(), paramsDest);
+			}
 			BlockIterator bodyIter = iter.readBlock();
 
 			dest.writeBlockOpen();
