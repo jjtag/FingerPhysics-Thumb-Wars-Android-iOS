@@ -6,6 +6,8 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#ifndef CONVERTED_CODE
+
 #import "Framework.h"
 #include <objc/runtime.h>
 
@@ -22,3 +24,5 @@
 }
 
 @end
+
+#endif // CONVERTED_CODE

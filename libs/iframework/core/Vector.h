@@ -6,6 +6,8 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#include "math.h"
+
 // C Vector implementation
 typedef struct Vector
 {

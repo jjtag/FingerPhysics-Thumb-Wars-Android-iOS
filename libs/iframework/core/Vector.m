@@ -8,7 +8,6 @@
  
 #include "Vector.h"
 #include "stdio.h"
-#include "math.h"
 
 float vectLength(const Vector v)
 {

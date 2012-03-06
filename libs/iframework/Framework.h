@@ -48,8 +48,12 @@
 #import "visual/Slider.h"
 #import "media/SoundMgr.h"
 
+#ifndef CONVERTED_CODE
+
 @interface NSObject (Allocations)
 +(id)create;
 +(id)allocAndAutorelease;
 @end
+
+#endif
 
