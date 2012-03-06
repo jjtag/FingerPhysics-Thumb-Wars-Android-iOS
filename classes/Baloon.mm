@@ -157,11 +157,7 @@ enum {SHOW_TIMELINE, HIDE_TIMELINE};
 
 -(void)timelineFinished:(Timeline*)t
 {
-	if ([delegate respondsToSelector:@selector(baloonClosed:)])
-	{
-		[delegate baloonClosed:self];
-	}
-	
+	[delegate baloonClosed:self];	
 	[self->parent removeChild:self];
 }
 
