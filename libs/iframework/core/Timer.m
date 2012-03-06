@@ -12,15 +12,12 @@
 
 @implementation Timer
 
-@synthesize target;
-@synthesize selector;
+@synthesize delegate;
 
 - (id)init
 {
 	if (self = [super init])
 	{
-		target = nil;
-		selector = nil;
 	}
 	
 	return self;
@@ -57,9 +54,9 @@
 		return;
 	}
 	
-	if (target)
+	if (delegate)
 	{
-		[target performSelector:selector];
+		[delegate onTimerFired];
 	}
 	else
 	{

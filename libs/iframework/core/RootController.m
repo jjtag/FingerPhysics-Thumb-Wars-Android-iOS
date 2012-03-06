@@ -37,21 +37,28 @@
 			// this mode doesn't support global exception alerts 
 			TimeType fps = (TimeType)[[Application sharedAppSettings] getInt:APP_SETTING_FPS];
 			[timer setTimerInterval:1.0 / fps];
-			timer.target = self;
-			timer.selector = @selector(operateCurrentMVC);	
+            timer.delegate = self;
+//			timer.target = self;
+//			timer.selector = @selector(operateCurrentMVC);	
 		}
 		else
 		{
 			// used to invoke run loop once, setting fps is not supported in this mode
 			// this mode supports global exception alerts but has problems with standard UI controls
-			[timer setTimerInterval:0];
-			timer.target = self;
-			timer.selector = @selector(runLoop);
+//			[timer setTimerInterval:0];
+//			timer.target = self;
+//			timer.selector = @selector(runLoop);
+
 		}
 	}
 	return self;
 }
  
+- (void)onTimerFired
+{
+    [self operateCurrentMVC];
+}
+
 -(void)operateCurrentMVC
 {		
 	@try

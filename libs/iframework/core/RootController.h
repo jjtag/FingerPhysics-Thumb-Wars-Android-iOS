@@ -26,7 +26,7 @@ enum
 };
 
 // the main application controller, which operates the main loop
-@interface RootController : ViewController 
+@interface RootController : ViewController<TimerDelegate>
 {	
 @protected	
 	// currently operated controller

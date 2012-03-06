@@ -8,27 +8,29 @@
 
 #import "FrameworkTypes.h"
 
+@protocol TimerDelegate <NSObject>
+
+- (void)onTimerFired;
+
+@end
+
 // simple timer wrapper 
 // which invokes "update" every updateInterval ms
 @interface Timer : NSObject
 {
 @private
-	id target;
-	SEL selector;
-	
+	id<TimerDelegate> delegate;
 @protected	
 	NSTimer* updateTimer;
     double updateInterval;
 }
+
+@property (nonatomic, assign) id<TimerDelegate> delegate;
 
 - (void)startTimer;
 - (void)stopTimer;
 - (void)update;
 - (void)setTimerInterval:(TimeType)interval;
 - (void)internalUpdate;
-
-// use this properties to set custom method which will be invoked
-@property (assign) id target;
-@property (assign) SEL selector;
 
 @end
