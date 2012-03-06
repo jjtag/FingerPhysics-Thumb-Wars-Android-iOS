@@ -112,14 +112,14 @@ public class ClassBodyImplConverter extends Converter
 			else
 			{
 				dest.writef("if (%s != __value) { ", propBindName);				
-				dest.writef("%s->release(); ", propBindName);
+				dest.writef("NSREL(%s); ", propBindName);
 				if (property.getAssignType() == PropertyAssignType.RETAIN)
 				{
-					dest.writef("%s = __value->retain(); ", propBindName);
+					dest.writef("%s = NSRET(__value); ", propBindName);
 				}
 				else if (property.getAssignType() == PropertyAssignType.COPY)
 				{
-					dest.writef("%s = __value->copy(); ", propBindName);
+					dest.writef("%s = NSCOP(__value); ", propBindName);
 				}
 				dest.write("}");
 			}

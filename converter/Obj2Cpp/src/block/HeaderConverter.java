@@ -75,6 +75,7 @@ public class HeaderConverter extends Converter
 			dest.incTab();
 			
 			writeConstructor();
+			writeAllocators();
 			
 			preprocessingEnabled = false;
 			BlockIterator classIter = iter.readCodeUntilToken("@end");
@@ -118,10 +119,16 @@ public class HeaderConverter extends Converter
 			}
 		}
 	}
-
+	
 	private void writeConstructor()
 	{
 		dest.writelnf("%s();", lastBcClass.getName());
+		dest.writeln();
+	}
+	
+	private void writeAllocators()
+	{
+		dest.writelnf("NSOBJ(%s)", lastBcClass.getName());
 		dest.writeln();
 	}
 }
