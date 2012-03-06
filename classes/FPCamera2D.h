@@ -9,20 +9,9 @@
 #import "Camera2D.h"
 #import "Vector.h"
 
-@protocol CameraProtocol
-@optional
--(void)cameraReachedTargetPoint:(Vector)point;
-@end
-
-//@protocol CameraPathProtocol
-//@optional
-//-(void)cameraReachedTargetPoint:(Vector)point;
-//@end
-
-@interface FPCamera2D : Camera2D <CameraProtocol>
+@interface FPCamera2D : Camera2D
 {
 	BOOL delegateNotified;
-	id <CameraProtocol> delegate;
 //	id <CameraPathProtocol> pathDelegate;
 	Vector* path;
 	int pathIndex;
@@ -37,5 +26,4 @@
 -(void)addPathPoint:(Vector)point;
 -(void)turnMaxPathPoints:(int)maxPath;
 
-@property (assign) id <CameraProtocol> delegate;
 @end

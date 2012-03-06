@@ -12,8 +12,6 @@
 
 @implementation FPCamera2D
 
-@synthesize delegate;
-
 -(id)initWithSpeed:(int)s andType:(int)t;
 {
 	if (self = [super init])
@@ -21,7 +19,6 @@
 		ASSERT(s > 0);
 		speed = s;
 		type = t;
-		delegate = self;
 		delegateNotified = FALSE;
 		pathCount = 0;
 		pathCapacity = 0;
@@ -122,10 +119,7 @@
 	{
 		if(!delegateNotified)
 		{
-			if ([(NSObject*)delegate respondsToSelector:@selector(cameraReachedTargetPoint:)])
-			{
-				[delegate cameraReachedTargetPoint:target];
-			}
+			[self cameraReachedTargetPoint:target];
 			delegateNotified = TRUE;
 		}
 	}
