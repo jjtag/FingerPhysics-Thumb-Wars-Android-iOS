@@ -13,7 +13,6 @@
 @interface View : BaseElement
 {
 }
-+(View*)create;
 
 -(id)initFullscreen;
 

@@ -14,14 +14,9 @@
 
 @implementation View
 
-+(View*)create
-{
-	return [[[[self class] alloc] initFullscreen] autorelease];
-}
-
 -(id)initFullscreen
 {
-	if (self = [super init]);
+	if (self = [super init])
 	{		
 		width = SCREEN_WIDTH;
 		height = SCREEN_HEIGHT;
