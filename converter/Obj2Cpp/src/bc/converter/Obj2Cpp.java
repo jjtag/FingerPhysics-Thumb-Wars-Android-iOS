@@ -123,6 +123,8 @@ public class Obj2Cpp
 			dest.writelnf("#ifndef %s", defguardName);
 			dest.writelnf("#define %s", defguardName);
 			dest.writeln();
+			dest.writeln("#include \"ios.h\"");
+			dest.writeln();
 		}
 		
 		for (String line : lines)
