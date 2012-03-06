@@ -315,7 +315,7 @@
 					}
 					break;
 				}		
-					
+#ifdef MAP_PICKER					
 				case CHILD_MAPPICKER:
 				{
 					MapPickerController* mapPicker = [[MapPickerController allocAndAutorelease] initWithParent:self];
@@ -323,6 +323,7 @@
 					[self activateChild:CHILD_MAPPICKER];
 					break;
 				}
+#endif // MAP_PICKER
 				default:
 					ASSERT(FALSE);
 			}	
@@ -388,6 +389,7 @@
 		}			
 		break;
 
+#ifdef MAP_PICKER
 		case CHILD_MAPPICKER:
 		{
 			MapPickerController* mapPicker = (MapPickerController*)[self getChild:CHILD_MAPPICKER];
@@ -419,32 +421,33 @@
 			[self activateChild:CHILD_LOADING];
 		}
 		break;
+#endif // MAP_PICKER
 	}
 }
 
 +(void)loadNews
 {
-#ifdef FREE
-	NSURL* url = [NSURL URLWithString:@"http://fpchampions.s3.amazonaws.com/free/news.xml"];
-#else	
-	NSURL* url = [NSURL URLWithString:@"http://fpchampions.s3.amazonaws.com/news.xml"];
-#endif
-	NewsParser* newsParser = [[[NewsParser alloc] initWithContentsOfURL:url] autorelease];
-	[newsParser setDelegate:newsParser];
-	[newsParser parse];
-
-//	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://fpchampions.s3.amazonaws.com/news.xml"]];
-//	NSURLResponse *response;	
-//	NSError *error;	
-//	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];	
-//	
-//	BOOL success = (!error) && ([(NSHTTPURLResponse *)response statusCode] == 200);
-//	if(success)
-//	{
-//		NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 		
-//		NSString* path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"news.xml"];
-//		[responseData writeToFile:path atomically:TRUE];
-//	}
+//#ifdef FREE
+//	NSURL* url = [NSURL URLWithString:@"http://fpchampions.s3.amazonaws.com/free/news.xml"];
+//#else	
+//	NSURL* url = [NSURL URLWithString:@"http://fpchampions.s3.amazonaws.com/news.xml"];
+//#endif
+//	NewsParser* newsParser = [[[NewsParser alloc] initWithContentsOfURL:url] autorelease];
+//	[newsParser setDelegate:newsParser];
+//	[newsParser parse];
+//
+////	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://fpchampions.s3.amazonaws.com/news.xml"]];
+////	NSURLResponse *response;	
+////	NSError *error;	
+////	NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];	
+////	
+////	BOOL success = (!error) && ([(NSHTTPURLResponse *)response statusCode] == 200);
+////	if(success)
+////	{
+////		NSArray* paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); 		
+////		NSString* path = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"news.xml"];
+////		[responseData writeToFile:path atomically:TRUE];
+////	}
 	
 }
 

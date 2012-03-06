@@ -31,8 +31,6 @@
 		0495912A104FD493009EAEC3 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590B7104FD493009EAEC3 /* Vector.m */; };
 		0495912B104FD493009EAEC3 /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590B9104FD493009EAEC3 /* View.m */; };
 		0495912C104FD493009EAEC3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590BB104FD493009EAEC3 /* ViewController.m */; };
-		0495912D104FD493009EAEC3 /* Loader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590BE104FD493009EAEC3 /* Loader.m */; };
-		0495912E104FD493009EAEC3 /* XMLSaxLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C0104FD493009EAEC3 /* XMLSaxLoader.m */; };
 		0495912F104FD493009EAEC3 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C2104FD493009EAEC3 /* XMLParser.m */; };
 		04959130104FD493009EAEC3 /* AnimationsPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C5104FD493009EAEC3 /* AnimationsPool.m */; };
 		04959131104FD493009EAEC3 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C7104FD493009EAEC3 /* Animation.m */; };
@@ -170,8 +168,6 @@
 		04B33CDC11E32ECC00C0B074 /* Vector.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590B7104FD493009EAEC3 /* Vector.m */; };
 		04B33CDD11E32ECC00C0B074 /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590B9104FD493009EAEC3 /* View.m */; };
 		04B33CDE11E32ECC00C0B074 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590BB104FD493009EAEC3 /* ViewController.m */; };
-		04B33CDF11E32ECC00C0B074 /* Loader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590BE104FD493009EAEC3 /* Loader.m */; };
-		04B33CE011E32ECC00C0B074 /* XMLSaxLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C0104FD493009EAEC3 /* XMLSaxLoader.m */; };
 		04B33CE111E32ECC00C0B074 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C2104FD493009EAEC3 /* XMLParser.m */; };
 		04B33CE211E32ECC00C0B074 /* AnimationsPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C5104FD493009EAEC3 /* AnimationsPool.m */; };
 		04B33CE311E32ECC00C0B074 /* Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590C7104FD493009EAEC3 /* Animation.m */; };
@@ -203,7 +199,6 @@
 		04B33CFE11E32ECC00C0B074 /* GameScene.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0465E2FE105525C500CC58B8 /* GameScene.mm */; };
 		04B33CFF11E32ECC00C0B074 /* MenuController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04A5AD311057E05A0022E12B /* MenuController.mm */; };
 		04B33D0111E32ECC00C0B074 /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31E8E108A733F00674ACD /* XMLDocument.m */; };
-		04B33D0211E32ECC00C0B074 /* XMLDomLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82F81108D0F640006E6A9 /* XMLDomLoader.m */; };
 		04B33D0311E32ECC00C0B074 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C830EF1090FDD30006E6A9 /* Strings.m */; };
 		04B33D0411E32ECC00C0B074 /* Timeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7191C10939AA0000E8CDB /* Timeline.m */; };
 		04B33D0511E32ECC00C0B074 /* ElementFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B9F9DB109B367A006F0EFE /* ElementFactory.m */; };
@@ -310,7 +305,6 @@
 		09AD8FF3105390E500BC7487 /* BulletScrollbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 09AD8FF2105390E500BC7487 /* BulletScrollbar.m */; };
 		09C31E8F108A733F00674ACD /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C31E8E108A733F00674ACD /* XMLDocument.m */; };
 		09C82F74108D0A0B0006E6A9 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 04959449105013CE009EAEC3 /* icon.png */; };
-		09C82F82108D0F640006E6A9 /* XMLDomLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C82F81108D0F640006E6A9 /* XMLDomLoader.m */; };
 		09C830F01090FDD30006E6A9 /* Strings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09C830EF1090FDD30006E6A9 /* Strings.m */; };
 		1D3623260D0F684500981E51 /* ChampionsApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* ChampionsApp.mm */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
@@ -1020,10 +1014,6 @@
 		049590B9104FD493009EAEC3 /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View.m; sourceTree = "<group>"; };
 		049590BA104FD493009EAEC3 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		049590BB104FD493009EAEC3 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		049590BD104FD493009EAEC3 /* Loader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Loader.h; sourceTree = "<group>"; };
-		049590BE104FD493009EAEC3 /* Loader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Loader.m; sourceTree = "<group>"; };
-		049590BF104FD493009EAEC3 /* XMLSaxLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLSaxLoader.h; sourceTree = "<group>"; };
-		049590C0104FD493009EAEC3 /* XMLSaxLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLSaxLoader.m; sourceTree = "<group>"; };
 		049590C1104FD493009EAEC3 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		049590C2104FD493009EAEC3 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		049590C4104FD493009EAEC3 /* AnimationsPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationsPool.h; sourceTree = "<group>"; };
@@ -1107,8 +1097,6 @@
 		09C31C8A10890CDC00674ACD /* res.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = res.h; path = res/res.h; sourceTree = SOURCE_ROOT; };
 		09C31E8D108A733F00674ACD /* XMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDocument.h; sourceTree = "<group>"; };
 		09C31E8E108A733F00674ACD /* XMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDocument.m; sourceTree = "<group>"; };
-		09C82F80108D0F640006E6A9 /* XMLDomLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLDomLoader.h; sourceTree = "<group>"; };
-		09C82F81108D0F640006E6A9 /* XMLDomLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLDomLoader.m; sourceTree = "<group>"; };
 		09C830EE1090FDD30006E6A9 /* Strings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Strings.h; sourceTree = "<group>"; };
 		09C830EF1090FDD30006E6A9 /* Strings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Strings.m; sourceTree = "<group>"; };
 		09EAF9851059A2ED001F8EF7 /* Champions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Champions.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1685,16 +1673,10 @@
 		049590BC104FD493009EAEC3 /* net */ = {
 			isa = PBXGroup;
 			children = (
-				049590BD104FD493009EAEC3 /* Loader.h */,
-				049590BE104FD493009EAEC3 /* Loader.m */,
-				049590BF104FD493009EAEC3 /* XMLSaxLoader.h */,
-				049590C0104FD493009EAEC3 /* XMLSaxLoader.m */,
 				049590C1104FD493009EAEC3 /* XMLParser.h */,
 				049590C2104FD493009EAEC3 /* XMLParser.m */,
 				09C31E8D108A733F00674ACD /* XMLDocument.h */,
 				09C31E8E108A733F00674ACD /* XMLDocument.m */,
-				09C82F80108D0F640006E6A9 /* XMLDomLoader.h */,
-				09C82F81108D0F640006E6A9 /* XMLDomLoader.m */,
 			);
 			name = net;
 			path = libs/iframework/net;
@@ -3153,8 +3135,6 @@
 				04B33CDC11E32ECC00C0B074 /* Vector.m in Sources */,
 				04B33CDD11E32ECC00C0B074 /* View.m in Sources */,
 				04B33CDE11E32ECC00C0B074 /* ViewController.m in Sources */,
-				04B33CDF11E32ECC00C0B074 /* Loader.m in Sources */,
-				04B33CE011E32ECC00C0B074 /* XMLSaxLoader.m in Sources */,
 				04B33CE111E32ECC00C0B074 /* XMLParser.m in Sources */,
 				04B33CE211E32ECC00C0B074 /* AnimationsPool.m in Sources */,
 				04B33CE311E32ECC00C0B074 /* Animation.m in Sources */,
@@ -3186,7 +3166,6 @@
 				04B33CFE11E32ECC00C0B074 /* GameScene.mm in Sources */,
 				04B33CFF11E32ECC00C0B074 /* MenuController.mm in Sources */,
 				04B33D0111E32ECC00C0B074 /* XMLDocument.m in Sources */,
-				04B33D0211E32ECC00C0B074 /* XMLDomLoader.m in Sources */,
 				04B33D0311E32ECC00C0B074 /* Strings.m in Sources */,
 				04B33D0411E32ECC00C0B074 /* Timeline.m in Sources */,
 				04B33D0511E32ECC00C0B074 /* ElementFactory.m in Sources */,
@@ -3298,8 +3277,6 @@
 				0495912A104FD493009EAEC3 /* Vector.m in Sources */,
 				0495912B104FD493009EAEC3 /* View.m in Sources */,
 				0495912C104FD493009EAEC3 /* ViewController.m in Sources */,
-				0495912D104FD493009EAEC3 /* Loader.m in Sources */,
-				0495912E104FD493009EAEC3 /* XMLSaxLoader.m in Sources */,
 				0495912F104FD493009EAEC3 /* XMLParser.m in Sources */,
 				04959130104FD493009EAEC3 /* AnimationsPool.m in Sources */,
 				04959131104FD493009EAEC3 /* Animation.m in Sources */,
@@ -3331,7 +3308,6 @@
 				0465E2FF105525C500CC58B8 /* GameScene.mm in Sources */,
 				04A5AD321057E05A0022E12B /* MenuController.mm in Sources */,
 				09C31E8F108A733F00674ACD /* XMLDocument.m in Sources */,
-				09C82F82108D0F640006E6A9 /* XMLDomLoader.m in Sources */,
 				09C830F01090FDD30006E6A9 /* Strings.m in Sources */,
 				09A7191D10939AA0000E8CDB /* Timeline.m in Sources */,
 				04B9F9DC109B367A006F0EFE /* ElementFactory.m in Sources */,

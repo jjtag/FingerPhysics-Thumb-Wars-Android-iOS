@@ -6,6 +6,8 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#ifdef MAP_PICKER
+
 #import "MapPickerController.h"
 #import "MenuView.h"
 #import "ChampionsResourceMgr.h"
@@ -214,3 +216,5 @@
 }
 
 @end
+
+#endif // MAP_PICKER

@@ -9,6 +9,8 @@
 #import "Framework.h"
 //#define AMAZON
 
+#ifdef MAP_PICKER
+
 @interface MapPickerController : ViewController <UIPickerViewDelegate, ButtonDelegate>
 {
 	enum 
@@ -40,3 +42,5 @@
 @property (readonly) NSString* selectedMap;
 
 @end
+
+#endif // MAP_PICKER
