@@ -3250,14 +3250,15 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 	[mainContainer placeToScrollPoint:mode];	
 }
 
--(void)scrollableContainer:(ScrollableContainer*)e reachedScrollPoint:(int)i
+-(void)reachedScrollableContainer:(ScrollableContainer *)e scrollPoint:(int)i
 {
 	if (i == 1 || i == 2)
 	{
 		[MenuController handleMenuVisited:WAS_IN_LEVEL_SELECT];
 	}
 }
--(void)scrollableContainer:(ScrollableContainer*)e changedTargetScrollPoint:(int)i
+
+-(void)changedScrollableContainer:(ScrollableContainer *)e targetScrollPoint:(int)i
 {
 #ifdef FREE
 	ChampionsRootController* rc = (ChampionsRootController*)[Application sharedRootController];		
@@ -3316,7 +3317,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 		{
 			[mainContainer moveToScrollPoint:0];
 #ifdef FREE
-		    [self scrollableContainer:mainContainer changedTargetScrollPoint:0];
+		    [self changedScrollableContainer:mainContainer targetScrollPoint:0];
 #endif
 			break;
 		}
@@ -3326,7 +3327,7 @@ enum { BALOON_REGISTRATION_01, BALOON_REGISTRATION_02, BALOON_NEWS };
 //			[self scrollToLevelSelectForMode:1];
 			[mainContainer moveToScrollPoint:1];
 #ifdef FREE
-		    [self scrollableContainer:mainContainer changedTargetScrollPoint:1];
+		    [self changedScrollableContainer:mainContainer targetScrollPoint:1];
 #endif
 			[MenuController handleMenuVisited:WAS_IN_LEVEL_SELECT];							
 			break;

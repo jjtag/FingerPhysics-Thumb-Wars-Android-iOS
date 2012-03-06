@@ -12,8 +12,8 @@
 @class ScrollableContainer;
 
 @protocol ScrollableContainerProtocol
--(void)scrollableContainer:(ScrollableContainer*)e reachedScrollPoint:(int)i;
--(void)scrollableContainer:(ScrollableContainer*)e changedTargetScrollPoint:(int)i;
+-(void)reachedScrollableContainer:(ScrollableContainer*)e scrollPoint:(int)i;
+-(void)changedScrollableContainer:(ScrollableContainer*)e targetScrollPoint:(int)i;
 @end
 
 

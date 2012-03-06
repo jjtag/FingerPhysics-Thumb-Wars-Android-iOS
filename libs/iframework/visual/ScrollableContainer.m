@@ -284,9 +284,9 @@ const Vector impossibleTouch = {-1000, -1000};
 			
 		if (container->x == tsp.x && container->y == tsp.y)
 		{
-			if ([(NSObject*)delegate respondsToSelector:@selector(scrollableContainer:reachedScrollPoint:)])
+			if ([(NSObject*)delegate respondsToSelector:@selector(reachedScrollableContainer:scrollPoint:)])
 			{
-				[delegate scrollableContainer:self reachedScrollPoint:targetSpoint];
+				[delegate reachedScrollableContainer:self scrollPoint:targetSpoint];
 			}
 			
 			movingToSpoint = FALSE;
@@ -480,9 +480,9 @@ const Vector impossibleTouch = {-1000, -1000};
 
 	if (lastTargetSpoint != targetSpoint && targetSpoint != UNDEFINED)
 	{
-		if ([(NSObject*)delegate respondsToSelector:@selector(scrollableContainer:changedTargetScrollPoint:)])
+		if ([(NSObject*)delegate respondsToSelector:@selector(changedScrollableContainer:targetScrollPoint:)])
 		{
-			[delegate scrollableContainer:self changedTargetScrollPoint:targetSpoint];
+			[delegate changedScrollableContainer:self targetScrollPoint:targetSpoint];
 		}
 	}	
 	
@@ -567,7 +567,7 @@ const Vector impossibleTouch = {-1000, -1000};
 	targetSpoint = UNDEFINED;
 	lastTargetSpoint = sp;
 	
-	[delegate scrollableContainer:self reachedScrollPoint:sp];
+	[delegate reachedScrollableContainer:self scrollPoint:sp];
 }
 
 // provided to scrollbar
