@@ -18,4 +18,24 @@ public class CodeHelper
 	{
 		return name;
 	}
+	
+	public static String typeDefault(String type)
+	{
+		if (type.equals("void"))
+		{
+			return null;
+		}
+		
+		if (type.contains("*") && type.equals("id"))
+		{
+			return "nil";
+		}
+		
+		if (type.equals("BOOL"))
+		{
+			return "false";
+		}
+		
+		return "0";
+	}
 }

@@ -2,6 +2,7 @@ package block;
 
 import java.util.List;
 
+import bc.converter.CodeHelper;
 import bc.converter.ListWriteDestination;
 import bc.converter.WriteDestination;
 
@@ -32,7 +33,18 @@ public class ProtocolConverter extends Converter
 					paramsDest.write(", ");
 				}
 			}
-			dest.writelnf("virtual %s %s(%s) = 0;", bcFunc.getReturnType().getName(), bcFunc.getName(), paramsDest);
+			String returnType = bcFunc.getReturnType().getName();
+			dest.writef("virtual %s %s(%s) ", returnType, bcFunc.getName(), paramsDest);
+			
+			String defaultValue = CodeHelper.typeDefault(returnType);
+			if (defaultValue != null)
+			{
+				dest.writelnf("{ return %s; }", defaultValue);
+			}
+			else
+			{
+				dest.writeln("{}");
+			}
 		}
 		else if (line.contains("@optional"))
 		{
