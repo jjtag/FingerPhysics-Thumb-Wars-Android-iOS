@@ -35,11 +35,11 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 
 @implementation SoundMgr 
 
-@synthesize isSoundError;
+@synthesize isSoundError = _isSoundError;
 
 - (id)init
 {	
-	isSoundError = false;
+	_isSoundError = false;
 	if (self = [super init]) 
 	{
 		channels = (SoundChannel*) malloc(sizeof(SoundChannel) * MAX_SOUND_SOURCES);
@@ -62,7 +62,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 		if (result) 
 		{
 			LOG_GROUPF(SND, @"Error initializing audio session! %d\n", result);
-			isSoundError = true;
+			_isSoundError = true;
 		}
 		else 
 		{
@@ -71,7 +71,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 			if (result) 
 			{
 				LOG_GROUPF(SND, @"Error setting audio session category! %d\n", result);
-				isSoundError = true;
+				_isSoundError = true;
 			}			
 			else 
 			{
@@ -79,7 +79,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 				if (result) 
 				{
 					LOG_GROUPF(SND, @"Error setting audio session active! %d\n", result);
-					isSoundError = true;
+					_isSoundError = true;
 				}
 			}
 		}
@@ -88,7 +88,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 		UInt32 playing = 0;
 		
 		AudioSessionGetProperty(kAudioSessionProperty_OtherAudioIsPlaying, &playingSize, &playing);
-		isExternalAudioPlaying = playing != 0;				
+		_isExternalAudioPlaying = playing != 0;				
 		
 		// Initialize OpenAL environment
 		[self initOpenAL];
@@ -115,7 +115,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 - (void)initSources
 {
 	// code for Hackintosh
-	if (isSoundError) return;
+	if (_isSoundError) return;
 
 	//ALenum error = AL_NO_ERROR;
 	//alGetError(); // Clear the error
@@ -139,7 +139,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 
 - (void)initOpenAL
 {
-	if (isSoundError) return;
+	if (_isSoundError) return;
 	//ALenum error;
 	
 	// Create a new OpenAL Device
@@ -245,7 +245,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 
 -(bool)isExternalAudioPlaying
 {
-	return isExternalAudioPlaying;
+	return _isExternalAudioPlaying;
 }
 
 -(void)playLowPrioritySound:(int)sid atChannel:(int)c Looped:(bool)l
@@ -259,7 +259,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 
 - (void)playSound:(int)sid atChannel:(int)c Looped:(bool)l
 {
-	if (isSoundError) return;
+	if (_isSoundError) return;
 	//ALenum error;
 	
 	OALSound* sound = [[Application sharedResourceMgr] getResource:sid];
@@ -325,7 +325,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 
 -(void)playSound:(int)sid inChannelFrom:(int)s To:(int)e
 {
-	if (isSoundError) return;
+	if (_isSoundError) return;
 	
 	OALSound* sound = [[Application sharedResourceMgr] getResource:sid];
 	ASSERT(sound);
@@ -389,7 +389,7 @@ void interruptionListener(void* inClientData, UInt32 inInterruptionState)
 
 - (void)stopSound:(int)sid
 {
-	if (isSoundError) return;
+	if (_isSoundError) return;
 	
 	//ALenum error;
 	

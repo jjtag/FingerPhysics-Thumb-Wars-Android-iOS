@@ -44,8 +44,8 @@ typedef struct SoundChannel
 	Vector listenerPos;
 	float listenerRotation;
 	
-	bool isSoundError;	
-	bool isExternalAudioPlaying;
+	bool _isSoundError;	
+	bool _isExternalAudioPlaying;
 }
 
 -(void)initOpenAL;
