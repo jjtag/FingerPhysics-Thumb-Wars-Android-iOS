@@ -18,31 +18,36 @@
 // overrided
 -(RootController*) createRootController
 {
-	ASSERT(!root);
+//	ASSERT(!root);
+    ASSERT(![Application sharedRootController]);
 	return [[ChampionsRootController alloc] initWithParent:nil];
 }
 
 -(ApplicationSettings*) createAppSettings
 {
-	ASSERT(!appSettings);
+//	ASSERT(!appSettings);
+    ASSERT(![Application sharedAppSettings]);
 	return [[ChampionsApplicationSettings alloc] init];
 }
 
 -(ResourceMgr*) createResourceMgr
 {
-	ASSERT(!resourceMgr);
+//	ASSERT(!resourceMgr);
+    ASSERT(![Application sharedResourceMgr]);
 	return [[ChampionsResourceMgr alloc] init];
 }
 
 -(Preferences*) createPreferences
 {
-	ASSERT(!prefs);
+//	ASSERT(!prefs);
+    ASSERT(![Application sharedPreferences]);
 	return [[ChampionsPreferences alloc] init];
 }
 
 -(SoundMgr*) createSoundMgr
 {
-	ASSERT(!soundMgr);
+//	ASSERT(!soundMgr);
+    ASSERT(![Application sharedSoundMgr]);
 	return [[ChampionsSoundMgr alloc] init];
 }
 

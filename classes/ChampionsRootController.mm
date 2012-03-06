@@ -204,7 +204,7 @@
 			LoadingController* loadingController = [[LoadingController allocAndAutorelease] initWithParent:self];
 			[self addChild:loadingController withID:CHILD_LOADING];
 			
-			[canvas initFPSMeterWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL]];
+			[[Application sharedCanvas] initFPSMeterWithFont:[ChampionsResourceMgr getResource:FNT_FONTS_001_SMALL]];
 
 			ChampionsRootController* rc = (ChampionsRootController*)[Application sharedRootController];
 			int tutorialLevel = rc.user.tutorialLevel;

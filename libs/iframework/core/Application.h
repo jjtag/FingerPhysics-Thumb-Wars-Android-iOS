@@ -47,12 +47,4 @@
 
 @property (nonatomic, retain) UIWindow *window;
 
-extern RootController* root;	
-extern ApplicationSettings* appSettings;
-extern ResourceMgr* resourceMgr;
-extern Accelerometer* accelerometer;
-extern SoundMgr* soundMgr;
-extern GLCanvas* canvas;
-extern AppUIViewController* uiViewController;
-extern Preferences* prefs;
 @end

@@ -142,7 +142,7 @@
 -(void)timelineFinished:(Timeline*)t
 {
 	ChampionsResourceMgr* rm = (ChampionsResourceMgr*)[Application sharedResourceMgr];	
-	rm.resourcesDelegate = (StartupController*)[root getChild:CHILD_START];
+	rm.resourcesDelegate = (StartupController*)[[Application sharedRootController] getChild:CHILD_START];
 	[rm initLoading];
 	[rm loadPack:(int*)PACK_COMMON];
 
