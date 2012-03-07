@@ -20,4 +20,8 @@
 -(void)setFilterFactor:(float)f;
 @property (readonly) UIAccelerationValue ax, ay, az;
 
+-(void)accelerometer:(UIAccelerometer *)accelerometer didAccelerate:(UIAcceleration *)acceleration;
+
+-(void)dealloc;
+
 @end

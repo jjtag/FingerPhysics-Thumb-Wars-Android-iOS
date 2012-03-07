@@ -19,6 +19,8 @@
 	DynamicArray* stringArray;
 }
 
+-(void)dealloc;
+
 @end
 
 // pack of localesets
@@ -32,5 +34,6 @@
 -(NSString*)getString:(int)sid;
 
 -(void)parseXML:(XMLNode*)xml;
+-(void)dealloc;
 
 @end

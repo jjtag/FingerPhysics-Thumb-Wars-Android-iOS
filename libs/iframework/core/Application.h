@@ -42,6 +42,14 @@
 +(AppUIViewController*) sharedUIViewController;
 +(Preferences*) sharedPreferences;
 
+- (void)applicationDidFinishLaunching:(UIApplication *)application;
+- (void)applicationWillResignActive:(UIApplication *)application;
+- (void)applicationDidBecomeActive:(UIApplication *)application;
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application;
+- (void)applicationSignificantTimeChange:(UIApplication *)application;
+- (void)applicationWillTerminate:(UIApplication *)application;
+
+
 -(void)updateOrientation;
 -(void)finalRelease;
 

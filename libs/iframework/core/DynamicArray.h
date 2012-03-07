@@ -47,8 +47,14 @@
 -(void)removeAllObjects;
 -(int)count;
 -(int)capacity;
+-(void)setNewSize:(int)k;
 
 // returns index of the first nil element
 -(int)getFirstEmptyIndex;
 -(int)getObjectIndex:(id)obj;
+
+-(void)dealloc;
+
+- (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(id *)stackbuf count:(NSUInteger)len;
+
 @end

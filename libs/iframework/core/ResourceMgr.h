@@ -100,4 +100,6 @@ typedef struct ResEntry
 
 -(void)setQuads:(Texture2D*)t Info:(XMLNode*)i;
 
+-(void)dealloc;
+
 @end

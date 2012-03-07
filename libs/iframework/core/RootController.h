@@ -48,9 +48,11 @@ enum
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	// Debug ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+#ifndef CONVERTED_CODE
 	// used to display alert messages
 	UIAlertView* systemAlert;
+#endif
+    
 	int alertType;
 
 	// TRUE if we are inside blocking alert run loop (used to display alerts when we can't catch exceptions)
@@ -63,7 +65,6 @@ enum
 
 - (id)initWithParent:(ViewController*)p;
 
--(void)setViewTransition:(int)transition;
 -(void)setViewTransitionDelay:(float)delay;
 
 // root receives these notifications from all view controllers
@@ -99,5 +100,7 @@ enum
 // terminate application
 -(void)terminateApp:(int)code;
 #endif
+
+-(void)dealloc;
 
 @end

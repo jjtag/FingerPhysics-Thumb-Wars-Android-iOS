@@ -90,7 +90,7 @@
 
 -(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c Sequence:(int*)sequece
 {
-	Timeline* t = [[Timeline allocAndAutorelease] initWithMaxKeyFramesOnTrack:c + 2];
+	Timeline* t = [[Timeline allocAndAutorelease] initWithMaxKeyFramesOnTrack:(c + 2)];
     
 	DynamicArray* as = [[DynamicArray allocAndAutorelease] init];
 	[as addObject:createAction(self, (NSString*)ACTION_SET_DRAWQUAD, sequece[0], 0)];

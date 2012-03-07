@@ -413,6 +413,7 @@
 // show system alert dialog
 -(void)showAlertWithTitle:(NSString*)title AndMessage:(NSString*)message OfType:(int)type
 {
+#ifndef CONVERTED_CODE
 #ifndef NO_ALERTS
 	[systemAlert release];
 	alertType = type;
@@ -435,11 +436,13 @@
 	systemAlert.opaque = NO;
 	[systemAlert show];	
 #endif
+#endif // CONVERTED_CODE
 }
 
 // UIAlertView delegate protocol method
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
+#ifndef CONVERTED_CODE
 #ifndef NO_ALERTS	
 	switch (alertType) 
 	{
@@ -470,11 +473,13 @@
 			break;
 	}
 #endif
+#endif // CONVERTED_CODE
 }
 
 // actually this is a hack to show blocking alerts which can be dismissed
 -(void)showBlockingAlertWithTitle:(NSString*)title AndMessage:(NSString*)message OfType:(int)type
 {
+#ifndef CONVERTED_CODE
 #ifndef NO_ALERTS
 	[self showAlertWithTitle:title AndMessage:message OfType:type];
 	blockingAlertActive = TRUE;
@@ -484,6 +489,7 @@
 		while(CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, TRUE) == kCFRunLoopRunHandledSource);
 	}
 #endif
+#endif // CONVERTED_CODE
 }
 
 -(void)setCurrentController:(ViewController*)c

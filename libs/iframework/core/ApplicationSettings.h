@@ -60,6 +60,8 @@ extern const MixedNameValue DEFAULT_APP_SETTINGS[];
 	MixedValueTyped* settings;		
 }
 
+-(id)init;
+
 -(void)initSettingsDefaults;
 -(MixedValue)get:(int)s;
 
@@ -76,4 +78,6 @@ extern const MixedNameValue DEFAULT_APP_SETTINGS[];
 // override these methods
 -(MixedNameValue*)getSettingsDefaults;
 -(int)getSettingsCount;
+
+-(void)dealloc;
 @end
