@@ -12,72 +12,100 @@
 
 @implementation Animation
 
--(int)addAnimationWithDelay:(float)d Looped:(bool)l Count:(int)c Sequence:(int)s,...
-{
-	va_list argumentList;
-	va_start(argumentList, s); 
-	
-	int index = [timelines count];
-	[self addAnimationWithID:index Delay:d Loop:l Count:c First:s Last:UNDEFINED ArgumentList:argumentList];
-	return index;
-}
+//-(int)addAnimationWithDelay:(float)d Looped:(bool)l Count:(int)c Sequence:(int)s,...
+//{
+//	va_list argumentList;
+//	va_start(argumentList, s); 
+//	
+//	int index = [timelines count];
+//	[self addAnimationWithID:index Delay:d Loop:l Count:c First:s Last:UNDEFINED ArgumentList:argumentList];
+//	return index;
+//}
+//
+//-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c Sequence:(int)s,...
+//{
+//	va_list argumentList;
+//	va_start(argumentList, s); 
+//
+//	[self addAnimationWithID:aid Delay:d Loop:l Count:c First:s Last:UNDEFINED ArgumentList:argumentList];	
+//}
+//
+//-(int)addAnimationDelay:(float)d Loop:(int)l First:(int)s Last:(int)e
+//{	
+//	int index = [timelines count];	
+//	[self addAnimationWithID:index Delay:d Loop:l First:s Last:e];	
+//	return index;	
+//}
+//
+//-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l First:(int)s Last:(int)e
+//{	
+//	int c = e - s + 1;
+//	ASSERT(c > 0);
+//	[self addAnimationWithID:aid Delay:d Loop:l Count:c First:s Last:e ArgumentList:nil];	
+//}
 
--(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c Sequence:(int)s,...
-{
-	va_list argumentList;
-	va_start(argumentList, s); 
+//-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c First:(int)s Last:(int)e ArgumentList:(va_list)al
+//{
+//	Timeline* t = [[Timeline allocAndAutorelease] initWithMaxKeyFramesOnTrack:c + 2];
+//		
+//	DynamicArray* as = [[DynamicArray allocAndAutorelease] init];
+//	[as addObject:createAction(self, (NSString*)ACTION_SET_DRAWQUAD, s, 0)];
+//	[t addKeyFrame:makeAction(as, 0.0)];
+//	int si = s;
+//	
+//	for (int i = 1; i < c; i++)
+//	{                  
+//		
+//		if (al)
+//		{
+//			si = va_arg(al, int);
+//		}
+//		else
+//		{
+//			si++;
+//		}
+//		
+//		DynamicArray* as = [[DynamicArray allocAndAutorelease] init];
+//		[as addObject:createAction(self, (NSString*)ACTION_SET_DRAWQUAD, si, 0)];
+//		[t addKeyFrame:makeAction(as, d)];
+//		
+//		if (i == c - 1 && l == TIMELINE_REPLAY)
+//		{
+//			[t addKeyFrame:makeAction(as, d)];			
+//		}
+//	}
+//	
+//	if (al)
+//	{
+//		va_end(al);		
+//	}
+//	
+//	if (l)
+//	{
+//		[t setTimelineLoopType:l];
+//	}	
+//	
+//	[self addTimeline:t withID:aid];
+//}
 
-	[self addAnimationWithID:aid Delay:d Loop:l Count:c First:s Last:UNDEFINED ArgumentList:argumentList];	
-}
-
--(int)addAnimationDelay:(float)d Loop:(int)l First:(int)s Last:(int)e
-{	
-	int index = [timelines count];	
-	[self addAnimationWithID:index Delay:d Loop:l First:s Last:e];	
-	return index;	
-}
-
--(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l First:(int)s Last:(int)e
-{	
-	int c = e - s + 1;
-	ASSERT(c > 0);
-	[self addAnimationWithID:aid Delay:d Loop:l Count:c First:s Last:e ArgumentList:nil];	
-}
-
--(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c First:(int)s Last:(int)e ArgumentList:(va_list)al
+-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c Sequence:(int*)sequece
 {
 	Timeline* t = [[Timeline allocAndAutorelease] initWithMaxKeyFramesOnTrack:c + 2];
-		
+    
 	DynamicArray* as = [[DynamicArray allocAndAutorelease] init];
-	[as addObject:createAction(self, (NSString*)ACTION_SET_DRAWQUAD, s, 0)];
+	[as addObject:createAction(self, (NSString*)ACTION_SET_DRAWQUAD, sequece[0], 0)];
 	[t addKeyFrame:makeAction(as, 0.0)];
-	int si = s;
 	
 	for (int i = 1; i < c; i++)
 	{                  
-		
-		if (al)
-		{
-			si = va_arg(al, int);
-		}
-		else
-		{
-			si++;
-		}
-		
 		DynamicArray* as = [[DynamicArray allocAndAutorelease] init];
-		[as addObject:createAction(self, (NSString*)ACTION_SET_DRAWQUAD, si, 0)];
+		[as addObject:createAction(self, (NSString*)ACTION_SET_DRAWQUAD, sequece[i], 0)];
 		[t addKeyFrame:makeAction(as, d)];
 		
 		if (i == c - 1 && l == TIMELINE_REPLAY)
 		{
 			[t addKeyFrame:makeAction(as, d)];			
 		}
-	}
-	
-	if (al)
-	{
-		va_end(al);		
 	}
 	
 	if (l)

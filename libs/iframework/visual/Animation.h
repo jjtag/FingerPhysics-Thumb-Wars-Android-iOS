@@ -17,10 +17,12 @@
 {		
 }
 
--(int)addAnimationDelay:(float)d Loop:(int)l First:(int)s Last:(int)e;
--(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l First:(int)s Last:(int)l;
--(int)addAnimationWithDelay:(float)d Looped:(bool)l Count:(int)c Sequence:(int)s,...;
--(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c Sequence:(int)s,...;
+//-(int)addAnimationDelay:(float)d Loop:(int)l First:(int)s Last:(int)e;
+//-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l First:(int)s Last:(int)l;
+//-(int)addAnimationWithDelay:(float)d Looped:(bool)l Count:(int)c Sequence:(int)s,...;
+// -(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c Sequence:(int)s,...;
+
+-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c Sequence:(int*)sequece;
 
 -(void)setAction:(NSString*)action Target:(BaseElement*)t Param:(int)p SubParam:(int)sp AtIndex:(int)i forAnimation:(int)a;
 -(void)setPauseAtIndex:(int)i forAnimation:(int)a;
@@ -30,6 +32,6 @@
 // go to the specified sequence frame of the current animation
 -(void)jumpTo:(int)i;
 
--(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c First:(int)s Last:(int)e ArgumentList:(va_list)al;
+//-(void)addAnimationWithID:(int)aid Delay:(float)d Loop:(int)l Count:(int)c First:(int)s Last:(int)e ArgumentList:(va_list)al;
 
 @end

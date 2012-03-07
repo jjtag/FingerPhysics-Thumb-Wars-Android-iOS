@@ -43,7 +43,8 @@
 		
 		Animation* a = [[Animation allocAndAutorelease] initWithTexture:[ChampionsResourceMgr getResource:IMG_STARS_ANIM]];	
 		a->anchor = a->parentAnchor = CENTER;
-		[a addAnimationWithID:0 Delay:0.1 Loop:TIMELINE_REPLAY Count:6 Sequence:IMG_STARS_ANIM_ANIM1,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2];
+        int sequence[] = {IMG_STARS_ANIM_ANIM1,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2,IMG_STARS_ANIM_ANIM2};
+		[a addAnimationWithID:0 Delay:0.1 Loop:TIMELINE_REPLAY Count:6 Sequence:sequence];
 		[a playTimeline:0];
 		rotationCenterY = -1;
 		rotationCenterX = -4;
