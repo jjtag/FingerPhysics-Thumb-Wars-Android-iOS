@@ -21,4 +21,6 @@ enum BLENDING_MODES
 
 @property (assign) int mode;
 
+-(void)draw;
+
 @end
