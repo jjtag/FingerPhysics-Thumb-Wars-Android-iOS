@@ -43,7 +43,6 @@
 		0495913A104FD493009EAEC3 /* Particles.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590D9104FD493009EAEC3 /* Particles.m */; };
 		0495913B104FD493009EAEC3 /* ParticlesFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590DB104FD493009EAEC3 /* ParticlesFactory.m */; };
 		0495913D104FD493009EAEC3 /* ScrollableContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590DF104FD493009EAEC3 /* ScrollableContainer.m */; };
-		0495913E104FD493009EAEC3 /* ScrollingBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E1104FD493009EAEC3 /* ScrollingBack.m */; };
 		0495913F104FD493009EAEC3 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E3104FD493009EAEC3 /* Text.m */; };
 		04959140104FD493009EAEC3 /* Camera2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E6104FD493009EAEC3 /* Camera2D.m */; };
 		04959141104FD493009EAEC3 /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E8104FD493009EAEC3 /* MathHelper.m */; };
@@ -180,7 +179,6 @@
 		04B33CEB11E32ECC00C0B074 /* Particles.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590D9104FD493009EAEC3 /* Particles.m */; };
 		04B33CEC11E32ECC00C0B074 /* ParticlesFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590DB104FD493009EAEC3 /* ParticlesFactory.m */; };
 		04B33CED11E32ECC00C0B074 /* ScrollableContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590DF104FD493009EAEC3 /* ScrollableContainer.m */; };
-		04B33CEE11E32ECC00C0B074 /* ScrollingBack.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E1104FD493009EAEC3 /* ScrollingBack.m */; };
 		04B33CEF11E32ECC00C0B074 /* Text.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E3104FD493009EAEC3 /* Text.m */; };
 		04B33CF011E32ECC00C0B074 /* Camera2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E6104FD493009EAEC3 /* Camera2D.m */; };
 		04B33CF111E32ECC00C0B074 /* MathHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 049590E8104FD493009EAEC3 /* MathHelper.m */; };
@@ -1039,8 +1037,6 @@
 		049590DB104FD493009EAEC3 /* ParticlesFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticlesFactory.m; sourceTree = "<group>"; };
 		049590DE104FD493009EAEC3 /* ScrollableContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollableContainer.h; sourceTree = "<group>"; };
 		049590DF104FD493009EAEC3 /* ScrollableContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollableContainer.m; sourceTree = "<group>"; };
-		049590E0104FD493009EAEC3 /* ScrollingBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScrollingBack.h; sourceTree = "<group>"; };
-		049590E1104FD493009EAEC3 /* ScrollingBack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScrollingBack.m; sourceTree = "<group>"; };
 		049590E2104FD493009EAEC3 /* Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Text.h; sourceTree = "<group>"; };
 		049590E3104FD493009EAEC3 /* Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Text.m; sourceTree = "<group>"; };
 		049590E5104FD493009EAEC3 /* Camera2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Camera2D.h; sourceTree = "<group>"; };
@@ -1722,8 +1718,6 @@
 				049590DF104FD493009EAEC3 /* ScrollableContainer.m */,
 				095D70B81053043C0073DB51 /* Scrollbar.h */,
 				095D70B91053043C0073DB51 /* Scrollbar.m */,
-				049590E0104FD493009EAEC3 /* ScrollingBack.h */,
-				049590E1104FD493009EAEC3 /* ScrollingBack.m */,
 				049590E2104FD493009EAEC3 /* Text.h */,
 				049590E3104FD493009EAEC3 /* Text.m */,
 				09A7191B10939AA0000E8CDB /* Timeline.h */,
@@ -3147,7 +3141,6 @@
 				04B33CEB11E32ECC00C0B074 /* Particles.m in Sources */,
 				04B33CEC11E32ECC00C0B074 /* ParticlesFactory.m in Sources */,
 				04B33CED11E32ECC00C0B074 /* ScrollableContainer.m in Sources */,
-				04B33CEE11E32ECC00C0B074 /* ScrollingBack.m in Sources */,
 				04B33CEF11E32ECC00C0B074 /* Text.m in Sources */,
 				04B33CF011E32ECC00C0B074 /* Camera2D.m in Sources */,
 				04B33CF111E32ECC00C0B074 /* MathHelper.m in Sources */,
@@ -3289,7 +3282,6 @@
 				0495913A104FD493009EAEC3 /* Particles.m in Sources */,
 				0495913B104FD493009EAEC3 /* ParticlesFactory.m in Sources */,
 				0495913D104FD493009EAEC3 /* ScrollableContainer.m in Sources */,
-				0495913E104FD493009EAEC3 /* ScrollingBack.m in Sources */,
 				0495913F104FD493009EAEC3 /* Text.m in Sources */,
 				04959140104FD493009EAEC3 /* Camera2D.m in Sources */,
 				04959141104FD493009EAEC3 /* MathHelper.m in Sources */,

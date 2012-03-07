@@ -44,8 +44,6 @@
 #import "visual/Scrollbar.h"
 #import "visual/BulletScrollbar.h"
 #import "visual/PushButton.h"
-#import "visual/TiledImage.h"
-#import "visual/Slider.h"
 #import "media/SoundMgr.h"
 
 #ifndef CONVERTED_CODE
