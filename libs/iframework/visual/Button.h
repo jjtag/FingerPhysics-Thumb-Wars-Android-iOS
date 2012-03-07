@@ -45,8 +45,6 @@ enum {BUTTON_UP = 0, BUTTON_DOWN = 1};
 // set implicit touch zone for the button
 -(void)forceTouchRect:(Rectangle)r;
 
--(bool)isInTouchZoneX:(float)tx Y:(float)ty;
-
 -(void)setState:(int)s;
 -(bool)isInTouchZoneX:(float)tx Y:(float)ty;
 

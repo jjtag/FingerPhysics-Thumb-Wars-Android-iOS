@@ -21,8 +21,7 @@ enum {TOGGLE_BUTTON_FACE1, TOGGLE_BUTTON_FACE2};
 
 @property (assign) id<ButtonDelegate> delegate;
 
--(id)initWithUpElement1:(BaseElement*)u1 DownElement1:(BaseElement*)d1 UpElement2:(BaseElement*)u2 DownElement2:(BaseElement*)d2
-		andID:(int)bid;
+-(id)initWithUpElement1:(BaseElement*)u1 DownElement1:(BaseElement*)d1 UpElement2:(BaseElement*)u2 DownElement2:(BaseElement*)d2 andID:(int)bid;
 
 -(void)setTouchIncreaseLeft:(float)l Right:(float)r Top:(float)t Bottom:(float)b;
 -(void)toggle;
